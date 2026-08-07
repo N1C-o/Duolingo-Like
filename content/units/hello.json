@@ -1,0 +1,15 @@
+{
+  "id": "hello",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 1,
+  "title": "Hello!",
+  "shortTitle": "Se présenter",
+  "topic": "Saluer et faire connaissance",
+  "objective": "Tu sais saluer quelqu’un et dire ton prénom.",
+  "difficulty": 1,
+  "prerequisiteUnitIds": [],
+  "lessonIds": ["hello-01", "hello-02"],
+  "vocabularyIds": ["hello", "hi", "good-morning", "name", "how-are-you"],
+  "rewardTitle": "Le carnet des salutations"
+}

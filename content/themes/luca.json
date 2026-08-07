@@ -1,0 +1,16 @@
+{
+  "id": "luca",
+  "profileId": "luca",
+  "name": "Luca",
+  "universe": "Manoir mystérieux",
+  "greeting": "Une nouvelle énigme t’attend.",
+  "subtitle": "Écoute bien… le manoir adore les petits explorateurs curieux.",
+  "unitLead": "Les mots de la table",
+  "currencyLabel": "clés",
+  "encouragements": ["Une bonne piste peut commencer par une erreur.", "Le manoir s’ouvre petit à petit.", "Tu peux réécouter autant que nécessaire."],
+  "assets": {
+    "journey": "/themes/manor/backgrounds/journey-manor.webp",
+    "hero": "/themes/manor/heroes/manor-hero.webp",
+    "mascot": "/themes/manor/mascots/ghost-main.webp"
+  }
+}

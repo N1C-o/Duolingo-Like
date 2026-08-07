@@ -1,0 +1,16 @@
+{
+  "id": "gabriel",
+  "profileId": "gabriel",
+  "name": "Gabriel",
+  "universe": "Capybaras",
+  "greeting": "Prêt pour une nouvelle aventure ?",
+  "subtitle": "Un petit pas en anglais, et la journée devient encore plus chouette.",
+  "unitLead": "Les mots de la famille",
+  "currencyLabel": "feuilles",
+  "encouragements": ["Chaque petit pas compte.", "Tu avances à ton rythme.", "Les erreurs deviennent des indices."],
+  "assets": {
+    "journey": "/themes/capybara/backgrounds/journey-valley.webp",
+    "hero": "/themes/capybara/heroes/valley-hero.webp",
+    "mascot": "/themes/capybara/mascots/capybara-main.webp"
+  }
+}

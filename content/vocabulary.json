@@ -1,0 +1,12 @@
+[
+  { "id": "hello", "schemaVersion": 1, "english": "hello", "french": "bonjour", "category": "salutations", "example": "Hello, I’m Gabriel!", "audioText": "Hello" },
+  { "id": "hi", "schemaVersion": 1, "english": "hi", "french": "salut", "category": "salutations", "example": "Hi, Luca!", "audioText": "Hi" },
+  { "id": "good-morning", "schemaVersion": 1, "english": "good morning", "french": "bonjour (le matin)", "category": "salutations", "example": "Good morning!", "audioText": "Good morning" },
+  { "id": "name", "schemaVersion": 1, "english": "name", "french": "prénom / nom", "category": "faire connaissance", "example": "What’s your name?", "audioText": "name" },
+  { "id": "how-are-you", "schemaVersion": 1, "english": "How are you?", "french": "Comment vas-tu ?", "category": "faire connaissance", "example": "Hi! How are you?", "audioText": "How are you?" },
+  { "id": "mum", "schemaVersion": 1, "english": "mum", "french": "maman", "category": "famille", "example": "This is my mum.", "audioText": "mum" },
+  { "id": "dad", "schemaVersion": 1, "english": "dad", "french": "papa", "category": "famille", "example": "This is my dad.", "audioText": "dad" },
+  { "id": "brother", "schemaVersion": 1, "english": "brother", "french": "frère", "category": "famille", "example": "This is my brother.", "audioText": "brother" },
+  { "id": "sister", "schemaVersion": 1, "english": "sister", "french": "sœur", "category": "famille", "example": "This is my sister.", "audioText": "sister" },
+  { "id": "friend", "schemaVersion": 1, "english": "friend", "french": "ami / amie", "category": "famille", "example": "This is my friend.", "audioText": "friend" }
+]

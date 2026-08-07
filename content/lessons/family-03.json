@@ -1,0 +1,97 @@
+{
+  "id": "family-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "family",
+  "order": 3,
+  "title": "La grande révision",
+  "objective": "Réutiliser les mots de la famille dans plusieurs situations.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": ["mum", "dad", "brother", "sister", "friend"],
+  "prerequisiteLessonIds": ["family-02"],
+  "exercises": [
+    {
+      "id": "family-03-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon mot.",
+      "prompt": "My mother is my…",
+      "conceptIds": ["mum"],
+      "explanation": "Mum signifie maman.",
+      "options": [
+        { "id": "mum", "label": "mum" },
+        { "id": "dad", "label": "dad" },
+        { "id": "friend", "label": "friend" }
+      ],
+      "correctOptionId": "mum"
+    },
+    {
+      "id": "family-03-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe chaque image au bon mot.",
+      "prompt": "Who is in the picture?",
+      "conceptIds": ["dad", "friend"],
+      "explanation": "Dad signifie papa et friend signifie ami ou amie.",
+      "pairs": [
+        { "id": "dad-image", "left": "👨", "right": "dad" },
+        { "id": "friend-image", "left": "🧑", "right": "friend" }
+      ]
+    },
+    {
+      "id": "family-03-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["mum", "dad"],
+      "explanation": "This is my family signifie « Voici ma famille ».",
+      "tokens": ["family.", "This", "is", "my"],
+      "acceptedOrders": [["This", "is", "my", "family."]]
+    },
+    {
+      "id": "family-03-translation",
+      "schemaVersion": 1,
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction.",
+      "prompt": "This is my sister.",
+      "conceptIds": ["sister"],
+      "explanation": "Sister signifie sœur.",
+      "options": [
+        { "id": "sister", "label": "Voici ma sœur." },
+        { "id": "brother", "label": "Voici mon frère." },
+        { "id": "friend", "label": "Voici mon ami / mon amie." }
+      ],
+      "correctOptionId": "sister"
+    },
+    {
+      "id": "family-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires de révision.",
+      "prompt": "Review the family words.",
+      "conceptIds": ["mum", "friend"],
+      "explanation": "Mum signifie maman et friend signifie ami ou amie.",
+      "cards": [
+        { "id": "mum-en", "label": "mum", "matchId": "mum", "emoji": "👩" },
+        { "id": "mum-fr", "label": "maman", "matchId": "mum", "emoji": "🏠" },
+        { "id": "friend-en", "label": "friend", "matchId": "friend", "emoji": "🧑" },
+        { "id": "friend-fr", "label": "ami", "matchId": "friend", "emoji": "🤝" }
+      ]
+    },
+    {
+      "id": "family-03-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "instruction": "Vrai ou faux ?",
+      "prompt": "Brother means « frère ».",
+      "conceptIds": ["brother"],
+      "explanation": "Vrai : brother signifie frère.",
+      "statement": "Brother means « frère ».",
+      "correct": true
+    }
+  ]
+}

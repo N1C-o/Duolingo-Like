@@ -1,0 +1,8 @@
+[
+  { "id": "first-adventure", "schemaVersion": 1, "title": "Première aventure", "description": "Terminer ta première leçon.", "emoji": "🌱", "condition": { "type": "lessons-completed-count", "count": 1 } },
+  { "id": "on-the-way", "schemaVersion": 1, "title": "En route", "description": "Terminer une unité complète.", "emoji": "🧭", "condition": { "type": "unit-completed", "unitId": "hello" } },
+  { "id": "five-steps", "schemaVersion": 1, "title": "Cinq pas", "description": "Terminer cinq leçons distinctes.", "emoji": "⭐", "condition": { "type": "lessons-completed-count", "count": 5 } },
+  { "id": "good-ear", "schemaVersion": 1, "title": "Bonne oreille", "description": "Écouter dix mots ou phrases.", "emoji": "👂", "condition": { "type": "audio-listens-count", "count": 10 } },
+  { "id": "little-explorer", "schemaVersion": 1, "title": "Petit explorateur", "description": "Terminer trois activités de révision.", "emoji": "🔎", "condition": { "type": "revision-completed-count", "count": 3 } },
+  { "id": "keep-going", "schemaVersion": 1, "title": "Je n’abandonne pas", "description": "Réussir une notion à consolider après une erreur.", "emoji": "💪", "condition": { "type": "consolidation-success" } }
+]

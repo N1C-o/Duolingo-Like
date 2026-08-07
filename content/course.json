@@ -1,0 +1,16 @@
+{
+  "id": "english-adventure",
+  "schemaVersion": 1,
+  "contentVersion": "1.0.0",
+  "title": "English Adventure",
+  "description": "Un parcours court et joyeux pour apprendre l’anglais utile du quotidien.",
+  "unitIds": ["hello", "family"],
+  "badgeIds": [
+    "first-adventure",
+    "on-the-way",
+    "five-steps",
+    "good-ear",
+    "little-explorer",
+    "keep-going"
+  ]
+}

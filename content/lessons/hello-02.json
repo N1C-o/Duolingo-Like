@@ -1,0 +1,105 @@
+{
+  "id": "hello-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "hello",
+  "order": 2,
+  "title": "Faire connaissance",
+  "objective": "Poser une question simple et répondre avec son prénom.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["name", "how-are-you"],
+  "reviewConceptIds": ["hello", "hi"],
+  "prerequisiteLessonIds": ["hello-01"],
+  "exercises": [
+    {
+      "id": "hello-02-listening",
+      "schemaVersion": 1,
+      "type": "listening",
+      "instruction": "Écoute la phrase puis valide.",
+      "prompt": "Listen to the question.",
+      "audioText": "How are you?",
+      "conceptIds": ["how-are-you"],
+      "explanation": "How are you? veut dire « Comment vas-tu ? ».",
+      "answerLabel": "J’ai bien écouté"
+    },
+    {
+      "id": "hello-02-completion",
+      "schemaVersion": 1,
+      "type": "sentence-completion",
+      "instruction": "Complète la réponse.",
+      "prompt": "What’s your name? — My ___ is Luca.",
+      "conceptIds": ["name"],
+      "explanation": "My name is… signifie « Je m’appelle… ».",
+      "sentence": "My ___ is Luca.",
+      "options": [
+        { "id": "name", "label": "name" },
+        { "id": "hello", "label": "hello" },
+        { "id": "morning", "label": "morning" }
+      ],
+      "correctOptionId": "name"
+    },
+    {
+      "id": "hello-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la bonne réplique.",
+      "prompt": "A short hello.",
+      "audioText": "Hi! What’s your name?",
+      "conceptIds": ["hi", "name"],
+      "explanation": "I’m Luca! répond naturellement à What’s your name?.",
+      "lines": [
+        { "speaker": "Sam", "text": "Hi! What’s your name?" },
+        { "speaker": "You", "text": "…" }
+      ],
+      "options": [
+        { "id": "im-luca", "label": "I’m Luca!", "detail": "Je m’appelle Luca !" },
+        { "id": "goodbye", "label": "Goodbye!", "detail": "Au revoir !" },
+        { "id": "morning", "label": "Good morning!", "detail": "Bonjour !" }
+      ],
+      "correctOptionId": "im-luca"
+    },
+    {
+      "id": "hello-02-translation",
+      "schemaVersion": 1,
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction guidée.",
+      "prompt": "How are you?",
+      "conceptIds": ["how-are-you"],
+      "explanation": "How are you? est une question pour demander comment va quelqu’un.",
+      "options": [
+        { "id": "feeling", "label": "Comment vas-tu ?" },
+        { "id": "name", "label": "Quel est ton prénom ?" },
+        { "id": "hello", "label": "Bonjour !" }
+      ],
+      "correctOptionId": "feeling"
+    },
+    {
+      "id": "hello-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Construis la phrase.",
+      "prompt": "Build the answer.",
+      "conceptIds": ["how-are-you"],
+      "explanation": "I’m fine signifie « Je vais bien ».",
+      "tokens": ["fine.", "I’m"],
+      "acceptedOrders": [["I’m", "fine."]]
+    },
+    {
+      "id": "hello-02-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retourne les cartes pour retrouver les paires.",
+      "prompt": "Find the pairs.",
+      "conceptIds": ["hello", "name"],
+      "explanation": "Hello signifie bonjour et name signifie prénom ou nom.",
+      "cards": [
+        { "id": "hello-en", "label": "hello", "matchId": "hello", "emoji": "👋" },
+        { "id": "hello-fr", "label": "bonjour", "matchId": "hello", "emoji": "🌞" },
+        { "id": "name-en", "label": "name", "matchId": "name", "emoji": "🏷️" },
+        { "id": "name-fr", "label": "prénom", "matchId": "name", "emoji": "✍️" }
+      ]
+    }
+  ]
+}

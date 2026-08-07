@@ -1,0 +1,100 @@
+{
+  "id": "hello-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "hello",
+  "order": 1,
+  "title": "Les premiers mots",
+  "objective": "Saluer et dire bonjour simplement.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["hello", "hi"],
+  "reviewConceptIds": [],
+  "prerequisiteLessonIds": [],
+  "exercises": [
+    {
+      "id": "hello-01-multiple-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis la bonne traduction.",
+      "prompt": "What does “Hello” mean?",
+      "audioText": "Hello",
+      "conceptIds": ["hello"],
+      "explanation": "Hello signifie « Bonjour ». C’est une façon simple de saluer.",
+      "hint": "C’est le mot que l’on dit quand on arrive.",
+      "options": [
+        { "id": "hello", "label": "Bonjour" },
+        { "id": "goodbye", "label": "Au revoir" },
+        { "id": "please", "label": "S’il te plaît" }
+      ],
+      "correctOptionId": "hello"
+    },
+    {
+      "id": "hello-01-listening-choice",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis ce que tu as entendu.",
+      "prompt": "Which question did you hear?",
+      "audioText": "What’s your name?",
+      "conceptIds": ["name"],
+      "explanation": "What’s your name? veut dire « Quel est ton prénom ? ».",
+      "options": [
+        { "id": "name", "label": "What’s your name?", "detail": "Quel est ton prénom ?" },
+        { "id": "feeling", "label": "How are you?", "detail": "Comment vas-tu ?" },
+        { "id": "age", "label": "How old are you?", "detail": "Quel âge as-tu ?" }
+      ],
+      "correctOptionId": "name"
+    },
+    {
+      "id": "hello-01-matching",
+      "schemaVersion": 1,
+      "type": "english-french-matching",
+      "instruction": "Associe chaque mot à sa traduction.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": ["hello", "hi"],
+      "explanation": "Hello et hi sont deux façons de dire bonjour ou salut.",
+      "pairs": [
+        { "id": "hello-pair", "left": "Hello", "right": "Bonjour" },
+        { "id": "hi-pair", "left": "Hi", "right": "Salut" }
+      ]
+    },
+    {
+      "id": "hello-01-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets les mots dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["name"],
+      "explanation": "I’m Gabriel signifie « Je m’appelle Gabriel » ou « Je suis Gabriel ».",
+      "tokens": ["Gabriel.", "I’m"],
+      "acceptedOrders": [["I’m", "Gabriel."]]
+    },
+    {
+      "id": "hello-01-completion",
+      "schemaVersion": 1,
+      "type": "sentence-completion",
+      "instruction": "Complète la phrase.",
+      "prompt": "Choose the missing word.",
+      "conceptIds": ["hello"],
+      "explanation": "Good morning est la salutation que l’on utilise le matin.",
+      "sentence": "Good ___!",
+      "options": [
+        { "id": "morning", "label": "morning" },
+        { "id": "night", "label": "night" },
+        { "id": "friend", "label": "friend" }
+      ],
+      "correctOptionId": "morning"
+    },
+    {
+      "id": "hello-01-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "instruction": "Vrai ou faux ?",
+      "prompt": "Hello means “Bonjour”.",
+      "conceptIds": ["hello"],
+      "explanation": "Vrai : hello signifie « Bonjour ».",
+      "statement": "Hello means “Bonjour”.",
+      "correct": true
+    }
+  ]
+}

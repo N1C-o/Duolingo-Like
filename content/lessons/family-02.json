@@ -1,0 +1,104 @@
+{
+  "id": "family-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "family",
+  "order": 2,
+  "title": "Présenter sa famille",
+  "objective": "Présenter un proche avec une phrase courte.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["brother", "sister", "friend"],
+  "reviewConceptIds": ["mum", "dad", "name"],
+  "prerequisiteLessonIds": ["family-01"],
+  "exercises": [
+    {
+      "id": "family-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la phrase adaptée.",
+      "prompt": "Meet my family.",
+      "audioText": "This is my sister.",
+      "conceptIds": ["sister"],
+      "explanation": "This is my sister signifie « Voici ma sœur ».",
+      "lines": [
+        { "speaker": "You", "text": "This is my sister." },
+        { "speaker": "Friend", "text": "…" }
+      ],
+      "options": [
+        { "id": "nice", "label": "Nice to meet you!", "detail": "Enchanté(e) !" },
+        { "id": "name", "label": "What’s your name?", "detail": "Quel est ton prénom ?" },
+        { "id": "goodbye", "label": "Goodbye!", "detail": "Au revoir !" }
+      ],
+      "correctOptionId": "nice"
+    },
+    {
+      "id": "family-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["brother"],
+      "explanation": "This is my brother signifie « Voici mon frère ».",
+      "tokens": ["brother.", "This", "is", "my"],
+      "acceptedOrders": [["This", "is", "my", "brother."]]
+    },
+    {
+      "id": "family-02-translation",
+      "schemaVersion": 1,
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction.",
+      "prompt": "This is my friend.",
+      "conceptIds": ["friend"],
+      "explanation": "Friend signifie ami ou amie.",
+      "options": [
+        { "id": "friend", "label": "Voici mon ami / mon amie." },
+        { "id": "family", "label": "Voici ma famille." },
+        { "id": "sister", "label": "Voici ma sœur." }
+      ],
+      "correctOptionId": "friend"
+    },
+    {
+      "id": "family-02-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires de mots.",
+      "prompt": "Find the family pairs.",
+      "conceptIds": ["brother", "sister"],
+      "explanation": "Brother signifie frère et sister signifie sœur.",
+      "cards": [
+        { "id": "brother-en", "label": "brother", "matchId": "brother", "emoji": "🧒" },
+        { "id": "brother-fr", "label": "frère", "matchId": "brother", "emoji": "👦" },
+        { "id": "sister-en", "label": "sister", "matchId": "sister", "emoji": "🧒" },
+        { "id": "sister-fr", "label": "sœur", "matchId": "sister", "emoji": "👧" }
+      ]
+    },
+    {
+      "id": "family-02-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon mot.",
+      "prompt": "A person you know and like is a…",
+      "conceptIds": ["friend"],
+      "explanation": "A friend est un ami ou une amie.",
+      "options": [
+        { "id": "friend", "label": "friend" },
+        { "id": "sister", "label": "sister" },
+        { "id": "dad", "label": "dad" }
+      ],
+      "correctOptionId": "friend"
+    },
+    {
+      "id": "family-02-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "instruction": "Vrai ou faux ?",
+      "prompt": "Sister means “sœur”.",
+      "conceptIds": ["sister"],
+      "explanation": "Vrai : sister signifie « sœur ».",
+      "statement": "Sister means “sœur”.",
+      "correct": true
+    }
+  ]
+}

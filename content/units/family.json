@@ -1,0 +1,15 @@
+{
+  "id": "family",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 2,
+  "title": "My family",
+  "shortTitle": "La famille",
+  "topic": "Parler des personnes autour de soi",
+  "objective": "Tu reconnais quelques mots de la famille et tu peux présenter un proche.",
+  "difficulty": 1,
+  "prerequisiteUnitIds": ["hello"],
+  "lessonIds": ["family-01", "family-02", "family-03"],
+  "vocabularyIds": ["mum", "dad", "brother", "sister", "friend"],
+  "rewardTitle": "La clé de la maison"
+}

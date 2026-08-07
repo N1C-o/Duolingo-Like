@@ -1,0 +1,101 @@
+{
+  "id": "family-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "family",
+  "order": 1,
+  "title": "Les personnes autour de moi",
+  "objective": "Reconnaître les premiers mots de la famille.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["mum", "dad"],
+  "reviewConceptIds": ["hello", "name"],
+  "prerequisiteLessonIds": ["hello-02"],
+  "exercises": [
+    {
+      "id": "family-01-image-word",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe l’image au bon mot.",
+      "prompt": "Who is it?",
+      "conceptIds": ["mum", "dad"],
+      "explanation": "Mum signifie maman et dad signifie papa.",
+      "pairs": [
+        { "id": "mum-pair", "left": "👩", "right": "mum" },
+        { "id": "dad-pair", "left": "👨", "right": "dad" }
+      ]
+    },
+    {
+      "id": "family-01-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon mot.",
+      "prompt": "This is my mother.",
+      "audioText": "This is my mum.",
+      "conceptIds": ["mum"],
+      "explanation": "Mum est le mot courant pour dire maman.",
+      "options": [
+        { "id": "mum", "label": "mum" },
+        { "id": "dad", "label": "dad" },
+        { "id": "friend", "label": "friend" }
+      ],
+      "correctOptionId": "mum"
+    },
+    {
+      "id": "family-01-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute et reconnais le mot.",
+      "prompt": "Which word did you hear?",
+      "audioText": "Dad",
+      "conceptIds": ["dad"],
+      "explanation": "Dad signifie papa.",
+      "options": [
+        { "id": "dad", "label": "dad" },
+        { "id": "mum", "label": "mum" },
+        { "id": "name", "label": "name" }
+      ],
+      "correctOptionId": "dad"
+    },
+    {
+      "id": "family-01-matching",
+      "schemaVersion": 1,
+      "type": "english-french-matching",
+      "instruction": "Associe les mots.",
+      "prompt": "Match the family words.",
+      "conceptIds": ["mum", "dad"],
+      "explanation": "Ces deux mots parlent de personnes de la famille.",
+      "pairs": [
+        { "id": "mum-fr", "left": "mum", "right": "maman" },
+        { "id": "dad-fr", "left": "dad", "right": "papa" }
+      ]
+    },
+    {
+      "id": "family-01-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "instruction": "Vrai ou faux ?",
+      "prompt": "Dad means “papa”.",
+      "conceptIds": ["dad"],
+      "explanation": "Vrai : dad signifie « papa ».",
+      "statement": "Dad means “papa”.",
+      "correct": true
+    },
+    {
+      "id": "family-01-completion",
+      "schemaVersion": 1,
+      "type": "sentence-completion",
+      "instruction": "Complète la phrase.",
+      "prompt": "This is my ___.",
+      "conceptIds": ["mum", "dad"],
+      "explanation": "This is my… sert à présenter une personne.",
+      "sentence": "This is my ___.",
+      "options": [
+        { "id": "mum", "label": "mum" },
+        { "id": "hello", "label": "hello" },
+        { "id": "name", "label": "name" }
+      ],
+      "correctOptionId": "mum"
+    }
+  ]
+}
