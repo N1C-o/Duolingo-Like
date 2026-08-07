@@ -80,6 +80,7 @@ En cinq minutes environ, un enfant doit pouvoir apprendre et réutiliser quelque
 ### 3.1 Inclus dans le MVP
 
 - Deux profils locaux prévus : **Gabriel** et **Luca**.
+- Écran d’accès local simple permettant d’identifier le profil entrant par un code : `gabriel` pour Gabriel et `luca` pour Luca.
 - Parcours organisé en unités, leçons, exercices et récompenses.
 - Leçons d’environ cinq minutes avec progression enregistrée localement.
 - Les onze types d’exercices demandés.
@@ -96,7 +97,7 @@ En cinq minutes environ, un enfant doit pouvoir apprendre et réutiliser quelque
 
 ### 3.2 Hors périmètre du MVP
 
-- Comptes, connexion, synchronisation entre appareils ou sauvegarde distante.
+- Comptes en ligne, authentification distante, synchronisation entre appareils ou sauvegarde distante.
 - Reconnaissance vocale, notation de prononciation ou conversation avec une IA.
 - Classement entre enfants, compétition en ligne ou partage social.
 - Notifications push obligatoires ou rappels intrusifs.
@@ -127,6 +128,10 @@ Changer de thème ultérieurement doit conserver toute la progression du profil.
 
 ### Règles communes
 
+- L’accès par code est une identification locale de convenance, pas une authentification sécurisée : les codes sont connus et les données restent sur l’appareil.
+- Au premier lancement ou après un changement de profil, l’enfant choisit Gabriel ou Luca puis saisit le code correspondant. La comparaison est réalisée localement.
+- Les codes initiaux sont exactement `gabriel` et `luca`, en minuscules. Ils pourront être modifiés ultérieurement dans la configuration locale sans changer le modèle de profil.
+- Un code incorrect ne change pas le profil actif et affiche une indication simple permettant de réessayer.
 - Le contenu pédagogique reste identique pour les deux profils, sauf si une variante thématique est explicitement prévue dans les données.
 - Le thème visuel, les illustrations, les textes d’encouragement, les badges et les récompenses peuvent varier selon le thème sélectionné.
 - Les couleurs et illustrations ne doivent jamais réduire la lisibilité du texte ou le contraste.
@@ -470,6 +475,10 @@ Contenu recommandé :
 
 - Deux grandes cartes tactiles, une par profil.
 - Illustration, prénom et univers clairement distincts.
+- Chaque carte mène à une saisie de code locale avant l’ouverture du profil.
+- Code initial Gabriel : `gabriel`.
+- Code initial Luca : `luca`.
+- Le code sert uniquement à éviter une entrée accidentelle dans le mauvais profil ; il ne protège pas les données contre une personne ayant accès au navigateur ou au stockage local.
 - Aucun score de l’autre profil affiché sur la carte.
 - Retour possible sans perte de progression.
 - Le profil sélectionné est mémorisé pour le prochain lancement, sans empêcher de changer.
@@ -1095,6 +1104,8 @@ L’espace parental peut modifier la disponibilité locale des unités, mais ne 
 ### Profils et données
 
 - Les deux cartes Gabriel et Luca sont accessibles au premier lancement.
+- Un accès local avec le code `gabriel` ouvre le profil Gabriel ; un accès local avec le code `luca` ouvre le profil Luca.
+- Un code incorrect laisse l’enfant sur l’écran d’accès et permet une nouvelle tentative sans modifier la progression.
 - Chaque profil possède des XP, niveaux, badges, leçons et préférences séparés.
 - Changer de profil ne mélange ni la progression ni les réglages sonores.
 - Fermer puis rouvrir l’application conserve la progression locale.
@@ -1297,6 +1308,7 @@ Ces mini-jeux futurs devront réutiliser le vocabulaire, les phrases, la progres
 - **Progression :** locale, séparée par profil, sans perte d’XP en cas d’erreur.
 - **Thèmes :** Gabriel et Luca partagent les mêmes écrans, composants, navigation, moteur et modèles de données.
 - **Profil et thème :** le profil actif, le thème, la progression et les préférences sont séparés ; changer de thème conserve la progression.
+- **Accès local :** sélection d’un profil puis code simple local (`gabriel` ou `luca`) ; aucune authentification distante ni promesse de sécurité forte.
 - **Design system :** tokens sémantiques et composants partagés, sans valeurs de thème codées dans les écrans métier.
 - **Mini-jeux MVP :** memory, quiz rapide, remise en ordre, mini-dialogues et révisions légères uniquement.
 - **Mini-jeux ambitieux :** reportés après le MVP et réutilisant le moteur existant.
@@ -1319,6 +1331,7 @@ Ces mini-jeux futurs devront réutiliser le vocabulaire, les phrases, la progres
 Le MVP est considéré comme terminé lorsque :
 
 - les deux profils disposent d’un parcours jouable de bout en bout ;
+- l’accès local permet d’ouvrir le bon profil avec le code prévu, sans compte ni serveur ;
 - les contenus sont séparés du moteur et les onze types d’exercices sont couverts ;
 - une leçon de cinq minutes peut être commencée, interrompue, reprise, terminée et rejouée ;
 - les réponses, erreurs, XP, niveaux, badges et déverrouillages sont persistés séparément pour chaque enfant ;

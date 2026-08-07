@@ -10,6 +10,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
   ClockIcon,
+  CloseIcon,
   CompassIcon,
   HeartIcon,
   HomeIcon,
@@ -24,7 +25,6 @@ import {
   StarIcon,
   TargetIcon,
   TrophyIcon,
-  UserIcon,
   VolumeIcon
 } from "@/components/icons";
 import { CapybaraMascot, GhostMascot, SceneIllustration } from "@/components/mascots";
@@ -96,41 +96,34 @@ function ThemeHeader({ theme, onToggle, onToast }: { theme: ThemeId; onToggle: (
   return (
     <header className="app-header">
       <div className="topbar">
-        <button aria-label={`Changer de thème, thème ${profile.universe}`} className="profile-switcher" onClick={onToggle} type="button">
-          <span className="avatar avatar--top">
-            <Companion size={48} theme={theme} />
-          </span>
-          <span className="profile-switcher__copy">
-            <span className="profile-switcher__name">{profile.name}</span>
-            <span className="profile-switcher__universe">{profile.universe}</span>
-          </span>
-          <ChevronDownIcon aria-hidden="true" className="profile-switcher__chevron" size={16} />
-        </button>
-        <div className="topbar__actions">
-          <button aria-label="Écouter les sons" className="icon-button" onClick={() => onToast("Les sons sont activés dans cette maquette.")} type="button">
-            <VolumeIcon aria-hidden="true" size={19} />
+        <div className="profile-switcher">
+          <button aria-label={`Ouvrir le profil de ${profile.name}`} className="profile-avatar-button" onClick={() => onToast(`Aperçu du profil de ${profile.name}.`)} type="button">
+            <span className="avatar avatar--top">
+              <Companion size={48} theme={theme} />
+            </span>
           </button>
-          <button aria-label="Ouvrir les réglages" className="icon-button" onClick={() => onToast("Les réglages arrivent après la validation du prototype.")} type="button">
-            <SettingsIcon aria-hidden="true" size={19} />
+          <button aria-label={`Changer de thème, thème ${profile.universe}`} className="profile-theme-button" onClick={onToggle} type="button">
+            <span className="profile-switcher__copy">
+              <span className="profile-switcher__name">{profile.name}</span>
+              <span className="profile-switcher__universe">{profile.universe}</span>
+            </span>
+            <ChevronDownIcon aria-hidden="true" className="profile-switcher__chevron" size={16} />
           </button>
         </div>
-      </div>
-      <div className="header-progress">
-        <div className="header-progress__avatar" aria-hidden="true">
-          <Companion size={56} theme={theme} />
-        </div>
-        <div className="header-progress__body">
-          <div className="header-progress__meta">
-            <strong>Niveau 7</strong>
-            <span>{profile.progressLabel}</span>
+        <div className="header-progress">
+          <div className="header-progress__body">
+            <div className="header-progress__meta">
+              <strong>Niveau 7</strong>
+              <span>{profile.progressLabel}</span>
+            </div>
+            <div aria-label={`${profile.progressLabel} vers le prochain niveau`} className="progress-track">
+              <span className="progress-track__fill" style={{ width: `${profile.progress}%` }} />
+            </div>
           </div>
-          <div aria-label={`${profile.progressLabel} vers le prochain niveau`} className="progress-track">
-            <span className="progress-track__fill" style={{ width: `${profile.progress}%` }} />
+          <div className="currency-pill">
+            <CurrencyIcon aria-hidden="true" size={17} />
+            <strong>{profile.currency}</strong>
           </div>
-        </div>
-        <div className="currency-pill">
-          <CurrencyIcon aria-hidden="true" size={17} />
-          <strong>{profile.currency}</strong>
         </div>
       </div>
     </header>
@@ -383,8 +376,8 @@ function LessonScreen({ theme, onNavigate, onToast }: { theme: ThemeId; onNaviga
 
         {feedbackVisible ? (
           <div className={`feedback-panel ${isCorrect ? "feedback-panel--success" : "feedback-panel--gentle"}`}>
-            <span className="feedback-panel__icon">{isCorrect ? <CheckIcon aria-hidden="true" size={18} /> : <SparkleIcon aria-hidden="true" size={18} />}</span>
-            <div><strong>{isCorrect ? "Bravo, c’est ça !" : "Bonne piste !"}</strong><p>{isCorrect ? "What’s your name? signifie « Quel est ton prénom ? »." : "La bonne réponse est « Quel est ton prénom ? ». Réécoute-la et continue tranquillement."}</p></div>
+            <span className="feedback-panel__icon">{isCorrect ? <CheckIcon aria-hidden="true" size={18} /> : <CloseIcon aria-hidden="true" size={18} />}</span>
+            <div><strong>{isCorrect ? "Bravo, c’est ça !" : "Pas tout à fait"}</strong><p>{isCorrect ? "What’s your name? signifie « Quel est ton prénom ? »." : "La bonne réponse est « Quel est ton prénom ? ». Réécoute-la et continue tranquillement."}</p></div>
           </div>
         ) : null}
 
@@ -401,12 +394,12 @@ function LessonScreen({ theme, onNavigate, onToast }: { theme: ThemeId; onNaviga
   );
 }
 
-function BottomNavigation({ screen, onNavigate, onToast, onToggleTheme }: { screen: ScreenId; onNavigate: (screen: ScreenId) => void; onToast: (message: string) => void; onToggleTheme: () => void }) {
-  const items: Array<{ id: ScreenId | "badges" | "profile"; label: string; icon: IconComponent }> = [
+function BottomNavigation({ screen, onNavigate, onToast }: { screen: ScreenId; onNavigate: (screen: ScreenId) => void; onToast: (message: string) => void }) {
+  const items: Array<{ id: ScreenId | "badges" | "settings"; label: string; icon: IconComponent }> = [
     { id: "home", label: "Accueil", icon: HomeIcon },
     { id: "map", label: "Parcours", icon: MapIcon },
     { id: "badges", label: "Badges", icon: BadgeIcon },
-    { id: "profile", label: "Profil", icon: UserIcon }
+    { id: "settings", label: "Paramètres", icon: SettingsIcon }
   ];
 
   return (
@@ -416,8 +409,8 @@ function BottomNavigation({ screen, onNavigate, onToast, onToggleTheme }: { scre
         return (
           <button className={`bottom-navigation__item ${active ? "bottom-navigation__item--active" : ""}`} key={id} onClick={() => {
             if (id === "home" || id === "map") onNavigate(id);
-            else if (id === "profile") onToggleTheme();
-            else onToast("Les badges arrivent dans la prochaine étape du prototype.");
+            else if (id === "badges") onToast("Les badges arrivent dans la prochaine étape du prototype.");
+            else onToast("Les paramètres seront conçus dans la prochaine étape du prototype.");
           }} type="button">
             <span className="bottom-navigation__icon"><Icon aria-hidden="true" size={20} /></span>
             <span>{label}</span>
@@ -477,7 +470,7 @@ export default function PrototypeApp() {
           {screen === "map" ? <MapScreen onNavigate={navigate} onToast={showToast} theme={theme} /> : null}
           {screen === "lesson" ? <LessonScreen onNavigate={navigate} onToast={showToast} theme={theme} /> : null}
         </div>
-        <BottomNavigation onNavigate={navigate} onToast={showToast} onToggleTheme={toggleTheme} screen={screen} />
+        <BottomNavigation onNavigate={navigate} onToast={showToast} screen={screen} />
         {toast ? <div aria-live="polite" className="prototype-toast">{toast}</div> : null}
       </div>
       <p className="prototype-footnote">Maquette interactive · données simulées · pas de persistance</p>
