@@ -1,0 +1,37 @@
+{
+  "id": "manor",
+  "version": 2,
+  "backgrounds": {
+    "journey": {
+      "src": "/themes/manor/backgrounds/journey-manor.webp",
+      "width": 1024,
+      "height": 1536
+    }
+  },
+  "heroes": {
+    "home": {
+      "src": "/themes/manor/heroes/manor-hero.webp",
+      "width": 1320,
+      "height": 800
+    },
+    "foreground": {
+      "src": "/themes/manor/decorations/hero-foreground.webp",
+      "width": 1320,
+      "height": 800
+    }
+  },
+  "mascots": {
+    "main": "/themes/manor/mascots/ghost-main.webp",
+    "idle": "/themes/manor/mascots/ghost-idle.webp",
+    "encouragement": "/themes/manor/mascots/ghost-encouragement.webp",
+    "celebration": "/themes/manor/mascots/ghost-celebration.webp"
+  },
+  "decorations": {
+    "signpost": "/themes/manor/decorations/signpost.webp",
+    "lantern": "/themes/manor/decorations/lantern.webp",
+    "ivy": "/themes/manor/decorations/ivy.webp",
+    "books": "/themes/manor/decorations/books.webp",
+    "moonStones": "/themes/manor/decorations/moon-stones.webp",
+    "fence": "/themes/manor/decorations/fence.webp"
+  }
+}

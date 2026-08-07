@@ -550,6 +550,50 @@ strong {
   z-index: 1;
 }
 
+.theme-gabriel .hero-card::after {
+  background: url("/themes/capybara/decorations/hero-foreground.webp") center bottom / cover no-repeat;
+  mix-blend-mode: normal;
+  opacity: 0.58;
+}
+
+.theme-luca .hero-card::after {
+  background: url("/themes/manor/decorations/hero-foreground.webp") center bottom / cover no-repeat;
+  mix-blend-mode: normal;
+  opacity: 0.5;
+}
+
+.theme-gabriel .scene-illustration {
+  background: url("/themes/capybara/heroes/valley-hero.webp") center / cover no-repeat;
+}
+
+.theme-gabriel .scene-illustration > * {
+  display: none;
+}
+
+.theme-luca .scene-illustration {
+  background: url("/themes/manor/heroes/manor-hero.webp") center / cover no-repeat;
+}
+
+.theme-luca .scene-illustration > * {
+  display: none;
+}
+
+.theme-gabriel svg[aria-label="Mascotte capybara"] {
+  background: url("/themes/capybara/mascots/capybara-main.webp") center / 112% 112% no-repeat;
+}
+
+.theme-gabriel svg[aria-label="Mascotte capybara"] > * {
+  display: none;
+}
+
+.theme-luca svg[aria-label="Mascotte fantôme"] {
+  background: url("/themes/manor/mascots/ghost-main.webp") center / 112% 112% no-repeat;
+}
+
+.theme-luca svg[aria-label="Mascotte fantôme"] > * {
+  display: none;
+}
+
 .hero-card .scene-illustration {
   filter: saturate(1.06) contrast(1.03);
   inset: 0;
@@ -1176,26 +1220,46 @@ strong {
 }
 
 .path-map::after {
-  background: url("/art/gabriel-path.svg") center / 100% 100% no-repeat;
+  background:
+    linear-gradient(180deg, rgba(255, 252, 222, 0.12), rgba(43, 91, 52, 0.06)),
+    url("/themes/capybara/backgrounds/journey-valley.webp") center / cover no-repeat;
   content: "";
   inset: 0;
-  opacity: 0.7;
+  opacity: 0.82;
   pointer-events: none;
   position: absolute;
   z-index: 0;
 }
 
+.theme-gabriel .path-map::before {
+  background:
+    url("/themes/capybara/decorations/signpost.webp") -9px 53px / 82px 82px no-repeat,
+    url("/themes/capybara/decorations/wildflowers.webp") calc(100% + 19px) 199px / 112px 112px no-repeat,
+    url("/themes/capybara/decorations/fence.webp") -25px calc(100% - 38px) / 126px 126px no-repeat,
+    url("/themes/capybara/decorations/river-stones.webp") calc(100% - 4px) calc(100% - 8px) / 78px 78px no-repeat,
+    radial-gradient(ellipse at 16% 16%, rgba(255, 248, 199, 0.38), transparent 30%),
+    radial-gradient(ellipse at 86% 58%, rgba(63, 122, 74, 0.18), transparent 25%);
+  opacity: 0.92;
+  z-index: 1;
+}
+
 .theme-luca .path-map::before {
   background:
-    radial-gradient(ellipse at 16% 18%, var(--scene-mist), transparent 30%),
-    radial-gradient(ellipse at 84% 66%, rgba(117, 90, 177, 0.12), transparent 28%),
-    radial-gradient(circle at 24% 37%, var(--card-ornament) 0 2px, transparent 2.5px),
-    radial-gradient(circle at 77% 75%, var(--card-ornament) 0 2px, transparent 2.5px);
+    url("/themes/manor/decorations/signpost.webp") -10px 54px / 84px 84px no-repeat,
+    url("/themes/manor/decorations/ivy.webp") calc(100% + 23px) 195px / 116px 116px no-repeat,
+    url("/themes/manor/decorations/books.webp") -23px calc(100% - 33px) / 120px 120px no-repeat,
+    url("/themes/manor/decorations/lantern.webp") calc(100% - 3px) calc(100% - 2px) / 76px 76px no-repeat,
+    radial-gradient(ellipse at 18% 18%, rgba(158, 129, 223, 0.2), transparent 30%),
+    radial-gradient(ellipse at 84% 66%, rgba(245, 184, 89, 0.13), transparent 28%);
+  opacity: 0.9;
+  z-index: 1;
 }
 
 .theme-luca .path-map::after {
-  background-image: url("/art/luca-path.svg");
-  opacity: 0.76;
+  background:
+    linear-gradient(180deg, rgba(48, 26, 91, 0.08), rgba(6, 8, 32, 0.12)),
+    url("/themes/manor/backgrounds/journey-manor.webp") center / cover no-repeat;
+  opacity: 0.86;
 }
 
 .path-map__line {

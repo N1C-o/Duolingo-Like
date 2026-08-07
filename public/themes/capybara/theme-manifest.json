@@ -1,0 +1,37 @@
+{
+  "id": "capybara",
+  "version": 2,
+  "backgrounds": {
+    "journey": {
+      "src": "/themes/capybara/backgrounds/journey-valley.webp",
+      "width": 1024,
+      "height": 1536
+    }
+  },
+  "heroes": {
+    "home": {
+      "src": "/themes/capybara/heroes/valley-hero.webp",
+      "width": 1320,
+      "height": 800
+    },
+    "foreground": {
+      "src": "/themes/capybara/decorations/hero-foreground.webp",
+      "width": 1320,
+      "height": 800
+    }
+  },
+  "mascots": {
+    "main": "/themes/capybara/mascots/capybara-main.webp",
+    "idle": "/themes/capybara/mascots/capybara-idle.webp",
+    "encouragement": "/themes/capybara/mascots/capybara-encouragement.webp",
+    "celebration": "/themes/capybara/mascots/capybara-celebration.webp"
+  },
+  "decorations": {
+    "signpost": "/themes/capybara/decorations/signpost.webp",
+    "wildflowers": "/themes/capybara/decorations/wildflowers.webp",
+    "riverStones": "/themes/capybara/decorations/river-stones.webp",
+    "reeds": "/themes/capybara/decorations/reeds.webp",
+    "fence": "/themes/capybara/decorations/fence.webp",
+    "stumpAcorn": "/themes/capybara/decorations/stump-acorn.webp"
+  }
+}
