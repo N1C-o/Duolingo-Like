@@ -1,0 +1,114 @@
+{
+  "id": "likes-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "likes",
+  "order": 3,
+  "title": "Le menu farfelu",
+  "objective": "Répondre oui ou non et parler de goûts rigolos.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["no-i-dont", "music", "dinosaur"],
+  "reviewConceptIds": ["do-you-like", "yes-i-do", "dont-like", "pizza", "like", "love"],
+  "prerequisiteLessonIds": ["likes-02"],
+  "storyScene": {
+    "id": "likes-03-scene",
+    "situation": "Le menu farfelu se met à chanter : pizza, musique et dinosaure sont au programme.",
+    "setup": [
+      { "speaker": "Monster", "text": "Do you like dinosaurs?" },
+      { "speaker": "Dinosaur", "text": "Roar?" }
+    ],
+    "childAction": {
+      "instruction": "Construis l’avis qui complète la chanson du menu.",
+      "exerciseId": "likes-03-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Luca", "text": "I love music!" },
+      { "speaker": "Dinosaur", "text": "No, I don’t like the loud bit!" }
+    ],
+    "nextHook": "Le calendrier se retourne et mélange le matin avec la nuit."
+  },
+  "readingCheckpoint": {
+    "mode": "word-order",
+    "instruction": "Écoute la phrase, puis retrouve le mot fortement accentué.",
+    "text": "I love music.",
+    "audioText": "I love music.",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "likes-03-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe les goûts farfelus.",
+      "prompt": "The monster has a strange menu!",
+      "conceptIds": ["pizza", "music", "dinosaur"],
+      "explanation": "Pizza signifie pizza, music musique et dinosaur dinosaure.",
+      "pairs": [
+        { "id": "pizza-pair", "left": "🍕", "right": "pizza" },
+        { "id": "music-pair", "left": "🎵", "right": "music" },
+        { "id": "dinosaur-pair", "left": "🦖", "right": "dinosaur" }
+      ]
+    },
+    {
+      "id": "likes-03-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la réponse du monstre.",
+      "prompt": "Do you like dinosaurs?",
+      "conceptIds": ["do-you-like", "dinosaur", "no-i-dont"],
+      "explanation": "No, I don’t! signifie « Non, je n’aime pas ! ».",
+      "lines": [
+        { "speaker": "Monster", "text": "Do you like dinosaurs?" },
+        { "speaker": "Luca", "text": "…" }
+      ],
+      "options": [
+        { "id": "no-i-dont", "label": "No, I don’t!", "detail": "Non !" },
+        { "id": "yes-i-do", "label": "Yes, I do!", "detail": "Oui !" },
+        { "id": "music", "label": "I love music.", "detail": "J’adore la musique." }
+      ],
+      "correctOptionId": "no-i-dont"
+    },
+    {
+      "id": "likes-03-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the opinion.",
+      "conceptIds": ["love", "music"],
+      "explanation": "I love music signifie « J’adore la musique ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["music.", "I", "love"],
+      "acceptedOrders": [["I", "love", "music."]]
+    },
+    {
+      "id": "likes-03-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "instruction": "Vrai ou faux ?",
+      "prompt": "I like dinosaurs means « J’aime les dinosaures ». Vrai ou faux ?",
+      "conceptIds": ["like", "dinosaur"],
+      "explanation": "Vrai : la phrase signifie « J’aime les dinosaures ».",
+      "statement": "I like dinosaurs means « J’aime les dinosaures ».",
+      "correct": true
+    },
+    {
+      "id": "likes-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires du menu.",
+      "prompt": "Review the funny menu.",
+      "conceptIds": ["pizza", "music"],
+      "explanation": "Pizza signifie pizza et music signifie musique.",
+      "cards": [
+        { "id": "pizza-en", "label": "pizza", "matchId": "pizza", "emoji": "🍕" },
+        { "id": "pizza-fr", "label": "pizza", "matchId": "pizza", "emoji": "😋" },
+        { "id": "music-en", "label": "music", "matchId": "music", "emoji": "🎵" },
+        { "id": "music-fr", "label": "musique", "matchId": "music", "emoji": "🎶" }
+      ]
+    }
+  ]
+}

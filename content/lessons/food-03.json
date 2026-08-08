@@ -1,0 +1,135 @@
+{
+  "id": "food-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "food",
+  "order": 3,
+  "title": "Le pique-nique express",
+  "objective": "Demander, manger et remercier dans une mini-scène de pique-nique.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["eat", "please", "thank-you"],
+  "reviewConceptIds": ["water", "milk", "apple", "hungry", "id-like", "can-i-have"],
+  "prerequisiteLessonIds": ["food-02"],
+  "storyScene": {
+    "id": "food-03-scene",
+    "situation": "La nappe du pique-nique s’envole et emporte les verres avec elle.",
+    "setup": [
+      { "speaker": "Gabriel", "text": "Can I have water, please?" },
+      { "speaker": "Luca", "text": "Say thank you before the blanket flies away!" }
+    ],
+    "childAction": {
+      "instruction": "Construis la réponse polie qui calme la nappe.",
+      "exerciseId": "food-03-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Gabriel", "text": "Thank you!" },
+      { "speaker": "Blanket", "text": "Whoosh… I’m staying!" }
+    ],
+    "nextHook": "Un monstre arrive avec une pizza très sérieuse."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la formule polie et lis-la avec un rythme doux.",
+    "text": "Thank you!",
+    "audioText": "Thank you!",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "food-03-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Prépare le pique-nique.",
+      "prompt": "Put the snack on the blanket.",
+      "conceptIds": ["water", "milk", "apple"],
+      "explanation": "Water est l’eau, milk le lait et apple la pomme.",
+      "pairs": [
+        { "id": "water-review", "left": "💧", "right": "water" },
+        { "id": "milk-review", "left": "🥛", "right": "milk" },
+        { "id": "apple-review", "left": "🍎", "right": "apple" }
+      ]
+    },
+    {
+      "id": "food-03-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la réponse polie.",
+      "prompt": "Can I have water, please?",
+      "conceptIds": ["can-i-have", "please", "thank-you"],
+      "explanation": "Thank you signifie « merci ».",
+      "lines": [
+        { "speaker": "Gabriel", "text": "Can I have water, please?" },
+        { "speaker": "Luca", "text": "Here you are!" },
+        { "speaker": "Gabriel", "text": "…" }
+      ],
+      "options": [
+        { "id": "thanks", "label": "Thank you!", "detail": "Merci !" },
+        { "id": "hungry", "label": "I’m hungry.", "detail": "J’ai faim." },
+        { "id": "game", "label": "Let’s play!", "detail": "Jouons !" }
+      ],
+      "correctOptionId": "thanks"
+    },
+    {
+      "id": "food-03-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets les mots dans l’ordre.",
+      "prompt": "Build the polite answer.",
+      "conceptIds": ["thank-you"],
+      "explanation": "Thank you signifie « merci ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["you!", "Thank"],
+      "acceptedOrders": [["Thank", "you!"]]
+    },
+    {
+      "id": "food-03-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon verbe.",
+      "prompt": "I ___ an apple.",
+      "conceptIds": ["eat", "apple"],
+      "explanation": "Eat signifie manger : I eat an apple.",
+      "options": [
+        { "id": "eat", "label": "eat" },
+        { "id": "open", "label": "open" },
+        { "id": "look", "label": "look" }
+      ],
+      "correctOptionId": "eat"
+    },
+    {
+      "id": "food-03-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la commande.",
+      "prompt": "What does the picnic monster want?",
+      "audioText": "I’d like milk, please.",
+      "conceptIds": ["id-like", "milk", "please"],
+      "explanation": "I’d like milk, please signifie « Je voudrais du lait, s’il te plaît ».",
+      "options": [
+        { "id": "milk", "label": "I’d like milk, please." },
+        { "id": "water", "label": "I’d like water, please." },
+        { "id": "apple", "label": "I’d like an apple, please." }
+      ],
+      "correctOptionId": "milk"
+    },
+    {
+      "id": "food-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les mots polis.",
+      "prompt": "Review the picnic words.",
+      "conceptIds": ["please", "thank-you"],
+      "explanation": "Please signifie s’il te plaît et thank you signifie merci.",
+      "cards": [
+        { "id": "please-en", "label": "please", "matchId": "please", "emoji": "🙏" },
+        { "id": "please-fr", "label": "s’il te plaît", "matchId": "please", "emoji": "🥤" },
+        { "id": "thank-you-en", "label": "thank you", "matchId": "thank-you", "emoji": "💛" },
+        { "id": "thank-you-fr", "label": "merci", "matchId": "thank-you", "emoji": "😊" }
+      ]
+    }
+  ]
+}

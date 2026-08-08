@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { SparkleIcon } from "@/components/icons";
 import { AccessScreen, AppChrome, BadgesScreen, HomeScreen, LessonScreen, MapScreen, ParentScreen, SettingsScreen, SummaryScreen, UnitScreen, type FeedbackState, type ScreenContext, type ScreenId } from "@/components/learning-screens";
 import { getLesson, getTheme, getUnit } from "@/content";
-import { advanceLesson, activateProfile, getLessonStatus, getUnitStatus, recordAudioListen, recordExerciseAnswer, recordExerciseError, resetProfile, startLesson, unlockUnitForParent, updatePreferences } from "@/lib/progression/engine";
+import { advanceLesson, activateProfile, deactivateProfile, getLessonStatus, getUnitStatus, recordAudioListen, recordExerciseAnswer, recordExerciseError, resetProfile, startLesson, unlockUnitForParent, updatePreferences } from "@/lib/progression/engine";
 import type { ExerciseResult } from "@/components/exercise-renderer";
 import type { AppState } from "@/lib/progression/types";
 import { loadAppState, saveAppState, type PersistenceMode } from "@/lib/storage/local-store";
@@ -102,6 +102,8 @@ export default function PrototypeApp() {
   };
 
   const handleChangeProfile = () => {
+    const currentState = stateRef.current;
+    if (currentState?.activeProfileId) commit(deactivateProfile(currentState));
     setFeedback(null);
     setScreen("access");
   };

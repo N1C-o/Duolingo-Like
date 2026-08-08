@@ -1,0 +1,113 @@
+{
+  "id": "food-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "food",
+  "order": 1,
+  "title": "Le goûter qui parle",
+  "objective": "Reconnaître water, milk et apple dans une scène de goûter.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["water", "milk", "apple"],
+  "reviewConceptIds": ["book", "game"],
+  "prerequisiteLessonIds": ["school-play-03"],
+  "storyScene": {
+    "id": "food-01-scene",
+    "situation": "Le goûter fait de petits bruits et range les aliments dans les mauvaises poches.",
+    "setup": [
+      { "speaker": "Apple", "text": "Tap-tap!" },
+      { "speaker": "Gabriel", "text": "The snack is making a funny noise!" }
+    ],
+    "childAction": {
+      "instruction": "Construis la phrase qui identifie la pomme bavarde.",
+      "exerciseId": "food-01-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Apple", "text": "This is an apple!" },
+      { "speaker": "Luca", "text": "The snack stops giggling." }
+    ],
+    "nextHook": "Le petit monstre entend son ventre gargouiller."
+  },
+  "readingCheckpoint": {
+    "mode": "word-recognition",
+    "instruction": "Écoute le mot du goûter, puis lis-le en frappant doucement le rythme.",
+    "text": "apple",
+    "audioText": "apple",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "food-01-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe chaque goûter au bon mot.",
+      "prompt": "The snack is making a funny noise!",
+      "conceptIds": ["water", "milk", "apple"],
+      "explanation": "Water signifie eau, milk signifie lait et apple signifie pomme.",
+      "pairs": [
+        { "id": "water-pair", "left": "💧", "right": "water" },
+        { "id": "milk-pair", "left": "🥛", "right": "milk" },
+        { "id": "apple-pair", "left": "🍎", "right": "apple" }
+      ]
+    },
+    {
+      "id": "food-01-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis le fruit.",
+      "prompt": "Which word did you hear?",
+      "audioText": "Apple",
+      "conceptIds": ["apple"],
+      "explanation": "Apple signifie pomme.",
+      "options": [
+        { "id": "apple", "label": "apple" },
+        { "id": "water", "label": "water" },
+        { "id": "milk", "label": "milk" }
+      ],
+      "correctOptionId": "apple"
+    },
+    {
+      "id": "food-01-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis une boisson.",
+      "prompt": "What can you drink?",
+      "conceptIds": ["water"],
+      "explanation": "Water signifie eau. On peut boire de l’eau.",
+      "options": [
+        { "id": "water", "label": "water", "detail": "eau" },
+        { "id": "apple", "label": "apple", "detail": "pomme" },
+        { "id": "book", "label": "book", "detail": "livre" }
+      ],
+      "correctOptionId": "water"
+    },
+    {
+      "id": "food-01-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets les mots dans l’ordre.",
+      "prompt": "Build the snack sentence.",
+      "conceptIds": ["this-is-a", "apple"],
+      "explanation": "This is an apple signifie « Voici une pomme ».",
+      "tokens": ["apple.", "This", "is", "an"],
+      "acceptedOrders": [["This", "is", "an", "apple."]]
+    },
+    {
+      "id": "food-01-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires du goûter.",
+      "prompt": "Find the snack pairs.",
+      "conceptIds": ["water", "apple"],
+      "explanation": "Water signifie eau et apple signifie pomme.",
+      "cards": [
+        { "id": "water-en", "label": "water", "matchId": "water", "emoji": "💧" },
+        { "id": "water-fr", "label": "eau", "matchId": "water", "emoji": "🚰" },
+        { "id": "apple-en", "label": "apple", "matchId": "apple", "emoji": "🍎" },
+        { "id": "apple-fr", "label": "pomme", "matchId": "apple", "emoji": "🍏" }
+      ]
+    }
+  ]
+}

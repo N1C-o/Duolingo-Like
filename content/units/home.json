@@ -1,0 +1,15 @@
+{
+  "id": "home",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 3,
+  "title": "Home sweet home",
+  "shortTitle": "La maison",
+  "topic": "Reconnaître des pièces et objets familiers",
+  "objective": "Tu sais nommer quelques endroits et objets de la maison.",
+  "difficulty": 1,
+  "prerequisiteUnitIds": ["family"],
+  "lessonIds": ["home-01", "home-02", "home-03"],
+  "vocabularyIds": ["room", "kitchen", "bed", "door", "table", "house", "there-is", "this-is-a"],
+  "rewardTitle": "La clé de la chambre"
+}

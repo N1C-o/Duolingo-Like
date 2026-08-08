@@ -208,6 +208,16 @@ function MemoryBoard({ exercise, disabled, onComplete, onError }: { exercise: Me
   );
 }
 
+function ProductionPrompt({ exercise }: { exercise: Exercise }) {
+  if (exercise.responseMode !== "guided-production") return null;
+  return (
+    <div className={`guided-production-banner ${exercise.isUnitMission ? "guided-production-banner--mission" : ""}`}>
+      <strong>{exercise.isUnitMission ? "MISSION DE L’UNITÉ" : "À TOI DE CONSTRUIRE"}</strong>
+      <span>{exercise.isUnitMission ? "Ta réponse fait avancer la scène." : "Choisis ou construis une vraie réponse."}</span>
+    </div>
+  );
+}
+
 export function ExerciseRenderer({ exercise, feedbackVisible, onSubmit, onError, onSpeak }: ExerciseRendererProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [heard, setHeard] = useState(false);
@@ -230,6 +240,7 @@ export function ExerciseRenderer({ exercise, feedbackVisible, onSubmit, onError,
   if (exercise.type === "multiple-choice" || exercise.type === "guided-translation" || exercise.type === "listening-choice" || exercise.type === "sentence-completion" || exercise.type === "dialogue") {
     return (
       <div className="exercise-interaction">
+        <ProductionPrompt exercise={exercise} />
         {exercise.type === "dialogue" ? <div className="dialogue-lines">{exercise.lines.map((line, index) => <div className={`dialogue-line ${index === exercise.lines.length - 1 ? "dialogue-line--active" : ""}`} key={`${line.speaker}-${index}`}><span>{line.speaker}</span><strong>{line.text}</strong></div>)}</div> : null}
         {exercise.type === "sentence-completion" ? <div className="sentence-prompt">{exercise.sentence}</div> : null}
         {exercise.audioText ? <AudioButton onSpeak={handleSpeak} text={exercise.audioText} /> : null}
@@ -270,7 +281,7 @@ export function ExerciseRenderer({ exercise, feedbackVisible, onSubmit, onError,
   }
 
   if (exercise.type === "reorder") {
-    return <div className="exercise-interaction"><ReorderBoard disabled={feedbackVisible} exercise={exercise} onReady={(tokens, answerLabel) => onSubmit({ answer: { type: "reorder", tokens }, answerLabel })} /></div>;
+    return <div className="exercise-interaction"><ProductionPrompt exercise={exercise} /><ReorderBoard disabled={feedbackVisible} exercise={exercise} onReady={(tokens, answerLabel) => onSubmit({ answer: { type: "reorder", tokens }, answerLabel })} /></div>;
   }
 
   if (exercise.type === "memory") {

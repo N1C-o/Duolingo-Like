@@ -1,0 +1,15 @@
+{
+  "id": "school-play",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 4,
+  "title": "School and play",
+  "shortTitle": "École et jeux",
+  "topic": "Comprendre des consignes simples et parler de ses jeux",
+  "objective": "Tu comprends quelques consignes et tu peux proposer un jeu.",
+  "difficulty": 1,
+  "prerequisiteUnitIds": ["home"],
+  "lessonIds": ["school-play-01", "school-play-02", "school-play-03"],
+  "vocabularyIds": ["book", "pencil", "school", "teacher", "open", "look", "game", "ball", "lets-play"],
+  "rewardTitle": "Le crayon doré"
+}

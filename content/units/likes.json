@@ -1,0 +1,15 @@
+{
+  "id": "likes",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 6,
+  "title": "Things I like",
+  "shortTitle": "Mes goûts",
+  "topic": "Dire ce qu’on aime et poser une question",
+  "objective": "Tu sais dire ce que tu aimes et demander l’avis de quelqu’un.",
+  "difficulty": 1,
+  "prerequisiteUnitIds": ["food"],
+  "lessonIds": ["likes-01", "likes-02", "likes-03"],
+  "vocabularyIds": ["like", "love", "pizza", "do-you-like", "yes-i-do", "dont-like", "no-i-dont", "music", "dinosaur"],
+  "rewardTitle": "Le badge des préférences"
+}

@@ -11,6 +11,31 @@
   "newConceptIds": ["brother", "sister", "friend"],
   "reviewConceptIds": ["mum", "dad", "name"],
   "prerequisiteLessonIds": ["family-01"],
+  "storyScene": {
+    "id": "family-02-scene",
+    "situation": "Le portrait mélange les membres de la famille comme un jeu de cartes.",
+    "setup": [
+      { "speaker": "Gabriel", "text": "Who is this?" },
+      { "speaker": "Luca", "text": "The picture is upside down!" }
+    ],
+    "childAction": {
+      "instruction": "Choisis la phrase pour présenter le personnage.",
+      "exerciseId": "family-02-dialogue",
+      "purpose": "respond"
+    },
+    "resolution": [
+      { "speaker": "Portrait", "text": "That’s my family!" },
+      { "speaker": "Luca", "text": "All the labels jump back in place." }
+    ],
+    "nextHook": "Une dernière photo sort de l’imprimante en éternuant."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute la phrase, puis lis le groupe de mots d’une seule voix.",
+    "text": "This is my family.",
+    "audioText": "This is my family.",
+    "phonologyFocus": "phrase-rhythm"
+  },
   "exercises": [
     {
       "id": "family-02-dialogue",

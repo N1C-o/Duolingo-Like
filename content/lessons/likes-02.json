@@ -1,0 +1,118 @@
+{
+  "id": "likes-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "likes",
+  "order": 2,
+  "title": "Tu aimes quoi ?",
+  "objective": "Poser une question sur les goûts et choisir une réponse courte.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["do-you-like", "yes-i-do", "dont-like"],
+  "reviewConceptIds": ["like", "love", "pizza"],
+  "prerequisiteLessonIds": ["likes-01"],
+  "storyScene": {
+    "id": "likes-02-scene",
+    "situation": "La pizza devient journaliste et interviewe chaque personnage.",
+    "setup": [
+      { "speaker": "Pizza", "text": "Do you like pizza?" },
+      { "speaker": "Luca", "text": "It is holding a tiny microphone." }
+    ],
+    "childAction": {
+      "instruction": "Remets la question dans l’ordre pour lancer l’interview.",
+      "exerciseId": "likes-02-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Pizza", "text": "Yes, I do!" },
+      { "speaker": "Gabriel", "text": "The microphone records a crunchy answer." }
+    ],
+    "nextHook": "Le menu suivant contient un dinosaure et une note de musique."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute la question et repère son intonation montante.",
+    "text": "Do you like pizza?",
+    "audioText": "Do you like pizza?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "id": "likes-02-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la question.",
+      "prompt": "What did the monster ask?",
+      "audioText": "Do you like pizza?",
+      "conceptIds": ["do-you-like", "pizza"],
+      "explanation": "Do you like pizza? signifie « Est-ce que tu aimes la pizza ? ».",
+      "options": [
+        { "id": "pizza", "label": "Do you like pizza?" },
+        { "id": "love", "label": "I love pizza." },
+        { "id": "game", "label": "Let’s play a game." }
+      ],
+      "correctOptionId": "pizza"
+    },
+    {
+      "id": "likes-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la réponse qui correspond.",
+      "prompt": "Do you like pizza?",
+      "conceptIds": ["do-you-like", "yes-i-do", "pizza"],
+      "explanation": "Yes, I do signifie « Oui » pour répondre à Do you like…?",
+      "lines": [
+        { "speaker": "Luca", "text": "Do you like pizza?" },
+        { "speaker": "Gabriel", "text": "…" }
+      ],
+      "options": [
+        { "id": "yes-i-do", "label": "Yes, I do!", "detail": "Oui !" },
+        { "id": "like", "label": "I like milk.", "detail": "J’aime le lait." },
+        { "id": "love", "label": "I love pizza!", "detail": "J’adore la pizza !" }
+      ],
+      "correctOptionId": "yes-i-do"
+    },
+    {
+      "id": "likes-02-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis une réponse négative.",
+      "prompt": "Do you like milk?",
+      "conceptIds": ["do-you-like", "dont-like", "milk"],
+      "explanation": "I don’t like milk signifie « Je n’aime pas le lait ».",
+      "options": [
+        { "id": "dont-like", "label": "I don’t like milk." },
+        { "id": "yes-i-do", "label": "Yes, I do." },
+        { "id": "like", "label": "I like milk." }
+      ],
+      "correctOptionId": "dont-like"
+    },
+    {
+      "id": "likes-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la question dans l’ordre.",
+      "prompt": "Build the question.",
+      "conceptIds": ["do-you-like", "pizza"],
+      "explanation": "Do you like pizza? signifie « Est-ce que tu aimes la pizza ? ».",
+      "tokens": ["pizza?", "Do", "you", "like"],
+      "acceptedOrders": [["Do", "you", "like", "pizza?"]]
+    },
+    {
+      "id": "likes-02-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Associe les réponses courtes.",
+      "prompt": "Match the short answers.",
+      "conceptIds": ["do-you-like", "yes-i-do"],
+      "explanation": "Do you like…? appelle une réponse courte comme Yes, I do.",
+      "cards": [
+        { "id": "question-en", "label": "Do you like…?", "matchId": "do-you-like", "emoji": "❓" },
+        { "id": "question-fr", "label": "Est-ce que tu aimes… ?", "matchId": "do-you-like", "emoji": "💬" },
+        { "id": "yes-en", "label": "Yes, I do.", "matchId": "yes-i-do", "emoji": "✅" },
+        { "id": "yes-fr", "label": "Oui.", "matchId": "yes-i-do", "emoji": "👍" }
+      ]
+    }
+  ]
+}

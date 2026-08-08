@@ -1,0 +1,129 @@
+{
+  "id": "day-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "day",
+  "order": 3,
+  "title": "Ma journée en images",
+  "objective": "Remettre une petite routine dans l’ordre et la réutiliser.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": ["breakfast", "sleep"],
+  "reviewConceptIds": ["wake-up", "eat", "go", "today", "morning", "night"],
+  "prerequisiteLessonIds": ["day-02"],
+  "storyScene": {
+    "id": "day-03-scene",
+    "situation": "Les images de la journée s’envolent et refusent de se remettre dans l’ordre.",
+    "setup": [
+      { "speaker": "Luca", "text": "Breakfast is at night!" },
+      { "speaker": "Gabriel", "text": "Let’s put the day back together." }
+    ],
+    "childAction": {
+      "instruction": "Construis la phrase qui termine la journée.",
+      "exerciseId": "day-03-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Calendar", "text": "I sleep at night." },
+      { "speaker": "Calendar", "text": "Good night!" }
+    ],
+    "nextHook": "Un coffre arc-en-ciel apparaît derrière la lune."
+  },
+  "readingCheckpoint": {
+    "mode": "word-order",
+    "instruction": "Écoute la phrase, puis lis-la dans le calme de la nuit.",
+    "text": "I sleep at night.",
+    "audioText": "I sleep at night.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "day-03-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe les moments à l’image.",
+      "prompt": "Put the day back in order.",
+      "conceptIds": ["breakfast", "sleep"],
+      "explanation": "Breakfast signifie petit-déjeuner et sleep signifie dormir.",
+      "pairs": [
+        { "id": "breakfast-pair", "left": "🥣", "right": "breakfast" },
+        { "id": "sleep-pair", "left": "🛌", "right": "sleep" }
+      ]
+    },
+    {
+      "id": "day-03-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon mot.",
+      "prompt": "I eat ___.",
+      "conceptIds": ["eat", "breakfast"],
+      "explanation": "I eat breakfast signifie « Je prends mon petit-déjeuner ».",
+      "options": [
+        { "id": "breakfast", "label": "breakfast" },
+        { "id": "sleep", "label": "sleep" },
+        { "id": "night", "label": "night" }
+      ],
+      "correctOptionId": "breakfast"
+    },
+    {
+      "id": "day-03-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the night sentence.",
+      "conceptIds": ["sleep", "night"],
+      "explanation": "I sleep at night signifie « Je dors la nuit ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["night.", "I", "sleep", "at"],
+      "acceptedOrders": [["I", "sleep", "at", "night."]]
+    },
+    {
+      "id": "day-03-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la phrase qui termine la journée.",
+      "prompt": "Good night!",
+      "conceptIds": ["sleep", "night"],
+      "explanation": "I sleep at night explique ce que l’on fait la nuit.",
+      "lines": [
+        { "speaker": "Gabriel", "text": "Good night!" },
+        { "speaker": "Luca", "text": "…" }
+      ],
+      "options": [
+        { "id": "sleep", "label": "I sleep at night.", "detail": "Je dors la nuit." },
+        { "id": "breakfast", "label": "I eat breakfast.", "detail": "Je prends mon petit-déjeuner." },
+        { "id": "school", "label": "I go to school.", "detail": "Je vais à l’école." }
+      ],
+      "correctOptionId": "sleep"
+    },
+    {
+      "id": "day-03-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "isRevisionActivity": true,
+      "instruction": "Vrai ou faux ?",
+      "prompt": "I eat breakfast at night.",
+      "conceptIds": ["eat", "breakfast", "night"],
+      "explanation": "Faux dans cette routine : breakfast est le matin, et sleep est la nuit.",
+      "statement": "I eat breakfast at night.",
+      "correct": false
+    },
+    {
+      "id": "day-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les moments de la journée.",
+      "prompt": "Review the routine.",
+      "conceptIds": ["breakfast", "sleep"],
+      "explanation": "Breakfast signifie petit-déjeuner et sleep signifie dormir.",
+      "cards": [
+        { "id": "breakfast-en", "label": "breakfast", "matchId": "breakfast", "emoji": "🥣" },
+        { "id": "breakfast-fr", "label": "petit-déjeuner", "matchId": "breakfast", "emoji": "🌅" },
+        { "id": "sleep-en", "label": "sleep", "matchId": "sleep", "emoji": "🛌" },
+        { "id": "sleep-fr", "label": "dormir", "matchId": "sleep", "emoji": "🌙" }
+      ]
+    }
+  ]
+}

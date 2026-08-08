@@ -1,0 +1,131 @@
+{
+  "id": "home-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "home",
+  "order": 2,
+  "title": "Où est mon lit ?",
+  "objective": "Comprendre There is… et reconnaître door et table.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["door", "table", "there-is"],
+  "reviewConceptIds": ["room", "kitchen", "bed"],
+  "prerequisiteLessonIds": ["home-01"],
+  "storyScene": {
+    "id": "home-02-scene",
+    "situation": "Le lit minuscule a roulé dans une autre pièce et fait semblant d’être invisible.",
+    "setup": [
+      { "speaker": "Gabriel", "text": "There is a bed… but where?" },
+      { "speaker": "Bed", "text": "Shhh!" }
+    ],
+    "childAction": {
+      "instruction": "Construis la phrase qui révèle la cachette.",
+      "exerciseId": "home-02-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Bed", "text": "You found me!" },
+      { "speaker": "Luca", "text": "The bed rolls back into the room." }
+    ],
+    "nextHook": "Toute la maison se prépare à faire un tour sur elle-même."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute la phrase et garde le même rythme en la lisant.",
+    "text": "There is a bed in the room.",
+    "audioText": "There is a bed in the room.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "home-02-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe l’image au bon mot.",
+      "prompt": "What is next to the tiny room?",
+      "conceptIds": ["door", "table"],
+      "explanation": "Door signifie porte et table signifie table.",
+      "pairs": [
+        { "id": "door-pair", "left": "🚪", "right": "door" },
+        { "id": "table-pair", "left": "🪑", "right": "table" }
+      ]
+    },
+    {
+      "id": "home-02-there-is",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis la phrase qui décrit l’image.",
+      "prompt": "A bed is in the room.",
+      "conceptIds": ["there-is", "bed", "room"],
+      "explanation": "There is signifie « il y a » : There is a bed in the room.",
+      "options": [
+        { "id": "bed", "label": "There is a bed.", "detail": "Il y a un lit." },
+        { "id": "door", "label": "There is a door.", "detail": "Il y a une porte." },
+        { "id": "table", "label": "There is a table.", "detail": "Il y a une table." }
+      ],
+      "correctOptionId": "bed"
+    },
+    {
+      "id": "home-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["there-is", "table"],
+      "explanation": "There is a table signifie « Il y a une table ».",
+      "tokens": ["table.", "There", "is", "a"],
+      "acceptedOrders": [["There", "is", "a", "table."]]
+    },
+    {
+      "id": "home-02-completion",
+      "schemaVersion": 1,
+      "type": "sentence-completion",
+      "instruction": "Complète la phrase.",
+      "prompt": "The door is open.",
+      "conceptIds": ["there-is", "door"],
+      "explanation": "There is a door signifie « Il y a une porte ».",
+      "sentence": "There is a ___.",
+      "options": [
+        { "id": "door", "label": "door" },
+        { "id": "bed", "label": "bed" },
+        { "id": "room", "label": "room" }
+      ],
+      "correctOptionId": "door"
+    },
+    {
+      "id": "home-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la phrase qui décrit la maison.",
+      "prompt": "Look!",
+      "conceptIds": ["there-is", "table"],
+      "explanation": "There is a table! signifie « Il y a une table ! ».",
+      "lines": [
+        { "speaker": "Gabriel", "text": "Look!" },
+        { "speaker": "Luca", "text": "…" }
+      ],
+      "options": [
+        { "id": "table", "label": "There is a table!", "detail": "Il y a une table !" },
+        { "id": "bed", "label": "This is my bed.", "detail": "Voici mon lit." },
+        { "id": "room", "label": "Good morning!", "detail": "Bonjour !" }
+      ],
+      "correctOptionId": "table"
+    },
+    {
+      "id": "home-02-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la phrase puis choisis l’image correspondante.",
+      "prompt": "Which sentence did you hear?",
+      "audioText": "There is a door.",
+      "conceptIds": ["there-is", "door"],
+      "explanation": "Door signifie porte. There is a door signifie « Il y a une porte ».",
+      "options": [
+        { "id": "door", "label": "There is a door." },
+        { "id": "table", "label": "There is a table." },
+        { "id": "bed", "label": "There is a bed." }
+      ],
+      "correctOptionId": "door"
+    }
+  ]
+}

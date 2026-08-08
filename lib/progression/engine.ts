@@ -129,9 +129,9 @@ export type UnitStatus = "locked" | "available" | "in-progress" | "completed";
 
 export function getLessonStatus(progress: ProfileProgress, lesson: LessonContent): LessonStatus {
   if (progress.completedLessonIds.includes(lesson.id)) return "completed";
-  if (progress.lessonSessions[lesson.id]) return "in-progress";
   const unit = getUnit(lesson.unitId);
   if (!isUnitUnlocked(progress, unit)) return "locked";
+  if (progress.lessonSessions[lesson.id]) return "in-progress";
   return lesson.prerequisiteLessonIds.every((prerequisiteId) => progress.completedLessonIds.includes(prerequisiteId)) ? "available" : "locked";
 }
 
@@ -260,7 +260,14 @@ export function activateProfile(state: AppState, profileId: ProfileId): AppState
   const profile = next.profiles[profileId];
   profile.firstUsedAt ??= nowIso();
   next.activeProfileId = profileId;
+  awardBadges(profile.progress);
   refreshUnlocks(profile.progress);
+  return next;
+}
+
+export function deactivateProfile(state: AppState): AppState {
+  const next = clone(state);
+  next.activeProfileId = null;
   return next;
 }
 
@@ -314,14 +321,26 @@ function updateExerciseStats(profile: LocalProfile, exercise: Exercise, correct:
 }
 
 function recordExerciseAttempt(state: AppState, profileId: ProfileId, lessonId: string, exerciseId: string, answer: ExerciseAnswer, completesExercise: boolean) {
-  const next = clone(state);
-  const profile = next.profiles[profileId];
   const lesson = getLesson(lessonId);
   const exercise = lesson.exercises.find((candidate) => candidate.id === exerciseId);
   if (!exercise) throw new Error(`Exercice inconnu : ${exerciseId}`);
+  const correct = evaluateExerciseAnswer(exercise, answer);
+  const sourceProfile = state.profiles[profileId];
+  const sourceSession = sourceProfile.progress.lessonSessions[lessonId];
+  const sourceExercise = sourceSession ? lesson.exercises[sourceSession.currentExerciseIndex] : undefined;
+  if (!sourceSession || sourceExercise?.id !== exerciseId) {
+    return {
+      state,
+      reward: rewardSummary(sourceProfile.progress.xpTotal, sourceProfile.progress),
+      firstSubmission: false,
+      correct
+    };
+  }
+
+  const next = clone(state);
+  const profile = next.profiles[profileId];
   const session = ensureSession(profile.progress, lesson);
   const timestamp = nowIso();
-  const correct = evaluateExerciseAnswer(exercise, answer);
   const firstSubmission = !session.submittedExerciseIds.includes(exerciseId);
   const firstExerciseCompletion = completesExercise && !session.completedExerciseIds.includes(exerciseId);
   const everCompleted = profile.progress.completedExerciseIds.includes(exerciseId);

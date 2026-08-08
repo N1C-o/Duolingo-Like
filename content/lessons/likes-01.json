@@ -1,0 +1,118 @@
+{
+  "id": "likes-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "likes",
+  "order": 1,
+  "title": "Le monstre des goûts",
+  "objective": "Dire simplement ce qu’on aime ou ce qu’on adore.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["like", "love", "pizza"],
+  "reviewConceptIds": ["apple", "game"],
+  "prerequisiteLessonIds": ["food-03"],
+  "storyScene": {
+    "id": "likes-01-scene",
+    "situation": "Un monstre découvre une pizza et prend un air beaucoup trop sérieux.",
+    "setup": [
+      { "speaker": "Gabriel", "text": "Look! Pizza!" },
+      { "speaker": "Monster", "text": "My taste buds are thinking." }
+    ],
+    "childAction": {
+      "instruction": "Choisis la réaction du monstre devant la pizza.",
+      "exerciseId": "likes-01-dialogue",
+      "purpose": "respond"
+    },
+    "resolution": [
+      { "speaker": "Monster", "text": "I love pizza!" },
+      { "speaker": "Pizza", "text": "At last, a fan!" }
+    ],
+    "nextHook": "La pizza pose une question à tout le monde."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute l’avis du monstre et lis le mot qui porte l’énergie.",
+    "text": "I love pizza.",
+    "audioText": "I love pizza.",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "likes-01-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le mot qui complète la phrase.",
+      "prompt": "I ___ apples.",
+      "conceptIds": ["like", "apple"],
+      "explanation": "I like apples signifie « J’aime les pommes ».",
+      "options": [
+        { "id": "like", "label": "like" },
+        { "id": "eat", "label": "eat" },
+        { "id": "open", "label": "open" }
+      ],
+      "correctOptionId": "like"
+    },
+    {
+      "id": "likes-01-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute l’avis du monstre.",
+      "prompt": "What does the monster say?",
+      "audioText": "I love pizza.",
+      "conceptIds": ["love", "pizza"],
+      "explanation": "I love pizza signifie « J’adore la pizza ».",
+      "options": [
+        { "id": "love", "label": "I love pizza." },
+        { "id": "like", "label": "I like games." },
+        { "id": "eat", "label": "I eat apples." }
+      ],
+      "correctOptionId": "love"
+    },
+    {
+      "id": "likes-01-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la réaction du monstre.",
+      "prompt": "The monster sees a pizza. What does it say?",
+      "conceptIds": ["love", "pizza"],
+      "explanation": "I love pizza signifie « J’adore la pizza ».",
+      "lines": [
+        { "speaker": "Gabriel", "text": "Look! Pizza!" },
+        { "speaker": "Monster", "text": "…" }
+      ],
+      "options": [
+        { "id": "love", "label": "I love pizza.", "detail": "J’adore la pizza." },
+        { "id": "like", "label": "I like games.", "detail": "J’aime les jeux." },
+        { "id": "hello", "label": "Hello!", "detail": "Bonjour !" }
+      ],
+      "correctOptionId": "love"
+    },
+    {
+      "id": "likes-01-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["like", "game"],
+      "explanation": "I like games signifie « J’aime les jeux ».",
+      "tokens": ["games.", "I", "like"],
+      "acceptedOrders": [["I", "like", "games."]]
+    },
+    {
+      "id": "likes-01-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Associe les goûts à leur traduction.",
+      "prompt": "Match the opinions.",
+      "conceptIds": ["like", "love"],
+      "explanation": "Like signifie aimer et love signifie adorer.",
+      "cards": [
+        { "id": "like-en", "label": "like", "matchId": "like", "emoji": "👍" },
+        { "id": "like-fr", "label": "aimer", "matchId": "like", "emoji": "😊" },
+        { "id": "love-en", "label": "love", "matchId": "love", "emoji": "💛" },
+        { "id": "love-fr", "label": "adorer", "matchId": "love", "emoji": "😍" }
+      ]
+    }
+  ]
+}

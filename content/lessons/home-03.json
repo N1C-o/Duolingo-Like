@@ -1,0 +1,131 @@
+{
+  "id": "home-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "home",
+  "order": 3,
+  "title": "La maison à l’envers",
+  "objective": "Réutiliser les mots de la maison pour aider à ranger la petite maison.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": ["house", "this-is-a"],
+  "reviewConceptIds": ["room", "kitchen", "bed", "door", "table", "there-is"],
+  "prerequisiteLessonIds": ["home-02"],
+  "storyScene": {
+    "id": "home-03-scene",
+    "situation": "La maison se retourne et chaque meuble glisse vers une nouvelle pièce.",
+    "setup": [
+      { "speaker": "House", "text": "This is a house… upside down!" },
+      { "speaker": "Gabriel", "text": "Quick, describe the room before it spins again." }
+    ],
+    "childAction": {
+      "instruction": "Reconstruis la phrase qui aide à ranger la maison.",
+      "exerciseId": "home-03-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "House", "text": "There is a table in the room!" },
+      { "speaker": "Luca", "text": "Flip! Everything lands safely." }
+    ],
+    "nextHook": "Un cartable magique tombe du plafond."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase et retrouve ses mots sur l’écran.",
+    "text": "This is a house.",
+    "audioText": "This is a house.",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "home-03-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis la bonne phrase.",
+      "prompt": "What did the little door say?",
+      "audioText": "This is a house.",
+      "conceptIds": ["this-is-a", "house"],
+      "explanation": "This is a house signifie « Voici une maison ».",
+      "options": [
+        { "id": "house", "label": "This is a house." },
+        { "id": "room", "label": "This is my room." },
+        { "id": "door", "label": "There is a door." }
+      ],
+      "correctOptionId": "house"
+    },
+    {
+      "id": "home-03-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Aide la maison à retrouver ses objets.",
+      "prompt": "Put the things back.",
+      "conceptIds": ["door", "table", "bed"],
+      "explanation": "Door signifie porte, table signifie table et bed signifie lit.",
+      "pairs": [
+        { "id": "door-review", "left": "🚪", "right": "door" },
+        { "id": "table-review", "left": "🪑", "right": "table" },
+        { "id": "bed-review", "left": "🛏️", "right": "bed" }
+      ]
+    },
+    {
+      "id": "home-03-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets les mots dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["this-is-a", "house"],
+      "explanation": "This is a house signifie « Voici une maison ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["house.", "This", "is", "a"],
+      "acceptedOrders": [["This", "is", "a", "house."]]
+    },
+    {
+      "id": "home-03-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la phrase qui aide à ranger.",
+      "prompt": "The table is in the room. What can you say?",
+      "conceptIds": ["there-is", "table", "room"],
+      "explanation": "There is a table in the room signifie « Il y a une table dans la pièce ».",
+      "lines": [
+        { "speaker": "Gabriel", "text": "The table is in the room." },
+        { "speaker": "Luca", "text": "…" }
+      ],
+      "options": [
+        { "id": "nice", "label": "There is a table!", "detail": "Il y a une table !" },
+        { "id": "hello", "label": "How are you?", "detail": "Comment vas-tu ?" },
+        { "id": "family", "label": "This is my sister.", "detail": "Voici ma sœur." }
+      ],
+      "correctOptionId": "nice"
+    },
+    {
+      "id": "home-03-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "isRevisionActivity": true,
+      "instruction": "Vrai ou faux ?",
+      "prompt": "There is a bed in the kitchen.",
+      "conceptIds": ["there-is", "bed", "kitchen"],
+      "explanation": "Faux dans notre petite maison : le bed est dans la room, pas dans la kitchen.",
+      "statement": "There is a bed in the kitchen.",
+      "correct": false
+    },
+    {
+      "id": "home-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires avant que la maison ne se retourne.",
+      "prompt": "Review the home words.",
+      "conceptIds": ["house", "room"],
+      "explanation": "House signifie maison et room signifie pièce ou chambre.",
+      "cards": [
+        { "id": "house-en", "label": "house", "matchId": "house", "emoji": "🏠" },
+        { "id": "house-fr", "label": "maison", "matchId": "house", "emoji": "🔑" },
+        { "id": "room-en", "label": "room", "matchId": "room", "emoji": "🛏️" },
+        { "id": "room-fr", "label": "pièce", "matchId": "room", "emoji": "🪟" }
+      ]
+    }
+  ]
+}

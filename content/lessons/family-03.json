@@ -11,6 +11,31 @@
   "newConceptIds": [],
   "reviewConceptIds": ["mum", "dad", "brother", "sister", "friend"],
   "prerequisiteLessonIds": ["family-02"],
+  "storyScene": {
+    "id": "family-03-scene",
+    "situation": "La vieille imprimante éternue et imprime une famille dans le désordre.",
+    "setup": [
+      { "speaker": "Printer", "text": "Achoo! This is my…" },
+      { "speaker": "Gabriel", "text": "The sentence is missing its ending!" }
+    ],
+    "childAction": {
+      "instruction": "Reconstruis la phrase qui remet la photo en ordre.",
+      "exerciseId": "family-03-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Printer", "text": "This is my family!" },
+      { "speaker": "Luca", "text": "The photo comes out perfectly." }
+    ],
+    "nextHook": "Dans la maison suivante, une porte minuscule baille."
+  },
+  "readingCheckpoint": {
+    "mode": "word-order",
+    "instruction": "Écoute chaque morceau, puis lis la phrase dans son rythme naturel.",
+    "text": "This is my family.",
+    "audioText": "This is my family.",
+    "phonologyFocus": "phrase-rhythm"
+  },
   "exercises": [
     {
       "id": "family-03-choice",
@@ -48,6 +73,8 @@
       "prompt": "Build the sentence.",
       "conceptIds": ["mum", "dad"],
       "explanation": "This is my family signifie « Voici ma famille ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
       "tokens": ["family.", "This", "is", "my"],
       "acceptedOrders": [["This", "is", "my", "family."]]
     },

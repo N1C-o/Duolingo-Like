@@ -1,22 +1,21 @@
 # Dette technique
 
-## Validation navigateur mobile non exécutée
+## Validation mobile réel et installation PWA à compléter
 
-- **Impact :** la validation automatisée mobile/hors ligne n’est pas encore une preuve de livraison.
-- **Cause actuelle :** le wrapper Playwright n’a pas pu télécharger `@playwright/cli` dans l’environnement sandbox et aucun package Playwright local n’est installé.
-- **Contournement :** lint, typecheck, build statique et inspection du service worker passent ; le scénario réel doit être rejoué dès qu’un navigateur local est disponible.
-- **Suite :** exécuter le plan de validation mobile/hors ligne dans [le plan de phase](./plans/2026-08-07-functional-implementation.md).
+- **Impact :** l’installation PWA et les gestes sur appareil réel ne sont pas encore une preuve de livraison complète.
+- **Validation obtenue :** viewport 390×844 dans le navigateur intégré, build statique exporté, réseau coupé après premier chargement, reprise d’une leçon, gain de 7 XP et persistance après rechargement hors ligne.
+- **Suite :** installer le build sur un appareil mobile et rejouer le même scénario avec perte réseau réelle.
 
 ## Curriculum partiel
 
-- **Impact :** seules deux unités et cinq leçons sont publiées.
+- **Impact :** huit unités et vingt-trois leçons sont publiées sur les vingt unités prévues.
 - **Contournement :** le contrat de contenu et les onze types d’exercices sont déjà extensibles par JSON.
-- **Suite :** ajouter les unités 3 à 8 sans modifier le moteur.
+- **Suite :** faire relire les unités 3 à 8 puis suivre le [programme pédagogique](./CONTENT_CURRICULUM.md) pour ajouter les unités 9 à 20 par lots validés.
 
-## Tests automatisés du moteur à ajouter
+## Tests automatisés du moteur
 
-- **Impact :** les règles d’XP, migration et consolidation sont validées par typage et revue, mais pas encore par une suite de tests dédiée.
-- **Suite :** ajouter des fixtures pures pour première complétion, rejeu plafonné, doublons de récompense, reset et déverrouillage.
+- **État :** une suite Vitest couvre les réponses des types publiés, les scènes/checkpoints/missions, le bonus de première réponse, les erreurs partielles, la reprise hors ordre, les badges, les déverrouillages, le rejeu plafonné, la séparation des profils et la normalisation de stockage.
+- **Suite :** compléter les fixtures au fur et à mesure de l’ajout des douze unités restantes.
 
 ## Cache PWA minimal
 

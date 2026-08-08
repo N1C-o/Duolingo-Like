@@ -1,3 +1,4 @@
+import { getLesson } from "@/content";
 import { createInitialAppState, PROGRESSION_RULES } from "@/lib/progression/engine";
 import type { ExerciseType } from "@/lib/content/types";
 import type { AppState, ConceptStat, ExerciseStat, LessonSession, LocalProfile, ProfileProgress } from "@/lib/progression/types";
@@ -7,6 +8,7 @@ const DATABASE_VERSION = 1;
 const STATE_STORE = "app-state";
 const STATE_KEY = "root";
 const FALLBACK_KEY = "english-adventure-state-v1";
+const STORAGE_TIMEOUT_MS = 1500;
 
 export type PersistenceMode = "indexeddb" | "localStorage" | "memory";
 
@@ -17,6 +19,7 @@ export type LoadedState = {
 };
 
 let databasePromise: Promise<IDBDatabase> | null = null;
+let saveQueue: Promise<void> = Promise.resolve();
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -47,7 +50,7 @@ function nowIso() {
 
 function stringArray(value: unknown, fallback: string[]): Normalized<string[]> {
   if (!Array.isArray(value)) return { value: [...fallback], recovered: true };
-  const validValues = value.filter((item): item is string => typeof item === "string");
+  const validValues = value.filter((item): item is string => typeof item === "string" && item.length > 0);
   const uniqueValues = Array.from(new Set(validValues));
   return { value: uniqueValues, recovered: validValues.length !== value.length || uniqueValues.length !== validValues.length };
 }
@@ -127,23 +130,33 @@ function normalizeLessonSessions(raw: unknown, fallback: Record<string, LessonSe
       recovered = true;
       return;
     }
+    let lesson;
+    try {
+      lesson = getLesson(key);
+    } catch {
+      recovered = true;
+      return;
+    }
+    const exerciseIds = new Set(lesson.exercises.map((exercise) => exercise.id));
     const submittedExerciseIds = stringArray(value.submittedExerciseIds, []);
     const completedExerciseIds = stringArray(value.completedExerciseIds, []);
-    const submitted = Array.from(new Set([...submittedExerciseIds.value, ...completedExerciseIds.value]));
+    const submitted = Array.from(new Set([...submittedExerciseIds.value, ...completedExerciseIds.value])).filter((id) => exerciseIds.has(id));
+    const completed = Array.from(new Set(completedExerciseIds.value)).filter((id) => exerciseIds.has(id));
     const currentExerciseIndex = nonNegativeInteger(value.currentExerciseIndex, 0);
+    const safeCurrentExerciseIndex = Math.min(currentExerciseIndex.value, Math.max(0, lesson.exercises.length - 1));
     const isReplay = booleanValue(value.isReplay, false);
     const startedAt = timestamp(value.startedAt, nowIso());
     const updatedAt = timestamp(value.updatedAt, startedAt.value);
     sessions[key] = {
       lessonId: key,
       isReplay: isReplay.value,
-      currentExerciseIndex: currentExerciseIndex.value,
+      currentExerciseIndex: safeCurrentExerciseIndex,
       submittedExerciseIds: submitted,
-      completedExerciseIds: completedExerciseIds.value,
+      completedExerciseIds: completed,
       startedAt: startedAt.value,
       updatedAt: updatedAt.value
     };
-    recovered ||= value.lessonId !== key || submittedExerciseIds.recovered || completedExerciseIds.recovered || submitted.length !== submittedExerciseIds.value.length || currentExerciseIndex.recovered || isReplay.recovered || startedAt.recovered || updatedAt.recovered;
+    recovered ||= value.lessonId !== key || submittedExerciseIds.recovered || completedExerciseIds.recovered || submitted.length !== submittedExerciseIds.value.length || completed.length !== completedExerciseIds.value.length || currentExerciseIndex.recovered || safeCurrentExerciseIndex !== currentExerciseIndex.value || isReplay.recovered || startedAt.recovered || updatedAt.recovered;
   });
   return { value: sessions, recovered };
 }
@@ -295,39 +308,66 @@ function canUseLocalStorage() {
   return typeof window !== "undefined" && "localStorage" in window;
 }
 
+function withStorageTimeout<T>(operation: Promise<T>, message: string) {
+  let timeoutId: number | null = null;
+  const timeout = new Promise<never>((_, reject) => {
+    timeoutId = window.setTimeout(() => reject(new Error(message)), STORAGE_TIMEOUT_MS);
+  });
+  return Promise.race([operation, timeout]).finally(() => {
+    if (timeoutId !== null) window.clearTimeout(timeoutId);
+  });
+}
+
 function openDatabase() {
   if (!canUseIndexedDb()) return Promise.reject(new Error("IndexedDB indisponible"));
   if (databasePromise) return databasePromise;
-  databasePromise = new Promise<IDBDatabase>((resolve, reject) => {
+  const opening = new Promise<IDBDatabase>((resolve, reject) => {
     const request = window.indexedDB.open(DATABASE_NAME, DATABASE_VERSION);
-    request.onerror = () => reject(request.error ?? new Error("Impossible d’ouvrir IndexedDB"));
+    const timeoutId = window.setTimeout(() => reject(new Error("Ouverture IndexedDB trop longue")), STORAGE_TIMEOUT_MS);
+    request.onerror = () => {
+      window.clearTimeout(timeoutId);
+      reject(request.error ?? new Error("Impossible d’ouvrir IndexedDB"));
+    };
+    request.onblocked = () => {
+      window.clearTimeout(timeoutId);
+      reject(new Error("Ouverture IndexedDB bloquée"));
+    };
     request.onupgradeneeded = () => {
       const database = request.result;
       if (!database.objectStoreNames.contains(STATE_STORE)) database.createObjectStore(STATE_STORE);
     };
-    request.onsuccess = () => resolve(request.result);
+    request.onsuccess = () => {
+      window.clearTimeout(timeoutId);
+      resolve(request.result);
+    };
+  });
+  databasePromise = opening.catch((error: unknown) => {
+    databasePromise = null;
+    throw error;
   });
   return databasePromise;
 }
 
 async function readIndexedDb() {
   const database = await openDatabase();
-  return new Promise<unknown>((resolve, reject) => {
+  return withStorageTimeout(new Promise<unknown>((resolve, reject) => {
     const transaction = database.transaction(STATE_STORE, "readonly");
     const request = transaction.objectStore(STATE_STORE).get(STATE_KEY);
     request.onerror = () => reject(request.error ?? new Error("Lecture IndexedDB impossible"));
+    transaction.onabort = () => reject(transaction.error ?? new Error("Lecture IndexedDB interrompue"));
     request.onsuccess = () => resolve(request.result);
-  });
+  }), "Lecture IndexedDB trop longue");
 }
 
 async function writeIndexedDb(state: AppState) {
   const database = await openDatabase();
-  return new Promise<void>((resolve, reject) => {
+  return withStorageTimeout(new Promise<void>((resolve, reject) => {
     const transaction = database.transaction(STATE_STORE, "readwrite");
     transaction.oncomplete = () => resolve();
     transaction.onerror = () => reject(transaction.error ?? new Error("Écriture IndexedDB impossible"));
+    transaction.onabort = () => reject(transaction.error ?? new Error("Écriture IndexedDB interrompue"));
     transaction.objectStore(STATE_STORE).put(state, STATE_KEY);
-  });
+  }), "Écriture IndexedDB trop longue");
 }
 
 function readFallback() {
@@ -353,20 +393,29 @@ function writeFallback(state: AppState) {
 export async function loadAppState(): Promise<LoadedState> {
   try {
     const raw = await readIndexedDb();
-    const normalized = normalizeState(raw ?? readFallback());
+    const fallback = raw === undefined ? readFallback() : undefined;
+    const normalized = normalizeState(raw ?? fallback);
+    const recovered = raw !== undefined || fallback !== undefined ? normalized.recovered : false;
     if (raw === undefined || normalized.recovered) await writeIndexedDb(normalized.state);
-    return { ...normalized, mode: "indexeddb" };
+    return { state: normalized.state, recovered, mode: "indexeddb" };
   } catch {
-    const normalized = normalizeState(readFallback());
-    return { ...normalized, mode: canUseLocalStorage() ? "localStorage" : "memory" };
+    const fallback = readFallback();
+    const normalized = normalizeState(fallback);
+    return { state: normalized.state, recovered: fallback === undefined ? false : normalized.recovered, mode: canUseLocalStorage() ? "localStorage" : "memory" };
   }
 }
 
-export async function saveAppState(state: AppState): Promise<PersistenceMode> {
+async function persistAppState(state: AppState): Promise<PersistenceMode> {
   try {
     await writeIndexedDb(state);
     return "indexeddb";
   } catch {
     return writeFallback(state) ? "localStorage" : "memory";
   }
+}
+
+export function saveAppState(state: AppState): Promise<PersistenceMode> {
+  const queuedSave = saveQueue.then(() => persistAppState(state), () => persistAppState(state));
+  saveQueue = queuedSave.then(() => undefined, () => undefined);
+  return queuedSave;
 }

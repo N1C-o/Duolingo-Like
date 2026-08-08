@@ -31,7 +31,7 @@ import {
 import { ExerciseRenderer, type ExerciseResult } from "@/components/exercise-renderer";
 import { CapybaraMascot, GhostMascot, SceneIllustration } from "@/components/mascots";
 import { content, getLesson, getLessonsForUnit, getTheme, getUnit, getVocabularyForUnit } from "@/content";
-import type { Exercise, LessonContent, ProfileId, ThemeContent } from "@/lib/content/types";
+import type { Exercise, LessonContent, ProfileId, ReadingCheckpoint, StoryScene, ThemeContent } from "@/lib/content/types";
 import { getLessonResumeIndex, getLessonStatus, getLevelProgress, getTopConsolidationConcepts, getUnitStatus } from "@/lib/progression/engine";
 import type { AppState, LocalProfile, ProfilePreferences, RewardSummary } from "@/lib/progression/types";
 
@@ -73,6 +73,8 @@ function lessonPercent(progress: ScreenContext["profile"]["progress"], lesson: L
 }
 
 function getExerciseLabel(exercise: Exercise) {
+  if (exercise.isUnitMission) return "MISSION";
+  if (exercise.responseMode === "guided-production") return "À CONSTRUIRE";
   if (exercise.type === "listening" || exercise.type === "listening-choice") return "ÉCOUTE";
   if (exercise.type === "dialogue") return "DIALOGUE";
   if (exercise.type === "memory") return "MEMORY";
@@ -194,6 +196,65 @@ function FeatureChip({ icon: Icon, label, detail }: { icon: IconComponent; label
   return <div className="feature-chip"><span className="feature-chip__icon"><Icon aria-hidden="true" size={19} /></span><span><strong>{label}</strong><small>{detail}</small></span></div>;
 }
 
+function readingModeLabel(mode: ReadingCheckpoint["mode"]) {
+  if (mode === "word-recognition") return "Reconnaître le mot";
+  if (mode === "phrase-recognition") return "Repérer la phrase";
+  if (mode === "audio-to-text") return "Relier le son et l’écrit";
+  return "Remettre les mots en ordre";
+}
+
+function phonologyLabel(focus: ReadingCheckpoint["phonologyFocus"]) {
+  if (focus === "greeting-rhythm") return "Rythme de la salutation";
+  if (focus === "question-intonation") return "La voix qui monte dans une question";
+  if (focus === "word-stress") return "Écouter le mot important";
+  return "Le rythme de la phrase";
+}
+
+function SceneLine({ line, kind }: { line: StoryScene["setup"][number]; kind: "setup" | "resolution" }) {
+  return (
+    <div className={`story-scene__line story-scene__line--${kind}`}>
+      {line.speaker ? <span>{line.speaker}</span> : null}
+      <strong>{line.text}</strong>
+      {line.translation ? <small>{line.translation}</small> : null}
+    </div>
+  );
+}
+
+function StoryScenePanel({ context, exercise, lesson }: { context: ScreenContext; exercise: Exercise; lesson: LessonContent }) {
+  const scene = lesson.storyScene;
+  const actionStat = context.profile.progress.exerciseStats[scene.childAction.exerciseId];
+  const resolved = context.profile.progress.completedLessonIds.includes(lesson.id) || Boolean(actionStat?.successes);
+  const actionActive = !resolved && exercise.id === scene.childAction.exerciseId;
+
+  return (
+    <section aria-label={`Mini-scène : ${scene.situation}`} className="story-scene-card">
+      <div className="story-scene__topline"><span className="story-scene__tag"><SparkleIcon aria-hidden="true" size={13} /> MINI-SCÈNE</span><span className="story-scene__state">{resolved ? "Scène résolue" : "À toi d’agir"}</span></div>
+      <p className="story-scene__situation">{scene.situation}</p>
+      <div className="story-scene__lines">{scene.setup.map((line, index) => <SceneLine key={`${line.speaker ?? "narrator"}-${index}`} kind="setup" line={line} />)}</div>
+      <div className={`story-scene__action ${actionActive ? "story-scene__action--active" : ""} ${resolved ? "story-scene__action--resolved" : ""}`}>
+        <span className="story-scene__action-label">{resolved ? "ACTION RÉUSSIE" : "ACTION DE L’ENFANT"}</span>
+        <strong>{scene.childAction.instruction}</strong>
+        {actionActive ? <small>Tu es sur cette étape : fais ton choix pour aider la scène.</small> : null}
+      </div>
+      {resolved ? <div className="story-scene__resolution"><span className="story-scene__action-label">RÉSOLUTION</span>{scene.resolution.map((line, index) => <SceneLine key={`${line.speaker ?? "narrator"}-${index}`} kind="resolution" line={line} />)}</div> : null}
+      {scene.nextHook ? <p className="story-scene__hook"><SparkleIcon aria-hidden="true" size={13} /> {scene.nextHook}</p> : null}
+    </section>
+  );
+}
+
+function ReadingCheckpointCard({ checkpoint, onSpeak }: { checkpoint: ReadingCheckpoint; onSpeak: (text: string) => boolean }) {
+  const [available, setAvailable] = useState(true);
+  const handleSpeak = () => setAvailable(onSpeak(checkpoint.audioText));
+
+  return (
+    <section aria-label="Checkpoint lecture et sons" className="reading-checkpoint">
+      <div className="reading-checkpoint__topline"><span className="reading-checkpoint__tag"><VolumeIcon aria-hidden="true" size={13} /> LECTURE & SONS</span><span>{readingModeLabel(checkpoint.mode)}</span></div>
+      <div className="reading-checkpoint__body"><div><strong>{checkpoint.text}</strong><small>{checkpoint.instruction}</small></div><button aria-label={`Écouter : ${checkpoint.audioText}`} className="reading-checkpoint__audio" onClick={handleSpeak} type="button"><VolumeIcon aria-hidden="true" size={18} /></button></div>
+      <p className="reading-checkpoint__focus">{available ? "À l’oreille :" : "Audio indisponible :"} {phonologyLabel(checkpoint.phonologyFocus)}</p>
+    </section>
+  );
+}
+
 export function MapScreen({ context, onNavigate, onToast, onOpenUnit, onOpenLesson }: CommonScreenProps & { onOpenUnit: (unitId: string) => void; onOpenLesson: (lessonId: string) => void }) {
   const { profile, theme } = context;
   const completedUnits = content.units.filter((unit) => getUnitStatus(profile.progress, unit) === "completed").length;
@@ -224,12 +285,30 @@ export function LessonScreen({ context, lessonId, feedback, resetToken, onNaviga
   const index = Math.min(getLessonResumeIndex(profile.progress, lesson), lesson.exercises.length - 1);
   const exercise = lesson.exercises[index];
   const progressPercent = Math.round((index / lesson.exercises.length) * 100);
+
   useEffect(() => {
     if (!profile.preferences.autoPlay || !profile.preferences.soundsEnabled || !exercise.audioText || autoPlayedExerciseRef.current === exercise.id) return;
     autoPlayedExerciseRef.current = exercise.id;
     onSpeak(exercise.audioText);
   }, [exercise.audioText, exercise.id, onSpeak, profile.preferences.autoPlay, profile.preferences.soundsEnabled]);
-  return <div className="screen-content lesson-screen"><div className="lesson-toolbar"><button aria-label="Retourner à l’unité" className="round-icon-button" onClick={() => onNavigate("unit")} type="button"><ArrowLeftIcon aria-hidden="true" size={19} /></button><div className="lesson-toolbar__center"><span className="eyebrow">{lesson.title}</span><strong>{index + 1} sur {lesson.exercises.length}</strong></div><button aria-label="Quitter la leçon" className="round-icon-button" onClick={() => onNavigate("home")} type="button"><span aria-hidden="true">×</span></button></div><div className="lesson-progress-line"><span style={{ width: `${progressPercent}%` }} /></div><div className="lesson-heading"><span className="lesson-heading__tag"><VolumeIcon aria-hidden="true" size={14} /> {getExerciseLabel(exercise)}</span><h1>{exercise.instruction}</h1><p>{exercise.prompt}</p></div><section className="exercise-card"><div className="exercise-card__topline"><span>{lesson.objective}</span><span className="exercise-card__time"><ClockIcon aria-hidden="true" size={14} /> {lesson.durationMinutes} min</span></div><div className="exercise-stage"><div className="speech-bubble"><span className="speech-bubble__tiny">{getExerciseLabel(exercise)}</span><strong>{exercise.audioText ?? exercise.prompt}</strong><span className="speech-bubble__tail" /></div><div className="exercise-stage__mascot"><Companion size={151} theme={theme.id} /></div><div className="exercise-stage__sparkle exercise-stage__sparkle--one"><SparkleIcon aria-hidden="true" size={16} /></div><div className="exercise-stage__sparkle exercise-stage__sparkle--two"><SparkleIcon aria-hidden="true" size={11} /></div></div><ExerciseRenderer key={`${exercise.id}-${resetToken}`} exercise={exercise} feedbackVisible={Boolean(feedback)} onError={onError} onSpeak={onSpeak} onSubmit={onSubmit} />{feedback ? <div className={`feedback-panel ${feedback.correct ? "feedback-panel--success" : "feedback-panel--gentle"}`}><span className="feedback-panel__icon">{feedback.correct ? <CheckIcon aria-hidden="true" size={18} /> : <CloseIcon aria-hidden="true" size={18} />}</span><div><strong>{feedback.correct ? "Bravo, c’est ça !" : "Pas tout à fait"}</strong><p>{feedback.explanation}{feedback.xpGained > 0 ? ` · +${feedback.xpGained} XP` : ""}</p></div></div> : null}{feedback ? <div className="lesson-feedback-actions">{!feedback.correct ? <button className="secondary-button" onClick={onRetry} type="button">Réessayer</button> : null}<button className="primary-button primary-button--wide exercise-submit" onClick={onContinue} type="button">{index === lesson.exercises.length - 1 ? "Voir ma récompense" : feedback.correct ? "Continuer" : "Continuer quand même"}<ChevronRightIcon aria-hidden="true" size={19} /></button></div> : null}</section><div className="lesson-footer-note"><TargetIcon aria-hidden="true" size={17} /><span>Une erreur est une nouvelle piste pour apprendre.</span></div><button className="prototype-back-link" onClick={() => onNavigate("unit")} type="button"><MapIcon aria-hidden="true" size={16} /> Revenir à l’unité</button><span className="lesson-theme-note">Thème actif : {theme.universe}{session?.isReplay ? " · rejeu" : ""}</span></div>;
+
+  return (
+    <div className="screen-content lesson-screen">
+      <div className="lesson-toolbar"><button aria-label="Retourner à l’unité" className="round-icon-button" onClick={() => onNavigate("unit")} type="button"><ArrowLeftIcon aria-hidden="true" size={19} /></button><div className="lesson-toolbar__center"><span className="eyebrow">{lesson.title}</span><strong>{index + 1} sur {lesson.exercises.length}</strong></div><button aria-label="Quitter la leçon" className="round-icon-button" onClick={() => onNavigate("home")} type="button"><span aria-hidden="true">×</span></button></div>
+      <div className="lesson-progress-line"><span style={{ width: `${progressPercent}%` }} /></div>
+      <StoryScenePanel context={context} exercise={exercise} lesson={lesson} />
+      <ReadingCheckpointCard checkpoint={lesson.readingCheckpoint} onSpeak={onSpeak} />
+      <div className="lesson-heading"><span className="lesson-heading__tag"><VolumeIcon aria-hidden="true" size={14} /> {getExerciseLabel(exercise)}</span><h1>{exercise.instruction}</h1><p>{exercise.prompt}</p></div>
+      <section className="exercise-card">
+        <div className="exercise-card__topline"><span>{lesson.objective}</span><span className="exercise-card__time"><ClockIcon aria-hidden="true" size={14} /> {lesson.durationMinutes} min</span></div>
+        <div className="exercise-stage"><div className="speech-bubble"><span className="speech-bubble__tiny">{getExerciseLabel(exercise)}</span><strong>{exercise.audioText ?? exercise.prompt}</strong><span className="speech-bubble__tail" /></div><div className="exercise-stage__mascot"><Companion size={151} theme={theme.id} /></div><div className="exercise-stage__sparkle exercise-stage__sparkle--one"><SparkleIcon aria-hidden="true" size={16} /></div><div className="exercise-stage__sparkle exercise-stage__sparkle--two"><SparkleIcon aria-hidden="true" size={11} /></div></div>
+        <ExerciseRenderer key={`${exercise.id}-${resetToken}`} exercise={exercise} feedbackVisible={Boolean(feedback)} onError={onError} onSpeak={onSpeak} onSubmit={onSubmit} />
+        {feedback ? <div className={`feedback-panel ${feedback.correct ? "feedback-panel--success" : "feedback-panel--gentle"}`}><span className="feedback-panel__icon">{feedback.correct ? <CheckIcon aria-hidden="true" size={18} /> : <CloseIcon aria-hidden="true" size={18} />}</span><div><strong>{feedback.correct ? "Bravo, c’est ça !" : "Pas tout à fait"}</strong><p>{feedback.explanation}{feedback.xpGained > 0 ? ` · +${feedback.xpGained} XP` : ""}</p></div></div> : null}
+        {feedback ? <div className="lesson-feedback-actions">{!feedback.correct ? <button className="secondary-button" onClick={onRetry} type="button">Réessayer</button> : null}<button className="primary-button primary-button--wide exercise-submit" onClick={onContinue} type="button">{index === lesson.exercises.length - 1 ? "Voir ma récompense" : feedback.correct ? "Continuer" : "Continuer quand même"}<ChevronRightIcon aria-hidden="true" size={19} /></button></div> : null}
+      </section>
+      <div className="lesson-footer-note"><TargetIcon aria-hidden="true" size={17} /><span>Une erreur est une nouvelle piste pour apprendre.</span></div><button className="prototype-back-link" onClick={() => onNavigate("unit")} type="button"><MapIcon aria-hidden="true" size={16} /> Revenir à l’unité</button><span className="lesson-theme-note">Thème actif : {theme.universe}{session?.isReplay ? " · rejeu" : ""}</span>
+    </div>
+  );
 }
 
 export function SummaryScreen({ context, reward, lessonId, onNavigate, onOpenLesson }: CommonScreenProps & { reward: RewardSummary | null; lessonId: string; onOpenLesson: (lessonId: string) => void }) {

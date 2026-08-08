@@ -1,0 +1,112 @@
+{
+  "id": "day-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "day",
+  "order": 1,
+  "title": "Le jour à l’envers",
+  "objective": "Reconnaître le matin, la nuit et le moment où l’on se réveille.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": ["wake-up", "morning", "night"],
+  "reviewConceptIds": ["hello", "room"],
+  "prerequisiteLessonIds": ["likes-03"],
+  "storyScene": {
+    "id": "day-01-scene",
+    "situation": "Le calendrier fait une roulade et mélange les cartes du matin et de la nuit.",
+    "setup": [
+      { "speaker": "Calendar", "text": "Good night! Good morning!" },
+      { "speaker": "Gabriel", "text": "The day is upside down." }
+    ],
+    "childAction": {
+      "instruction": "Reconstruis la phrase qui réveille le calendrier.",
+      "exerciseId": "day-01-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Calendar", "text": "Good morning!" },
+      { "speaker": "Luca", "text": "The sun card jumps to the top." }
+    ],
+    "nextHook": "Une petite course commence avant le petit-déjeuner."
+  },
+  "readingCheckpoint": {
+    "mode": "word-recognition",
+    "instruction": "Écoute le moment de la journée, puis lis le mot accentué.",
+    "text": "morning",
+    "audioText": "morning",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "day-01-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe chaque moment au bon mot.",
+      "prompt": "The day is upside down!",
+      "conceptIds": ["morning", "night"],
+      "explanation": "Morning signifie matin et night signifie nuit.",
+      "pairs": [
+        { "id": "morning-pair", "left": "🌅", "right": "morning" },
+        { "id": "night-pair", "left": "🌙", "right": "night" }
+      ]
+    },
+    {
+      "id": "day-01-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la salutation.",
+      "prompt": "When is it?",
+      "audioText": "Good morning!",
+      "conceptIds": ["morning"],
+      "explanation": "Good morning signifie bonjour le matin.",
+      "options": [
+        { "id": "morning", "label": "morning" },
+        { "id": "night", "label": "night" },
+        { "id": "room", "label": "room" }
+      ],
+      "correctOptionId": "morning"
+    },
+    {
+      "id": "day-01-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon moment.",
+      "prompt": "When do you wake up?",
+      "conceptIds": ["wake-up", "morning"],
+      "explanation": "On peut dire I wake up in the morning : je me réveille le matin.",
+      "options": [
+        { "id": "morning", "label": "in the morning" },
+        { "id": "night", "label": "at night" },
+        { "id": "room", "label": "in the room" }
+      ],
+      "correctOptionId": "morning"
+    },
+    {
+      "id": "day-01-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the morning sentence.",
+      "conceptIds": ["wake-up"],
+      "explanation": "I wake up signifie « Je me réveille ».",
+      "tokens": ["up.", "I", "wake"],
+      "acceptedOrders": [["I", "wake", "up."]]
+    },
+    {
+      "id": "day-01-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires du jour.",
+      "prompt": "Match morning and night.",
+      "conceptIds": ["morning", "night"],
+      "explanation": "Morning signifie matin et night signifie nuit.",
+      "cards": [
+        { "id": "morning-en", "label": "morning", "matchId": "morning", "emoji": "🌅" },
+        { "id": "morning-fr", "label": "matin", "matchId": "morning", "emoji": "☀️" },
+        { "id": "night-en", "label": "night", "matchId": "night", "emoji": "🌙" },
+        { "id": "night-fr", "label": "nuit", "matchId": "night", "emoji": "⭐" }
+      ]
+    }
+  ]
+}

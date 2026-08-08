@@ -1,0 +1,118 @@
+{
+  "id": "school-play-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "school-play",
+  "order": 2,
+  "title": "Écoute la consigne !",
+  "objective": "Comprendre teacher, open et look dans des consignes courtes.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["teacher", "open", "look"],
+  "reviewConceptIds": ["book", "pencil", "school"],
+  "prerequisiteLessonIds": ["school-play-01"],
+  "storyScene": {
+    "id": "school-play-02-scene",
+    "situation": "Une image se cache derrière le tableau et ne répond qu’aux bonnes consignes.",
+    "setup": [
+      { "speaker": "Teacher", "text": "Open the book." },
+      { "speaker": "Picture", "text": "Peek-a-boo! Look at me!" }
+    ],
+    "childAction": {
+      "instruction": "Choisis la consigne qui fait sortir l’image.",
+      "exerciseId": "school-play-02-dialogue",
+      "purpose": "respond"
+    },
+    "resolution": [
+      { "speaker": "Picture", "text": "You found me!" },
+      { "speaker": "Teacher", "text": "Great look!" }
+    ],
+    "nextHook": "Le ballon de la récréation rebondit dans le couloir."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la consigne, puis repère le mot d’action écrit.",
+    "text": "Open the book.",
+    "audioText": "Open the book.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "school-play-02-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la consigne.",
+      "prompt": "What should you do?",
+      "audioText": "Teacher",
+      "conceptIds": ["teacher"],
+      "explanation": "Teacher signifie professeur ou maîtresse.",
+      "options": [
+        { "id": "teacher", "label": "teacher" },
+        { "id": "book", "label": "book" },
+        { "id": "school", "label": "school" }
+      ],
+      "correctOptionId": "teacher"
+    },
+    {
+      "id": "school-play-02-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le mot qui complète la consigne.",
+      "prompt": "___ the book!",
+      "conceptIds": ["open", "book"],
+      "explanation": "Open the book signifie « Ouvre le livre ».",
+      "options": [
+        { "id": "open", "label": "Open" },
+        { "id": "teacher", "label": "Teacher" },
+        { "id": "book", "label": "Book" }
+      ],
+      "correctOptionId": "open"
+    },
+    {
+      "id": "school-play-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la consigne dans l’ordre.",
+      "prompt": "Build the instruction.",
+      "conceptIds": ["look", "book"],
+      "explanation": "Look at the book signifie « Regarde le livre ».",
+      "tokens": ["book.", "Look", "at", "the"],
+      "acceptedOrders": [["Look", "at", "the", "book."]]
+    },
+    {
+      "id": "school-play-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la consigne adaptée.",
+      "prompt": "The picture is hiding!",
+      "conceptIds": ["look"],
+      "explanation": "Look at the picture signifie « Regarde l’image ».",
+      "lines": [
+        { "speaker": "Gabriel", "text": "The picture is hiding!" },
+        { "speaker": "Luca", "text": "…" }
+      ],
+      "options": [
+        { "id": "look", "label": "Look at the picture!", "detail": "Regarde l’image !" },
+        { "id": "open", "label": "Open the door!", "detail": "Ouvre la porte !" },
+        { "id": "teacher", "label": "Ask the teacher!", "detail": "Demande au professeur !" }
+      ],
+      "correctOptionId": "look"
+    },
+    {
+      "id": "school-play-02-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Associe chaque consigne à sa traduction.",
+      "prompt": "Match the instructions.",
+      "conceptIds": ["open", "look"],
+      "explanation": "Open signifie ouvre et look signifie regarde.",
+      "cards": [
+        { "id": "open-en", "label": "open", "matchId": "open", "emoji": "📖" },
+        { "id": "open-fr", "label": "ouvre", "matchId": "open", "emoji": "🔓" },
+        { "id": "look-en", "label": "look", "matchId": "look", "emoji": "👀" },
+        { "id": "look-fr", "label": "regarde", "matchId": "look", "emoji": "🔎" }
+      ]
+    }
+  ]
+}

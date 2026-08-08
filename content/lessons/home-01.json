@@ -1,0 +1,131 @@
+{
+  "id": "home-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "home",
+  "order": 1,
+  "title": "La porte minuscule",
+  "objective": "Reconnaître room, kitchen et bed dans une petite maison.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["room", "kitchen", "bed"],
+  "reviewConceptIds": ["hello", "name"],
+  "prerequisiteLessonIds": ["family-03"],
+  "storyScene": {
+    "id": "home-01-scene",
+    "situation": "Une porte minuscule garde une maison pleine d’objets cachés.",
+    "setup": [
+      { "speaker": "Tiny Door", "text": "Where is the bed?" },
+      { "speaker": "Luca", "text": "It’s hiding behind the tiny door!" }
+    ],
+    "childAction": {
+      "instruction": "Choisis la réplique qui aide à ouvrir la porte.",
+      "exerciseId": "home-01-dialogue",
+      "purpose": "respond"
+    },
+    "resolution": [
+      { "speaker": "Tiny Door", "text": "Open!" },
+      { "speaker": "Gabriel", "text": "A little room rolls out." }
+    ],
+    "nextHook": "Le lit n’est déjà plus dans la pièce."
+  },
+  "readingCheckpoint": {
+    "mode": "word-recognition",
+    "instruction": "Écoute le mot, puis lis-le comme un petit indice.",
+    "text": "door",
+    "audioText": "door",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "home-01-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe chaque image au bon mot.",
+      "prompt": "Open the tiny door!",
+      "conceptIds": ["room", "kitchen"],
+      "explanation": "Room signifie pièce ou chambre, et kitchen signifie cuisine.",
+      "pairs": [
+        { "id": "room-pair", "left": "🛏️", "right": "room" },
+        { "id": "kitchen-pair", "left": "🍳", "right": "kitchen" }
+      ]
+    },
+    {
+      "id": "home-01-bed",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon mot.",
+      "prompt": "Where do you sleep?",
+      "conceptIds": ["bed"],
+      "explanation": "Bed signifie lit.",
+      "options": [
+        { "id": "bed", "label": "bed", "detail": "lit" },
+        { "id": "room", "label": "room", "detail": "pièce" },
+        { "id": "kitchen", "label": "kitchen", "detail": "cuisine" }
+      ],
+      "correctOptionId": "bed"
+    },
+    {
+      "id": "home-01-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis le mot.",
+      "prompt": "Which word did you hear?",
+      "audioText": "Kitchen",
+      "conceptIds": ["kitchen"],
+      "explanation": "Kitchen signifie cuisine.",
+      "options": [
+        { "id": "kitchen", "label": "kitchen" },
+        { "id": "room", "label": "room" },
+        { "id": "bed", "label": "bed" }
+      ],
+      "correctOptionId": "kitchen"
+    },
+    {
+      "id": "home-01-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets les mots dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["room"],
+      "explanation": "This is my room signifie « Voici ma chambre ».",
+      "tokens": ["room.", "This", "is", "my"],
+      "acceptedOrders": [["This", "is", "my", "room."]]
+    },
+    {
+      "id": "home-01-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la réplique qui aide à ouvrir la porte.",
+      "prompt": "Where is the bed?",
+      "conceptIds": ["bed", "room"],
+      "explanation": "On peut répondre « In the room! » pour dire où est le lit.",
+      "lines": [
+        { "speaker": "Luca", "text": "Where is the bed?" },
+        { "speaker": "Gabriel", "text": "…" }
+      ],
+      "options": [
+        { "id": "room", "label": "In the room!", "detail": "Dans la chambre !" },
+        { "id": "hello", "label": "Good morning!", "detail": "Bonjour !" },
+        { "id": "family", "label": "This is my dad.", "detail": "Voici mon papa." }
+      ],
+      "correctOptionId": "room"
+    },
+    {
+      "id": "home-01-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires de la maison.",
+      "prompt": "Find the home pairs.",
+      "conceptIds": ["room", "bed"],
+      "explanation": "Room signifie pièce et bed signifie lit.",
+      "cards": [
+        { "id": "room-en", "label": "room", "matchId": "room", "emoji": "🛏️" },
+        { "id": "room-fr", "label": "pièce", "matchId": "room", "emoji": "🏠" },
+        { "id": "bed-en", "label": "bed", "matchId": "bed", "emoji": "🛌" },
+        { "id": "bed-fr", "label": "lit", "matchId": "bed", "emoji": "🌙" }
+      ]
+    }
+  ]
+}

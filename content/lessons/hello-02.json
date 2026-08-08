@@ -5,12 +5,37 @@
   "unitId": "hello",
   "order": 2,
   "title": "Faire connaissance",
-  "objective": "Poser une question simple et répondre avec son prénom.",
+  "objective": "Poser What’s your name?, demander How are you? et répondre I’m good.",
   "durationMinutes": 5,
   "difficulty": 1,
-  "newConceptIds": ["name", "how-are-you"],
-  "reviewConceptIds": ["hello", "hi"],
+  "newConceptIds": ["how-are-you", "im-good", "good-morning"],
+  "reviewConceptIds": ["hello", "hi", "name"],
   "prerequisiteLessonIds": ["hello-01"],
+  "storyScene": {
+    "id": "hello-02-scene",
+    "situation": "La valise ouvre une carte, mais elle veut connaître le nouveau voyageur.",
+    "setup": [
+      { "speaker": "Sam", "text": "Hi! What’s your name?" },
+      { "speaker": "Sam", "text": "How are you?" }
+    ],
+    "childAction": {
+      "instruction": "Construis la réponse qui rassure Sam.",
+      "exerciseId": "hello-02-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Sam", "text": "I’m good too!" },
+      { "speaker": "Suitcase", "text": "The family map is ready!" }
+    ],
+    "nextHook": "Un portrait de famille tombe de la valise."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute la question et repère la montée de la voix à la fin.",
+    "text": "How are you? — I’m good.",
+    "audioText": "How are you? I’m good.",
+    "phonologyFocus": "question-intonation"
+  },
   "exercises": [
     {
       "id": "hello-02-listening",
@@ -28,36 +53,51 @@
       "schemaVersion": 1,
       "type": "sentence-completion",
       "instruction": "Complète la réponse.",
-      "prompt": "What’s your name? — My ___ is Luca.",
-      "conceptIds": ["name"],
-      "explanation": "My name is… signifie « Je m’appelle… ».",
-      "sentence": "My ___ is Luca.",
+      "prompt": "How are you? — I’m ___.",
+      "conceptIds": ["how-are-you", "im-good"],
+      "explanation": "I’m good signifie « Je vais bien ».",
+      "sentence": "How are you? — I’m ___.",
       "options": [
-        { "id": "name", "label": "name" },
+        { "id": "im-good", "label": "good" },
         { "id": "hello", "label": "hello" },
-        { "id": "morning", "label": "morning" }
+        { "id": "name", "label": "name" }
       ],
-      "correctOptionId": "name"
+      "correctOptionId": "im-good"
+    },
+    {
+      "id": "hello-02-morning-greeting",
+      "schemaVersion": 1,
+      "type": "english-french-matching",
+      "instruction": "Associe la salutation du matin.",
+      "prompt": "The sun is up!",
+      "conceptIds": ["good-morning", "hello"],
+      "explanation": "Good morning signifie « Bonjour » le matin et hello signifie « Bonjour ».",
+      "pairs": [
+        { "id": "good-morning-en", "left": "Good morning", "right": "Bonjour le matin" },
+        { "id": "hello-en", "left": "Hello", "right": "Bonjour" }
+      ]
     },
     {
       "id": "hello-02-dialogue",
       "schemaVersion": 1,
       "type": "dialogue",
       "instruction": "Choisis la bonne réplique.",
-      "prompt": "A short hello.",
-      "audioText": "Hi! What’s your name?",
-      "conceptIds": ["hi", "name"],
-      "explanation": "I’m Luca! répond naturellement à What’s your name?.",
+      "prompt": "Sam asks two questions. Answer the last one.",
+      "audioText": "Hi! What’s your name? How are you?",
+      "conceptIds": ["hi", "name", "how-are-you", "im-good"],
+      "explanation": "I’m good! répond naturellement à How are you?.",
       "lines": [
         { "speaker": "Sam", "text": "Hi! What’s your name?" },
+        { "speaker": "You", "text": "I’m Luca!" },
+        { "speaker": "Sam", "text": "How are you?" },
         { "speaker": "You", "text": "…" }
       ],
       "options": [
-        { "id": "im-luca", "label": "I’m Luca!", "detail": "Je m’appelle Luca !" },
-        { "id": "goodbye", "label": "Goodbye!", "detail": "Au revoir !" },
-        { "id": "morning", "label": "Good morning!", "detail": "Bonjour !" }
+        { "id": "im-good", "label": "I’m good!", "detail": "Je vais bien !" },
+        { "id": "hello", "label": "Hello!", "detail": "Bonjour !" },
+        { "id": "name", "label": "What’s your name?", "detail": "Quel est ton prénom ?" }
       ],
-      "correctOptionId": "im-luca"
+      "correctOptionId": "im-good"
     },
     {
       "id": "hello-02-translation",
@@ -70,7 +110,7 @@
       "options": [
         { "id": "feeling", "label": "Comment vas-tu ?" },
         { "id": "name", "label": "Quel est ton prénom ?" },
-        { "id": "hello", "label": "Bonjour !" }
+        { "id": "good-morning", "label": "Bonjour le matin !" }
       ],
       "correctOptionId": "feeling"
     },
@@ -80,10 +120,12 @@
       "type": "reorder",
       "instruction": "Construis la phrase.",
       "prompt": "Build the answer.",
-      "conceptIds": ["how-are-you"],
-      "explanation": "I’m fine signifie « Je vais bien ».",
-      "tokens": ["fine.", "I’m"],
-      "acceptedOrders": [["I’m", "fine."]]
+      "conceptIds": ["im-good"],
+      "explanation": "I’m good signifie « Je vais bien ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["good.", "I’m"],
+      "acceptedOrders": [["I’m", "good."]]
     },
     {
       "id": "hello-02-memory",
@@ -92,13 +134,13 @@
       "isRevisionActivity": true,
       "instruction": "Retourne les cartes pour retrouver les paires.",
       "prompt": "Find the pairs.",
-      "conceptIds": ["hello", "name"],
-      "explanation": "Hello signifie bonjour et name signifie prénom ou nom.",
+      "conceptIds": ["how-are-you", "im-good"],
+      "explanation": "How are you? signifie « Comment vas-tu ? » et I’m good signifie « Je vais bien ».",
       "cards": [
-        { "id": "hello-en", "label": "hello", "matchId": "hello", "emoji": "👋" },
-        { "id": "hello-fr", "label": "bonjour", "matchId": "hello", "emoji": "🌞" },
-        { "id": "name-en", "label": "name", "matchId": "name", "emoji": "🏷️" },
-        { "id": "name-fr", "label": "prénom", "matchId": "name", "emoji": "✍️" }
+        { "id": "how-are-you-en", "label": "How are you?", "matchId": "how-are-you", "emoji": "💬" },
+        { "id": "how-are-you-fr", "label": "Comment vas-tu ?", "matchId": "how-are-you", "emoji": "❓" },
+        { "id": "im-good-en", "label": "I’m good.", "matchId": "im-good", "emoji": "😊" },
+        { "id": "im-good-fr", "label": "Je vais bien.", "matchId": "im-good", "emoji": "⭐" }
       ]
     }
   ]

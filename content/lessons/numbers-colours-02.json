@@ -1,0 +1,118 @@
+{
+  "id": "numbers-colours-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "numbers-colours",
+  "order": 2,
+  "title": "Compte les grenouilles",
+  "objective": "Compter jusqu’à 20 et reconnaître yellow et purple.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": ["yellow", "purple", "numbers-1-to-20"],
+  "reviewConceptIds": ["red", "blue", "green"],
+  "prerequisiteLessonIds": ["numbers-colours-01"],
+  "storyScene": {
+    "id": "numbers-colours-02-scene",
+    "situation": "Des grenouilles bondissent hors du coffre et comptent beaucoup trop vite.",
+    "setup": [
+      { "speaker": "Frogs", "text": "One, two, three… hop!" },
+      { "speaker": "Luca", "text": "How many frogs are there?" }
+    ],
+    "childAction": {
+      "instruction": "Choisis le nombre qui arrête le grand saut.",
+      "exerciseId": "numbers-colours-02-dialogue",
+      "purpose": "respond"
+    },
+    "resolution": [
+      { "speaker": "Frogs", "text": "Five!" },
+      { "speaker": "Gabriel", "text": "The frogs land in a colourful row." }
+    ],
+    "nextHook": "Les couleurs commencent à danser autour des objets."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute la question et laisse la voix monter à la fin.",
+    "text": "How many frogs?",
+    "audioText": "How many frogs?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "id": "numbers-colours-02-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis la couleur.",
+      "prompt": "Which colour did the frog hear?",
+      "audioText": "Yellow",
+      "conceptIds": ["yellow"],
+      "explanation": "Yellow signifie jaune.",
+      "options": [
+        { "id": "yellow", "label": "yellow" },
+        { "id": "purple", "label": "purple" },
+        { "id": "blue", "label": "blue" }
+      ],
+      "correctOptionId": "yellow"
+    },
+    {
+      "id": "numbers-colours-02-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Compte les grenouilles.",
+      "prompt": "How many frogs? 🐸🐸🐸🐸",
+      "conceptIds": ["numbers-1-to-20"],
+      "explanation": "Il y a four frogs : quatre grenouilles.",
+      "options": [
+        { "id": "four", "label": "four", "detail": "quatre" },
+        { "id": "five", "label": "five", "detail": "cinq" },
+        { "id": "three", "label": "three", "detail": "trois" }
+      ],
+      "correctOptionId": "four"
+    },
+    {
+      "id": "numbers-colours-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the counting sentence.",
+      "conceptIds": ["numbers-1-to-20"],
+      "explanation": "I can count to twenty signifie « Je peux compter jusqu’à vingt ».",
+      "tokens": ["twenty.", "I", "can", "count", "to"],
+      "acceptedOrders": [["I", "can", "count", "to", "twenty."]]
+    },
+    {
+      "id": "numbers-colours-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis le nombre de ballons.",
+      "prompt": "How many balls? ⚽⚽⚽⚽⚽",
+      "conceptIds": ["numbers-1-to-20", "ball"],
+      "explanation": "Il y a five balls : cinq ballons.",
+      "lines": [
+        { "speaker": "Gabriel", "text": "How many balls?" },
+        { "speaker": "Luca", "text": "…" }
+      ],
+      "options": [
+        { "id": "five", "label": "Five!", "detail": "Cinq !" },
+        { "id": "purple", "label": "Purple!", "detail": "Violet !" },
+        { "id": "night", "label": "Good night!", "detail": "Bonne nuit !" }
+      ],
+      "correctOptionId": "five"
+    },
+    {
+      "id": "numbers-colours-02-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Associe les nouvelles couleurs.",
+      "prompt": "Match the colours.",
+      "conceptIds": ["yellow", "purple"],
+      "explanation": "Yellow signifie jaune et purple signifie violet.",
+      "cards": [
+        { "id": "yellow-en", "label": "yellow", "matchId": "yellow", "emoji": "🟡" },
+        { "id": "yellow-fr", "label": "jaune", "matchId": "yellow", "emoji": "🌞" },
+        { "id": "purple-en", "label": "purple", "matchId": "purple", "emoji": "🟣" },
+        { "id": "purple-fr", "label": "violet", "matchId": "purple", "emoji": "🍇" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "id": "numbers-colours-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "numbers-colours",
+  "order": 1,
+  "title": "Le coffre arc-en-ciel",
+  "objective": "Reconnaître red, blue et green dans un coffre plein de surprises.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": ["red", "blue", "green"],
+  "reviewConceptIds": ["ball", "apple", "room"],
+  "prerequisiteLessonIds": ["day-03"],
+  "storyScene": {
+    "id": "numbers-colours-01-scene",
+    "situation": "Un coffre arc-en-ciel demande un mot de couleur avant de bâiller.",
+    "setup": [
+      { "speaker": "Chest", "text": "Open me! Which colour?" },
+      { "speaker": "Gabriel", "text": "The balloons are giving clues." }
+    ],
+    "childAction": {
+      "instruction": "Construis la phrase qui ouvre le coffre rouge.",
+      "exerciseId": "numbers-colours-01-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Chest", "text": "It’s red! Click!" },
+      { "speaker": "Luca", "text": "A rainbow key pops out." }
+    ],
+    "nextHook": "Des grenouilles se mettent à compter en sautant."
+  },
+  "readingCheckpoint": {
+    "mode": "word-recognition",
+    "instruction": "Écoute le nom de la couleur, puis lis-le comme un indice lumineux.",
+    "text": "red",
+    "audioText": "red",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "numbers-colours-01-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe chaque couleur à son ballon.",
+      "prompt": "Open the rainbow chest!",
+      "conceptIds": ["red", "blue", "green"],
+      "explanation": "Red signifie rouge, blue bleu et green vert.",
+      "pairs": [
+        { "id": "red-pair", "left": "🔴", "right": "red" },
+        { "id": "blue-pair", "left": "🔵", "right": "blue" },
+        { "id": "green-pair", "left": "🟢", "right": "green" }
+      ]
+    },
+    {
+      "id": "numbers-colours-01-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis la couleur.",
+      "prompt": "Which colour did you hear?",
+      "audioText": "Green",
+      "conceptIds": ["green"],
+      "explanation": "Green signifie vert.",
+      "options": [
+        { "id": "green", "label": "green" },
+        { "id": "red", "label": "red" },
+        { "id": "blue", "label": "blue" }
+      ],
+      "correctOptionId": "green"
+    },
+    {
+      "id": "numbers-colours-01-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis la couleur du ballon.",
+      "prompt": "What colour is the ball? 🔴",
+      "conceptIds": ["red", "ball"],
+      "explanation": "Le ballon est red, rouge.",
+      "options": [
+        { "id": "red", "label": "red" },
+        { "id": "blue", "label": "blue" },
+        { "id": "green", "label": "green" }
+      ],
+      "correctOptionId": "red"
+    },
+    {
+      "id": "numbers-colours-01-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the colour sentence.",
+      "conceptIds": ["blue"],
+      "explanation": "It is blue signifie « C’est bleu ».",
+      "tokens": ["blue.", "It", "is"],
+      "acceptedOrders": [["It", "is", "blue."]]
+    },
+    {
+      "id": "numbers-colours-01-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les couleurs.",
+      "prompt": "Match the colours.",
+      "conceptIds": ["red", "green"],
+      "explanation": "Red signifie rouge et green signifie vert.",
+      "cards": [
+        { "id": "red-en", "label": "red", "matchId": "red", "emoji": "🔴" },
+        { "id": "red-fr", "label": "rouge", "matchId": "red", "emoji": "🍎" },
+        { "id": "green-en", "label": "green", "matchId": "green", "emoji": "🟢" },
+        { "id": "green-fr", "label": "vert", "matchId": "green", "emoji": "🌱" }
+      ]
+    }
+  ]
+}

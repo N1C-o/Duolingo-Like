@@ -11,6 +11,31 @@
   "newConceptIds": ["mum", "dad"],
   "reviewConceptIds": ["hello", "name"],
   "prerequisiteLessonIds": ["hello-02"],
+  "storyScene": {
+    "id": "family-01-scene",
+    "situation": "Les étiquettes d’un portrait de famille se mettent à courir partout.",
+    "setup": [
+      { "speaker": "Luca", "text": "The labels are running away!" },
+      { "speaker": "Gabriel", "text": "Catch one and name the person." }
+    ],
+    "childAction": {
+      "instruction": "Présente la personne de la photo.",
+      "exerciseId": "family-01-completion",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Mum", "text": "That’s me!" },
+      { "speaker": "Gabriel", "text": "The portrait stops wobbling." }
+    ],
+    "nextHook": "Une étiquette cherche maintenant son frère ou sa sœur."
+  },
+  "readingCheckpoint": {
+    "mode": "word-recognition",
+    "instruction": "Écoute le mot de famille et lis-le sans te presser.",
+    "text": "mum",
+    "audioText": "mum",
+    "phonologyFocus": "word-stress"
+  },
   "exercises": [
     {
       "id": "family-01-image-word",
@@ -37,7 +62,7 @@
       "options": [
         { "id": "mum", "label": "mum" },
         { "id": "dad", "label": "dad" },
-        { "id": "friend", "label": "friend" }
+        { "id": "hello", "label": "hello" }
       ],
       "correctOptionId": "mum"
     },

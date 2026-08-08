@@ -28,6 +28,9 @@ Les tokens sont portés par `.prototype-canvas` et redéfinis par `.theme-luca`.
 - `PrimaryButton` / `SecondaryButton` : action principale ou secondaire, minimum 44 px de hauteur.
 - `Card`, `ProgressBar`, `LessonNode`, `UnitSection` : structure du parcours.
 - `ExerciseCard`, `AnswerOption`, `AudioButton`, `FeedbackPanel` : boucle de leçon.
+- `StorySceneCard` : situation, répliques, action de l’enfant, résolution et accroche suivante.
+- `ReadingCheckpoint` : texte court, écoute rejouable et focus de rythme/intonation.
+- `ProductionMission` : signal visuel d’une réponse guidée et de la mission de fin d’unité.
 - `RewardModal` équivalent : `SummaryScreen` pour XP, niveau, badge et déverrouillage.
 - `BadgeCard`, `Confirmation` parental : collection et action sensible.
 

@@ -1,0 +1,119 @@
+{
+  "id": "day-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "day",
+  "order": 2,
+  "title": "La course du matin",
+  "objective": "Dire ce que l’on fait aujourd’hui avec eat et go.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": ["eat", "go", "today"],
+  "reviewConceptIds": ["wake-up", "morning", "night"],
+  "prerequisiteLessonIds": ["day-01"],
+  "storyScene": {
+    "id": "day-02-scene",
+    "situation": "Un petit robot court dans la mauvaise direction avec une tartine sur la tête.",
+    "setup": [
+      { "speaker": "Robot", "text": "Today I go… somewhere!" },
+      { "speaker": "Gabriel", "text": "The robot needs a clear plan." }
+    ],
+    "childAction": {
+      "instruction": "Choisis la réponse qui dit ce qui se passe aujourd’hui.",
+      "exerciseId": "day-02-dialogue",
+      "purpose": "respond"
+    },
+    "resolution": [
+      { "speaker": "Robot", "text": "Today I go to school!" },
+      { "speaker": "Luca", "text": "The tartine becomes a steering wheel." }
+    ],
+    "nextHook": "Le soir, les cartes de routine veulent encore jouer."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase et lis-la comme une petite marche.",
+    "text": "Today I go to school.",
+    "audioText": "Today I go to school.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "day-02-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la phrase sur la journée.",
+      "prompt": "What happens today?",
+      "audioText": "Today I go to school.",
+      "conceptIds": ["today", "go", "school"],
+      "explanation": "Today I go to school signifie « Aujourd’hui, je vais à l’école ».",
+      "options": [
+        { "id": "school", "label": "Today I go to school." },
+        { "id": "home", "label": "Today I go home." },
+        { "id": "wake-up", "label": "I wake up in the morning." }
+      ],
+      "correctOptionId": "school"
+    },
+    {
+      "id": "day-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la routine dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["go", "school"],
+      "explanation": "I go to school signifie « Je vais à l’école ».",
+      "tokens": ["school.", "I", "go", "to"],
+      "acceptedOrders": [["I", "go", "to", "school."]]
+    },
+    {
+      "id": "day-02-completion",
+      "schemaVersion": 1,
+      "type": "sentence-completion",
+      "instruction": "Complète la routine.",
+      "prompt": "Today I ___ home.",
+      "conceptIds": ["today", "go", "school"],
+      "explanation": "Go signifie aller : Today I go home.",
+      "sentence": "Today I ___ home.",
+      "options": [
+        { "id": "go", "label": "go" },
+        { "id": "eat", "label": "eat" },
+        { "id": "wake-up", "label": "wake up" }
+      ],
+      "correctOptionId": "go"
+    },
+    {
+      "id": "day-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la réponse sur aujourd’hui.",
+      "prompt": "What do you do today?",
+      "conceptIds": ["today", "go", "school"],
+      "explanation": "Today I go to school est une réponse simple sur la journée.",
+      "lines": [
+        { "speaker": "Luca", "text": "What do you do today?" },
+        { "speaker": "Gabriel", "text": "…" }
+      ],
+      "options": [
+        { "id": "school", "label": "Today I go to school.", "detail": "Aujourd’hui je vais à l’école." },
+        { "id": "morning", "label": "Good morning!", "detail": "Bonjour !" },
+        { "id": "night", "label": "Good night!", "detail": "Bonne nuit !" }
+      ],
+      "correctOptionId": "school"
+    },
+    {
+      "id": "day-02-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Associe les actions de la journée.",
+      "prompt": "Review the day words.",
+      "conceptIds": ["eat", "go"],
+      "explanation": "Eat signifie manger et go signifie aller.",
+      "cards": [
+        { "id": "eat-en", "label": "eat", "matchId": "eat", "emoji": "🍎" },
+        { "id": "eat-fr", "label": "manger", "matchId": "eat", "emoji": "🍽️" },
+        { "id": "go-en", "label": "go", "matchId": "go", "emoji": "🚶" },
+        { "id": "go-fr", "label": "aller", "matchId": "go", "emoji": "➡️" }
+      ]
+    }
+  ]
+}

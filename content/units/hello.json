@@ -6,10 +6,10 @@
   "title": "Hello!",
   "shortTitle": "Se présenter",
   "topic": "Saluer et faire connaissance",
-  "objective": "Tu sais saluer quelqu’un et dire ton prénom.",
+  "objective": "Tu sais saluer quelqu’un, dire ton prénom et répondre comment tu vas.",
   "difficulty": 1,
   "prerequisiteUnitIds": [],
   "lessonIds": ["hello-01", "hello-02"],
-  "vocabularyIds": ["hello", "hi", "good-morning", "name", "how-are-you"],
+  "vocabularyIds": ["hello", "hi", "good-morning", "name", "how-are-you", "im-good"],
   "rewardTitle": "Le carnet des salutations"
 }

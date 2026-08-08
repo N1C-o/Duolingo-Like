@@ -21,6 +21,39 @@ export type ChoiceOption = {
   emoji?: string;
 };
 
+export type ResponseMode = "recognition" | "guided-production";
+
+export type StorySceneLine = {
+  speaker?: string;
+  text: string;
+  translation?: string;
+};
+
+export type StoryScene = {
+  id: string;
+  situation: string;
+  setup: StorySceneLine[];
+  childAction: {
+    instruction: string;
+    exerciseId: string;
+    purpose: "choose" | "construct" | "respond";
+  };
+  resolution: StorySceneLine[];
+  nextHook?: string;
+};
+
+export type ReadingMode = "word-recognition" | "phrase-recognition" | "audio-to-text" | "word-order";
+
+export type PhonologyFocus = "greeting-rhythm" | "question-intonation" | "word-stress" | "phrase-rhythm";
+
+export type ReadingCheckpoint = {
+  mode: ReadingMode;
+  instruction: string;
+  text: string;
+  audioText: string;
+  phonologyFocus: PhonologyFocus;
+};
+
 export type ExerciseBase = {
   id: string;
   schemaVersion: number;
@@ -32,6 +65,8 @@ export type ExerciseBase = {
   explanation: string;
   hint?: string;
   isRevisionActivity?: boolean;
+  responseMode?: ResponseMode;
+  isUnitMission?: boolean;
 };
 
 export type MultipleChoiceExercise = ExerciseBase & {
@@ -147,6 +182,8 @@ export type LessonContent = {
   newConceptIds: string[];
   reviewConceptIds: string[];
   prerequisiteLessonIds: string[];
+  storyScene: StoryScene;
+  readingCheckpoint: ReadingCheckpoint;
   exercises: Exercise[];
 };
 

@@ -1,0 +1,15 @@
+{
+  "id": "food",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 5,
+  "title": "Food, please!",
+  "shortTitle": "Le goûter",
+  "topic": "Nommer des aliments et demander quelque chose poliment",
+  "objective": "Tu peux demander un aliment ou une boisson simplement.",
+  "difficulty": 1,
+  "prerequisiteUnitIds": ["school-play"],
+  "lessonIds": ["food-01", "food-02", "food-03"],
+  "vocabularyIds": ["water", "milk", "apple", "hungry", "eat", "id-like", "can-i-have", "please", "thank-you"],
+  "rewardTitle": "Le panier magique"
+}

@@ -5,12 +5,37 @@
   "unitId": "hello",
   "order": 1,
   "title": "Les premiers mots",
-  "objective": "Saluer et dire bonjour simplement.",
+  "objective": "Saluer, reconnaître une question sur le prénom et dire I’m… .",
   "durationMinutes": 5,
   "difficulty": 1,
-  "newConceptIds": ["hello", "hi"],
+  "newConceptIds": ["hello", "hi", "name"],
   "reviewConceptIds": [],
   "prerequisiteLessonIds": [],
+  "storyScene": {
+    "id": "hello-01-scene",
+    "situation": "Une petite valise cligne des yeux, mais refuse de s’ouvrir.",
+    "setup": [
+      { "speaker": "Gabriel", "text": "The suitcase is sleeping!" },
+      { "speaker": "Luca", "text": "Maybe it needs a friendly hello." }
+    ],
+    "childAction": {
+      "instruction": "Construis la présentation du voyageur.",
+      "exerciseId": "hello-01-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Suitcase", "text": "Hello! Click!" },
+      { "speaker": "Gabriel", "text": "The first map is inside!" }
+    ],
+    "nextHook": "Une flèche dessinée sur la carte demande comment tu vas."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la salutation, puis suis son rythme en la lisant.",
+    "text": "Hello!",
+    "audioText": "Hello",
+    "phonologyFocus": "greeting-rhythm"
+  },
   "exercises": [
     {
       "id": "hello-01-multiple-choice",
@@ -24,8 +49,8 @@
       "hint": "C’est le mot que l’on dit quand on arrive.",
       "options": [
         { "id": "hello", "label": "Bonjour" },
-        { "id": "goodbye", "label": "Au revoir" },
-        { "id": "please", "label": "S’il te plaît" }
+        { "id": "hi", "label": "Salut" },
+        { "id": "name", "label": "Prénom" }
       ],
       "correctOptionId": "hello"
     },
@@ -40,8 +65,8 @@
       "explanation": "What’s your name? veut dire « Quel est ton prénom ? ».",
       "options": [
         { "id": "name", "label": "What’s your name?", "detail": "Quel est ton prénom ?" },
-        { "id": "feeling", "label": "How are you?", "detail": "Comment vas-tu ?" },
-        { "id": "age", "label": "How old are you?", "detail": "Quel âge as-tu ?" }
+        { "id": "hello", "label": "Hello!", "detail": "Bonjour !" },
+        { "id": "hi", "label": "Hi!", "detail": "Salut !" }
       ],
       "correctOptionId": "name"
     },
@@ -76,14 +101,14 @@
       "instruction": "Complète la phrase.",
       "prompt": "Choose the missing word.",
       "conceptIds": ["hello"],
-      "explanation": "Good morning est la salutation que l’on utilise le matin.",
-      "sentence": "Good ___!",
+      "explanation": "Hello et hi sont deux salutations simples.",
+      "sentence": "___!",
       "options": [
-        { "id": "morning", "label": "morning" },
-        { "id": "night", "label": "night" },
-        { "id": "friend", "label": "friend" }
+        { "id": "hello", "label": "Hello" },
+        { "id": "hi", "label": "Hi" },
+        { "id": "name", "label": "What’s your name?" }
       ],
-      "correctOptionId": "morning"
+      "correctOptionId": "hello"
     },
     {
       "id": "hello-01-true-false",

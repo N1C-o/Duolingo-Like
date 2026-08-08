@@ -1,0 +1,15 @@
+{
+  "id": "numbers-colours",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 8,
+  "title": "Numbers and colours",
+  "shortTitle": "Nombres et couleurs",
+  "topic": "Compter, reconnaître des couleurs et réviser",
+  "objective": "Tu sais compter jusqu’à 20 et décrire quelques couleurs.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": ["day"],
+  "lessonIds": ["numbers-colours-01", "numbers-colours-02", "numbers-colours-03"],
+  "vocabularyIds": ["numbers-1-to-20", "red", "blue", "green", "yellow", "purple"],
+  "rewardTitle": "La boîte à couleurs"
+}

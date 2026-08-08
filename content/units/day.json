@@ -1,0 +1,15 @@
+{
+  "id": "day",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 7,
+  "title": "My day",
+  "shortTitle": "Ma journée",
+  "topic": "Parler de quelques moments de sa journée",
+  "objective": "Tu peux remettre une petite routine dans l’ordre et en parler.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": ["likes"],
+  "lessonIds": ["day-01", "day-02", "day-03"],
+  "vocabularyIds": ["wake-up", "eat", "go", "morning", "night", "today", "breakfast", "sleep"],
+  "rewardTitle": "La montre rigolote"
+}

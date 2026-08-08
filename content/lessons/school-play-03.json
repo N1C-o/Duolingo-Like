@@ -1,0 +1,128 @@
+{
+  "id": "school-play-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "school-play",
+  "order": 3,
+  "title": "La récréation impossible",
+  "objective": "Proposer un jeu et parler d’un ballon dans une mini-mission.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["game", "ball", "lets-play"],
+  "reviewConceptIds": ["school", "book", "open", "look"],
+  "prerequisiteLessonIds": ["school-play-02"],
+  "storyScene": {
+    "id": "school-play-03-scene",
+    "situation": "Le terrain de jeu se retrouve à l’envers et le ballon roule vers le plafond.",
+    "setup": [
+      { "speaker": "Luca", "text": "I have a ball!" },
+      { "speaker": "Gabriel", "text": "The playground is upside down!" }
+    ],
+    "childAction": {
+      "instruction": "Construis l’invitation qui lance la récréation.",
+      "exerciseId": "school-play-03-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Gabriel", "text": "Let’s play a game!" },
+      { "speaker": "Ball", "text": "Boing!" }
+    ],
+    "nextHook": "Le ballon atterrit sur une nappe de pique-nique."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute l’invitation et lis-la avec un rythme énergique.",
+    "text": "Let’s play a game!",
+    "audioText": "Let’s play a game!",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "school-play-03-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe les objets de la récréation.",
+      "prompt": "The playground is upside down!",
+      "conceptIds": ["game", "ball"],
+      "explanation": "Game signifie jeu et ball signifie ballon.",
+      "pairs": [
+        { "id": "game-pair", "left": "🎲", "right": "game" },
+        { "id": "ball-pair", "left": "⚽", "right": "ball" }
+      ]
+    },
+    {
+      "id": "school-play-03-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon mot.",
+      "prompt": "What can we play?",
+      "conceptIds": ["game"],
+      "explanation": "Game signifie jeu.",
+      "options": [
+        { "id": "game", "label": "a game", "detail": "un jeu" },
+        { "id": "book", "label": "a book", "detail": "un livre" },
+        { "id": "pencil", "label": "a pencil", "detail": "un crayon" }
+      ],
+      "correctOptionId": "game"
+    },
+    {
+      "id": "school-play-03-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la réplique qui lance le jeu.",
+      "prompt": "I have a ball!",
+      "conceptIds": ["ball", "lets-play"],
+      "explanation": "Let’s play! signifie « Jouons ! ».",
+      "lines": [
+        { "speaker": "Luca", "text": "I have a ball!" },
+        { "speaker": "Gabriel", "text": "…" }
+      ],
+      "options": [
+        { "id": "play", "label": "Let’s play!", "detail": "Jouons !" },
+        { "id": "school", "label": "This is a school.", "detail": "Voici une école." },
+        { "id": "look", "label": "Look!", "detail": "Regarde !" }
+      ],
+      "correctOptionId": "play"
+    },
+    {
+      "id": "school-play-03-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the invitation.",
+      "conceptIds": ["lets-play", "game"],
+      "explanation": "Let’s play a game signifie « Jouons à un jeu ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["game.", "Let’s", "play", "a"],
+      "acceptedOrders": [["Let’s", "play", "a", "game."]]
+    },
+    {
+      "id": "school-play-03-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "instruction": "Vrai ou faux ?",
+      "prompt": "A ball is a book.",
+      "conceptIds": ["ball", "book"],
+      "explanation": "Faux : a ball est un ballon, et a book est un livre.",
+      "statement": "A ball is a book.",
+      "correct": false
+    },
+    {
+      "id": "school-play-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires de la récréation.",
+      "prompt": "Review the playground words.",
+      "conceptIds": ["game", "ball"],
+      "explanation": "Game signifie jeu et ball signifie ballon.",
+      "cards": [
+        { "id": "game-en", "label": "game", "matchId": "game", "emoji": "🎲" },
+        { "id": "game-fr", "label": "jeu", "matchId": "game", "emoji": "🧩" },
+        { "id": "ball-en", "label": "ball", "matchId": "ball", "emoji": "⚽" },
+        { "id": "ball-fr", "label": "ballon", "matchId": "ball", "emoji": "🏀" }
+      ]
+    }
+  ]
+}

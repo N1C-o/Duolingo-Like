@@ -1,0 +1,126 @@
+{
+  "id": "numbers-colours-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "numbers-colours",
+  "order": 3,
+  "title": "Le grand tri des couleurs",
+  "objective": "Réutiliser les couleurs et les nombres dans un défi de tri.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": ["numbers-1-to-20", "red", "blue", "green", "yellow", "purple"],
+  "prerequisiteLessonIds": ["numbers-colours-02"],
+  "storyScene": {
+    "id": "numbers-colours-03-scene",
+    "situation": "Les couleurs dansent autour du coffre et échangent la place des objets.",
+    "setup": [
+      { "speaker": "Apple", "text": "I’m red!" },
+      { "speaker": "Blue Ball", "text": "I’m blue!" }
+    ],
+    "childAction": {
+      "instruction": "Construis la phrase qui remet une couleur au bon objet.",
+      "exerciseId": "numbers-colours-03-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Rainbow", "text": "The colours are in order!" },
+      { "speaker": "Chest", "text": "The final map is yours." }
+    ],
+    "nextHook": "Le coffre révèle une nouvelle route pour la suite du parcours."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la couleur, puis retrouve la phrase qui la décrit.",
+    "text": "It’s red.",
+    "audioText": "It’s red.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "numbers-colours-03-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Trie les objets par couleur.",
+      "prompt": "The colours are dancing!",
+      "conceptIds": ["red", "blue", "purple"],
+      "explanation": "Red signifie rouge, blue bleu et purple violet.",
+      "pairs": [
+        { "id": "red-final", "left": "🔴", "right": "red" },
+        { "id": "blue-final", "left": "🔵", "right": "blue" },
+        { "id": "purple-final", "left": "🟣", "right": "purple" }
+      ]
+    },
+    {
+      "id": "numbers-colours-03-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la couleur.",
+      "prompt": "Which colour is it?",
+      "audioText": "Purple",
+      "conceptIds": ["purple"],
+      "explanation": "Purple signifie violet.",
+      "options": [
+        { "id": "purple", "label": "purple" },
+        { "id": "yellow", "label": "yellow" },
+        { "id": "green", "label": "green" }
+      ],
+      "correctOptionId": "purple"
+    },
+    {
+      "id": "numbers-colours-03-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis la phrase correcte.",
+      "prompt": "What colour is the apple? 🍎",
+      "conceptIds": ["red", "apple"],
+      "explanation": "L’apple est red, rouge.",
+      "options": [
+        { "id": "red", "label": "It is red." },
+        { "id": "blue", "label": "It is blue." },
+        { "id": "purple", "label": "It is purple." }
+      ],
+      "correctOptionId": "red"
+    },
+    {
+      "id": "numbers-colours-03-true-false",
+      "schemaVersion": 1,
+      "type": "true-false",
+      "instruction": "Vrai ou faux ?",
+      "prompt": "Blue is a colour.",
+      "conceptIds": ["blue"],
+      "explanation": "Vrai : blue signifie bleu et c’est bien une couleur.",
+      "statement": "Blue is a colour.",
+      "correct": true
+    },
+    {
+      "id": "numbers-colours-03-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la phrase dans l’ordre.",
+      "prompt": "Build the colour sentence.",
+      "conceptIds": ["yellow"],
+      "explanation": "It is yellow signifie « C’est jaune ».",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["yellow.", "It", "is"],
+      "acceptedOrders": [["It", "is", "yellow."]]
+    },
+    {
+      "id": "numbers-colours-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Associe les nombres aux chiffres.",
+      "prompt": "Review counting to twenty.",
+      "conceptIds": ["numbers-1-to-20"],
+      "explanation": "One signifie un et twenty signifie vingt.",
+      "cards": [
+        { "id": "one-en", "label": "one", "matchId": "one", "emoji": "1️⃣" },
+        { "id": "one-fr", "label": "un", "matchId": "one", "emoji": "☝️" },
+        { "id": "twenty-en", "label": "twenty", "matchId": "twenty", "emoji": "2️⃣" },
+        { "id": "twenty-fr", "label": "vingt", "matchId": "twenty", "emoji": "🎉" }
+      ]
+    }
+  ]
+}

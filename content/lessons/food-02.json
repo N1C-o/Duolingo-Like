@@ -1,0 +1,119 @@
+{
+  "id": "food-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "food",
+  "order": 2,
+  "title": "Je voudrais…",
+  "objective": "Dire qu’on a faim et demander une boisson ou un aliment.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["hungry", "id-like", "can-i-have"],
+  "reviewConceptIds": ["water", "milk", "apple"],
+  "prerequisiteLessonIds": ["food-01"],
+  "storyScene": {
+    "id": "food-02-scene",
+    "situation": "Le ventre du petit monstre joue une fanfare et réclame un goûter.",
+    "setup": [
+      { "speaker": "Monster", "text": "Grrr… I’m hungry!" },
+      { "speaker": "Luca", "text": "The snack shop is open." }
+    ],
+    "childAction": {
+      "instruction": "Construis une demande polie pour le monstre.",
+      "exerciseId": "food-02-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Monster", "text": "I’d like milk, please!" },
+      { "speaker": "Gabriel", "text": "The fanfare turns into a happy burp." }
+    ],
+    "nextHook": "Le pique-nique s’installe avant que le vent ne souffle."
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute la demande et lis-la en gardant les mots ensemble.",
+    "text": "I’d like milk, please.",
+    "audioText": "I’d like milk, please.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "id": "food-02-listening",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis l’humeur du goûteur.",
+      "prompt": "How does the little monster feel?",
+      "audioText": "I’m hungry.",
+      "conceptIds": ["hungry"],
+      "explanation": "I’m hungry signifie « J’ai faim ».",
+      "options": [
+        { "id": "hungry", "label": "I’m hungry." },
+        { "id": "hello", "label": "Hello!" },
+        { "id": "game", "label": "Let’s play!" }
+      ],
+      "correctOptionId": "hungry"
+    },
+    {
+      "id": "food-02-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la demande adaptée.",
+      "prompt": "I’m hungry.",
+      "conceptIds": ["hungry", "can-i-have"],
+      "explanation": "Can I have milk? signifie « Est-ce que je peux avoir du lait ? ».",
+      "lines": [
+        { "speaker": "Luca", "text": "I’m hungry." },
+        { "speaker": "Gabriel", "text": "…" }
+      ],
+      "options": [
+        { "id": "milk", "label": "Can I have milk?", "detail": "Est-ce que je peux avoir du lait ?" },
+        { "id": "game", "label": "Let’s play!", "detail": "Jouons !" },
+        { "id": "book", "label": "This is my book.", "detail": "Voici mon livre." }
+      ],
+      "correctOptionId": "milk"
+    },
+    {
+      "id": "food-02-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets la demande dans l’ordre.",
+      "prompt": "Build the request.",
+      "conceptIds": ["id-like", "milk"],
+      "explanation": "I’d like milk signifie « Je voudrais du lait ».",
+      "tokens": ["milk.", "I’d", "like"],
+      "acceptedOrders": [["I’d", "like", "milk."]]
+    },
+    {
+      "id": "food-02-completion",
+      "schemaVersion": 1,
+      "type": "sentence-completion",
+      "instruction": "Complète la demande.",
+      "prompt": "Choose a drink.",
+      "conceptIds": ["can-i-have", "water"],
+      "explanation": "Can I have water? signifie « Est-ce que je peux avoir de l’eau ? ».",
+      "sentence": "Can I have ___?",
+      "options": [
+        { "id": "water", "label": "water" },
+        { "id": "book", "label": "book" },
+        { "id": "pencil", "label": "pencil" }
+      ],
+      "correctOptionId": "water"
+    },
+    {
+      "id": "food-02-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Associe la demande à sa traduction.",
+      "prompt": "Match the snack requests.",
+      "conceptIds": ["hungry", "id-like"],
+      "explanation": "Hungry signifie avoir faim et I’d like signifie je voudrais.",
+      "cards": [
+        { "id": "hungry-en", "label": "hungry", "matchId": "hungry", "emoji": "😋" },
+        { "id": "hungry-fr", "label": "avoir faim", "matchId": "hungry", "emoji": "🍽️" },
+        { "id": "id-like-en", "label": "I’d like", "matchId": "id-like", "emoji": "🙋" },
+        { "id": "id-like-fr", "label": "je voudrais", "matchId": "id-like", "emoji": "🥛" }
+      ]
+    }
+  ]
+}

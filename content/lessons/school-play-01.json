@@ -1,0 +1,112 @@
+{
+  "id": "school-play-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "school-play",
+  "order": 1,
+  "title": "Le cartable magique",
+  "objective": "Reconnaître school, book et pencil dans une scène d’école.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": ["book", "pencil", "school"],
+  "reviewConceptIds": ["room", "door"],
+  "prerequisiteLessonIds": ["home-03"],
+  "storyScene": {
+    "id": "school-play-01-scene",
+    "situation": "Un cartable magique éternue et éjecte ses objets dans les airs.",
+    "setup": [
+      { "speaker": "Schoolbag", "text": "Achoo! Book! Pencil!" },
+      { "speaker": "Gabriel", "text": "The schoolbag needs a tidy-up." }
+    ],
+    "childAction": {
+      "instruction": "Construis la phrase qui reconnaît l’objet retrouvé.",
+      "exerciseId": "school-play-01-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Schoolbag", "text": "This is my book!" },
+      { "speaker": "Luca", "text": "The golden pencil points to school." }
+    ],
+    "nextHook": "Quelqu’un donne une consigne depuis la classe."
+  },
+  "readingCheckpoint": {
+    "mode": "word-recognition",
+    "instruction": "Écoute le mot de l’école, puis lis-le comme un mot magique.",
+    "text": "school",
+    "audioText": "school",
+    "phonologyFocus": "word-stress"
+  },
+  "exercises": [
+    {
+      "id": "school-play-01-image",
+      "schemaVersion": 1,
+      "type": "image-word-matching",
+      "instruction": "Associe les objets au bon mot.",
+      "prompt": "Open the magic schoolbag!",
+      "conceptIds": ["book", "pencil"],
+      "explanation": "Book signifie livre et pencil signifie crayon.",
+      "pairs": [
+        { "id": "book-pair", "left": "📖", "right": "book" },
+        { "id": "pencil-pair", "left": "✏️", "right": "pencil" }
+      ]
+    },
+    {
+      "id": "school-play-01-school",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute puis choisis le bon mot.",
+      "prompt": "Where is the magic schoolbag?",
+      "audioText": "School",
+      "conceptIds": ["school"],
+      "explanation": "School signifie école.",
+      "options": [
+        { "id": "school", "label": "school" },
+        { "id": "book", "label": "book" },
+        { "id": "pencil", "label": "pencil" }
+      ],
+      "correctOptionId": "school"
+    },
+    {
+      "id": "school-play-01-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis le bon mot.",
+      "prompt": "What do you write with?",
+      "conceptIds": ["pencil"],
+      "explanation": "On écrit avec un pencil, un crayon.",
+      "options": [
+        { "id": "pencil", "label": "pencil", "detail": "crayon" },
+        { "id": "book", "label": "book", "detail": "livre" },
+        { "id": "door", "label": "door", "detail": "porte" }
+      ],
+      "correctOptionId": "pencil"
+    },
+    {
+      "id": "school-play-01-reorder",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Remets les mots dans l’ordre.",
+      "prompt": "Build the sentence.",
+      "conceptIds": ["book"],
+      "explanation": "This is my book signifie « Voici mon livre ».",
+      "tokens": ["book.", "This", "is", "my"],
+      "acceptedOrders": [["This", "is", "my", "book."]]
+    },
+    {
+      "id": "school-play-01-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retrouve les paires du cartable.",
+      "prompt": "Find the school pairs.",
+      "conceptIds": ["book", "school"],
+      "explanation": "Book signifie livre et school signifie école.",
+      "cards": [
+        { "id": "book-en", "label": "book", "matchId": "book", "emoji": "📖" },
+        { "id": "book-fr", "label": "livre", "matchId": "book", "emoji": "🎒" },
+        { "id": "school-en", "label": "school", "matchId": "school", "emoji": "🏫" },
+        { "id": "school-fr", "label": "école", "matchId": "school", "emoji": "⭐" }
+      ]
+    }
+  ]
+}
