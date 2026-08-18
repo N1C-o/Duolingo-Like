@@ -2,15 +2,15 @@
   "id": "luca",
   "profileId": "luca",
   "name": "Luca",
-  "universe": "Manoir mystérieux",
-  "greeting": "Une nouvelle énigme t’attend.",
-  "subtitle": "Écoute bien… le manoir adore les petits explorateurs curieux.",
-  "unitLead": "Les mots de la table",
-  "currencyLabel": "clés",
-  "encouragements": ["Une bonne piste peut commencer par une erreur.", "Le manoir s’ouvre petit à petit.", "Tu peux réécouter autant que nécessaire."],
+  "universe": "Univers des chats",
+  "greeting": "Une nouvelle découverte t’attend.",
+  "subtitle": "Luca t’accompagne dans un petit refuge perché entre les arbres et les étoiles.",
+  "unitLead": "Les mots du refuge",
+  "currencyLabel": "étoiles",
+  "encouragements": ["Chaque petit progrès fait ronronner Luca.", "Une bonne idée peut commencer par une erreur.", "Tu peux réécouter autant que nécessaire."],
   "assets": {
-    "journey": "/themes/manor/backgrounds/journey-manor.webp",
-    "hero": "/themes/manor/heroes/manor-hero.webp",
-    "mascot": "/themes/manor/mascots/ghost-main.webp"
+    "journey": "/themes/cat/backgrounds/journey-cat.webp",
+    "hero": "/themes/cat/heroes/cat-hero.webp",
+    "mascot": "/themes/cat/mascots/cat-main.webp"
   }
 }

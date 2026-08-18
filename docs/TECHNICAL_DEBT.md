@@ -20,5 +20,11 @@
 ## Cache PWA minimal
 
 - **Impact :** le service worker utilise un cache shell versionné et met en cache les ressources de même origine au fil de leur chargement ; il n’y a pas encore d’écran de mise à jour de contenu.
-- **Correction récente :** le fallback HTML est maintenant limité aux navigations ; les assets absents renvoient une erreur réseau normale au lieu de recevoir `/`.
-- **Suite :** ajouter une stratégie explicite de version de contenu et un état de mise à jour avant d’étendre le curriculum.
+- **Correction récente :** le cache est passé en `english-adventure-v2` et les navigations utilisent le réseau en priorité ; le document en cache reste uniquement le fallback hors ligne.
+- **Suite :** ajouter un écran de mise à jour de contenu avant d’étendre le curriculum.
+
+## Synchronisation familiale v1
+
+- **Impact :** un compte familial partage l’accès à tous les profils ; les codes enfants ne constituent pas une sécurité. Une modification concurrente sur deux appareils produit un conflit à choisir, sans fusion automatique.
+- **Contournement :** snapshots bornés, révisions compare-and-swap, reprise automatique des `pending` dont la base n’a pas changé, résolution séquentielle des conflits par profil, export/restauration JSON et suppression explicite.
+- **Suite :** ajouter la récupération de mot de passe par e-mail et une vraie interface de gestion de profils uniquement si l’usage familial le justifie.

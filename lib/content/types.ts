@@ -1,4 +1,4 @@
-export type ProfileId = "gabriel" | "luca";
+export type ProfileId = string;
 export type ThemeId = "gabriel" | "luca";
 
 export type ExerciseType =
@@ -232,7 +232,7 @@ export type BadgeDefinition = {
 
 export type ThemeContent = {
   id: ThemeId;
-  profileId: ProfileId;
+  profileId: ThemeId;
   name: string;
   universe: string;
   greeting: string;

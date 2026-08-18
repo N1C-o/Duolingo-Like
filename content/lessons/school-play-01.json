@@ -15,8 +15,8 @@
     "id": "school-play-01-scene",
     "situation": "Un cartable magique éternue et éjecte ses objets dans les airs.",
     "setup": [
-      { "speaker": "Schoolbag", "text": "Achoo! Book! Pencil!" },
-      { "speaker": "Gabriel", "text": "The schoolbag needs a tidy-up." }
+      { "speaker": "Schoolbag", "text": "Achoo! Book! Pencil!", "translation": "Atchoum ! Livre ! Crayon !" },
+      { "speaker": "Gabriel", "text": "The schoolbag is messy!", "translation": "Le cartable est en désordre !" }
     ],
     "childAction": {
       "instruction": "Construis la phrase qui reconnaît l’objet retrouvé.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Schoolbag", "text": "This is my book!" },
-      { "speaker": "Luca", "text": "The golden pencil points to school." }
+      { "speaker": "Schoolbag", "text": "This is my book!", "translation": "Voici mon livre !" },
+      { "speaker": "Luca", "text": "The golden pencil points to school.", "translation": "Le crayon doré montre l’école." }
     ],
     "nextHook": "Quelqu’un donne une consigne depuis la classe."
   },

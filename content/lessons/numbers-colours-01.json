@@ -15,8 +15,8 @@
     "id": "numbers-colours-01-scene",
     "situation": "Un coffre arc-en-ciel demande un mot de couleur avant de bâiller.",
     "setup": [
-      { "speaker": "Chest", "text": "Open me! Which colour?" },
-      { "speaker": "Gabriel", "text": "The balloons are giving clues." }
+      { "speaker": "Chest", "text": "Open me! What colour is it?", "translation": "Ouvre-moi ! De quelle couleur est-ce ?" },
+      { "speaker": "Gabriel", "text": "The balloons are giving clues.", "translation": "Les ballons donnent des indices." }
     ],
     "childAction": {
       "instruction": "Construis la phrase qui ouvre le coffre rouge.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Chest", "text": "It’s red! Click!" },
-      { "speaker": "Luca", "text": "A rainbow key pops out." }
+      { "speaker": "Chest", "text": "It’s red! Click!", "translation": "C’est rouge ! Clic !" },
+      { "speaker": "Luca", "text": "A rainbow key pops out.", "translation": "Une clé arc-en-ciel sort du coffre." }
     ],
     "nextHook": "Des grenouilles se mettent à compter en sautant."
   },

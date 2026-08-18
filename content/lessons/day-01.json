@@ -15,8 +15,8 @@
     "id": "day-01-scene",
     "situation": "Le calendrier fait une roulade et mélange les cartes du matin et de la nuit.",
     "setup": [
-      { "speaker": "Calendar", "text": "Good night! Good morning!" },
-      { "speaker": "Gabriel", "text": "The day is upside down." }
+      { "speaker": "Calendar", "text": "Good night! Good morning!", "translation": "Bonne nuit ! Bonjour !" },
+      { "speaker": "Gabriel", "text": "The day is upside down.", "translation": "La journée est à l’envers." }
     ],
     "childAction": {
       "instruction": "Reconstruis la phrase qui réveille le calendrier.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Calendar", "text": "Good morning!" },
-      { "speaker": "Luca", "text": "The sun card jumps to the top." }
+      { "speaker": "Calendar", "text": "Good morning!", "translation": "Bonjour !" },
+      { "speaker": "Luca", "text": "The sun card jumps to the top.", "translation": "La carte du soleil saute tout en haut." }
     ],
     "nextHook": "Une petite course commence avant le petit-déjeuner."
   },

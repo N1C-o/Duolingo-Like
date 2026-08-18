@@ -15,8 +15,8 @@
     "id": "day-03-scene",
     "situation": "Les images de la journée s’envolent et refusent de se remettre dans l’ordre.",
     "setup": [
-      { "speaker": "Luca", "text": "Breakfast is at night!" },
-      { "speaker": "Gabriel", "text": "Let’s put the day back together." }
+      { "speaker": "Luca", "text": "Breakfast is at night!", "translation": "Le petit-déjeuner, c’est la nuit !" },
+      { "speaker": "Gabriel", "text": "Let’s put the day back together.", "translation": "Remettons la journée dans l’ordre !" }
     ],
     "childAction": {
       "instruction": "Construis la phrase qui termine la journée.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Calendar", "text": "I sleep at night." },
-      { "speaker": "Calendar", "text": "Good night!" }
+      { "speaker": "Calendar", "text": "I sleep at night.", "translation": "Je dors la nuit." },
+      { "speaker": "Calendar", "text": "Good night!", "translation": "Bonne nuit !" }
     ],
     "nextHook": "Un coffre arc-en-ciel apparaît derrière la lune."
   },

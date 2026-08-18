@@ -1,13 +1,19 @@
 import { getLesson } from "@/content";
-import { createInitialAppState, PROGRESSION_RULES } from "@/lib/progression/engine";
+import { createInitialAppState, createProfile, PROGRESSION_RULES } from "@/lib/progression/engine";
 import type { ExerciseType } from "@/lib/content/types";
 import type { AppState, ConceptStat, ExerciseStat, LessonSession, LocalProfile, ProfileProgress } from "@/lib/progression/types";
+import { normalizeRemoteProgress } from "@/lib/sync/remote-payload";
+import { pruneReplayXpByDay } from "@/lib/sync/snapshot";
+import type { LocalProfileReplica, LocalSyncState, SnapshotSyncStatus } from "@/lib/sync/sync-types";
 
 const DATABASE_NAME = "english-adventure-local";
-const DATABASE_VERSION = 1;
+const DATABASE_VERSION = 2;
 const STATE_STORE = "app-state";
 const STATE_KEY = "root";
 const FALLBACK_KEY = "english-adventure-state-v1";
+const SYNC_STORE = "sync-state";
+const SYNC_KEY = "root";
+const SYNC_FALLBACK_KEY = "english-adventure-sync-v1";
 const STORAGE_TIMEOUT_MS = 1500;
 
 export type PersistenceMode = "indexeddb" | "localStorage" | "memory";
@@ -18,8 +24,15 @@ export type LoadedState = {
   recovered: boolean;
 };
 
+export type LoadedSyncState = {
+  sync: LocalSyncState;
+  mode: PersistenceMode;
+  recovered: boolean;
+};
+
 let databasePromise: Promise<IDBDatabase> | null = null;
 let saveQueue: Promise<void> = Promise.resolve();
+let syncSaveQueue: Promise<void> = Promise.resolve();
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -62,6 +75,11 @@ function nonNegativeInteger(value: unknown, fallback: number): Normalized<number
 
 function booleanValue(value: unknown, fallback: boolean): Normalized<boolean> {
   if (typeof value === "boolean") return { value, recovered: false };
+  return { value: fallback, recovered: true };
+}
+
+function nonEmptyString(value: unknown, fallback: string): Normalized<string> {
+  if (typeof value === "string" && value.trim().length > 0) return { value: value.trim(), recovered: false };
   return { value: fallback, recovered: true };
 }
 
@@ -218,7 +236,11 @@ function normalizeProgress(raw: unknown, fallback: ProfileProgress): Normalized<
   const exerciseStats = normalizeExerciseStats(raw.exerciseStats, fallback.exerciseStats);
   const conceptStats = normalizeConceptStats(raw.conceptStats, fallback.conceptStats);
   const badgeIds = stringArray(raw.badgeIds, fallback.badgeIds);
-  const replayXpByDay = normalizeNumberMap(raw.replayXpByDay, fallback.replayXpByDay);
+  const rawReplayXpByDay = normalizeNumberMap(raw.replayXpByDay, fallback.replayXpByDay);
+  const replayXpByDay = {
+    value: pruneReplayXpByDay(rawReplayXpByDay.value),
+    recovered: rawReplayXpByDay.recovered || Object.keys(rawReplayXpByDay.value).length !== Object.keys(pruneReplayXpByDay(rawReplayXpByDay.value)).length
+  };
   const audioListenCount = nonNegativeInteger(raw.audioListenCount, fallback.audioListenCount);
   const revisionCompletedCount = nonNegativeInteger(raw.revisionCompletedCount, fallback.revisionCompletedCount);
   const consolidatedConceptIds = stringArray(raw.consolidatedConceptIds, fallback.consolidatedConceptIds);
@@ -250,6 +272,8 @@ function normalizeProgress(raw: unknown, fallback: ProfileProgress): Normalized<
 function normalizeProfile(raw: unknown, fallback: LocalProfile): Normalized<LocalProfile> {
   if (!isRecord(raw)) return { value: fallback, recovered: true };
   const preferences = isRecord(raw.preferences) ? raw.preferences : {};
+  const displayName = nonEmptyString(raw.displayName, fallback.displayName);
+  const accessCode = nonEmptyString(raw.accessCode, fallback.accessCode);
   const soundsEnabled = booleanValue(preferences.soundsEnabled, fallback.preferences.soundsEnabled);
   const autoPlay = booleanValue(preferences.autoPlay, fallback.preferences.autoPlay);
   const speechRate: Normalized<LocalProfile["preferences"]["speechRate"]> = preferences.speechRate === 0.75 || preferences.speechRate === 0.9 || preferences.speechRate === 1 ? { value: preferences.speechRate as LocalProfile["preferences"]["speechRate"], recovered: false } : { value: fallback.preferences.speechRate, recovered: true };
@@ -261,6 +285,8 @@ function normalizeProfile(raw: unknown, fallback: LocalProfile): Normalized<Loca
     value: {
     ...fallback,
     id: fallback.id,
+    displayName: displayName.value,
+    accessCode: accessCode.value,
     themeId: themeId.value,
     firstUsedAt: firstUsedAt.value,
     preferences: {
@@ -272,18 +298,35 @@ function normalizeProfile(raw: unknown, fallback: LocalProfile): Normalized<Loca
     },
     progress: progress.value
     },
-    recovered: raw.id !== fallback.id || !isRecord(raw.preferences) || themeId.recovered || firstUsedAt.recovered || soundsEnabled.recovered || autoPlay.recovered || speechRate.recovered || reducedMotion.recovered || progress.recovered
+    recovered: raw.id !== fallback.id || displayName.recovered || accessCode.recovered || !isRecord(raw.preferences) || themeId.recovered || firstUsedAt.recovered || soundsEnabled.recovered || autoPlay.recovered || speechRate.recovered || reducedMotion.recovered || progress.recovered
   };
 }
 
 function normalizeState(raw: unknown): { state: AppState; recovered: boolean } {
   const initial = createInitialAppState();
   if (!isRecord(raw) || !isRecord(raw.profiles)) return { state: initial, recovered: true };
-  const rawProfiles = raw.profiles;
-  const activeProfileId = raw.activeProfileId === null || raw.activeProfileId === "gabriel" || raw.activeProfileId === "luca" ? raw.activeProfileId : null;
-  const gabriel = normalizeProfile(rawProfiles.gabriel, initial.profiles.gabriel);
-  const luca = normalizeProfile(rawProfiles.luca, initial.profiles.luca);
+  const profileEntries = Object.entries(raw.profiles)
+    .filter(([profileId, value]) => profileId.trim().length > 0 && isRecord(value))
+    .slice(0, 20);
+  if (profileEntries.length === 0) return { state: initial, recovered: true };
+
+  const profiles: AppState["profiles"] = {};
+  let recovered = raw.schemaVersion !== initial.schemaVersion || raw.contentVersion !== initial.contentVersion || Object.keys(raw.profiles).length > profileEntries.length;
+  profileEntries.forEach(([profileId, rawProfile]) => {
+    const profileRecord = rawProfile as Record<string, unknown>;
+    const themeId = profileRecord.themeId === "luca" ? "luca" : "gabriel";
+    const displayName = typeof profileRecord.displayName === "string" && profileRecord.displayName.trim() ? profileRecord.displayName : "Nouveau profil";
+    const accessCode = typeof profileRecord.accessCode === "string" && profileRecord.accessCode.trim() ? profileRecord.accessCode : profileId;
+    const fallback = initial.profiles[profileId] ?? createProfile(profileId, themeId, displayName, accessCode);
+    const normalized = normalizeProfile(rawProfile, fallback);
+    profiles[profileId] = normalized.value;
+    recovered ||= normalized.recovered;
+  });
+
+  const activeProfileId = typeof raw.activeProfileId === "string" && profiles[raw.activeProfileId] ? raw.activeProfileId : null;
+  const invalidActiveProfile = raw.activeProfileId !== null && (typeof raw.activeProfileId !== "string" || !profiles[raw.activeProfileId]);
   const introSeen = booleanValue(raw.introSeen, initial.introSeen);
+  recovered ||= invalidActiveProfile || introSeen.recovered;
   return {
     state: {
       ...initial,
@@ -291,12 +334,9 @@ function normalizeState(raw: unknown): { state: AppState; recovered: boolean } {
       contentVersion: initial.contentVersion,
       activeProfileId,
       introSeen: introSeen.value,
-      profiles: {
-        gabriel: gabriel.value,
-        luca: luca.value
-      }
+      profiles
     },
-    recovered: raw.schemaVersion !== initial.schemaVersion || raw.contentVersion !== initial.contentVersion || (raw.activeProfileId !== null && raw.activeProfileId !== "gabriel" && raw.activeProfileId !== "luca") || introSeen.recovered || gabriel.recovered || luca.recovered
+    recovered
   };
 }
 
@@ -335,6 +375,7 @@ function openDatabase() {
     request.onupgradeneeded = () => {
       const database = request.result;
       if (!database.objectStoreNames.contains(STATE_STORE)) database.createObjectStore(STATE_STORE);
+      if (!database.objectStoreNames.contains(SYNC_STORE)) database.createObjectStore(SYNC_STORE);
     };
     request.onsuccess = () => {
       window.clearTimeout(timeoutId);
@@ -418,4 +459,160 @@ export function saveAppState(state: AppState): Promise<PersistenceMode> {
   const queuedSave = saveQueue.then(() => persistAppState(state), () => persistAppState(state));
   saveQueue = queuedSave.then(() => undefined, () => undefined);
   return queuedSave;
+}
+
+export function createLocalSyncState(state: AppState): LocalSyncState {
+  const profiles = Object.entries(state.profiles).reduce<LocalSyncState["profiles"]>((result, [profileId, profile]) => {
+    result[profileId] = { baseRevision: 0, status: "pending", pendingSnapshot: profile.progress };
+    return result;
+  }, {});
+  return { profiles };
+}
+
+function normalizeLocalProgress(value: unknown, fallback: ProfileProgress) {
+  try {
+    return normalizeRemoteProgress(value);
+  } catch {
+    return fallback;
+  }
+}
+
+function normalizeReplica(raw: unknown, fallback: LocalProfileReplica): { replica: LocalProfileReplica; recovered: boolean } {
+  if (!isRecord(raw)) return { replica: fallback, recovered: true };
+  const fallbackProgress = fallback.pendingSnapshot ?? fallback.conflict?.localSnapshot ?? createInitialAppState().profiles.gabriel.progress;
+  const baseRevision = nonNegativeInteger(raw.baseRevision, fallback.baseRevision);
+  const rawStatus = raw.status;
+  const status: SnapshotSyncStatus = rawStatus === "synced" || rawStatus === "pending" || rawStatus === "conflict" ? rawStatus : fallback.status;
+  let recovered = baseRevision.recovered || status !== rawStatus;
+  const pendingSnapshot = status === "pending" && isRecord(raw.pendingSnapshot) ? normalizeLocalProgress(raw.pendingSnapshot, fallbackProgress) : undefined;
+  if (status === "pending" && !pendingSnapshot) recovered = true;
+  let conflict: LocalProfileReplica["conflict"];
+  if (status === "conflict" && isRecord(raw.conflict)) {
+    const conflictLocal = normalizeLocalProgress(raw.conflict.localSnapshot, fallbackProgress);
+    const conflictRemote = normalizeLocalProgress(raw.conflict.remoteSnapshot, fallback.conflict?.remoteSnapshot ?? conflictLocal);
+    const remoteRevision = nonNegativeInteger(raw.conflict.remoteRevision, fallback.conflict?.remoteRevision ?? baseRevision.value);
+    conflict = { localSnapshot: conflictLocal, remoteSnapshot: conflictRemote, remoteRevision: remoteRevision.value };
+    recovered ||= remoteRevision.recovered;
+  } else if (status === "conflict") {
+    recovered = true;
+  }
+  return {
+    replica: {
+      baseRevision: baseRevision.value,
+      status,
+      ...(pendingSnapshot ? { pendingSnapshot } : {}),
+      ...(conflict ? { conflict } : {})
+    },
+    recovered
+  };
+}
+
+function normalizeSyncState(raw: unknown, state: AppState): { sync: LocalSyncState; recovered: boolean } {
+  const defaults = createLocalSyncState(state);
+  if (!isRecord(raw) || !isRecord(raw.profiles)) return { sync: defaults, recovered: true };
+  const rawProfiles = raw.profiles;
+  const profiles: LocalSyncState["profiles"] = {};
+  let recovered = Object.keys(rawProfiles).length !== Object.keys(state.profiles).length;
+  Object.entries(state.profiles).forEach(([profileId, profile]) => {
+    const normalized = normalizeReplica(rawProfiles[profileId], defaults.profiles[profileId] ?? { baseRevision: 0, status: "pending", pendingSnapshot: profile.progress });
+    profiles[profileId] = normalized.replica;
+    recovered ||= normalized.recovered;
+  });
+  return { sync: { profiles }, recovered };
+}
+
+async function readIndexedDbSyncState() {
+  const database = await openDatabase();
+  return withStorageTimeout(new Promise<unknown>((resolve, reject) => {
+    const transaction = database.transaction(SYNC_STORE, "readonly");
+    const request = transaction.objectStore(SYNC_STORE).get(SYNC_KEY);
+    request.onerror = () => reject(request.error ?? new Error("Lecture IndexedDB de synchronisation impossible"));
+    transaction.onabort = () => reject(transaction.error ?? new Error("Lecture IndexedDB de synchronisation interrompue"));
+    request.onsuccess = () => resolve(request.result);
+  }), "Lecture IndexedDB de synchronisation trop longue");
+}
+
+async function writeIndexedDbSyncState(sync: LocalSyncState) {
+  const database = await openDatabase();
+  return withStorageTimeout(new Promise<void>((resolve, reject) => {
+    const transaction = database.transaction(SYNC_STORE, "readwrite");
+    transaction.oncomplete = () => resolve();
+    transaction.onerror = () => reject(transaction.error ?? new Error("Écriture IndexedDB de synchronisation impossible"));
+    transaction.onabort = () => reject(transaction.error ?? new Error("Écriture IndexedDB de synchronisation interrompue"));
+    transaction.objectStore(SYNC_STORE).put(sync, SYNC_KEY);
+  }), "Écriture IndexedDB de synchronisation trop longue");
+}
+
+function readSyncFallback() {
+  if (!canUseLocalStorage()) return undefined;
+  try {
+    const serialized = window.localStorage.getItem(SYNC_FALLBACK_KEY);
+    return serialized ? JSON.parse(serialized) as unknown : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function writeSyncFallback(sync: LocalSyncState) {
+  if (!canUseLocalStorage()) return false;
+  try {
+    window.localStorage.setItem(SYNC_FALLBACK_KEY, JSON.stringify(sync));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+export async function loadSyncState(state: AppState): Promise<LoadedSyncState> {
+  try {
+    const raw = await readIndexedDbSyncState();
+    const fallback = raw === undefined ? readSyncFallback() : undefined;
+    const normalized = normalizeSyncState(raw ?? fallback, state);
+    const recovered = raw !== undefined || fallback !== undefined ? normalized.recovered : false;
+    if (raw === undefined || normalized.recovered) await writeIndexedDbSyncState(normalized.sync);
+    return { sync: normalized.sync, recovered, mode: "indexeddb" };
+  } catch {
+    const fallback = readSyncFallback();
+    const normalized = normalizeSyncState(fallback, state);
+    return { sync: normalized.sync, recovered: fallback === undefined ? false : normalized.recovered, mode: canUseLocalStorage() ? "localStorage" : "memory" };
+  }
+}
+
+async function persistSyncState(sync: LocalSyncState): Promise<PersistenceMode> {
+  try {
+    await writeIndexedDbSyncState(sync);
+    return "indexeddb";
+  } catch {
+    return writeSyncFallback(sync) ? "localStorage" : "memory";
+  }
+}
+
+export function saveSyncState(sync: LocalSyncState): Promise<PersistenceMode> {
+  const queuedSave = syncSaveQueue.then(() => persistSyncState(sync), () => persistSyncState(sync));
+  syncSaveQueue = queuedSave.then(() => undefined, () => undefined);
+  return queuedSave;
+}
+
+export async function clearLocalData() {
+  try {
+    const database = await openDatabase();
+    await withStorageTimeout(new Promise<void>((resolve, reject) => {
+      const transaction = database.transaction([STATE_STORE, SYNC_STORE], "readwrite");
+      transaction.oncomplete = () => resolve();
+      transaction.onerror = () => reject(transaction.error ?? new Error("Suppression IndexedDB impossible"));
+      transaction.onabort = () => reject(transaction.error ?? new Error("Suppression IndexedDB interrompue"));
+      transaction.objectStore(STATE_STORE).clear();
+      transaction.objectStore(SYNC_STORE).clear();
+    }), "Suppression IndexedDB trop longue");
+  } catch {
+    // The fallback cleanup below is still useful when IndexedDB is unavailable.
+  }
+  if (canUseLocalStorage()) {
+    try {
+      window.localStorage.removeItem(FALLBACK_KEY);
+      window.localStorage.removeItem(SYNC_FALLBACK_KEY);
+    } catch {
+      // Ignore storage cleanup errors after the remote deletion succeeded.
+    }
+  }
 }

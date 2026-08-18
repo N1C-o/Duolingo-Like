@@ -15,7 +15,6 @@ import {
   CompassIcon,
   HeartIcon,
   HomeIcon,
-  KeyIcon,
   LeafIcon,
   LockIcon,
   MapIcon,
@@ -29,9 +28,9 @@ import {
   VolumeIcon
 } from "@/components/icons";
 import { ExerciseRenderer, type ExerciseResult } from "@/components/exercise-renderer";
-import { CapybaraMascot, GhostMascot, SceneIllustration } from "@/components/mascots";
+import { CapybaraMascot, CatMascot, SceneIllustration } from "@/components/mascots";
 import { content, getLesson, getLessonsForUnit, getTheme, getUnit, getVocabularyForUnit } from "@/content";
-import type { Exercise, LessonContent, ProfileId, ReadingCheckpoint, StoryScene, ThemeContent } from "@/lib/content/types";
+import type { Exercise, LessonContent, ProfileId, ReadingCheckpoint, StoryScene, ThemeContent, ThemeId } from "@/lib/content/types";
 import { getLessonResumeIndex, getLessonStatus, getLevelProgress, getTopConsolidationConcepts, getUnitStatus } from "@/lib/progression/engine";
 import type { AppState, LocalProfile, ProfilePreferences, RewardSummary } from "@/lib/progression/types";
 
@@ -58,11 +57,11 @@ type CommonScreenProps = {
 };
 
 function Companion({ theme, size = 120, className }: { theme: "gabriel" | "luca"; size?: number; className?: string }) {
-  return theme === "gabriel" ? <CapybaraMascot className={className} size={size} /> : <GhostMascot className={className} size={size} />;
+  return theme === "gabriel" ? <CapybaraMascot className={className} size={size} /> : <CatMascot className={className} size={size} />;
 }
 
 function ThemeRewardIcon({ theme, size }: { theme: ThemeContent; size: number }) {
-  return theme.id === "gabriel" ? <LeafIcon aria-hidden="true" size={size} /> : <KeyIcon aria-hidden="true" size={size} />;
+  return theme.id === "gabriel" ? <LeafIcon aria-hidden="true" size={size} /> : <StarIcon aria-hidden="true" size={size} />;
 }
 
 function lessonPercent(progress: ScreenContext["profile"]["progress"], lesson: LessonContent) {
@@ -128,7 +127,7 @@ function SectionHeading({ eyebrow, title, action, onAction }: { eyebrow: string;
   );
 }
 
-export function AccessScreen({ onLogin }: { onLogin: (profileId: ProfileId, code: string) => boolean }) {
+export function AccessScreen({ profiles, onLogin }: { profiles: LocalProfile[]; onLogin: (profileId: ProfileId, code: string) => boolean }) {
   const [selectedProfileId, setSelectedProfileId] = useState<ProfileId | null>(null);
   const [code, setCode] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -149,18 +148,19 @@ export function AccessScreen({ onLogin }: { onLogin: (profileId: ProfileId, code
     setError(null);
   };
 
-  const themes = [getTheme("gabriel"), getTheme("luca")];
+  const selectedProfile = profiles.find((profile) => profile.id === selectedProfileId) ?? null;
   return (
     <div className="access-screen screen-content">
       <div className="access-brand"><span className="access-brand__spark"><SparkleIcon aria-hidden="true" size={18} /></span><span className="eyebrow">ENGLISH ADVENTURE</span><h1>Qui part à l’aventure ?</h1><p>Choisis ton espace, puis entre ton petit code pour retrouver ta progression.</p></div>
       <div className="access-profiles">
-        {themes.map((theme) => {
-          const selected = selectedProfileId === theme.profileId;
-          return <button aria-pressed={selected} className={`access-profile-card ${selected ? "access-profile-card--selected" : ""} theme-card--${theme.id}`} key={theme.profileId} onClick={() => handleSelect(theme.profileId)} type="button"><span className="access-profile-card__scene"><SceneIllustration theme={theme.id} /></span><span className="access-profile-card__mascot"><Companion size={125} theme={theme.id} /></span><span className="access-profile-card__copy"><strong>{theme.name}</strong><small>{theme.universe}</small></span><span className="access-profile-card__check">{selected ? <CheckIcon aria-hidden="true" size={16} /> : <ChevronRightIcon aria-hidden="true" size={16} />}</span></button>;
+        {profiles.map((profile) => {
+          const theme = getTheme(profile.themeId);
+          const selected = selectedProfileId === profile.id;
+          return <button aria-pressed={selected} className={`access-profile-card ${selected ? "access-profile-card--selected" : ""} theme-card--${theme.id}`} key={profile.id} onClick={() => handleSelect(profile.id)} type="button"><span className="access-profile-card__scene"><SceneIllustration theme={theme.id} /></span><span className="access-profile-card__mascot"><Companion size={125} theme={theme.id} /></span><span className="access-profile-card__copy"><strong>{profile.displayName}</strong><small>{theme.universe}</small></span><span className="access-profile-card__check">{selected ? <CheckIcon aria-hidden="true" size={16} /> : <ChevronRightIcon aria-hidden="true" size={16} />}</span></button>;
         })}
       </div>
-      {selectedProfileId ? <form className="access-code-card" onSubmit={handleSubmit}><label htmlFor="profile-code">Le petit code de {getTheme(selectedProfileId).name}</label><p>Il sert seulement à éviter d’entrer dans le mauvais espace.</p><div className="access-code-row"><input autoComplete="off" id="profile-code" onChange={(event) => { setCode(event.target.value); setError(null); }} placeholder="Écris le code" value={code} /><button className="primary-button" type="submit">Entrer<ChevronRightIcon aria-hidden="true" size={18} /></button></div>{error ? <p aria-live="polite" className="access-error"><CloseIcon aria-hidden="true" size={15} /> {error}</p> : null}</form> : <div className="access-hint"><LockIcon aria-hidden="true" size={16} /><span>Les progrès de Gabriel et Luca restent séparés sur cet appareil.</span></div>}
-      <p className="access-disclaimer">Accès local de convenance · aucun compte ni serveur</p>
+      {selectedProfile ? <form className="access-code-card" onSubmit={handleSubmit}><label htmlFor="profile-code">Le petit code de {selectedProfile.displayName}</label><p>Il sert seulement à éviter d’entrer dans le mauvais espace.</p><div className="access-code-row"><input autoComplete="off" id="profile-code" onChange={(event) => { setCode(event.target.value); setError(null); }} placeholder="Écris le code" value={code} /><button className="primary-button" type="submit">Entrer<ChevronRightIcon aria-hidden="true" size={18} /></button></div>{error ? <p aria-live="polite" className="access-error"><CloseIcon aria-hidden="true" size={15} /> {error}</p> : null}</form> : <div className="access-hint"><LockIcon aria-hidden="true" size={16} /><span>{profiles.length ? "Les progrès de chaque profil restent séparés." : "Aucun profil n’est encore configuré pour cette famille."}</span></div>}
+      <p className="access-disclaimer">Accès familial privé · les profils sont partagés par le compte familial</p>
     </div>
   );
 }
@@ -210,34 +210,48 @@ function phonologyLabel(focus: ReadingCheckpoint["phonologyFocus"]) {
   return "Le rythme de la phrase";
 }
 
-function SceneLine({ line, kind }: { line: StoryScene["setup"][number]; kind: "setup" | "resolution" }) {
+type SceneSpeakerTone = "gabriel" | "luca" | "sam" | "object" | "narrator";
+
+function getSceneSpeakerTone(speaker?: string): SceneSpeakerTone {
+  const normalizedSpeaker = speaker?.trim().toLowerCase();
+  if (!normalizedSpeaker) return "narrator";
+  if (normalizedSpeaker === "gabriel") return "gabriel";
+  if (normalizedSpeaker === "luca") return "luca";
+  if (normalizedSpeaker === "sam") return "sam";
+  return "object";
+}
+
+function SceneLine({ line, kind, onSpeak }: { line: StoryScene["setup"][number]; kind: "setup" | "resolution"; onSpeak: (text: string) => boolean }) {
+  const speakerName = line.speaker?.trim() || "Narrator";
+  const speakerTone = getSceneSpeakerTone(line.speaker);
+  const speakerInitial = speakerName.charAt(0).toUpperCase();
+
   return (
-    <div className={`story-scene__line story-scene__line--${kind}`}>
-      {line.speaker ? <span>{line.speaker}</span> : null}
-      <strong>{line.text}</strong>
-      {line.translation ? <small>{line.translation}</small> : null}
+    <div className={`story-scene__line story-scene__line--${kind} story-scene__line--${speakerTone}`}>
+      <div className="story-scene__speaker">
+        <span aria-hidden="true" className="story-scene__speaker-initial">{speakerInitial}</span>
+        <span>{speakerName}</span>
+      </div>
+      <div className="story-scene__bubble">
+        <strong>{line.text}</strong>
+        {line.translation ? <small>{line.translation}</small> : null}
+        <button aria-label={`Écouter la réplique de ${speakerName}`} className="story-scene__audio" onClick={() => onSpeak(line.text)} type="button"><VolumeIcon aria-hidden="true" size={16} /></button>
+      </div>
     </div>
   );
 }
 
-function StoryScenePanel({ context, exercise, lesson }: { context: ScreenContext; exercise: Exercise; lesson: LessonContent }) {
+function StoryScenePanel({ context, lesson, onSpeak }: { context: ScreenContext; lesson: LessonContent; onSpeak: (text: string) => boolean }) {
   const scene = lesson.storyScene;
   const actionStat = context.profile.progress.exerciseStats[scene.childAction.exerciseId];
   const resolved = context.profile.progress.completedLessonIds.includes(lesson.id) || Boolean(actionStat?.successes);
-  const actionActive = !resolved && exercise.id === scene.childAction.exerciseId;
 
   return (
     <section aria-label={`Mini-scène : ${scene.situation}`} className="story-scene-card">
       <div className="story-scene__topline"><span className="story-scene__tag"><SparkleIcon aria-hidden="true" size={13} /> MINI-SCÈNE</span><span className="story-scene__state">{resolved ? "Scène résolue" : "À toi d’agir"}</span></div>
       <p className="story-scene__situation">{scene.situation}</p>
-      <div className="story-scene__lines">{scene.setup.map((line, index) => <SceneLine key={`${line.speaker ?? "narrator"}-${index}`} kind="setup" line={line} />)}</div>
-      <div className={`story-scene__action ${actionActive ? "story-scene__action--active" : ""} ${resolved ? "story-scene__action--resolved" : ""}`}>
-        <span className="story-scene__action-label">{resolved ? "ACTION RÉUSSIE" : "ACTION DE L’ENFANT"}</span>
-        <strong>{scene.childAction.instruction}</strong>
-        {actionActive ? <small>Tu es sur cette étape : fais ton choix pour aider la scène.</small> : null}
-      </div>
-      {resolved ? <div className="story-scene__resolution"><span className="story-scene__action-label">RÉSOLUTION</span>{scene.resolution.map((line, index) => <SceneLine key={`${line.speaker ?? "narrator"}-${index}`} kind="resolution" line={line} />)}</div> : null}
-      {scene.nextHook ? <p className="story-scene__hook"><SparkleIcon aria-hidden="true" size={13} /> {scene.nextHook}</p> : null}
+      <div className="story-scene__lines">{scene.setup.map((line, index) => <SceneLine key={`${line.speaker ?? "narrator"}-${index}`} kind="setup" line={line} onSpeak={onSpeak} />)}</div>
+      {resolved ? <div className="story-scene__resolution"><span className="story-scene__action-label">RÉSOLUTION</span>{scene.resolution.map((line, index) => <SceneLine key={`${line.speaker ?? "narrator"}-${index}`} kind="resolution" line={line} onSpeak={onSpeak} />)}</div> : null}
     </section>
   );
 }
@@ -259,13 +273,76 @@ export function MapScreen({ context, onNavigate, onToast, onOpenUnit, onOpenLess
   const { profile, theme } = context;
   const completedUnits = content.units.filter((unit) => getUnitStatus(profile.progress, unit) === "completed").length;
   const recommended = content.lessons.find((lesson) => ["available", "in-progress"].includes(getLessonStatus(profile.progress, lesson)));
+  const recommendedIsInProgress = recommended ? getLessonStatus(profile.progress, recommended) === "in-progress" : false;
   return (
-    <div className="screen-content map-screen"><div className="screen-title-row"><div><span className="eyebrow">LE GRAND PARCOURS</span><h1>Chaque étape compte</h1><p>Avance à ton rythme, une petite leçon après l’autre.</p></div><div className="map-title-mark"><CompassIcon aria-hidden="true" size={26} /></div></div><section className="map-banner"><SceneIllustration theme={theme.id} /><div className="map-banner__content"><span className="map-banner__tag"><SparkleIcon aria-hidden="true" size={13} /> {theme.universe}</span><strong>{completedUnits} unité{completedUnits > 1 ? "s" : ""} terminée{completedUnits > 1 ? "s" : ""} sur {content.units.length}</strong><span>{profile.progress.completedLessonIds.length} leçon{profile.progress.completedLessonIds.length > 1 ? "s" : ""} parcourue{profile.progress.completedLessonIds.length > 1 ? "s" : ""}</span></div><div className="map-banner__mascot"><Companion size={88} theme={theme.id} /></div></section><section aria-label="Carte du parcours" className="path-map"><div className="path-map__line" />{content.units.map((unit, index) => { const status = getUnitStatus(profile.progress, unit); return <MapUnitCard key={unit.id} number={String(index + 1)} onClick={() => status === "locked" ? onToast("Cette unité se débloquera quand l’étape précédente sera terminée.") : onOpenUnit(unit.id)} position={index % 2 === 0 ? "left" : "right"} status={status} title={unit.title} detail={`${unit.lessonIds.filter((id) => profile.progress.completedLessonIds.includes(id)).length} / ${unit.lessonIds.length} leçons`} />; })}<div className="path-map__start"><span>Début</span><SparkleBurstIcon aria-hidden="true" size={18} /></div></section>{recommended ? <section className="map-resume-card"><div className="map-resume-card__icon"><BookIcon aria-hidden="true" size={22} /></div><div><span className="eyebrow">À REPRENDRE</span><strong>{recommended.title}</strong><span>{recommended.durationMinutes} min · {lessonPercent(profile.progress, recommended)}% terminé</span></div><button aria-label="Reprendre la leçon" className="round-arrow" onClick={() => onOpenLesson(recommended.id)} type="button"><PlayIcon aria-hidden="true" size={16} /></button></section> : null}<button className="prototype-back-link" onClick={() => onNavigate("home")} type="button"><HomeIcon aria-hidden="true" size={16} /> Revenir à l’accueil</button></div>
+    <div className="screen-content map-screen">
+      <div className="screen-title-row">
+        <div>
+          <span className="eyebrow">LE GRAND PARCOURS</span>
+          <h1>Chaque étape compte</h1>
+          <p>Avance à ton rythme, une petite leçon après l’autre.</p>
+        </div>
+        <div className="map-title-mark"><CompassIcon aria-hidden="true" size={26} /></div>
+      </div>
+
+      <section className="map-banner">
+        <SceneIllustration theme={theme.id} />
+        <div className="map-banner__content">
+          <span className="map-banner__tag"><SparkleIcon aria-hidden="true" size={13} /> {theme.universe}</span>
+          <strong>{completedUnits} unité{completedUnits > 1 ? "s" : ""} terminée{completedUnits > 1 ? "s" : ""} sur {content.units.length}</strong>
+          <span>{profile.progress.completedLessonIds.length} leçon{profile.progress.completedLessonIds.length > 1 ? "s" : ""} parcourue{profile.progress.completedLessonIds.length > 1 ? "s" : ""}</span>
+        </div>
+        <div className="map-banner__mascot"><Companion size={88} theme={theme.id} /></div>
+      </section>
+
+      {recommended ? (
+        <section className="map-resume-card map-resume-card--next">
+          <div className="map-resume-card__icon"><BookIcon aria-hidden="true" size={22} /></div>
+          <div>
+            <span className="eyebrow">{recommendedIsInProgress ? "À REPRENDRE" : "PROCHAINE LEÇON"}</span>
+            <strong>{recommended.title}</strong>
+            <span>{recommended.durationMinutes} min · {lessonPercent(profile.progress, recommended)}% terminé</span>
+          </div>
+          <button aria-label={recommendedIsInProgress ? "Reprendre la leçon" : "Commencer la leçon"} className="round-arrow" onClick={() => onOpenLesson(recommended.id)} type="button">
+            <PlayIcon aria-hidden="true" size={16} />
+          </button>
+        </section>
+      ) : null}
+
+      <section aria-label="Carte du parcours" className="path-map">
+        <div className="path-map__line" />
+        <div aria-hidden="true" className="path-map__decorations">
+          <span className="path-map__decoration path-map__decoration--upper-left" />
+          <span className="path-map__decoration path-map__decoration--middle-right" />
+          <span className="path-map__decoration path-map__decoration--lower-left" />
+          <span className="path-map__decoration path-map__decoration--lower-right" />
+        </div>
+        <div className="path-map__start"><span>Début</span><SparkleBurstIcon aria-hidden="true" size={18} /></div>
+        {content.units.map((unit, index) => {
+          const status = getUnitStatus(profile.progress, unit);
+          return <MapUnitCard key={unit.id} number={String(index + 1)} onClick={() => status === "locked" ? onToast("Cette unité se débloquera quand l’étape précédente sera terminée.") : onOpenUnit(unit.id)} position={index % 2 === 0 ? "left" : "right"} status={status} title={unit.title} detail={`${unit.lessonIds.filter((id) => profile.progress.completedLessonIds.includes(id)).length} / ${unit.lessonIds.length} leçons`} />;
+        })}
+      </section>
+
+      <button className="prototype-back-link" onClick={() => onNavigate("home")} type="button"><HomeIcon aria-hidden="true" size={16} /> Revenir à l’accueil</button>
+    </div>
   );
 }
 
 function MapUnitCard({ number, title, detail, status, position, onClick }: { number: string; title: string; detail: string; status: ReturnType<typeof getUnitStatus>; position: "left" | "right"; onClick: () => void }) {
-  return <div className={`map-unit map-unit--${position} map-unit--${status}`}><button aria-label={`${title}, ${status === "locked" ? "verrouillée" : detail}`} className="map-unit__node" onClick={onClick} type="button">{status === "completed" ? <CheckIcon aria-hidden="true" size={21} /> : status === "locked" ? <LockIcon aria-hidden="true" size={18} /> : number}</button><button className="map-unit__card" onClick={onClick} type="button"><span className="map-unit__number">UNITÉ {number}</span><strong>{title}</strong><span>{detail}</span><span className="map-unit__badge">{status === "completed" ? <CheckIcon aria-hidden="true" size={13} /> : status === "locked" ? <LockIcon aria-hidden="true" size={12} /> : <StarIcon aria-hidden="true" size={13} />}</span></button></div>;
+  return (
+    <div className={`map-unit map-unit--${position} map-unit--${status}`}>
+      <button aria-label={`${title}, ${status === "locked" ? "verrouillée" : detail}`} className="map-unit__action" onClick={onClick} type="button">
+        <span aria-hidden="true" className="map-unit__node">{status === "completed" ? <CheckIcon aria-hidden="true" size={21} /> : status === "locked" ? <LockIcon aria-hidden="true" size={18} /> : number}</span>
+        <span aria-hidden="true" className="map-unit__card">
+          <span className="map-unit__number">UNITÉ {number}</span>
+          <strong>{title}</strong>
+          <span>{detail}</span>
+          <span className="map-unit__badge">{status === "completed" ? <CheckIcon aria-hidden="true" size={13} /> : status === "locked" ? <LockIcon aria-hidden="true" size={12} /> : <StarIcon aria-hidden="true" size={13} />}</span>
+        </span>
+      </button>
+    </div>
+  );
 }
 
 export function UnitScreen({ context, unitId, onNavigate, onToast, onOpenLesson }: CommonScreenProps & { unitId: string; onOpenLesson: (lessonId: string) => void }) {
@@ -296,7 +373,7 @@ export function LessonScreen({ context, lessonId, feedback, resetToken, onNaviga
     <div className="screen-content lesson-screen">
       <div className="lesson-toolbar"><button aria-label="Retourner à l’unité" className="round-icon-button" onClick={() => onNavigate("unit")} type="button"><ArrowLeftIcon aria-hidden="true" size={19} /></button><div className="lesson-toolbar__center"><span className="eyebrow">{lesson.title}</span><strong>{index + 1} sur {lesson.exercises.length}</strong></div><button aria-label="Quitter la leçon" className="round-icon-button" onClick={() => onNavigate("home")} type="button"><span aria-hidden="true">×</span></button></div>
       <div className="lesson-progress-line"><span style={{ width: `${progressPercent}%` }} /></div>
-      <StoryScenePanel context={context} exercise={exercise} lesson={lesson} />
+      <StoryScenePanel context={context} lesson={lesson} onSpeak={onSpeak} />
       <ReadingCheckpointCard checkpoint={lesson.readingCheckpoint} onSpeak={onSpeak} />
       <div className="lesson-heading"><span className="lesson-heading__tag"><VolumeIcon aria-hidden="true" size={14} /> {getExerciseLabel(exercise)}</span><h1>{exercise.instruction}</h1><p>{exercise.prompt}</p></div>
       <section className="exercise-card">
@@ -333,12 +410,12 @@ function SettingToggle({ label, detail, checked, onChange }: { label: string; de
   return <label className="setting-row"><span><strong>{label}</strong><small>{detail}</small></span><input aria-label={label} checked={checked} onChange={(event) => onChange(event.target.checked)} type="checkbox" /><span aria-hidden="true" className="toggle-control" /></label>;
 }
 
-export function ParentScreen({ context, onNavigate, onPreferences, onUnlockUnit, onResetProfile }: CommonScreenProps & { onPreferences: (preferences: Partial<ProfilePreferences>) => void; onUnlockUnit: (unitId: string, unlocked: boolean) => void; onResetProfile: () => void }) {
+export function ParentScreen({ context, onNavigate, onPreferences, onUnlockUnit, onResetProfile, onExportFamily, onRestoreFamily, onDeleteFamily, remoteSyncEnabled }: CommonScreenProps & { onPreferences: (preferences: Partial<ProfilePreferences>) => void; onUnlockUnit: (unitId: string, unlocked: boolean) => void; onResetProfile: () => void; onExportFamily: () => void; onRestoreFamily: (file: File) => void; onDeleteFamily: () => void; remoteSyncEnabled: boolean }) {
   const { profile, theme } = context;
   const [showReset, setShowReset] = useState(false);
   const consolidation = getTopConsolidationConcepts(profile.progress);
   const vocabularyById = new Map(content.vocabulary.map((item) => [item.id, item]));
-  return <div className="screen-content parent-screen"><button className="screen-back-button" onClick={() => onNavigate("settings")} type="button"><ArrowLeftIcon aria-hidden="true" size={17} /> Paramètres</button><div className="screen-title-row"><div><span className="eyebrow">ESPACE PARENTAL LOCAL</span><h1>Suivre sans pression</h1><p>Les données restent sur cet appareil et le profil {theme.name} est séparé.</p></div><div className="map-title-mark"><TargetIcon aria-hidden="true" size={26} /></div></div><section className="parent-summary"><span className="avatar avatar--settings"><Companion size={58} theme={theme.id} /></span><div><strong>{theme.name}</strong><span>Niveau {getLevelProgress(profile.progress.xpTotal).level} · {profile.progress.xpTotal} XP</span></div><div><strong>{profile.progress.completedLessonIds.length}</strong><span>leçons terminées</span></div><div><strong>{profile.progress.badgeIds.length}</strong><span>badges</span></div></section><section className="parent-section"><SectionHeading eyebrow="PARCOURS" title="Unités disponibles" />{content.units.map((unit) => { const status = getUnitStatus(profile.progress, unit); const forced = profile.progress.parentUnlockedUnitIds.includes(unit.id); return <div className="parent-unit-row" key={unit.id}><div><strong>{unit.title}</strong><span>{unit.lessonIds.filter((id) => profile.progress.completedLessonIds.includes(id)).length} / {unit.lessonIds.length} leçons · {status === "locked" ? "verrouillée" : status === "completed" ? "terminée" : "ouverte"}</span></div><label className="parent-check"><input aria-label={`Rendre ${unit.title} disponible`} checked={status !== "locked" || forced} disabled={status !== "locked" && !forced} onChange={(event) => onUnlockUnit(unit.id, event.target.checked)} type="checkbox" /><span>{status !== "locked" || forced ? "Disponible" : "Ouvrir"}</span></label></div>; })}</section><section className="parent-section"><SectionHeading eyebrow="À REVOIR" title="Les notions à consolider" />{consolidation.length ? <div className="consolidation-list">{consolidation.map(({ conceptId, stat }) => { const vocabulary = vocabularyById.get(conceptId); return <div className="consolidation-row" key={conceptId}><span className="consolidation-row__icon"><TargetIcon aria-hidden="true" size={15} /></span><div><strong>{vocabulary?.english ?? conceptId}</strong><span>{vocabulary?.french ?? "Notion du parcours"}</span></div><small>{stat.errors} erreur{stat.errors > 1 ? "s" : ""} · à revoir</small></div>; })}</div> : <div className="empty-state"><CheckIcon aria-hidden="true" size={18} /><span>Aucune notion prioritaire pour le moment. Continue comme ça !</span></div>}</section><section className="parent-section"><SectionHeading eyebrow="PRÉFÉRENCES" title="Sons du profil" /><SettingToggle label="Sons activés" detail="Ce réglage est propre à ce profil." checked={profile.preferences.soundsEnabled} onChange={(checked) => onPreferences({ soundsEnabled: checked })} /></section><section className="parent-danger"><span className="eyebrow">ACTION SENSIBLE</span><strong>Réinitialiser le profil {theme.name}</strong><p>Les XP, leçons, badges et erreurs de ce profil seront remis à zéro. L’autre profil ne sera pas touché.</p>{showReset ? <div className="confirm-actions"><button className="secondary-button" onClick={() => setShowReset(false)} type="button">Annuler</button><button className="danger-button" onClick={() => { setShowReset(false); onResetProfile(); }} type="button">Confirmer</button></div> : <button className="danger-button danger-button--outline" onClick={() => setShowReset(true)} type="button">Réinitialiser</button>}</section></div>;
+  return <div className="screen-content parent-screen"><button className="screen-back-button" onClick={() => onNavigate("settings")} type="button"><ArrowLeftIcon aria-hidden="true" size={17} /> Paramètres</button><div className="screen-title-row"><div><span className="eyebrow">ESPACE PARENTAL</span><h1>Suivre sans pression</h1><p>{remoteSyncEnabled ? "Les progrès sont synchronisés pour ce compte familial et restent utilisables hors ligne." : "Les progrès restent enregistrés sur cet appareil et restent utilisables hors ligne."}</p></div><div className="map-title-mark"><TargetIcon aria-hidden="true" size={26} /></div></div><section className="parent-summary"><span className="avatar avatar--settings"><Companion size={58} theme={theme.id} /></span><div><strong>{profile.displayName}</strong><span>Niveau {getLevelProgress(profile.progress.xpTotal).level} · {profile.progress.xpTotal} XP</span></div><div><strong>{profile.progress.completedLessonIds.length}</strong><span>leçons terminées</span></div><div><strong>{profile.progress.badgeIds.length}</strong><span>badges</span></div></section><section className="parent-section"><SectionHeading eyebrow="PARCOURS" title="Unités disponibles" />{content.units.map((unit) => { const status = getUnitStatus(profile.progress, unit); const forced = profile.progress.parentUnlockedUnitIds.includes(unit.id); return <div className="parent-unit-row" key={unit.id}><div><strong>{unit.title}</strong><span>{unit.lessonIds.filter((id) => profile.progress.completedLessonIds.includes(id)).length} / {unit.lessonIds.length} leçons · {status === "locked" ? "verrouillée" : status === "completed" ? "terminée" : "ouverte"}</span></div><label className="parent-check"><input aria-label={`Rendre ${unit.title} disponible`} checked={status !== "locked" || forced} disabled={status !== "locked" && !forced} onChange={(event) => onUnlockUnit(unit.id, event.target.checked)} type="checkbox" /><span>{status !== "locked" || forced ? "Disponible" : "Ouvrir"}</span></label></div>; })}</section><section className="parent-section"><SectionHeading eyebrow="À REVOIR" title="Les notions à consolider" />{consolidation.length ? <div className="consolidation-list">{consolidation.map(({ conceptId, stat }) => { const vocabulary = vocabularyById.get(conceptId); return <div className="consolidation-row" key={conceptId}><span className="consolidation-row__icon"><TargetIcon aria-hidden="true" size={15} /></span><div><strong>{vocabulary?.english ?? conceptId}</strong><span>{vocabulary?.french ?? "Notion du parcours"}</span></div><small>{stat.errors} erreur{stat.errors > 1 ? "s" : ""} · à revoir</small></div>; })}</div> : <div className="empty-state"><CheckIcon aria-hidden="true" size={18} /><span>Aucune notion prioritaire pour le moment. Continue comme ça !</span></div>}</section><section className="parent-section"><SectionHeading eyebrow="PRÉFÉRENCES" title="Sons du profil" /><SettingToggle label="Sons activés" detail="Ce réglage est propre à ce profil." checked={profile.preferences.soundsEnabled} onChange={(checked) => onPreferences({ soundsEnabled: checked })} /></section><section className="parent-section"><SectionHeading eyebrow={remoteSyncEnabled ? "DONNÉES FAMILIALES" : "DONNÉES LOCALES"} title="Sauvegarder et restaurer" /><button className="settings-link" onClick={onExportFamily} type="button"><span><strong>Exporter un fichier JSON</strong><small>{remoteSyncEnabled ? "Conserver une copie récupérable de la famille" : "Conserver une copie récupérable de cet appareil"}</small></span><ChevronRightIcon aria-hidden="true" size={18} /></button><label className="settings-link"><span><strong>Restaurer un export JSON</strong><small>{remoteSyncEnabled ? "Remplacer les profils après validation du fichier" : "Remplacer les profils de cet appareil après validation du fichier"}</small></span><ChevronRightIcon aria-hidden="true" size={18} /><input accept="application/json,.json" onChange={(event) => { const file = event.target.files?.[0]; const confirmation = remoteSyncEnabled ? "Restaurer cet export remplacera tous les profils familiaux ?" : "Restaurer cet export remplacera les profils enregistrés sur cet appareil ?"; if (file && window.confirm(confirmation)) onRestoreFamily(file); event.currentTarget.value = ""; }} type="file" /></label></section><section className="parent-danger"><span className="eyebrow">ACTIONS SENSIBLES</span><strong>Réinitialiser le profil {profile.displayName}</strong><p>Les XP, leçons, badges et erreurs de ce profil seront remis à zéro. L’autre profil ne sera pas touché.</p>{showReset ? <div className="confirm-actions"><button className="secondary-button" onClick={() => setShowReset(false)} type="button">Annuler</button><button className="danger-button" onClick={() => { setShowReset(false); onResetProfile(); }} type="button">Confirmer</button></div> : <button className="danger-button danger-button--outline" onClick={() => setShowReset(true)} type="button">Réinitialiser</button>}<button className="danger-button danger-button--outline" onClick={onDeleteFamily} type="button">{remoteSyncEnabled ? "Supprimer les données familiales" : "Supprimer les données locales"}</button></section></div>;
 }
 
 export function BottomNavigation({ screen, onNavigate }: { screen: ScreenId; onNavigate: (screen: ScreenId) => void }) {

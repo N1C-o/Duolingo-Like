@@ -15,8 +15,8 @@
     "id": "food-02-scene",
     "situation": "Le ventre du petit monstre joue une fanfare et réclame un goûter.",
     "setup": [
-      { "speaker": "Monster", "text": "Grrr… I’m hungry!" },
-      { "speaker": "Luca", "text": "The snack shop is open." }
+      { "speaker": "Monster", "text": "Grrr… I’m hungry!", "translation": "Grrr… J’ai faim !" },
+      { "speaker": "Luca", "text": "The snack shop is open.", "translation": "La boutique de goûters est ouverte." }
     ],
     "childAction": {
       "instruction": "Construis une demande polie pour le monstre.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Monster", "text": "I’d like milk, please!" },
-      { "speaker": "Gabriel", "text": "The fanfare turns into a happy burp." }
+      { "speaker": "Monster", "text": "I’d like milk, please!", "translation": "Je voudrais du lait, s’il te plaît !" },
+      { "speaker": "Gabriel", "text": "The fanfare turns into a happy burp.", "translation": "La fanfare se transforme en un joyeux rot." }
     ],
     "nextHook": "Le pique-nique s’installe avant que le vent ne souffle."
   },

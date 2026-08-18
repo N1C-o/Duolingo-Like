@@ -2,13 +2,13 @@
 
 ## Statut
 
-Architecture active depuis le 7 août 2026. Le projet reste une web app mobile-first exportée en statique par Next.js.
+Architecture active depuis le 8 août 2026. Le projet reste une web app mobile-first exportée en statique par Next.js.
 
 ## Principes
 
-- Aucun backend, compte, paiement ou appel métier distant.
+- Les données locales et les profils enfants restent utilisables sans compte ; une session familiale Convex Auth peut en option porter la copie synchronisée, sans compte ni rôle séparé pour les enfants.
 - Le contenu pédagogique est statique et séparé des écrans.
-- La progression est propre à chaque profil et persistée localement.
+- La progression est propre à chaque profil, conservée localement et répliquée dans Convex quand la connexion est disponible.
 - Le moteur de progression ne dépend ni du thème ni des composants visuels.
 - Les règles d’XP, badges, erreurs et déverrouillages sont centralisées et idempotentes.
 - Les composants envoient des réponses structurées ; le moteur vérifie la justesse et distingue une erreur partielle d’une validation complète.
@@ -17,12 +17,11 @@ Architecture active depuis le 7 août 2026. Le projet reste une web app mobile-f
 ## Flux runtime
 
 ```text
-JSON contenu validé
-        ↓
-Écrans client → moteur de progression → IndexedDB
-        ↓                ↓                 ↓
-Thème actif       XP / badges /       reprise locale
-Gabriel ou Luca   déverrouillages     hors connexion
+Session Convex Auth optionnelle → famille Convex → snapshot + révision distante
+             ↓                         ↑                 ↑
+      IndexedDB local ← moteur client ← écrans et profil actif
+      ↓
+ pending / conflict → upload CAS au retour en ligne
 ```
 
 ## Modules principaux
@@ -35,21 +34,32 @@ Gabriel ou Luca   déverrouillages     hors connexion
 | `lib/progression/engine.ts` | XP, niveaux, erreurs, consolidation, badges, sessions et déverrouillages | active |
 | `lib/progression/types.ts` | Modèle local profil/thème/préférences/progression | active |
 | `lib/storage/local-store.ts` | IndexedDB, normalisation, migration légère et fallback local | active |
+| `lib/storage/convex-store.ts` | Mapping famille/snapshots, import, export et restauration validée | active |
+| `lib/sync/` | Statuts de réplique, révisions, bornage de `replayXpByDay` et conflits | active |
+| `convex/` | Schéma Convex Auth, famille, profils, snapshots et mutations atomiques | active |
+| `components/auth-screen.tsx` | Choix d’import/bootstrap et résolution des conflits pour une session Convex existante | active |
+| `components/convex-provider.tsx` | Fournisseur client Convex Auth pour l’export statique Next.js | active |
 | `lib/platform/speech.ts` | Synthèse vocale anglaise avec fallback silencieux | active |
 | `components/learning-screens.tsx` | Accès, accueil, parcours, leçon, mini-scènes, lecture, badges, paramètres et parental | active |
 | `components/exercise-renderer.tsx` | Rendu générique des exercices déclarés par le contenu et des missions guidées | active |
 | `components/prototype-app.tsx` | Orchestration d’état et navigation client | active |
 | `app/globals.css` | Tokens sémantiques et habillage partagé des thèmes | active |
-| `public/sw.js` | Cache de l’application et des ressources de même origine, fallback HTML limité aux navigations | active |
+| `public/sw.js` | Cache versionné, réseau prioritaire pour les navigations et fallback hors ligne | active |
 
 ## Persistance locale
 
-IndexedDB utilise une base `english-adventure-local`, un magasin `app-state` et une clé racine. La progression complète des deux profils est stockée dans un état versionné ; les données sont normalisées champ par champ au chargement pour tolérer une structure partiellement corrompue ou plus ancienne sans laisser de sessions ou statistiques mal typées atteindre le moteur.
+IndexedDB utilise une base `english-adventure-local`, un magasin `app-state` et un magasin `sync-state`. La progression complète de chaque profil dynamique est stockée dans un état versionné ; les données sont normalisées champ par champ au chargement pour tolérer une structure partiellement corrompue ou plus ancienne sans laisser de sessions ou statistiques mal typées atteindre le moteur.
 
 Si IndexedDB est indisponible, l’application tente `localStorage` comme mode de secours. Si aucun stockage n’est possible, elle reste utilisable en mémoire et affiche un avertissement explicite.
 Les ouvertures et transactions IndexedDB sont bornées dans le temps afin qu’un navigateur mobile ou un contexte privé dégradé bascule vers le fallback au lieu de laisser l’écran de chargement bloqué. Les écritures sont sérialisées pour que le dernier geste utilisateur gagne en cas de changements rapides. Une première installation vide n’est pas signalée comme une récupération ; seuls les états réellement normalisés affichent l’avertissement.
 
-Le changement de profil efface le profil actif persistant avant de revenir à l’écran d’accès. Les données Gabriel et Luca restent dans le même état local mais ne sont jamais mélangées par le moteur.
+La réplique locale garde pour chaque profil une `baseRevision` et un statut `synced`, `pending` ou `conflict`. Une progression faite hors ligne reste donc dans IndexedDB ; au retour en ligne ou après un redémarrage, elle est reprise automatiquement si la révision distante correspond encore à `baseRevision`. L’upload utilise une mutation compare-and-swap. Si la révision distante a changé, la version locale et la version distante sont conservées pour un choix explicite profil par profil, sans écrasement silencieux ; plusieurs conflits sont traités séquentiellement et le choix distant ne réhydrate que le profil concerné. `replayXpByDay` est borné à 31 jours avant persistance distante.
+
+Lorsqu’une session Convex existe et qu’aucune famille distante n’est encore configurée, elle choisit explicitement entre importer l’état local et repartir avec les profils de départ. Sans session, l’application ouvre directement l’accès local aux profils. Un import répété portant le même `sourceHash` est idempotent ; un import ne remplace pas une famille déjà peuplée. L’espace parental propose un export JSON, une restauration validée par `schemaVersion`/`contentVersion`, la réinitialisation d’un profil et la suppression des données applicatives locales et distantes.
+
+Le changement de profil et la navigation restent locaux à l’appareil. Les codes de profil sont une commodité d’usage, pas une frontière de sécurité : toute session du compte familial peut lire et modifier les profils.
+
+Le service worker utilise le cache `english-adventure-v2`. Une navigation tente toujours le réseau en premier afin qu’une nouvelle version de l’application ne reste pas bloquée sur un ancien shell ; si le réseau est indisponible, le document précédemment mis en cache sert de fallback. Les autres ressources de même origine sont également mises en cache après une réponse réseau réussie.
 
 ## Contrat de contenu
 
@@ -62,5 +72,7 @@ Les seuils courants sont documentés dans `lib/progression/engine.ts` : 5 XP par
 ## Limites connues
 
 La tranche actuelle contient huit unités et vingt-trois leçons publiées. Les onze types sont représentables et rendus par le moteur ; le programme cible de 20 unités et le plan de rédaction sont documentés dans [`CONTENT_CURRICULUM.md`](./CONTENT_CURRICULUM.md) et le [plan de production](./plans/2026-08-07-content-curriculum.md). Le parcours mobile/hors ligne a été rejoué sur le build statique dans le navigateur intégré à 390×844 ; l’installation PWA et la validation sur appareil réel avec les nouvelles leçons restent à exécuter.
+
+Convex Auth utilise un seul compte familial et un provider mot de passe pour la synchronisation optionnelle ; l’interface de l’application n’impose plus l’écran e-mail/mot de passe à l’ouverture. La récupération automatisée du mot de passe n’est pas configurée, et le moteur de progression reste de confiance côté client en v1. La synchronisation ne fusionne pas deux appareils actifs sur le même profil ; elle demande un choix en cas de révision divergente. Le modèle accepte jusqu’à 20 profils, mais l’interface de gestion avancée de profils n’est pas encore construite.
 
 Voir [la carte du projet](./PROJECT_MAP.md), [le design system](./DESIGN_SYSTEM.md), [la dette technique](./TECHNICAL_DEBT.md) et [le plan de phase](./plans/2026-08-07-functional-implementation.md).

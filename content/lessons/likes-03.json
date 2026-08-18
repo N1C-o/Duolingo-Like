@@ -15,8 +15,8 @@
     "id": "likes-03-scene",
     "situation": "Le menu farfelu se met à chanter : pizza, musique et dinosaure sont au programme.",
     "setup": [
-      { "speaker": "Monster", "text": "Do you like dinosaurs?" },
-      { "speaker": "Dinosaur", "text": "Roar?" }
+      { "speaker": "Monster", "text": "Do you like dinosaurs?", "translation": "Tu aimes les dinosaures ?" },
+      { "speaker": "Dinosaur", "text": "Roar?", "translation": "Rooar ?" }
     ],
     "childAction": {
       "instruction": "Construis l’avis qui complète la chanson du menu.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Luca", "text": "I love music!" },
-      { "speaker": "Dinosaur", "text": "No, I don’t like the loud bit!" }
+      { "speaker": "Luca", "text": "I love music!", "translation": "J’adore la musique !" },
+      { "speaker": "Dinosaur", "text": "No, I don’t like the loud bit!", "translation": "Non, je n’aime pas quand c’est trop fort !" }
     ],
     "nextHook": "Le calendrier se retourne et mélange le matin avec la nuit."
   },

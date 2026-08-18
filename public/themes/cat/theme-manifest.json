@@ -1,0 +1,30 @@
+{
+  "id": "cat",
+  "version": 1,
+  "backgrounds": {
+    "journey": {
+      "src": "/themes/cat/backgrounds/journey-cat.webp",
+      "width": 1024,
+      "height": 1536
+    }
+  },
+  "heroes": {
+    "home": {
+      "src": "/themes/cat/heroes/cat-hero.webp",
+      "width": 1619,
+      "height": 971
+    }
+  },
+  "mascots": {
+    "main": "/themes/cat/mascots/cat-main.webp",
+    "idle": "/themes/cat/mascots/cat-idle.webp",
+    "encouragement": "/themes/cat/mascots/cat-encouragement.webp",
+    "celebration": "/themes/cat/mascots/cat-celebration.webp"
+  },
+  "decorations": {
+    "signpost": "/themes/cat/decorations/signpost.webp",
+    "yarnBalls": "/themes/cat/decorations/yarn-balls.webp",
+    "books": "/themes/cat/decorations/books.webp",
+    "starLantern": "/themes/cat/decorations/star-lantern.webp"
+  }
+}

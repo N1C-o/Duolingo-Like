@@ -15,8 +15,8 @@
     "id": "day-02-scene",
     "situation": "Un petit robot court dans la mauvaise direction avec une tartine sur la tête.",
     "setup": [
-      { "speaker": "Robot", "text": "Today I go… somewhere!" },
-      { "speaker": "Gabriel", "text": "The robot needs a clear plan." }
+      { "speaker": "Robot", "text": "Today I go… somewhere!", "translation": "Aujourd’hui, je vais… quelque part !" },
+      { "speaker": "Gabriel", "text": "The robot needs a clear plan.", "translation": "Le robot a besoin d’un plan clair." }
     ],
     "childAction": {
       "instruction": "Choisis la réponse qui dit ce qui se passe aujourd’hui.",
@@ -24,8 +24,8 @@
       "purpose": "respond"
     },
     "resolution": [
-      { "speaker": "Robot", "text": "Today I go to school!" },
-      { "speaker": "Luca", "text": "The tartine becomes a steering wheel." }
+      { "speaker": "Robot", "text": "Today I go to school!", "translation": "Aujourd’hui, je vais à l’école !" },
+      { "speaker": "Luca", "text": "The toast becomes a steering wheel.", "translation": "La tartine devient un volant." }
     ],
     "nextHook": "Le soir, les cartes de routine veulent encore jouer."
   },

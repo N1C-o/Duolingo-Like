@@ -15,8 +15,8 @@
     "id": "hello-01-scene",
     "situation": "Une petite valise cligne des yeux, mais refuse de s’ouvrir.",
     "setup": [
-      { "speaker": "Gabriel", "text": "The suitcase is sleeping!" },
-      { "speaker": "Luca", "text": "Maybe it needs a friendly hello." }
+      { "speaker": "Gabriel", "text": "The suitcase is sleeping!", "translation": "La valise dort !" },
+      { "speaker": "Luca", "text": "Maybe it needs a friendly hello.", "translation": "Elle a peut-être besoin d’un petit bonjour." }
     ],
     "childAction": {
       "instruction": "Construis la présentation du voyageur.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Suitcase", "text": "Hello! Click!" },
-      { "speaker": "Gabriel", "text": "The first map is inside!" }
+      { "speaker": "Suitcase", "text": "Hello! Click!", "translation": "Bonjour ! Clic !" },
+      { "speaker": "Gabriel", "text": "The first map is inside!", "translation": "La première carte est dedans !" }
     ],
     "nextHook": "Une flèche dessinée sur la carte demande comment tu vas."
   },

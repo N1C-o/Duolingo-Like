@@ -101,6 +101,12 @@ export function CapybaraMascot({ size = 140, className }: MascotProps) {
   );
 }
 
+export function CatMascot({ size = 140, className }: MascotProps) {
+  const style = { "--mascot-size": `${size}px` } as CSSProperties;
+
+  return <svg aria-label="Mascotte chat" className={className} data-mascot="cat" role="img" style={style} viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" />;
+}
+
 export function GhostMascot({ size = 140, className }: MascotProps) {
   const uid = useId().replace(/:/g, "");
   const body = `${uid}-ghost-body`;

@@ -15,8 +15,8 @@
     "id": "food-03-scene",
     "situation": "La nappe du pique-nique s’envole et emporte les verres avec elle.",
     "setup": [
-      { "speaker": "Gabriel", "text": "Can I have water, please?" },
-      { "speaker": "Luca", "text": "Say thank you before the blanket flies away!" }
+      { "speaker": "Gabriel", "text": "Can I have water, please?", "translation": "Je peux avoir de l’eau, s’il te plaît ?" },
+      { "speaker": "Luca", "text": "Say thank you before the blanket flies away!", "translation": "Dis merci avant que la nappe ne s’envole !" }
     ],
     "childAction": {
       "instruction": "Construis la réponse polie qui calme la nappe.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Gabriel", "text": "Thank you!" },
-      { "speaker": "Blanket", "text": "Whoosh… I’m staying!" }
+      { "speaker": "Gabriel", "text": "Thank you!", "translation": "Merci !" },
+      { "speaker": "Blanket", "text": "Whoosh… I’m staying!", "translation": "Frouf… Je reste ici !" }
     ],
     "nextHook": "Un monstre arrive avec une pizza très sérieuse."
   },

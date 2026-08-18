@@ -15,8 +15,8 @@
     "id": "school-play-03-scene",
     "situation": "Le terrain de jeu se retrouve à l’envers et le ballon roule vers le plafond.",
     "setup": [
-      { "speaker": "Luca", "text": "I have a ball!" },
-      { "speaker": "Gabriel", "text": "The playground is upside down!" }
+      { "speaker": "Luca", "text": "I have a ball!", "translation": "J’ai un ballon !" },
+      { "speaker": "Gabriel", "text": "The playground is upside down!", "translation": "La cour de récréation est à l’envers !" }
     ],
     "childAction": {
       "instruction": "Construis l’invitation qui lance la récréation.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Gabriel", "text": "Let’s play a game!" },
-      { "speaker": "Ball", "text": "Boing!" }
+      { "speaker": "Gabriel", "text": "Let’s play a game!", "translation": "Jouons à un jeu !" },
+      { "speaker": "Ball", "text": "Boing!", "translation": "Boing ! Ça rebondit !" }
     ],
     "nextHook": "Le ballon atterrit sur une nappe de pique-nique."
   },

@@ -15,8 +15,8 @@
     "id": "food-01-scene",
     "situation": "Le goûter fait de petits bruits et range les aliments dans les mauvaises poches.",
     "setup": [
-      { "speaker": "Apple", "text": "Tap-tap!" },
-      { "speaker": "Gabriel", "text": "The snack is making a funny noise!" }
+      { "speaker": "Apple", "text": "Tap-tap!", "translation": "Tac-tac !" },
+      { "speaker": "Gabriel", "text": "The snack is making a funny noise!", "translation": "Le goûter fait un drôle de bruit !" }
     ],
     "childAction": {
       "instruction": "Construis la phrase qui identifie la pomme bavarde.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Apple", "text": "This is an apple!" },
-      { "speaker": "Luca", "text": "The snack stops giggling." }
+      { "speaker": "Apple", "text": "This is an apple!", "translation": "Voici une pomme !" },
+      { "speaker": "Luca", "text": "The snack stops giggling.", "translation": "Le goûter arrête de rigoler." }
     ],
     "nextHook": "Le petit monstre entend son ventre gargouiller."
   },

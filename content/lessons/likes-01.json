@@ -15,8 +15,8 @@
     "id": "likes-01-scene",
     "situation": "Un monstre découvre une pizza et prend un air beaucoup trop sérieux.",
     "setup": [
-      { "speaker": "Gabriel", "text": "Look! Pizza!" },
-      { "speaker": "Monster", "text": "My taste buds are thinking." }
+      { "speaker": "Gabriel", "text": "Look! Pizza!", "translation": "Regarde ! Une pizza !" },
+      { "speaker": "Monster", "text": "My taste buds are thinking.", "translation": "Mes papilles réfléchissent." }
     ],
     "childAction": {
       "instruction": "Choisis la réaction du monstre devant la pizza.",
@@ -24,8 +24,8 @@
       "purpose": "respond"
     },
     "resolution": [
-      { "speaker": "Monster", "text": "I love pizza!" },
-      { "speaker": "Pizza", "text": "At last, a fan!" }
+      { "speaker": "Monster", "text": "I love pizza!", "translation": "J’adore la pizza !" },
+      { "speaker": "Pizza", "text": "At last, a fan!", "translation": "Enfin, un fan !" }
     ],
     "nextHook": "La pizza pose une question à tout le monde."
   },

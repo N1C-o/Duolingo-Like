@@ -15,8 +15,8 @@
     "id": "numbers-colours-02-scene",
     "situation": "Des grenouilles bondissent hors du coffre et comptent beaucoup trop vite.",
     "setup": [
-      { "speaker": "Frogs", "text": "One, two, three… hop!" },
-      { "speaker": "Luca", "text": "How many frogs are there?" }
+      { "speaker": "Frogs", "text": "One, two, three… hop!", "translation": "Un, deux, trois… hop !" },
+      { "speaker": "Luca", "text": "How many frogs are there?", "translation": "Combien y a-t-il de grenouilles ?" }
     ],
     "childAction": {
       "instruction": "Choisis le nombre qui arrête le grand saut.",
@@ -24,8 +24,8 @@
       "purpose": "respond"
     },
     "resolution": [
-      { "speaker": "Frogs", "text": "Five!" },
-      { "speaker": "Gabriel", "text": "The frogs land in a colourful row." }
+      { "speaker": "Frogs", "text": "Five!", "translation": "Cinq !" },
+      { "speaker": "Gabriel", "text": "The frogs land in a colourful row.", "translation": "Les grenouilles se posent en une ligne pleine de couleurs." }
     ],
     "nextHook": "Les couleurs commencent à danser autour des objets."
   },

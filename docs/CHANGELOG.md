@@ -1,5 +1,31 @@
 # Changelog
 
+## 2026-08-17 — Accès local direct
+
+- Suppression de l’écran de connexion e-mail/mot de passe à l’ouverture.
+- L’application charge directement les données locales et l’accès aux profils Gabriel/Luca.
+- La synchronisation Convex reste disponible lorsqu’une session familiale existe déjà.
+- Le chargement de la réplique de synchronisation ne bloque plus l’accès local aux profils ; un fallback est utilisé si sa lecture échoue.
+
+## 2026-08-09 — Corrections de synchronisation familiale
+
+- Reprise automatique des snapshots `pending` après redémarrage lorsque la révision distante correspond toujours à la base locale.
+- Activation du parcours de résolution dès qu’un upload concurrent détecte un conflit.
+- Résolution séquentielle de plusieurs profils sans réhydrater ni abandonner les versions locales des autres profils.
+- Ajout du choix explicite « Repartir de zéro » lorsque des données locales existent.
+- Validation Convex des versions, des structures internes de progression et de la rétention de `replayXpByDay` sur 31 jours.
+- Alignement du cahier des charges avec le compte familial Convex, le fonctionnement local-first et la copie distante.
+- Correction du cache PWA : le shell applicatif est versionné en `v2` et les navigations privilégient désormais le réseau pour éviter de servir un ancien écran après une mise à jour.
+
+## 2026-08-08 — Persistance familiale Convex
+
+- Connexion au projet Convex `Duolingo-like` avec Convex Auth Password et compte familial unique.
+- Ajout du schéma familles/profils/snapshots avec propriété par identité, limite de 20 profils et mutations atomiques.
+- Migration du modèle persistant vers des identifiants de profil dynamiques, avec Gabriel et Luca conservés comme profils initiaux.
+- Conservation d’une réplique IndexedDB/localStorage avec statuts `synced`, `pending` et `conflict`, révision compare-and-swap et synchronisation au retour en ligne.
+- Ajout de l’import local explicite, de l’export/restauration JSON versionnés, de la réinitialisation de profil et de la suppression des données familiales.
+- Validation réelle du compte de test et du bootstrap dans le navigateur local ; la récupération de mot de passe par e-mail reste hors périmètre.
+
 ## 2026-08-08 — Expérience narrative et production guidée
 
 - Implémentation du contrat `storyScene` dans les 23 leçons : situation, dialogue, action de l’enfant, résolution et accroche suivante.

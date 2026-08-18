@@ -15,8 +15,8 @@
     "id": "numbers-colours-03-scene",
     "situation": "Les couleurs dansent autour du coffre et échangent la place des objets.",
     "setup": [
-      { "speaker": "Apple", "text": "I’m red!" },
-      { "speaker": "Blue Ball", "text": "I’m blue!" }
+      { "speaker": "Apple", "text": "I’m red!", "translation": "Je suis rouge !" },
+      { "speaker": "Blue Ball", "text": "I’m blue!", "translation": "Je suis bleu !" }
     ],
     "childAction": {
       "instruction": "Construis la phrase qui remet une couleur au bon objet.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Rainbow", "text": "The colours are in order!" },
-      { "speaker": "Chest", "text": "The final map is yours." }
+      { "speaker": "Rainbow", "text": "The colours are in order!", "translation": "Les couleurs sont dans le bon ordre !" },
+      { "speaker": "Chest", "text": "The final map is yours.", "translation": "La carte finale est à toi !" }
     ],
     "nextHook": "Le coffre révèle une nouvelle route pour la suite du parcours."
   },

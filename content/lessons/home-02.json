@@ -15,8 +15,8 @@
     "id": "home-02-scene",
     "situation": "Le lit minuscule a roulé dans une autre pièce et fait semblant d’être invisible.",
     "setup": [
-      { "speaker": "Gabriel", "text": "There is a bed… but where?" },
-      { "speaker": "Bed", "text": "Shhh!" }
+      { "speaker": "Gabriel", "text": "There is a bed… but where is it?", "translation": "Il y a un lit… mais où est-il ?" },
+      { "speaker": "Bed", "text": "Shhh!", "translation": "Chut !" }
     ],
     "childAction": {
       "instruction": "Construis la phrase qui révèle la cachette.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Bed", "text": "You found me!" },
-      { "speaker": "Luca", "text": "The bed rolls back into the room." }
+      { "speaker": "Bed", "text": "You found me!", "translation": "Tu m’as trouvé !" },
+      { "speaker": "Luca", "text": "The bed rolls back into the room.", "translation": "Le lit retourne dans la pièce en roulant." }
     ],
     "nextHook": "Toute la maison se prépare à faire un tour sur elle-même."
   },

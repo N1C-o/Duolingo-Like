@@ -15,8 +15,8 @@
     "id": "likes-02-scene",
     "situation": "La pizza devient journaliste et interviewe chaque personnage.",
     "setup": [
-      { "speaker": "Pizza", "text": "Do you like pizza?" },
-      { "speaker": "Luca", "text": "It is holding a tiny microphone." }
+      { "speaker": "Pizza", "text": "Do you like pizza?", "translation": "Tu aimes la pizza ?" },
+      { "speaker": "Luca", "text": "It is holding a tiny microphone.", "translation": "Elle tient un petit micro." }
     ],
     "childAction": {
       "instruction": "Remets la question dans l’ordre pour lancer l’interview.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Pizza", "text": "Yes, I do!" },
-      { "speaker": "Gabriel", "text": "The microphone records a crunchy answer." }
+      { "speaker": "Pizza", "text": "Yes, I do!", "translation": "Oui, j’aime ça !" },
+      { "speaker": "Gabriel", "text": "The microphone records a crunchy answer.", "translation": "Le micro enregistre une réponse croustillante." }
     ],
     "nextHook": "Le menu suivant contient un dinosaure et une note de musique."
   },

@@ -15,8 +15,8 @@
     "id": "hello-02-scene",
     "situation": "La valise ouvre une carte, mais elle veut connaître le nouveau voyageur.",
     "setup": [
-      { "speaker": "Sam", "text": "Hi! What’s your name?" },
-      { "speaker": "Sam", "text": "How are you?" }
+      { "speaker": "Sam", "text": "Hi! What’s your name?", "translation": "Salut ! Comment tu t’appelles ?" },
+      { "speaker": "Sam", "text": "How are you?", "translation": "Comment vas-tu ?" }
     ],
     "childAction": {
       "instruction": "Construis la réponse qui rassure Sam.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Sam", "text": "I’m good too!" },
-      { "speaker": "Suitcase", "text": "The family map is ready!" }
+      { "speaker": "Sam", "text": "I’m good too!", "translation": "Moi aussi, je vais bien !" },
+      { "speaker": "Suitcase", "text": "The family map is ready!", "translation": "La carte de la famille est prête !" }
     ],
     "nextHook": "Un portrait de famille tombe de la valise."
   },

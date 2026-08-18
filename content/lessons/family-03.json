@@ -15,8 +15,8 @@
     "id": "family-03-scene",
     "situation": "La vieille imprimante éternue et imprime une famille dans le désordre.",
     "setup": [
-      { "speaker": "Printer", "text": "Achoo! This is my…" },
-      { "speaker": "Gabriel", "text": "The sentence is missing its ending!" }
+      { "speaker": "Printer", "text": "Achoo! This is my…", "translation": "Atchoum ! Voici ma…" },
+      { "speaker": "Gabriel", "text": "The sentence is missing its ending!", "translation": "Il manque la fin de la phrase !" }
     ],
     "childAction": {
       "instruction": "Reconstruis la phrase qui remet la photo en ordre.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "Printer", "text": "This is my family!" },
-      { "speaker": "Luca", "text": "The photo comes out perfectly." }
+      { "speaker": "Printer", "text": "This is my family!", "translation": "Voici ma famille !" },
+      { "speaker": "Luca", "text": "The photo comes out perfectly.", "translation": "La photo sort parfaitement." }
     ],
     "nextHook": "Dans la maison suivante, une porte minuscule baille."
   },

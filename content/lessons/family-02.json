@@ -15,8 +15,8 @@
     "id": "family-02-scene",
     "situation": "Le portrait mélange les membres de la famille comme un jeu de cartes.",
     "setup": [
-      { "speaker": "Gabriel", "text": "Who is this?" },
-      { "speaker": "Luca", "text": "The picture is upside down!" }
+      { "speaker": "Gabriel", "text": "Who is this?", "translation": "Qui est-ce ?" },
+      { "speaker": "Luca", "text": "The picture is upside down!", "translation": "L’image est à l’envers !" }
     ],
     "childAction": {
       "instruction": "Choisis la phrase pour présenter le personnage.",
@@ -24,8 +24,8 @@
       "purpose": "respond"
     },
     "resolution": [
-      { "speaker": "Portrait", "text": "That’s my family!" },
-      { "speaker": "Luca", "text": "All the labels jump back in place." }
+      { "speaker": "Portrait", "text": "That’s my family!", "translation": "C’est ma famille !" },
+      { "speaker": "Luca", "text": "All the labels jump back into place.", "translation": "Toutes les étiquettes se remettent en place." }
     ],
     "nextHook": "Une dernière photo sort de l’imprimante en éternuant."
   },

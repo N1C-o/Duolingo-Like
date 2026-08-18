@@ -40,7 +40,7 @@ import type {
   Exercise,
   ExerciseType,
   LessonContent,
-  ProfileId,
+  ThemeId,
   ThemeContent,
   UnitContent
 } from "@/lib/content/types";
@@ -300,7 +300,7 @@ export function getLesson(lessonId: string): LessonContent {
   return lesson;
 }
 
-export function getTheme(themeId: ProfileId): ThemeContent {
+export function getTheme(themeId: ThemeId): ThemeContent {
   const theme = themesById.get(themeId);
   if (!theme) throw new Error(`Thème inconnu : ${themeId}`);
   return theme;

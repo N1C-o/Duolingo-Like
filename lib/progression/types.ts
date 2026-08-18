@@ -56,6 +56,8 @@ export type ProfileProgress = {
 
 export type LocalProfile = {
   id: ProfileId;
+  displayName: string;
+  accessCode: string;
   themeId: ThemeId;
   firstUsedAt: string | null;
   preferences: ProfilePreferences;

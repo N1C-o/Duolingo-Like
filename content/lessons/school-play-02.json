@@ -15,8 +15,8 @@
     "id": "school-play-02-scene",
     "situation": "Une image se cache derrière le tableau et ne répond qu’aux bonnes consignes.",
     "setup": [
-      { "speaker": "Teacher", "text": "Open the book." },
-      { "speaker": "Picture", "text": "Peek-a-boo! Look at me!" }
+      { "speaker": "Teacher", "text": "Open the book.", "translation": "Ouvre le livre." },
+      { "speaker": "Picture", "text": "Peek-a-boo! Look at me!", "translation": "Coucou ! Regarde-moi !" }
     ],
     "childAction": {
       "instruction": "Choisis la consigne qui fait sortir l’image.",
@@ -24,8 +24,8 @@
       "purpose": "respond"
     },
     "resolution": [
-      { "speaker": "Picture", "text": "You found me!" },
-      { "speaker": "Teacher", "text": "Great look!" }
+      { "speaker": "Picture", "text": "You found me!", "translation": "Tu m’as trouvée !" },
+      { "speaker": "Teacher", "text": "Great job!", "translation": "Bravo !" }
     ],
     "nextHook": "Le ballon de la récréation rebondit dans le couloir."
   },

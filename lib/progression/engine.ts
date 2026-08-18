@@ -1,5 +1,5 @@
 import { content, getLesson, getUnit } from "@/content";
-import type { Exercise, ExerciseAnswer, LessonContent, ProfileId, UnitContent } from "@/lib/content/types";
+import type { Exercise, ExerciseAnswer, LessonContent, ProfileId, ThemeId, UnitContent } from "@/lib/content/types";
 import type {
   AppState,
   ConceptStat,
@@ -71,26 +71,34 @@ export function createEmptyProgress(): ProfileProgress {
   };
 }
 
-export function createProfile(profileId: ProfileId): LocalProfile {
+export function createProfile(
+  profileId: ProfileId,
+  themeId: ThemeId = profileId === "luca" ? "luca" : "gabriel",
+  displayName = profileId === "gabriel" ? "Gabriel" : profileId === "luca" ? "Luca" : "Nouveau profil",
+  accessCode = profileId
+): LocalProfile {
   return {
     id: profileId,
-    themeId: profileId,
+    displayName,
+    accessCode,
+    themeId,
     firstUsedAt: null,
     preferences: { ...defaultPreferences },
     progress: createEmptyProgress()
   };
 }
 
-export function createInitialAppState(): AppState {
+export function createInitialAppState(profiles: LocalProfile[] = [createProfile("gabriel", "gabriel"), createProfile("luca", "luca")]): AppState {
+  const profileMap = profiles.reduce<Record<ProfileId, LocalProfile>>((result, profile) => {
+    result[profile.id] = profile;
+    return result;
+  }, {});
   return {
     schemaVersion: PROGRESSION_RULES.schemaVersion,
     contentVersion: content.course.contentVersion,
     activeProfileId: null,
     introSeen: false,
-    profiles: {
-      gabriel: createProfile("gabriel"),
-      luca: createProfile("luca")
-    }
+    profiles: profileMap
   };
 }
 
@@ -468,7 +476,9 @@ export function unlockUnitForParent(state: AppState, profileId: ProfileId, unitI
 
 export function resetProfile(state: AppState, profileId: ProfileId) {
   const next = clone(state);
-  next.profiles[profileId] = createProfile(profileId);
+  const existing = next.profiles[profileId];
+  if (!existing) return state;
+  next.profiles[profileId] = createProfile(profileId, existing.themeId, existing.displayName, existing.accessCode);
   if (next.activeProfileId === profileId) next.activeProfileId = null;
   return next;
 }

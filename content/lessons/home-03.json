@@ -15,8 +15,8 @@
     "id": "home-03-scene",
     "situation": "La maison se retourne et chaque meuble glisse vers une nouvelle pièce.",
     "setup": [
-      { "speaker": "House", "text": "This is a house… upside down!" },
-      { "speaker": "Gabriel", "text": "Quick, describe the room before it spins again." }
+      { "speaker": "House", "text": "This is a house… upside down!", "translation": "Voici une maison… à l’envers !" },
+      { "speaker": "Gabriel", "text": "Quick! Describe the room before the house spins again.", "translation": "Vite ! Décris la pièce avant que la maison ne tourne encore." }
     ],
     "childAction": {
       "instruction": "Reconstruis la phrase qui aide à ranger la maison.",
@@ -24,8 +24,8 @@
       "purpose": "construct"
     },
     "resolution": [
-      { "speaker": "House", "text": "There is a table in the room!" },
-      { "speaker": "Luca", "text": "Flip! Everything lands safely." }
+      { "speaker": "House", "text": "There is a table in the room!", "translation": "Il y a une table dans la pièce !" },
+      { "speaker": "Luca", "text": "Flip! Everything lands safely.", "translation": "Hop ! Tout retombe sans problème." }
     ],
     "nextHook": "Un cartable magique tombe du plafond."
   },

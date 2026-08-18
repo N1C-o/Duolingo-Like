@@ -15,8 +15,8 @@
     "id": "home-01-scene",
     "situation": "Une porte minuscule garde une maison pleine d’objets cachés.",
     "setup": [
-      { "speaker": "Tiny Door", "text": "Where is the bed?" },
-      { "speaker": "Luca", "text": "It’s hiding behind the tiny door!" }
+      { "speaker": "Tiny Door", "text": "Where is the bed?", "translation": "Où est le lit ?" },
+      { "speaker": "Luca", "text": "It’s hiding behind the tiny door!", "translation": "Il se cache derrière la petite porte !" }
     ],
     "childAction": {
       "instruction": "Choisis la réplique qui aide à ouvrir la porte.",
@@ -24,8 +24,8 @@
       "purpose": "respond"
     },
     "resolution": [
-      { "speaker": "Tiny Door", "text": "Open!" },
-      { "speaker": "Gabriel", "text": "A little room rolls out." }
+      { "speaker": "Tiny Door", "text": "I’m open!", "translation": "Je suis ouverte !" },
+      { "speaker": "Gabriel", "text": "A little room appears.", "translation": "Une petite pièce apparaît." }
     ],
     "nextHook": "Le lit n’est déjà plus dans la pièce."
   },

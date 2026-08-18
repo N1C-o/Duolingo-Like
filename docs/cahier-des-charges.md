@@ -1,6 +1,6 @@
 # Cahier des charges — application ludique d’apprentissage de l’anglais
 
-**Version :** 2.0 — 6 août 2026  
+**Version :** 2.1 — 9 août 2026
 **Statut :** spécification fonctionnelle et technique pour une première version  
 **Public :** Gabriel et Luca, enfants de la même famille  
 **Support cible :** navigateur mobile et tablette, avec installation possible sur l’écran d’accueil
@@ -9,19 +9,19 @@ Cette version intègre les décisions de conception validées après revue criti
 
 ## 1. Résumé du projet
 
-L’application est une web app mobile-first, locale et installable, destinée exclusivement à deux enfants. Elle leur apprend un anglais utile dans les situations du quotidien au moyen de courtes leçons, d’exercices variés, de dialogues et d’une progression ludique.
+L’application est une web app mobile-first, local-first et installable, destinée à un usage familial privé. Elle leur apprend un anglais utile dans les situations du quotidien au moyen de courtes leçons, d’exercices variés, de dialogues et d’une progression ludique. Deux profils sont fournis au départ ; le modèle peut en accueillir jusqu’à vingt.
 
-La première version ne comporte :
+La première version comporte :
 
-- aucun compte utilisateur ;
-- aucune authentification ;
+- un compte familial Convex Auth ;
+- des profils enfants sans compte séparé ni rôle distinct ;
 - aucun paiement ;
-- aucun backend ni serveur applicatif ;
-- aucune synchronisation distante ;
+- un backend Convex limité à la famille, aux profils et aux snapshots de progression ;
+- une synchronisation distante opportuniste entre appareils ;
 - aucune publicité ni collecte analytique obligatoire ;
 - aucune reconnaissance vocale ou évaluation automatique de la prononciation.
 
-Toutes les données de progression et de préférence restent sur l’appareil utilisé par la famille.
+IndexedDB reste la copie de travail prioritaire et l’application continue de fonctionner hors ligne. Convex sert de copie distante familiale ; un conflit entre appareils est présenté profil par profil, sans fusion ni écrasement silencieux. Un export JSON permet de conserver une sauvegarde récupérable.
 
 ## 2. Vision produit et principes directeurs
 
@@ -35,7 +35,7 @@ La différence du produit repose sur cinq choix :
 - **La réussite avant la pression.** Les erreurs deviennent des occasions de revoir ; elles ne font perdre ni vies ni progression.
 - **La personnalisation avant la standardisation.** Les mêmes apprentissages sont portés par des univers visuels et éditoriaux adaptés à chaque enfant.
 - **La curiosité avant la compétition.** Le parcours, les mascottes et les récompenses donnent envie de continuer sans classement ni comparaison.
-- **La simplicité avant la dépendance.** L’application fonctionne localement, sans compte, publicité, backend ou service payant obligatoire.
+- **La simplicité avant la dépendance.** L’application reste utilisable localement et hors ligne ; le compte familial et Convex ajoutent la reprise entre appareils sans introduire de rôles, de paiement ou de service obligatoire pour jouer.
 
 La référence visuelle confirme l’ambition d’une expérience de jeu mobile illustrée : parcours vertical immersif, progression toujours visible, gros boutons, cartes arrondies, mascotte-compagnon, univers riche mais lisible et action principale accessible dans la partie basse de l’écran.
 
@@ -49,7 +49,7 @@ L’application ne doit pas devenir :
 - une expérience fondée sur les vies, la perte d’XP, les punitions ou la culpabilisation ;
 - une succession aléatoire de quiz sans progression pédagogique ;
 - une interface surchargée d’illustrations au détriment de la lisibilité ;
-- un produit dépendant d’un compte, d’un serveur ou d’une IA en ligne ;
+- un produit imposant un compte enfant, des rôles complexes, une connexion permanente ou une IA en ligne ;
 - deux applications différentes maintenues séparément pour Gabriel et Luca.
 
 ### 2.3 Promesse produit
@@ -69,18 +69,19 @@ En cinq minutes environ, un enfant doit pouvoir apprendre et réutiliser quelque
 
 ### 2.5 Principes de sécurité et de confidentialité
 
-- L’application ne demande ni nom de famille, ni adresse e-mail, ni date de naissance, ni photo.
+- L’application ne demande ni nom de famille, ni date de naissance, ni photo.
+- L’adresse e-mail et le mot de passe, lorsqu’un compte familial Convex Auth est utilisé pour la synchronisation, ne concernent que la famille ; aucun profil enfant ne possède d’identifiant de connexion séparé.
 - Aucun contenu généré par d’autres utilisateurs n’est visible.
 - Aucun chat, classement public, lien commercial ou publicité n’est présent.
 - Les sons sont déclenchés par une action explicite de l’utilisateur lorsque le navigateur l’exige.
-- La zone parentale est une barrière d’usage, pas un mécanisme de sécurité fort : les données étant locales, une personne ayant accès à l’appareil peut toujours les supprimer.
+- La zone parentale et les codes de profil sont des barrières d’usage, pas des mécanismes de sécurité forts : toute session du compte familial peut gérer tous les profils.
 
 ## 3. Périmètre de la première version
 
 ### 3.1 Inclus dans le MVP
 
-- Deux profils locaux prévus : **Gabriel** et **Luca**.
-- Écran d’accès local simple permettant d’identifier le profil entrant par un code : `gabriel` pour Gabriel et `luca` pour Luca.
+- Deux profils de départ prévus : **Gabriel** et **Luca** ; le modèle accepte jusqu’à vingt profils.
+- Écran d’accès simple permettant d’identifier le profil entrant par un code local : `gabriel` pour Gabriel et `luca` pour Luca.
 - Parcours organisé en unités, leçons, exercices et récompenses.
 - Leçons d’environ cinq minutes avec progression enregistrée localement.
 - Les onze types d’exercices demandés.
@@ -88,6 +89,9 @@ En cinq minutes environ, un enfant doit pouvoir apprendre et réutiliser quelque
 - XP, niveaux, badges, progression visuelle et déverrouillage progressif.
 - Accueil, choix du profil, carte du parcours, unité, lancement de leçon, exercice, feedback, fin de leçon, badges, progression, paramètres et espace parental.
 - Fonctionnement hors ligne après le premier chargement lorsque le navigateur accepte l’installation PWA.
+- Accès local direct, puis compte familial Convex Auth optionnel avec import explicite de la copie locale ou création propre des profils de départ.
+- Synchronisation automatique des snapshots lorsque la connexion revient, avec comparaison de révision et choix explicite profil par profil en cas de conflit.
+- Export JSON et restauration validée de la famille, ainsi que suppression explicite des copies locale et distante.
 - Préférences sonores distinctes pour chaque profil.
 - Réinitialisation confirmée d’une progression depuis la zone parentale.
 - Contenu pédagogique entièrement piloté par des fichiers structurés locaux et validés par schéma.
@@ -97,7 +101,7 @@ En cinq minutes environ, un enfant doit pouvoir apprendre et réutiliser quelque
 
 ### 3.2 Hors périmètre du MVP
 
-- Comptes en ligne, authentification distante, synchronisation entre appareils ou sauvegarde distante.
+- Gestion avancée des profils depuis l’interface, rôles adultes/enfants ou comptes enfants séparés.
 - Reconnaissance vocale, notation de prononciation ou conversation avec une IA.
 - Classement entre enfants, compétition en ligne ou partage social.
 - Notifications push obligatoires ou rappels intrusifs.
@@ -124,7 +128,7 @@ Changer de thème ultérieurement doit conserver toute la progression du profil.
 | Profil préconfiguré | Thème par défaut | Direction artistique | Récompenses et ton |
 |---|---|---|---|
 | **Gabriel** | Capybaras | Chaleureux, doux, drôle, calme, avec une mascotte capybara récurrente | Feuilles, goûters, accessoires de capybara, petites scènes humoristiques |
-| **Luca** | Manoir mystérieux | Fantômes sympathiques, objets magiques, exploration et frisson léger | Clés, lanternes, portraits de fantômes, objets de manoir ; jamais d’image réellement effrayante |
+| **Luca** | Univers des chats | Compagnon chat curieux, refuge perché, lecture et exploration douce | Étoiles, pelotes, petits livres, lanternes et accessoires de refuge |
 
 ### Règles communes
 
@@ -138,7 +142,7 @@ Changer de thème ultérieurement doit conserver toute la progression du profil.
 - L’enfant peut changer de profil depuis l’accueil, mais ne voit pas la progression de l’autre pendant une leçon.
 - Le profil actif est toujours visible dans l’en-tête ou le contexte de navigation.
 - Les mêmes écrans, composants, moteur pédagogique, navigation, modèles de données et types d’exercices servent aux deux profils.
-- Le personnage fantôme de Luca n’a pas encore de prénom définitif ; le cahier des charges ne doit pas en choisir un sans validation.
+- La mascotte chat de Luca n’a pas encore de prénom définitif ; le cahier des charges ne doit pas en choisir un sans validation.
 
 ### 4.1 Moteur de thèmes
 
@@ -663,7 +667,7 @@ content/
 ├── badges.json
 └── themes/
     ├── gabriel-capybara.json
-    └── luca-manoir.json
+    └── luca.json
 ```
 
 Les libellés d’interface généraux peuvent être regroupés dans les ressources de locale de l’application. Les messages pédagogiques dépendant d’une leçon restent dans le contenu de cette leçon.
@@ -816,7 +820,7 @@ Pour l’application :
 
 ### 12.4 Recommandation
 
-Recommander **IndexedDB comme stockage principal** pour les profils, la progression, les erreurs et les préférences. Cette solution est plus adaptée à deux historiques indépendants, aux mises à jour fréquentes pendant les leçons et aux futures migrations de données.
+Recommander **IndexedDB comme stockage principal** pour les profils, la progression, les erreurs et les préférences. Cette solution est plus adaptée à plusieurs historiques indépendants, aux mises à jour fréquentes pendant les leçons et aux futures migrations de données. Convex conserve une copie distante par famille et ne remplace pas le fonctionnement local-first.
 
 `localStorage` peut rester limité à des valeurs triviales, comme le dernier profil actif ou un indicateur d’introduction, si cela simplifie le démarrage. Il ne doit pas devenir la source de vérité de la progression.
 
@@ -834,7 +838,7 @@ Le contenu pédagogique reste dans les fichiers statiques de l’application : i
 | Installation | PWA avec manifest et service worker | Ajout à l’écran d’accueil et fonctionnement hors ligne |
 | Persistance | IndexedDB, avec couche d’abstraction | Données structurées et migrations locales |
 | Voix | Web Speech API, principalement `speechSynthesis` | Pas de serveur audio ni de service payant obligatoire |
-| Hébergement cible | Hébergement statique compatible avec l’export Next.js | Pas de backend ni de traitement serveur nécessaire |
+| Hébergement cible | Front statique compatible avec l’export Next.js et projet Convex | Le front reste statique ; Convex fournit l’authentification et la synchronisation familiale |
 
 ### 13.2 Découpage logique
 
@@ -842,10 +846,11 @@ Le contenu pédagogique reste dans les fichiers statiques de l’application : i
 2. **Contrats et validation.** Vérification des données, identifiants, types d’exercices et compatibilité de version.
 3. **Moteur pédagogique.** Sélection de la prochaine leçon, calcul des réponses, XP, badges, déverrouillage et erreurs fréquentes.
 4. **Persistance locale.** Lecture, écriture, migration et réinitialisation IndexedDB.
-5. **Services de plateforme.** Synthèse vocale, détection hors ligne, préférence de réduction des animations et installation PWA.
-6. **Composants d’interface.** Écrans partagés, exercices génériques, feedback et navigation.
-7. **Moteur de thèmes.** Résolution du thème sélectionné, tokens sémantiques, mascotte, assets et variantes éditoriales.
-8. **Design system.** Tokens, composants partagés et règles responsives sans couleur ou typographie codée dans les écrans métier.
+5. **Réplique distante.** Convex Auth, famille, profils, snapshots, révisions et export/restauration.
+6. **Services de plateforme.** Synthèse vocale, détection hors ligne, préférence de réduction des animations et installation PWA.
+7. **Composants d’interface.** Écrans partagés, exercices génériques, feedback et navigation.
+8. **Moteur de thèmes.** Résolution du thème sélectionné, tokens sémantiques, mascotte, assets et variantes éditoriales.
+9. **Design system.** Tokens, composants partagés et règles responsives sans couleur ou typographie codée dans les écrans métier.
 
 ### 13.3 Principes d’architecture
 
@@ -901,7 +906,7 @@ Les identifiants de profil, unité et leçon doivent être transmis de manière 
 - Une première ouverture nécessite le chargement des fichiers statiques.
 - La synthèse vocale dépend des voix installées sur l’appareil et peut être moins fiable hors connexion selon le système.
 - L’installation PWA et certaines fonctions varient selon le navigateur.
-- Les données locales peuvent être effacées par l’utilisateur, le navigateur ou le nettoyage de stockage de l’appareil ; l’absence de sauvegarde distante est un choix de périmètre.
+- Les données locales peuvent être effacées par l’utilisateur, le navigateur ou le nettoyage de stockage de l’appareil ; l’export JSON et la copie Convex réduisent ce risque sans constituer une sauvegarde versionnée complète.
 
 ## 15. Direction UX, UI et design system
 
@@ -1005,26 +1010,26 @@ Palette générale inspirée de la référence :
 
 Les récompenses peuvent inclure des feuilles, fruits, goûters, chapeaux, lunettes, sacs et accessoires de décor. La palette exacte, les typographies et les illustrations restent centralisées dans le fichier du thème.
 
-### 15.5 Thème Luca — manoir mystérieux
+### 15.5 Thème Luca — univers des chats
 
 Univers initial :
 
-- manoir mystérieux, nuit douce, fantômes sympathiques et lanternes ;
-- bibliothèque secrète, objets magiques et exploration ;
-- léger frisson adapté à un enfant ;
-- mascotte fantôme rassurante, curieuse et amusante.
+- refuge perché dans les arbres, nuit douce et lanternes chaleureuses ;
+- bibliothèque secrète, pelotes, étoiles et exploration ;
+- ambiance de découverte adaptée à un enfant ;
+- mascotte chat rassurante, curieuse et amusante.
 
 Palette générale inspirée de la référence :
 
-- bleu nuit ;
-- violet ;
+- bleu profond ;
+- bleu-vert ;
 - ambre ;
-- gris bleuté ;
-- vert spectral léger.
+- caramel ;
+- crème.
 
-Les récompenses peuvent inclure des clés, lanternes, portraits, grimoires, potions fantaisistes et zones découvertes du manoir.
+Les récompenses peuvent inclure des étoiles, pelotes, petits livres, lanternes, accessoires de chat et zones découvertes du refuge.
 
-Le thème ne doit inclure ni sang, ni violence, ni visage réaliste inquiétant, ni menace, ni jumpscare, ni bruit strident, ni image réellement effrayante. Le thème du manoir doit pouvoir être remplacé ultérieurement si Luca n’y accroche pas. Le prénom de la mascotte fantôme reste à définir après validation.
+Le thème ne doit inclure ni sang, ni violence, ni visage réaliste inquiétant, ni menace, ni jumpscare, ni bruit strident, ni image réellement effrayante. Les assets du thème fantôme/manoir restent conservés en réserve sous `public/themes/manor`.
 
 ### 15.6 Audio et haptique
 
@@ -1152,8 +1157,8 @@ L’espace parental peut modifier la disponibilité locale des unités, mais ne 
 
 - L’application possède les éléments nécessaires à son ajout à l’écran d’accueil.
 - Après chargement initial, le parcours et les leçons restent utilisables hors ligne.
-- Aucun compte, paiement, backend, appel métier distant ou service payant obligatoire n’est requis.
-- Les données de progression sont lisibles et modifiables uniquement dans le stockage local du navigateur par l’application.
+- Aucun compte enfant, paiement, publicité ou service d’IA en ligne n’est requis ; le compte familial Convex est nécessaire pour la copie distante et la reprise entre appareils.
+- Les données de progression sont lisibles et modifiables par la session du compte familial ; IndexedDB reste la copie de travail de l’appareil et Convex la copie distante.
 
 ### Qualité d’usage
 
@@ -1199,7 +1204,7 @@ L’espace parental peut modifier la disponibilité locale des unités, mais ne 
 - Migration d’une structure IndexedDB fictivement ancienne.
 - Comportement avec stockage refusé, voix absente et animations réduites.
 - Test responsive sur petit mobile, grande tablette et écran de bureau.
-- Vérification de l’absence de requêtes applicatives vers un backend.
+- Vérification que les requêtes distantes sont limitées à Convex Auth et aux mutations/lectures de la famille.
 - Vérification des tokens sémantiques, des états de composants et de la réduction des animations.
 - Test des activités légères du MVP avec le même moteur de progression.
 
@@ -1270,7 +1275,7 @@ Ces activités réutilisent les notions du parcours, s’inscrivent dans la bouc
 Les expériences plus ambitieuses sont reportées après validation de la boucle principale :
 
 - course du capybara ;
-- exploration du manoir ;
+- exploration du refuge perché ;
 - défi avec la mascotte ;
 - collection d’objets ;
 - décoration d’un lieu ;
@@ -1285,7 +1290,7 @@ Ces mini-jeux futurs devront réutiliser le vocabulaire, les phrases, la progres
 - Ajouter des enregistrements audio humains optionnels si un besoin de qualité apparaît.
 - Ajouter un mode parent plus détaillé, toujours local.
 - Ajouter la reconnaissance vocale uniquement après validation des enjeux de confidentialité, de compatibilité et de précision.
-- Ajouter une sauvegarde exportable manuelle, clairement contrôlée par le parent, sans synchronisation automatique.
+- Conserver l’export/restauration JSON comme sauvegarde manuelle ; n’ajouter une sauvegarde versionnée ou planifiée que si l’usage familial le justifie.
 - Ajouter davantage de variantes de dialogues et de jeux de révision.
 
 ## 23. Décisions et points de vigilance
@@ -1305,25 +1310,25 @@ Ces mini-jeux futurs devront réutiliser le vocabulaire, les phrases, la progres
 - **Stockage principal :** IndexedDB ; `localStorage` limité aux petits états non critiques.
 - **Déploiement :** export statique Next.js compatible PWA.
 - **Voix :** Web Speech API, avec mode silencieux complet en fallback.
-- **Progression :** locale, séparée par profil, sans perte d’XP en cas d’erreur.
+- **Progression :** locale-first, séparée par profil, sans perte d’XP en cas d’erreur, avec réplique Convex optionnelle lorsque la connexion est disponible.
 - **Thèmes :** Gabriel et Luca partagent les mêmes écrans, composants, navigation, moteur et modèles de données.
 - **Profil et thème :** le profil actif, le thème, la progression et les préférences sont séparés ; changer de thème conserve la progression.
-- **Accès local :** sélection d’un profil puis code simple local (`gabriel` ou `luca`) ; aucune authentification distante ni promesse de sécurité forte.
+- **Accès familial :** sélection locale d’un profil et code simple (`gabriel` ou `luca`) ; une session familiale Convex Auth peut ensuite fournir la copie distante, et les codes ne sont pas une frontière de sécurité.
 - **Design system :** tokens sémantiques et composants partagés, sans valeurs de thème codées dans les écrans métier.
 - **Mini-jeux MVP :** memory, quiz rapide, remise en ordre, mini-dialogues et révisions légères uniquement.
 - **Mini-jeux ambitieux :** reportés après le MVP et réutilisant le moteur existant.
 - **Documentation :** cahier des charges principal unique conservé pendant la conception.
-- **Référence visuelle :** direction d’ambiance et d’ergonomie, sans reproduction pixel par pixel et sans génération d’asset à ce stade.
+- **Référence visuelle :** direction d’ambiance et d’ergonomie ; les assets validés sont intégrés dans le thème sans reproduction pixel par pixel.
 
-### Points à confirmer avant implémentation
+### Points de suivi après la première implémentation
 
 - Âge exact et niveau actuel de Gabriel et Luca pour calibrer le vocabulaire et la longueur des consignes.
 - Nombre de leçons à fournir dans chaque unité du premier parcours.
 - Validation finale des valeurs d’XP et des seuils après un premier essai de durée et de rythme.
 - Liste initiale des badges, illustrations et assets réellement disponibles.
-- Prénom éventuel de la mascotte fantôme de Luca.
-- Validation du maintien ou du remplacement futur du thème « Manoir mystérieux » selon l’adhésion de Luca.
-- Politique de sauvegarde manuelle éventuelle en cas de changement ou de nettoyage d’appareil.
+- Prénom éventuel de la mascotte chat de Luca.
+- Déclinaison et validation des futurs états animés de la mascotte chat.
+- Politique de sauvegarde manuelle et fréquence d’export en cas de changement ou de nettoyage d’appareil.
 - Appareils prioritaires pour les essais de synthèse vocale.
 
 ## 24. Définition de terminé pour le MVP
@@ -1331,7 +1336,7 @@ Ces mini-jeux futurs devront réutiliser le vocabulaire, les phrases, la progres
 Le MVP est considéré comme terminé lorsque :
 
 - les deux profils disposent d’un parcours jouable de bout en bout ;
-- l’accès local permet d’ouvrir le bon profil avec le code prévu, sans compte ni serveur ;
+- le compte familial permet d’ouvrir l’espace puis le bon profil avec le code prévu ;
 - les contenus sont séparés du moteur et les onze types d’exercices sont couverts ;
 - une leçon de cinq minutes peut être commencée, interrompue, reprise, terminée et rejouée ;
 - les réponses, erreurs, XP, niveaux, badges et déverrouillages sont persistés séparément pour chaque enfant ;
@@ -1339,5 +1344,5 @@ Le MVP est considéré comme terminé lorsque :
 - l’application est installable comme PWA et utilisable hors ligne après sa première mise en cache ;
 - l’espace parental permet de consulter, limiter les unités, régler les sons et réinitialiser avec confirmation ;
 - les écrans sont utilisables sur mobile et tablette, avec une accessibilité de base vérifiée ;
-- aucune dépendance à un compte, un serveur ou un service payant obligatoire n’existe ;
+- aucune dépendance à un compte enfant, un paiement, une publicité ou une IA en ligne n’existe ;
 - les tests fonctionnels, responsive, hors ligne et de stockage local passent sur les navigateurs cibles.
