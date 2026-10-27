@@ -61,7 +61,8 @@ describe("contenu et évaluation des exercices", () => {
   });
 
   it("prépare une mini-scène, un checkpoint lecture-son et une mission par unité", () => {
-    expect(content.lessons).toHaveLength(23);
+    expect(content.units).toHaveLength(20);
+    expect(content.lessons).toHaveLength(60);
 
     content.lessons.forEach((lesson) => {
       expect(lesson.storyScene.setup.length).toBeGreaterThan(0);
@@ -73,11 +74,26 @@ describe("contenu et évaluation des exercices", () => {
 
     content.units.forEach((unit) => {
       const lessons = content.lessons.filter((lesson) => lesson.unitId === unit.id).sort((left, right) => left.order - right.order);
+      expect(lessons, unit.id).toHaveLength(3);
       const missions = lessons.flatMap((lesson) => lesson.exercises.filter((exercise) => exercise.isUnitMission));
       expect(missions).toHaveLength(1);
       expect(missions[0].responseMode).toBe("guided-production");
       expect(missions[0].id).toBe(lessons[lessons.length - 1].storyScene.childAction.exerciseId);
     });
+  });
+
+  it("réactive les acquis et diversifie chaque nouvelle leçon sans introduire de notions futures", () => {
+    const introduced = new Set<string>();
+    for (const lesson of content.lessons) {
+      lesson.newConceptIds.forEach((id) => introduced.add(id));
+      if (content.units.find((unit) => unit.id === lesson.unitId)!.order < 9) continue;
+      expect(lesson.reviewConceptIds.length, lesson.id).toBeGreaterThanOrEqual(2);
+      expect(new Set(lesson.exercises.map((exercise) => exercise.type)).size, lesson.id).toBeGreaterThanOrEqual(3);
+      for (const id of [...lesson.reviewConceptIds, ...lesson.exercises.flatMap((exercise) => exercise.conceptIds)]) {
+        expect(introduced.has(id), `${lesson.id}: ${id} doit être appris avant sa réutilisation`).toBe(true);
+      }
+    }
+    expect(getLesson("big-adventure-03").newConceptIds).toEqual([]);
   });
 });
 
@@ -143,18 +159,64 @@ describe("moteur de progression", () => {
     expect(state.profiles.gabriel.progress.completedLessonIds).toHaveLength(1);
   });
 
-  it("termine les cinq leçons publiées et attribue le badge de cinq étapes", () => {
+  it("ne récompense pas deux fois une ancienne unité et exige la nouvelle leçon pour les nouveaux profils", () => {
     let state = activateProfile(createInitialAppState(), "gabriel");
-    ["hello-01", "hello-02", "family-01", "family-02", "family-03"].forEach((lessonId) => {
+    for (const id of ["hello-01", "hello-02"]) state = completeLesson(state, "gabriel", id).state;
+    expect(getUnitStatus(state.profiles.gabriel.progress, content.units[1])).toBe("locked");
+
+    // The legacy curriculum awarded this completion after hello-02.
+    state.profiles.gabriel.progress.completedUnitIds = ["hello"];
+    state = activateProfile(state, "gabriel");
+    expect(getUnitStatus(state.profiles.gabriel.progress, content.units[1])).toBe("available");
+    const beforeXp = state.profiles.gabriel.progress.xpTotal;
+    const result = completeLesson(state, "gabriel", "hello-03");
+    expect(result.state.profiles.gabriel.progress.completedUnitIds).toEqual(["hello"]);
+    expect(result.reward?.completedUnit).toBe(false);
+    expect(result.state.profiles.gabriel.progress.xpTotal - beforeXp).toBe(62);
+    expect(result.state.profiles.luca.progress.xpTotal).toBe(0);
+  });
+
+  it("termine les deux premières unités et attribue le badge de cinq étapes", () => {
+    let state = activateProfile(createInitialAppState(), "gabriel");
+    ["hello-01", "hello-02", "hello-03", "family-01", "family-02", "family-03"].forEach((lessonId) => {
       state = completeLesson(state, "gabriel", lessonId).state;
     });
 
     const progress = state.profiles.gabriel.progress;
-    expect(progress.completedLessonIds).toHaveLength(5);
+    expect(progress.completedLessonIds).toHaveLength(6);
     expect(progress.completedUnitIds).toContain("hello");
     expect(progress.completedUnitIds).toContain("family");
     expect(progress.badgeIds).toContain("five-steps");
     expect(progress.badgeIds).toContain("on-the-way");
     expect(getUnitStatus(progress, content.units[1])).toBe("completed");
+  });
+
+  it("parcourt les 60 leçons dans l’ordre sans déverrouillage parental et sans toucher à Luca", () => {
+    let state = activateProfile(createInitialAppState(), "gabriel");
+    for (const unit of content.units) {
+      expect(getUnitStatus(state.profiles.gabriel.progress, unit), unit.id).toBe("available");
+      for (const lessonId of unit.lessonIds) {
+        expect(getLessonStatus(state.profiles.gabriel.progress, getLesson(lessonId)), lessonId).toBe("available");
+        state = completeLesson(state, "gabriel", lessonId).state;
+        expect(getLessonStatus(state.profiles.gabriel.progress, getLesson(lessonId)), lessonId).toBe("completed");
+      }
+      expect(getUnitStatus(state.profiles.gabriel.progress, unit), unit.id).toBe("completed");
+    }
+    expect(state.profiles.gabriel.progress.completedLessonIds).toHaveLength(60);
+    expect(state.profiles.gabriel.progress.completedUnitIds).toHaveLength(20);
+    expect(state.profiles.luca.progress.completedLessonIds).toEqual([]);
+    expect(state.profiles.luca.progress.xpTotal).toBe(0);
+  });
+
+  it("donne un contexte explicite aux réponses autrefois ambiguës", () => {
+    const greeting = getLesson("hello-01").exercises.find((exercise) => exercise.id === "hello-01-completion")!;
+    expect(greeting.audioText).toBe("Hello!");
+    expect(evaluateExerciseAnswer(greeting, { type: "choice", optionId: "hello" })).toBe(true);
+    expect(evaluateExerciseAnswer(greeting, { type: "choice", optionId: "hi" })).toBe(false);
+    const apple = getLesson("likes-01").exercises.find((exercise) => exercise.id === "likes-01-choice")!;
+    expect(apple.prompt).toContain("J’aime les pommes");
+    expect(evaluateExerciseAnswer(apple, { type: "choice", optionId: "like" })).toBe(true);
+    const milk = getLesson("likes-02").exercises.find((exercise) => exercise.id === "likes-02-choice")!;
+    expect(milk.prompt).toContain("n’aime pas le lait");
   });
 });

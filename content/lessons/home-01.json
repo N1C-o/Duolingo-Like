@@ -54,10 +54,10 @@
       "id": "home-01-bed",
       "schemaVersion": 1,
       "type": "multiple-choice",
-      "instruction": "Choisis le bon mot.",
-      "prompt": "Where do you sleep?",
+      "instruction": "Choisis le meuble sur lequel on dort.",
+      "prompt": "Quel meuble sert à dormir ?",
       "conceptIds": ["bed"],
-      "explanation": "Bed signifie lit.",
+      "explanation": "Bed signifie lit. Room désigne une pièce ou une chambre et kitchen la cuisine.",
       "options": [
         { "id": "bed", "label": "bed", "detail": "lit" },
         { "id": "room", "label": "room", "detail": "pièce" },

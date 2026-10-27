@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { createInitialAppState, createProfile } from "@/lib/progression/engine";
+import { activateProfile, createInitialAppState, createProfile, getLessonStatus, getUnitStatus, startLesson } from "@/lib/progression/engine";
+import { getLesson, getUnit } from "@/content";
 import { familyExportToAppState, hasMeaningfulProfileData, hydrateFamilyBundle, hydrateRemoteProfile, toFamilyExport, validateFamilyExport } from "@/lib/storage/convex-store";
 
 describe("contrat de stockage Convex côté client", () => {
@@ -46,6 +47,34 @@ describe("contrat de stockage Convex côté client", () => {
   it("refuse un export d’un autre curriculum", () => {
     const payload = toFamilyExport(createInitialAppState());
     expect(() => validateFamilyExport({ ...payload, contentVersion: "other-content" })).toThrow(/autre version/);
+  });
+
+  it("restaure un export 1.2.1 après l’extension à 20 unités sans perdre les progrès", () => {
+    const state = createInitialAppState();
+    state.profiles.gabriel.progress.xpTotal = 350;
+    state.profiles.gabriel.progress.completedLessonIds = ["hello-01", "hello-02"];
+    state.profiles.gabriel.progress.completedUnitIds = ["hello"];
+    state.profiles.gabriel.progress.unlockedUnitIds = ["hello", "family"];
+    state.profiles.gabriel.progress.startedLessonIds = ["hello-01", "hello-02", "family-01"];
+    state.profiles.gabriel.progress.lessonSessions["family-01"] = {
+      lessonId: "family-01", isReplay: false, currentExerciseIndex: 2,
+      submittedExerciseIds: [], completedExerciseIds: [],
+      startedAt: "2026-08-18T10:00:00.000Z", updatedAt: "2026-08-18T10:00:00.000Z"
+    };
+    const oldExport = { ...toFamilyExport(state), contentVersion: "1.2.1" };
+    const restored = activateProfile(familyExportToAppState(validateFamilyExport(oldExport)), "gabriel");
+    expect(restored.contentVersion).toBe(state.contentVersion);
+    expect(restored.profiles.gabriel.progress.xpTotal).toBe(350);
+    expect(restored.profiles.gabriel.progress.completedLessonIds).toEqual(["hello-01", "hello-02"]);
+    expect(getUnitStatus(restored.profiles.gabriel.progress, getUnit("hello"))).toBe("completed");
+    expect(getUnitStatus(restored.profiles.gabriel.progress, getUnit("family"))).toBe("in-progress");
+    expect(getLessonStatus(restored.profiles.gabriel.progress, getLesson("family-01"))).toBe("in-progress");
+    expect(getLessonStatus(restored.profiles.gabriel.progress, getLesson("hello-03"))).toBe("available");
+    expect(restored.profiles.gabriel.progress.unlockedUnitIds).toContain("family");
+    const resumed = startLesson(restored, "gabriel", "family-01");
+    expect(resumed.profiles.gabriel.progress.lessonSessions["family-01"].currentExerciseIndex).toBe(2);
+    expect(resumed.profiles.luca.progress.xpTotal).toBe(0);
+    expect(() => validateFamilyExport({ ...oldExport, schemaVersion: 2 })).toThrow(/autre version/);
   });
 
   it("réhydrate un seul profil sans écraser les progrès des autres", () => {

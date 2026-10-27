@@ -1,0 +1,31 @@
+{
+  "id": "big-adventure",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 20,
+  "title": "The big adventure",
+  "shortTitle": "La grande aventure",
+  "topic": "La grande aventure",
+  "objective": "Tu réutilises l’anglais du parcours dans une mission finale.",
+  "difficulty": 3,
+  "prerequisiteUnitIds": [
+    "story-club"
+  ],
+  "lessonIds": [
+    "big-adventure-01",
+    "big-adventure-02",
+    "big-adventure-03"
+  ],
+  "vocabularyIds": [
+    "hello",
+    "name",
+    "where-is",
+    "can-i-have",
+    "feel",
+    "help",
+    "first",
+    "then",
+    "finally"
+  ],
+  "rewardTitle": "Le passeport des aventures"
+}

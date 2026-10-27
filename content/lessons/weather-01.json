@@ -1,0 +1,221 @@
+{
+  "id": "weather-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "weather",
+  "order": 1,
+  "title": "La météo farceuse",
+  "objective": "Reconnaître sunny, rainy et windy.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "sunny",
+    "rainy",
+    "windy"
+  ],
+  "reviewConceptIds": [
+    "today",
+    "coat",
+    "hat"
+  ],
+  "prerequisiteLessonIds": [
+    "my-body-03"
+  ],
+  "storyScene": {
+    "id": "weather-01-scene",
+    "situation": "Un nuage farceur change le temps à chaque pas. Les voyageurs observent le soleil, la pluie et le vent.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "It’s sunny!",
+        "translation": "Il fait soleil !"
+      },
+      {
+        "speaker": "Luca",
+        "text": "Now it’s rainy!",
+        "translation": "Maintenant il pleut !"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Il fait soleil. »",
+      "exerciseId": "weather-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "It’s windy!",
+        "translation": "Il y a du vent !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "My hat!",
+        "translation": "Mon chapeau !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "It’s sunny.",
+    "audioText": "It’s sunny.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "sunny",
+        "rainy",
+        "windy"
+      ],
+      "explanation": "sunny : ensoleillé ; rainy : pluvieux ; windy : venteux.",
+      "pairs": [
+        {
+          "id": "weather-01-sunny",
+          "left": "sunny",
+          "right": "ensoleillé"
+        },
+        {
+          "id": "weather-01-rainy",
+          "left": "rainy",
+          "right": "pluvieux"
+        },
+        {
+          "id": "weather-01-windy",
+          "left": "windy",
+          "right": "venteux"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "weather-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "rainy",
+        "sunny",
+        "windy"
+      ],
+      "explanation": "Rainy indique un temps pluvieux.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "It’s sunny."
+        },
+        {
+          "id": "other-2",
+          "label": "It’s windy."
+        },
+        {
+          "id": "correct",
+          "label": "It’s rainy."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "It’s rainy.",
+      "id": "weather-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "It’s windy.",
+      "conceptIds": [
+        "windy",
+        "sunny",
+        "rainy"
+      ],
+      "explanation": "« It’s windy. » signifie « Il y a du vent. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Il pleut."
+        },
+        {
+          "id": "correct",
+          "label": "Il y a du vent."
+        },
+        {
+          "id": "other-1",
+          "label": "Il fait soleil."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "weather-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Le soleil brille : ☀️. What’s the weather like?",
+      "conceptIds": [
+        "sunny",
+        "rainy",
+        "windy"
+      ],
+      "explanation": "Sunny correspond au soleil.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "It’s sunny."
+        },
+        {
+          "id": "other-1",
+          "label": "It’s rainy."
+        },
+        {
+          "id": "other-2",
+          "label": "It’s windy."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "weather-01-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Rainy means « ensoleillé ».",
+      "statement": "Rainy means « ensoleillé ».",
+      "correct": false,
+      "explanation": "Rainy signifie pluvieux ; sunny signifie ensoleillé.",
+      "conceptIds": [
+        "rainy",
+        "sunny"
+      ],
+      "id": "weather-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Il fait soleil. »",
+      "conceptIds": [
+        "sunny"
+      ],
+      "explanation": "« It is sunny. » signifie « Il fait soleil. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "sunny.",
+        "It"
+      ],
+      "acceptedOrders": [
+        [
+          "It",
+          "is",
+          "sunny."
+        ]
+      ],
+      "id": "weather-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

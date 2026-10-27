@@ -1,0 +1,28 @@
+{
+  "id": "lets-move",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 10,
+  "title": "Let’s move!",
+  "shortTitle": "Les mouvements",
+  "topic": "Les mouvements",
+  "objective": "Tu sais nommer des actions et dire ce que tu peux faire.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": [
+    "where-is-it"
+  ],
+  "lessonIds": [
+    "lets-move-01",
+    "lets-move-02",
+    "lets-move-03"
+  ],
+  "vocabularyIds": [
+    "run",
+    "jump",
+    "clap",
+    "i-can",
+    "i-cant",
+    "can-you"
+  ],
+  "rewardTitle": "Le ruban du robot"
+}

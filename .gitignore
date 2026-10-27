@@ -6,3 +6,8 @@ out/
 
 .env.local
 .playwright-cli/
+
+__pycache__/
+public/audio/elevenlabs/*.uncertain
+public/audio/elevenlabs/*.mp3.tmp
+content/audio-manifest.json.tmp

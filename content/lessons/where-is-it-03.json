@@ -1,0 +1,234 @@
+{
+  "id": "where-is-it-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "where-is-it",
+  "order": 3,
+  "title": "Mission cache-cache",
+  "objective": "Utiliser les positions pour retrouver le chausson.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "under",
+    "next-to",
+    "where-is",
+    "bed",
+    "ball",
+    "here"
+  ],
+  "prerequisiteLessonIds": [
+    "where-is-it-02"
+  ],
+  "storyScene": {
+    "id": "where-is-it-03-scene",
+    "situation": "Le chausson attend sous le lit. La balle confirme la cachette pour terminer la recherche.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Is it on the table?",
+        "translation": "Est-il sur la table ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "No. It is under the bed.",
+        "translation": "Non. Il est sous le lit."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Il est sous le lit. »",
+      "exerciseId": "where-is-it-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Here it is!",
+        "translation": "Le voici !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s play!",
+        "translation": "Jouons !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Is it under the bed?",
+    "audioText": "Is it under the bed?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "in",
+        "on",
+        "under"
+      ],
+      "explanation": "in : dans ; on : sur ; under : sous.",
+      "pairs": [
+        {
+          "id": "where-is-it-03-in",
+          "left": "in",
+          "right": "dans"
+        },
+        {
+          "id": "where-is-it-03-on",
+          "left": "on",
+          "right": "sur"
+        },
+        {
+          "id": "where-is-it-03-under",
+          "left": "under",
+          "right": "sous"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "where-is-it-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "under",
+        "bed"
+      ],
+      "explanation": "Sous le lit se dit under the bed.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "It is on the bed."
+        },
+        {
+          "id": "other-2",
+          "label": "It is next to the bed."
+        },
+        {
+          "id": "correct",
+          "label": "It is under the bed."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "It is under the bed.",
+      "id": "where-is-it-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Le ballon est sur la table. Where is the ball?",
+      "conceptIds": [
+        "on",
+        "table",
+        "ball"
+      ],
+      "explanation": "On indique ici la position sur la table.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "It is in the bed."
+        },
+        {
+          "id": "correct",
+          "label": "It is on the table."
+        },
+        {
+          "id": "other-1",
+          "label": "It is under the table."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "where-is-it-03-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Next to means « à côté de ».",
+      "statement": "Next to means « à côté de ».",
+      "correct": true,
+      "explanation": "Next to indique une position à côté.",
+      "conceptIds": [
+        "next-to"
+      ],
+      "id": "where-is-it-03-04-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Le ballon est sous le lit. Confirme sa position.",
+      "conceptIds": [
+        "ball",
+        "under",
+        "bed"
+      ],
+      "explanation": "Yes, it is confirme la position donnée.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "No, it is on the table."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m good."
+        },
+        {
+          "id": "correct",
+          "label": "Yes, it is."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Is the ball under the bed?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "where-is-it-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Il est sous le lit. »",
+      "conceptIds": [
+        "under",
+        "bed"
+      ],
+      "explanation": "« It is under the bed. » signifie « Il est sous le lit. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "under",
+        "the",
+        "bed.",
+        "It"
+      ],
+      "acceptedOrders": [
+        [
+          "It",
+          "is",
+          "under",
+          "the",
+          "bed."
+        ]
+      ],
+      "id": "where-is-it-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

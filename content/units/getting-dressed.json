@@ -1,0 +1,28 @@
+{
+  "id": "getting-dressed",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 12,
+  "title": "Getting dressed",
+  "shortTitle": "Les vêtements",
+  "topic": "Les vêtements",
+  "objective": "Tu sais nommer des vêtements et décrire ce que tu portes.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": [
+    "snack-attack"
+  ],
+  "lessonIds": [
+    "getting-dressed-01",
+    "getting-dressed-02",
+    "getting-dressed-03"
+  ],
+  "vocabularyIds": [
+    "shirt",
+    "shoes",
+    "hat",
+    "socks",
+    "coat",
+    "wearing"
+  ],
+  "rewardTitle": "Le chapeau étoilé"
+}

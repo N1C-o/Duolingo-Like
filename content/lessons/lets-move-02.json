@@ -1,0 +1,244 @@
+{
+  "id": "lets-move-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "lets-move",
+  "order": 2,
+  "title": "Je peux / je ne peux pas",
+  "objective": "Dire I can et I can’t, puis poser Can you…?",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "i-can",
+    "i-cant",
+    "can-you"
+  ],
+  "reviewConceptIds": [
+    "run",
+    "jump",
+    "clap"
+  ],
+  "prerequisiteLessonIds": [
+    "lets-move-01"
+  ],
+  "storyScene": {
+    "id": "lets-move-02-scene",
+    "situation": "Le robot sait sauter, mais ses roues ne lui permettent pas de courir. Chaque voyageur choisit son action.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Can you jump?",
+        "translation": "Peux-tu sauter ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "I can jump. I can’t run.",
+        "translation": "Je peux sauter. Je ne peux pas courir."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je peux sauter. »",
+      "exerciseId": "lets-move-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I can clap!",
+        "translation": "Je peux taper dans les mains !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s play!",
+        "translation": "Jouons !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Can you jump?",
+    "audioText": "Can you jump?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "i-can",
+        "i-cant",
+        "can-you"
+      ],
+      "explanation": "I can : Je peux / je sais ; I can’t : Je ne peux pas / je ne sais pas ; Can you…? : Peux-tu… ? / Sais-tu… ?.",
+      "pairs": [
+        {
+          "id": "lets-move-02-i-can",
+          "left": "I can",
+          "right": "Je peux / je sais"
+        },
+        {
+          "id": "lets-move-02-i-cant",
+          "left": "I can’t",
+          "right": "Je ne peux pas / je ne sais pas"
+        },
+        {
+          "id": "lets-move-02-can-you",
+          "left": "Can you…?",
+          "right": "Peux-tu… ? / Sais-tu… ?"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "lets-move-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "i-cant",
+        "run"
+      ],
+      "explanation": "Can’t exprime ici ce que le robot ne peut pas faire.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I can run."
+        },
+        {
+          "id": "other-2",
+          "label": "I can jump."
+        },
+        {
+          "id": "correct",
+          "label": "I can’t run."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I can’t run.",
+      "id": "lets-move-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I can jump.",
+      "conceptIds": [
+        "i-can",
+        "jump"
+      ],
+      "explanation": "« I can jump. » signifie « Je peux sauter. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Je peux courir."
+        },
+        {
+          "id": "correct",
+          "label": "Je peux sauter."
+        },
+        {
+          "id": "other-1",
+          "label": "Je ne peux pas sauter."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "lets-move-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Le robot ne peut pas courir.",
+      "conceptIds": [
+        "i-cant",
+        "run"
+      ],
+      "explanation": "I can’t run signifie je ne peux pas courir.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "can’t"
+        },
+        {
+          "id": "other-1",
+          "label": "can"
+        },
+        {
+          "id": "other-2",
+          "label": "like"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "I ___ run.",
+      "id": "lets-move-02-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Tu peux sauter. Réponds oui à la question.",
+      "conceptIds": [
+        "can-you",
+        "i-can",
+        "jump"
+      ],
+      "explanation": "Yes, I can répond oui à Can you…?",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "No, I can’t."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m hungry."
+        },
+        {
+          "id": "correct",
+          "label": "Yes, I can."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Can you jump?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "lets-move-02-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je peux sauter. »",
+      "conceptIds": [
+        "i-can",
+        "jump"
+      ],
+      "explanation": "« I can jump. » signifie « Je peux sauter. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "can",
+        "jump.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "can",
+          "jump."
+        ]
+      ],
+      "id": "lets-move-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

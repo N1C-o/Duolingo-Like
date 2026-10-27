@@ -104,10 +104,10 @@
       "schemaVersion": 1,
       "type": "true-false",
       "isRevisionActivity": true,
-      "instruction": "Vrai ou faux ?",
-      "prompt": "There is a bed in the kitchen.",
+      "instruction": "Dans cette scène, le lit est dans la chambre, pas dans la cuisine. Vrai ou faux ?",
+      "prompt": "Dans cette scène, le lit est dans la chambre. Vérifie l’affirmation.",
       "conceptIds": ["there-is", "bed", "kitchen"],
-      "explanation": "Faux dans notre petite maison : le bed est dans la room, pas dans la kitchen.",
+      "explanation": "Faux dans cette scène : le lit est dans la chambre. La phrase anglaise proposée le place dans la cuisine.",
       "statement": "There is a bed in the kitchen.",
       "correct": false
     },

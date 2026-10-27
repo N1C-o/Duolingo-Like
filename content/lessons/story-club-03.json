@@ -1,0 +1,229 @@
+{
+  "id": "story-club-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "story-club",
+  "order": 3,
+  "title": "Raconte l’aventure",
+  "objective": "Reconstruire une histoire avec ses liens logiques.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "first",
+    "then",
+    "finally",
+    "and",
+    "but",
+    "help",
+    "cat",
+    "friend",
+    "go"
+  ],
+  "prerequisiteLessonIds": [
+    "story-club-02"
+  ],
+  "storyScene": {
+    "id": "story-club-03-scene",
+    "situation": "Le livre attend sa dernière page : d’abord le parc, ensuite le chat, enfin le retour à la maison avec un nouvel ami.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "First, I go to the park.",
+        "translation": "D’abord, je vais au parc."
+      },
+      {
+        "speaker": "Luca",
+        "text": "Then, I help the cat.",
+        "translation": "Ensuite, j’aide le chat."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Enfin, je rentre chez moi. »",
+      "exerciseId": "story-club-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Finally, I go home.",
+        "translation": "Enfin, je rentre chez moi."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "The cat is my friend!",
+        "translation": "Le chat est mon ami !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Finally, I go home.",
+    "audioText": "Finally, I go home.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "first",
+        "then",
+        "finally"
+      ],
+      "explanation": "first : d’abord ; then : ensuite ; finally : enfin.",
+      "pairs": [
+        {
+          "id": "story-club-03-first",
+          "left": "first",
+          "right": "d’abord"
+        },
+        {
+          "id": "story-club-03-then",
+          "left": "then",
+          "right": "ensuite"
+        },
+        {
+          "id": "story-club-03-finally",
+          "left": "finally",
+          "right": "enfin"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "story-club-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "finally",
+        "first",
+        "then",
+        "go"
+      ],
+      "explanation": "Finally introduit la fin de l’histoire.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Then, I help the cat."
+        },
+        {
+          "id": "correct",
+          "label": "Finally, I go home."
+        },
+        {
+          "id": "other-1",
+          "label": "First, I go to the park."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Finally, I go home.",
+      "id": "story-club-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Dans cette histoire : d’abord le parc, ensuite aider le chat, enfin rentrer. Quelle action vient en deuxième ?",
+      "conceptIds": [
+        "then",
+        "help",
+        "cat",
+        "go",
+        "park"
+      ],
+      "explanation": "La deuxième action est aider le chat.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I help the cat."
+        },
+        {
+          "id": "other-1",
+          "label": "I go to the park."
+        },
+        {
+          "id": "other-2",
+          "label": "I go home."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "story-club-03-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I have a book and a pencil.",
+      "conceptIds": [
+        "and",
+        "book",
+        "pencil"
+      ],
+      "explanation": "« I have a book and a pencil. » signifie « J’ai un livre et un crayon. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "J’ai un livre mais pas de crayon."
+        },
+        {
+          "id": "other-2",
+          "label": "Je peux ouvrir le livre."
+        },
+        {
+          "id": "correct",
+          "label": "J’ai un livre et un crayon."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "story-club-03-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "But souligne un contraste entre deux idées.",
+      "statement": "But souligne un contraste entre deux idées.",
+      "correct": true,
+      "explanation": "But signifie mais ; il relie ici deux idées qui s’opposent.",
+      "conceptIds": [
+        "but"
+      ],
+      "id": "story-club-03-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Enfin, je rentre chez moi. »",
+      "conceptIds": [
+        "finally",
+        "go"
+      ],
+      "explanation": "« Finally, I go home. » signifie « Enfin, je rentre chez moi. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "I",
+        "go",
+        "home.",
+        "Finally,"
+      ],
+      "acceptedOrders": [
+        [
+          "Finally,",
+          "I",
+          "go",
+          "home."
+        ]
+      ],
+      "id": "story-club-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

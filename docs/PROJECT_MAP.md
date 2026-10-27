@@ -16,7 +16,7 @@
 | `lib/sync/` | Répliques locales, révisions et résolution explicite des conflits | active |
 | `convex/` | Authentification familiale optionnelle, schéma et fonctions de données | active |
 | `components/auth-screen.tsx` | Bootstrap/import et résolution des conflits familiaux | active |
-| `lib/platform/` | Services navigateur, actuellement synthèse vocale | active |
+| `lib/platform/` | Lecture des fichiers audio du manifeste et synthèse vocale de secours | active |
 | `tests/` | Tests du moteur de progression et des fixtures de stockage | active |
 | `public/sw.js` | Cache versionné de même origine, réseau prioritaire et fallback HTML hors ligne | active |
 | `public/themes/` | Assets Gabriel et Luca | active |
@@ -27,7 +27,7 @@
 ## Parcours implémenté
 
 - Accès local direct aux profils avec codes de commodité (`gabriel`, `luca` par défaut) ; compte familial Convex Auth optionnel pour la synchronisation.
-- Accueil, carte, détail d’unité et vingt-trois leçons JSON réparties sur huit unités, chacune avec une mini-scène et un checkpoint lecture/sons.
+- Accueil, carte, détail d’unité et soixante leçons JSON réparties sur vingt unités, chacune avec une mini-scène et un checkpoint lecture/sons.
 - Mini-scènes visibles dans les leçons, action de l’enfant liée à l’exercice courant et résolution affichée après réussite.
 - Une mission de production guidée en fin de chaque unité, avec remise en ordre ou réponse construite selon le contenu.
 - Feedback correct/incorrect, réessai, continuation et reprise locale.
@@ -38,12 +38,14 @@
 - Manifest, service worker et mode silencieux lorsque la voix est indisponible.
 - Persistance et reprise vérifiées sur viewport mobile après rechargement du build statique hors ligne.
 
+Le parcours de contenu 1.3.0 comprend 20 unités, 60 leçons et 353 exercices. La cible de publication et les commandes de livraison sont documentées dans `ARCHITECTURE.md`. Les identifiants existants et les progrès sont conservés, et les exports 1.2.1 restent restaurables.
+
 ## Prochaines étapes
 
 1. Configurer un provider d’e-mail si la récupération de mot de passe devient nécessaire.
 2. Faire relire l’anglais, le français et la difficulté des unités 3 à 8.
 3. Tester l’installation PWA et la perte réseau sur appareil mobile réel avec les scènes et missions.
-4. Produire les unités 9 à 20 par lots de données JSON validées avec le même contrat d’expérience.
+4. Contrôler la couverture audio lors des ajouts de contenu ; les 380 textes actuels sont enregistrés. Voir [les commandes et le contrôle de couverture](./AUDIO.md).
 5. Étendre l’espace parental à la gestion de profils jusqu’à 20 si le besoin apparaît.
 
 Voir le [plan daté de la phase fonctionnelle](./plans/2026-08-07-functional-implementation.md).

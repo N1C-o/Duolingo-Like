@@ -110,10 +110,10 @@
       "id": "family-01-completion",
       "schemaVersion": 1,
       "type": "sentence-completion",
-      "instruction": "Complète la phrase.",
-      "prompt": "This is my ___.",
+      "instruction": "Complète pour dire « Voici ma maman ».",
+      "prompt": "Dis : « Voici ma maman ».",
       "conceptIds": ["mum", "dad"],
-      "explanation": "This is my… sert à présenter une personne.",
+      "explanation": "Mum signifie maman : This is my mum.",
       "sentence": "This is my ___.",
       "options": [
         { "id": "mum", "label": "mum" },

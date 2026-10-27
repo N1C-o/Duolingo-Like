@@ -1,0 +1,249 @@
+{
+  "id": "weather-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "weather",
+  "order": 3,
+  "title": "La journée qui change",
+  "objective": "Choisir une description adaptée à la météo.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "sunny",
+    "rainy",
+    "windy",
+    "cloudy",
+    "hot",
+    "cold",
+    "coat"
+  ],
+  "prerequisiteLessonIds": [
+    "weather-02"
+  ],
+  "storyScene": {
+    "id": "weather-03-scene",
+    "situation": "La dernière page du carnet montre de la pluie. Il faut annoncer la météo avant de partir avec son manteau.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "What’s the weather like?",
+        "translation": "Quel temps fait-il ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "It’s rainy.",
+        "translation": "Il pleut."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Il pleut. »",
+      "exerciseId": "weather-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I have my coat.",
+        "translation": "J’ai mon manteau."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s go!",
+        "translation": "Allons-y !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "It is rainy.",
+    "audioText": "It is rainy.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "sunny",
+        "rainy",
+        "windy"
+      ],
+      "explanation": "sunny : ensoleillé ; rainy : pluvieux ; windy : venteux.",
+      "pairs": [
+        {
+          "id": "weather-03-sunny",
+          "left": "sunny",
+          "right": "ensoleillé"
+        },
+        {
+          "id": "weather-03-rainy",
+          "left": "rainy",
+          "right": "pluvieux"
+        },
+        {
+          "id": "weather-03-windy",
+          "left": "windy",
+          "right": "venteux"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "weather-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "windy",
+        "cold",
+        "sunny",
+        "hot"
+      ],
+      "explanation": "La voix décrit du vent et du froid.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "It’s windy and cold."
+        },
+        {
+          "id": "other-1",
+          "label": "It’s sunny and hot."
+        },
+        {
+          "id": "other-2",
+          "label": "It’s cloudy and hot."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "It’s windy and cold.",
+      "id": "weather-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Sur le carnet : 🌧️. Quelle phrase décrit cette météo ?",
+      "conceptIds": [
+        "rainy",
+        "sunny",
+        "hot"
+      ],
+      "explanation": "Le symbole montre de la pluie.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "It’s sunny."
+        },
+        {
+          "id": "other-2",
+          "label": "It’s hot."
+        },
+        {
+          "id": "correct",
+          "label": "It’s rainy."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "weather-03-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "It’s sunny and hot.",
+      "conceptIds": [
+        "sunny",
+        "hot",
+        "cold",
+        "cloudy"
+      ],
+      "explanation": "« It’s sunny and hot. » signifie « Il fait soleil et chaud. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Le ciel est nuageux."
+        },
+        {
+          "id": "correct",
+          "label": "Il fait soleil et chaud."
+        },
+        {
+          "id": "other-1",
+          "label": "Il pleut et il fait froid."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "weather-03-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Il fait froid. Tu veux un manteau. Demande-le.",
+      "conceptIds": [
+        "cold",
+        "coat",
+        "can-i-have",
+        "please"
+      ],
+      "explanation": "La demande porte sur a coat, un manteau.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Can I have a coat, please?"
+        },
+        {
+          "id": "other-1",
+          "label": "Can I have juice, please?"
+        },
+        {
+          "id": "other-2",
+          "label": "Can I have a cookie, please?"
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "What would you like?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "weather-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Il pleut. »",
+      "conceptIds": [
+        "rainy"
+      ],
+      "explanation": "« It is rainy. » signifie « Il pleut. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "rainy.",
+        "It"
+      ],
+      "acceptedOrders": [
+        [
+          "It",
+          "is",
+          "rainy."
+        ]
+      ],
+      "id": "weather-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

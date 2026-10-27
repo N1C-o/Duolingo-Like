@@ -1,0 +1,230 @@
+{
+  "id": "where-is-it-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "where-is-it",
+  "order": 1,
+  "title": "Le chausson disparu",
+  "objective": "Reconnaître in, on et under pour chercher un objet.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "in",
+    "on",
+    "under"
+  ],
+  "reviewConceptIds": [
+    "bed",
+    "ball",
+    "table"
+  ],
+  "prerequisiteLessonIds": [
+    "numbers-colours-03"
+  ],
+  "storyScene": {
+    "id": "where-is-it-01-scene",
+    "situation": "Un chausson a disparu. Une balle roule sous le lit et donne le premier indice.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Where is the ball?",
+        "translation": "Où est le ballon ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "The ball is under the bed.",
+        "translation": "Le ballon est sous le lit."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Le ballon est sous le lit. »",
+      "exerciseId": "where-is-it-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "The ball is here!",
+        "translation": "Le ballon est ici !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Look under the bed!",
+        "translation": "Regarde sous le lit !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "The ball is under the bed.",
+    "audioText": "The ball is under the bed.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "in",
+        "on",
+        "under"
+      ],
+      "explanation": "in : dans ; on : sur ; under : sous.",
+      "pairs": [
+        {
+          "id": "where-is-it-01-in",
+          "left": "in",
+          "right": "dans"
+        },
+        {
+          "id": "where-is-it-01-on",
+          "left": "on",
+          "right": "sur"
+        },
+        {
+          "id": "where-is-it-01-under",
+          "left": "under",
+          "right": "sous"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "where-is-it-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "under",
+        "ball",
+        "bed"
+      ],
+      "explanation": "Under the bed signifie sous le lit.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "The ball is in the room."
+        },
+        {
+          "id": "correct",
+          "label": "The ball is under the bed."
+        },
+        {
+          "id": "other-1",
+          "label": "The ball is on the bed."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "The ball is under the bed.",
+      "id": "where-is-it-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "The book is on the table.",
+      "conceptIds": [
+        "on",
+        "book",
+        "table"
+      ],
+      "explanation": "« The book is on the table. » signifie « Le livre est sur la table. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Le livre est sur la table."
+        },
+        {
+          "id": "other-1",
+          "label": "Le livre est sous la table."
+        },
+        {
+          "id": "other-2",
+          "label": "Le livre est dans la chambre."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "where-is-it-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Le ballon est dans la chambre.",
+      "conceptIds": [
+        "in",
+        "room",
+        "ball"
+      ],
+      "explanation": "In the room signifie dans la chambre.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "on"
+        },
+        {
+          "id": "other-2",
+          "label": "under"
+        },
+        {
+          "id": "correct",
+          "label": "in"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "The ball is ___ the room.",
+      "id": "where-is-it-01-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Under means « sur ».",
+      "statement": "Under means « sur ».",
+      "correct": false,
+      "explanation": "Under signifie sous ; on signifie sur.",
+      "conceptIds": [
+        "under",
+        "on"
+      ],
+      "id": "where-is-it-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Le ballon est sous le lit. »",
+      "conceptIds": [
+        "ball",
+        "under",
+        "bed"
+      ],
+      "explanation": "« The ball is under the bed. » signifie « Le ballon est sous le lit. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "ball",
+        "is",
+        "under",
+        "the",
+        "bed.",
+        "The"
+      ],
+      "acceptedOrders": [
+        [
+          "The",
+          "ball",
+          "is",
+          "under",
+          "the",
+          "bed."
+        ]
+      ],
+      "id": "where-is-it-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

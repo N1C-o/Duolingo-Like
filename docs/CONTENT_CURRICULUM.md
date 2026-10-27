@@ -1,7 +1,7 @@
 # Programme pédagogique — English Adventure
 
 **Date :** 7 août 2026
-**Statut :** cadrage éditorial v0.2, corrections de séquençage préparées — validation requise avant l’implémentation narrative
+**Statut au 27 octobre 2026 :** les 20 unités et 60 leçons du parcours sont intégrées localement (contenu 1.3.0), avec scènes, checkpoints et missions. Les 380 textes d’écoute sont enregistrés ; la relecture pédagogique humaine reste à compléter.
 **Périmètre :** parcours fondamental de 20 unités pour enfants débutants
 
 ## 1. Décision de conception
@@ -10,7 +10,7 @@ English Adventure doit proposer une véritable initiation à l’anglais, et pas
 
 Le niveau de référence est une progression **pré-A1 vers les premiers objectifs A1**. Il s’agit d’un alignement pédagogique et non d’une certification. L’âge exact de Gabriel et Luca reste à confirmer ; les contenus sont donc conçus pour des enfants débutants, avec une priorité à l’oral, à l’image, au jeu et à la lecture guidée.
 
-Les unités 1 et 2 sont déjà présentes dans le dépôt. Les unités 3 à 8 reprennent le parcours initial du cahier des charges. Les unités 9 à 20 prolongent ce socle pour former un parcours complet.
+Les unités 1 à 8 reprennent le parcours initial du cahier des charges. Les unités 9 à 20 sont désormais présentes et prolongent ce socle jusqu’à la mission finale.
 
 ## 2. Principes éditoriaux
 
@@ -105,7 +105,7 @@ Une leçon cible 5 à 8 exercices, dure environ cinq minutes et ne présente pas
 - Les phrases sont ensuite découpées, remises dans l’ordre et reconnues dans des dialogues.
 - Les unités 8 à 12 renforcent les pluriels, l’intonation des questions et les groupes de mots fréquents.
 - Les unités 19 et 20 proposent de très courts textes accompagnés d’images, puis une remise en ordre narrative.
-- La synthèse vocale aide l’écoute mais ne remplace pas une voix enregistrée si des assets audio sont ajoutés plus tard.
+- Les fichiers enregistrés couvrent les textes d’écoute du parcours ; la synthèse navigateur sert de secours en cas d’erreur de lecture ou de futur texte sans fichier.
 - L’application ne prétend pas évaluer la prononciation tant qu’aucune reconnaissance vocale n’est prévue ; les activités de répétition restent libres et non notées.
 
 La structure de scène, les marqueurs de mission et les métadonnées de phonologie sont décrits dans le [plan de correction éditoriale](./plans/2026-08-07-content-correction.md). Leur ajout au contrat JSON et au moteur attend la validation de cette proposition.
@@ -147,5 +147,5 @@ Avant publication, chaque leçon doit répondre « oui » aux questions suivante
 
 - Tranche d’âge exacte de Gabriel et Luca.
 - Priorité entre écoute/oral et lecture/écriture pour les premiers mois.
-- Disponibilité future de voix enregistrées ou maintien de la synthèse vocale.
+- Relecture pédagogique des enregistrements lors des essais avec les enfants.
 - Durée souhaitée d’une session familiale et rythme de test avec les enfants.

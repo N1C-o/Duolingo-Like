@@ -1,0 +1,226 @@
+{
+  "id": "around-town-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "around-town",
+  "order": 1,
+  "title": "La carte à l’envers",
+  "objective": "Reconnaître park, shop et street.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "park",
+    "shop",
+    "street"
+  ],
+  "reviewConceptIds": [
+    "school",
+    "house",
+    "next-to"
+  ],
+  "prerequisiteLessonIds": [
+    "feelings-03"
+  ],
+  "storyScene": {
+    "id": "around-town-01-scene",
+    "situation": "La carte du quartier est à l’envers. Le parc, le magasin et la rue doivent retrouver leurs étiquettes.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Where is the shop?",
+        "translation": "Où est le magasin ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "The shop is next to the school.",
+        "translation": "Le magasin est à côté de l’école."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Va au parc. »",
+      "exerciseId": "around-town-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "This is my street.",
+        "translation": "Voici ma rue."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "The park is here.",
+        "translation": "Le parc est ici."
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Go to the park.",
+    "audioText": "Go to the park.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "park",
+        "shop",
+        "street"
+      ],
+      "explanation": "park : parc ; shop : magasin ; street : rue.",
+      "pairs": [
+        {
+          "id": "around-town-01-park",
+          "left": "park",
+          "right": "parc"
+        },
+        {
+          "id": "around-town-01-shop",
+          "left": "shop",
+          "right": "magasin"
+        },
+        {
+          "id": "around-town-01-street",
+          "left": "street",
+          "right": "rue"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "around-town-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "park",
+        "shop",
+        "school",
+        "go"
+      ],
+      "explanation": "Park signifie parc.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Go to the shop."
+        },
+        {
+          "id": "other-2",
+          "label": "Go to school."
+        },
+        {
+          "id": "correct",
+          "label": "Go to the park."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Go to the park.",
+      "id": "around-town-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "The shop is next to the school.",
+      "conceptIds": [
+        "shop",
+        "next-to",
+        "school",
+        "park"
+      ],
+      "explanation": "« The shop is next to the school. » signifie « Le magasin est à côté de l’école. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Le magasin est dans l’école."
+        },
+        {
+          "id": "correct",
+          "label": "Le magasin est à côté de l’école."
+        },
+        {
+          "id": "other-1",
+          "label": "Le parc est à côté de l’école."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "around-town-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Quel mot signifie « rue » ?",
+      "conceptIds": [
+        "street",
+        "shop",
+        "park"
+      ],
+      "explanation": "Street signifie rue.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "street"
+        },
+        {
+          "id": "other-1",
+          "label": "shop"
+        },
+        {
+          "id": "other-2",
+          "label": "park"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "around-town-01-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Park means « magasin ».",
+      "statement": "Park means « magasin ».",
+      "correct": false,
+      "explanation": "Park signifie parc ; shop signifie magasin.",
+      "conceptIds": [
+        "park",
+        "shop"
+      ],
+      "id": "around-town-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Va au parc. »",
+      "conceptIds": [
+        "go",
+        "park"
+      ],
+      "explanation": "« Go to the park. » signifie « Va au parc. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "to",
+        "the",
+        "park.",
+        "Go"
+      ],
+      "acceptedOrders": [
+        [
+          "Go",
+          "to",
+          "the",
+          "park."
+        ]
+      ],
+      "id": "around-town-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

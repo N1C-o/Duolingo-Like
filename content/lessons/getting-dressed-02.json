@@ -1,0 +1,253 @@
+{
+  "id": "getting-dressed-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "getting-dressed",
+  "order": 2,
+  "title": "À qui est ce chapeau ?",
+  "objective": "Dire ce que l’on porte et distinguer my de your.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "socks",
+    "coat",
+    "wearing"
+  ],
+  "reviewConceptIds": [
+    "hat",
+    "red",
+    "blue",
+    "shirt"
+  ],
+  "prerequisiteLessonIds": [
+    "getting-dressed-01"
+  ],
+  "storyScene": {
+    "id": "getting-dressed-02-scene",
+    "situation": "Gabriel porte un chapeau rouge ; Luca porte un manteau bleu. Ils rendent à chacun ses vêtements.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "I’m wearing a red hat.",
+        "translation": "Je porte un chapeau rouge."
+      },
+      {
+        "speaker": "Luca",
+        "text": "This is your coat.",
+        "translation": "Voici ton manteau."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je porte un manteau. »",
+      "exerciseId": "getting-dressed-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "My coat is blue.",
+        "translation": "Mon manteau est bleu."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I’m wearing a red hat.",
+    "audioText": "I’m wearing a red hat.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "socks",
+        "coat",
+        "wearing"
+      ],
+      "explanation": "socks : chaussettes ; coat : manteau ; I’m wearing : Je porte.",
+      "pairs": [
+        {
+          "id": "getting-dressed-02-socks",
+          "left": "socks",
+          "right": "chaussettes"
+        },
+        {
+          "id": "getting-dressed-02-coat",
+          "left": "coat",
+          "right": "manteau"
+        },
+        {
+          "id": "getting-dressed-02-wearing",
+          "left": "I’m wearing",
+          "right": "Je porte"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "getting-dressed-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "wearing",
+        "coat",
+        "hat",
+        "socks"
+      ],
+      "explanation": "La voix dit a coat, un manteau.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I’m wearing a coat."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m wearing a hat."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m wearing socks."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I’m wearing a coat.",
+      "id": "getting-dressed-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "This is your coat.",
+      "conceptIds": [
+        "coat",
+        "shirt"
+      ],
+      "explanation": "« This is your coat. » signifie « Voici ton manteau. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Voici mon manteau."
+        },
+        {
+          "id": "other-2",
+          "label": "Voici ta chemise."
+        },
+        {
+          "id": "correct",
+          "label": "Voici ton manteau."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "getting-dressed-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Dis : « Je porte un chapeau rouge. »",
+      "conceptIds": [
+        "wearing",
+        "red",
+        "hat",
+        "coat"
+      ],
+      "explanation": "En anglais, red vient avant hat : a red hat.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "coat"
+        },
+        {
+          "id": "correct",
+          "label": "red"
+        },
+        {
+          "id": "other-1",
+          "label": "hat"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "I’m wearing a ___ hat.",
+      "id": "getting-dressed-02-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Tu portes un manteau bleu. Réponds en parlant de ta tenue.",
+      "conceptIds": [
+        "wearing",
+        "blue",
+        "coat",
+        "socks",
+        "shirt"
+      ],
+      "explanation": "La tenue indiquée est a blue coat.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I’m wearing a blue coat."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m wearing red socks."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m wearing a green shirt."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "What are you wearing?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "getting-dressed-02-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je porte un manteau. »",
+      "conceptIds": [
+        "wearing",
+        "coat"
+      ],
+      "explanation": "« I’m wearing a coat. » signifie « Je porte un manteau. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "wearing",
+        "a",
+        "coat.",
+        "I’m"
+      ],
+      "acceptedOrders": [
+        [
+          "I’m",
+          "wearing",
+          "a",
+          "coat."
+        ]
+      ],
+      "id": "getting-dressed-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

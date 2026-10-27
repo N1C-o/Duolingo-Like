@@ -1,0 +1,28 @@
+{
+  "id": "story-club",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 19,
+  "title": "Story club",
+  "shortTitle": "Le club des histoires",
+  "topic": "Le club des histoires",
+  "objective": "Tu sais suivre et reconstruire une histoire courte.",
+  "difficulty": 3,
+  "prerequisiteUnitIds": [
+    "birthday"
+  ],
+  "lessonIds": [
+    "story-club-01",
+    "story-club-02",
+    "story-club-03"
+  ],
+  "vocabularyIds": [
+    "first",
+    "then",
+    "finally",
+    "and",
+    "but",
+    "help"
+  ],
+  "rewardTitle": "Le livre des aventures"
+}

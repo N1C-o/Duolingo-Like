@@ -1,0 +1,219 @@
+{
+  "id": "around-town-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "around-town",
+  "order": 2,
+  "title": "Suis les flèches !",
+  "objective": "Comprendre gauche, droite et tout droit.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "left",
+    "right",
+    "straight-on"
+  ],
+  "reviewConceptIds": [
+    "go",
+    "park",
+    "shop"
+  ],
+  "prerequisiteLessonIds": [
+    "around-town-01"
+  ],
+  "storyScene": {
+    "id": "around-town-02-scene",
+    "situation": "Trois flèches indiquent le chemin. Le robot tourne à gauche, puis suit la rue tout droit.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Turn left!",
+        "translation": "Tourne à gauche !"
+      },
+      {
+        "speaker": "Luca",
+        "text": "Go straight on!",
+        "translation": "Va tout droit !"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Tourne à gauche. »",
+      "exerciseId": "around-town-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Turn right!",
+        "translation": "Tourne à droite !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "The shop is here.",
+        "translation": "Le magasin est ici."
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Turn left.",
+    "audioText": "Turn left.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "left",
+        "right",
+        "straight-on"
+      ],
+      "explanation": "left : gauche ; right : droite ; straight on : tout droit.",
+      "pairs": [
+        {
+          "id": "around-town-02-left",
+          "left": "left",
+          "right": "gauche"
+        },
+        {
+          "id": "around-town-02-right",
+          "left": "right",
+          "right": "droite"
+        },
+        {
+          "id": "around-town-02-straight-on",
+          "left": "straight on",
+          "right": "tout droit"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "around-town-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "right",
+        "left",
+        "straight-on"
+      ],
+      "explanation": "Right indique la droite.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Go straight on."
+        },
+        {
+          "id": "correct",
+          "label": "Turn right."
+        },
+        {
+          "id": "other-1",
+          "label": "Turn left."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Turn right.",
+      "id": "around-town-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "Go straight on.",
+      "conceptIds": [
+        "straight-on",
+        "left",
+        "right"
+      ],
+      "explanation": "« Go straight on. » signifie « Va tout droit. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Va tout droit."
+        },
+        {
+          "id": "other-1",
+          "label": "Tourne à gauche."
+        },
+        {
+          "id": "other-2",
+          "label": "Tourne à droite."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "around-town-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "La flèche indique ←. Quelle consigne correspond ?",
+      "conceptIds": [
+        "left",
+        "right",
+        "straight-on"
+      ],
+      "explanation": "La flèche vers la gauche correspond à left.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Turn right."
+        },
+        {
+          "id": "other-2",
+          "label": "Go straight on."
+        },
+        {
+          "id": "correct",
+          "label": "Turn left."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "around-town-02-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Right means « gauche ».",
+      "statement": "Right means « gauche ».",
+      "correct": false,
+      "explanation": "Right signifie droite ; left signifie gauche.",
+      "conceptIds": [
+        "right",
+        "left"
+      ],
+      "id": "around-town-02-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Tourne à gauche. »",
+      "conceptIds": [
+        "left"
+      ],
+      "explanation": "« Turn left. » signifie « Tourne à gauche. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "left.",
+        "Turn"
+      ],
+      "acceptedOrders": [
+        [
+          "Turn",
+          "left."
+        ]
+      ],
+      "id": "around-town-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

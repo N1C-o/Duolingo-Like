@@ -1,0 +1,28 @@
+{
+  "id": "around-town",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 17,
+  "title": "Around town",
+  "shortTitle": "Le quartier",
+  "topic": "Le quartier",
+  "objective": "Tu sais nommer des lieux et suivre des indications simples.",
+  "difficulty": 3,
+  "prerequisiteUnitIds": [
+    "feelings"
+  ],
+  "lessonIds": [
+    "around-town-01",
+    "around-town-02",
+    "around-town-03"
+  ],
+  "vocabularyIds": [
+    "park",
+    "shop",
+    "street",
+    "left",
+    "right",
+    "straight-on"
+  ],
+  "rewardTitle": "La carte du quartier"
+}

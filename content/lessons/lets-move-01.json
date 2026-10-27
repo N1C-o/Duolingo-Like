@@ -1,0 +1,223 @@
+{
+  "id": "lets-move-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "lets-move",
+  "order": 1,
+  "title": "La course des mouvements",
+  "objective": "Comprendre run, jump et clap.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "run",
+    "jump",
+    "clap"
+  ],
+  "reviewConceptIds": [
+    "lets-play",
+    "game",
+    "ball"
+  ],
+  "prerequisiteLessonIds": [
+    "where-is-it-03"
+  ],
+  "storyScene": {
+    "id": "lets-move-01-scene",
+    "situation": "Un robot organise une course sans gagnant : courir, sauter, puis applaudir chaque essai.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s play a game!",
+        "translation": "Jouons à un jeu !"
+      },
+      {
+        "speaker": "Luca",
+        "text": "Run! Jump! Clap!",
+        "translation": "Cours ! Saute ! Tape dans les mains !"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Jouons à un jeu. »",
+      "exerciseId": "lets-move-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Jump!",
+        "translation": "Saute !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Run! Jump! Clap!",
+    "audioText": "Run! Jump! Clap!",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "run",
+        "jump",
+        "clap"
+      ],
+      "explanation": "run : courir ; jump : sauter ; clap : taper dans les mains.",
+      "pairs": [
+        {
+          "id": "lets-move-01-run",
+          "left": "run",
+          "right": "courir"
+        },
+        {
+          "id": "lets-move-01-jump",
+          "left": "jump",
+          "right": "sauter"
+        },
+        {
+          "id": "lets-move-01-clap",
+          "left": "clap",
+          "right": "taper dans les mains"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "lets-move-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "jump",
+        "run",
+        "clap"
+      ],
+      "explanation": "Jump demande de sauter.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Jump!"
+        },
+        {
+          "id": "other-1",
+          "label": "Run!"
+        },
+        {
+          "id": "other-2",
+          "label": "Clap!"
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Jump!",
+      "id": "lets-move-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "Clap!",
+      "conceptIds": [
+        "clap",
+        "run",
+        "jump"
+      ],
+      "explanation": "« Clap! » signifie « Tape dans les mains ! ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Cours !"
+        },
+        {
+          "id": "other-2",
+          "label": "Saute !"
+        },
+        {
+          "id": "correct",
+          "label": "Tape dans les mains !"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "lets-move-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Quel mot demande de courir ?",
+      "conceptIds": [
+        "run",
+        "jump",
+        "clap"
+      ],
+      "explanation": "Run signifie courir.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Clap!"
+        },
+        {
+          "id": "correct",
+          "label": "Run!"
+        },
+        {
+          "id": "other-1",
+          "label": "Jump!"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "lets-move-01-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Jump means « sauter ».",
+      "statement": "Jump means « sauter ».",
+      "correct": true,
+      "explanation": "Jump signifie sauter.",
+      "conceptIds": [
+        "jump"
+      ],
+      "id": "lets-move-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Jouons à un jeu. »",
+      "conceptIds": [
+        "lets-play",
+        "game"
+      ],
+      "explanation": "« Let’s play a game. » signifie « Jouons à un jeu. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "play",
+        "a",
+        "game.",
+        "Let’s"
+      ],
+      "acceptedOrders": [
+        [
+          "Let’s",
+          "play",
+          "a",
+          "game."
+        ]
+      ],
+      "id": "lets-move-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

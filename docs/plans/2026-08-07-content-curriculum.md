@@ -1,7 +1,7 @@
 # Plan de production du contenu — 20 unités
 
 **Date :** 7 août 2026
-**Statut :** unités 1–8 publiées ; contrat narratif, production et lecture implémentés ; unités 9–20 à produire progressivement
+**Statut au 27 octobre 2026 :** unités 1–20 intégrées localement, 60 leçons et 353 exercices ; les 380 textes d’écoute sont enregistrés et la relecture pédagogique humaine reste à faire. Les sections de phases ci-dessous conservent le cadrage historique.
 **Référence :** [programme pédagogique](../CONTENT_CURRICULUM.md)
 
 ## Objectif

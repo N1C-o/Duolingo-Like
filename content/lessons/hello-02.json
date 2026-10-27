@@ -123,7 +123,6 @@
       "conceptIds": ["im-good"],
       "explanation": "I’m good signifie « Je vais bien ».",
       "responseMode": "guided-production",
-      "isUnitMission": true,
       "tokens": ["good.", "I’m"],
       "acceptedOrders": [["I’m", "good."]]
     },

@@ -1,0 +1,224 @@
+{
+  "id": "my-body-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "my-body",
+  "order": 1,
+  "title": "Le robot à réparer",
+  "objective": "Reconnaître head, hands et feet.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "head",
+    "hands",
+    "feet"
+  ],
+  "reviewConceptIds": [
+    "clap",
+    "jump",
+    "numbers-1-to-20"
+  ],
+  "prerequisiteLessonIds": [
+    "getting-dressed-03"
+  ],
+  "storyScene": {
+    "id": "my-body-01-scene",
+    "situation": "Le robot du terrain de jeu a mélangé les étiquettes de ses pièces. Les voyageurs commencent par la tête, les mains et les pieds.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "This is my head.",
+        "translation": "Voici ma tête."
+      },
+      {
+        "speaker": "Luca",
+        "text": "I have two hands.",
+        "translation": "J’ai deux mains."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « J’ai deux mains. »",
+      "exerciseId": "my-body-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I have two feet.",
+        "translation": "J’ai deux pieds."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "I can jump!",
+        "translation": "Je peux sauter !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I have two hands.",
+    "audioText": "I have two hands.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "head",
+        "hands",
+        "feet"
+      ],
+      "explanation": "head : tête ; hands : mains ; feet : pieds.",
+      "pairs": [
+        {
+          "id": "my-body-01-head",
+          "left": "head",
+          "right": "tête"
+        },
+        {
+          "id": "my-body-01-hands",
+          "left": "hands",
+          "right": "mains"
+        },
+        {
+          "id": "my-body-01-feet",
+          "left": "feet",
+          "right": "pieds"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "my-body-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "hands",
+        "feet",
+        "head"
+      ],
+      "explanation": "Hands signifie mains.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I have two hands."
+        },
+        {
+          "id": "other-1",
+          "label": "I have two feet."
+        },
+        {
+          "id": "other-2",
+          "label": "This is my head."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I have two hands.",
+      "id": "my-body-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I have two feet.",
+      "conceptIds": [
+        "feet",
+        "hands",
+        "head"
+      ],
+      "explanation": "« I have two feet. » signifie « J’ai deux pieds. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "J’ai deux mains."
+        },
+        {
+          "id": "other-2",
+          "label": "Voici ma tête."
+        },
+        {
+          "id": "correct",
+          "label": "J’ai deux pieds."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "my-body-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Quel mot désigne la tête ?",
+      "conceptIds": [
+        "head",
+        "hands",
+        "feet"
+      ],
+      "explanation": "Head signifie tête.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "feet"
+        },
+        {
+          "id": "correct",
+          "label": "head"
+        },
+        {
+          "id": "other-1",
+          "label": "hands"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "my-body-01-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Feet means « mains ».",
+      "statement": "Feet means « mains ».",
+      "correct": false,
+      "explanation": "Feet signifie pieds ; hands signifie mains.",
+      "conceptIds": [
+        "feet",
+        "hands"
+      ],
+      "id": "my-body-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « J’ai deux mains. »",
+      "conceptIds": [
+        "hands",
+        "numbers-1-to-20"
+      ],
+      "explanation": "« I have two hands. » signifie « J’ai deux mains. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "have",
+        "two",
+        "hands.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "have",
+          "two",
+          "hands."
+        ]
+      ],
+      "id": "my-body-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

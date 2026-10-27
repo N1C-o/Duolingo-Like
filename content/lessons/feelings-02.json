@@ -1,0 +1,249 @@
+{
+  "id": "feelings-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "feelings",
+  "order": 2,
+  "title": "Comment tu te sens ?",
+  "objective": "Poser How do you feel? et nommer la surprise.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "excited",
+    "surprised",
+    "feel"
+  ],
+  "reviewConceptIds": [
+    "happy",
+    "sad",
+    "tired"
+  ],
+  "prerequisiteLessonIds": [
+    "feelings-01"
+  ],
+  "storyScene": {
+    "id": "feelings-02-scene",
+    "situation": "Le coffre s’ouvre sans prévenir. Gabriel est surpris ; Luca est très enthousiaste à l’idée de la fête.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "How do you feel?",
+        "translation": "Comment te sens-tu ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "I feel surprised!",
+        "translation": "Je me sens surpris !"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je me sens surpris. »",
+      "exerciseId": "feelings-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I feel excited!",
+        "translation": "Je suis très enthousiaste !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s play!",
+        "translation": "Jouons !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "How do you feel?",
+    "audioText": "How do you feel?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "excited",
+        "surprised",
+        "feel"
+      ],
+      "explanation": "excited : impatient / très enthousiaste ; surprised : surpris ; feel : se sentir.",
+      "pairs": [
+        {
+          "id": "feelings-02-excited",
+          "left": "excited",
+          "right": "impatient / très enthousiaste"
+        },
+        {
+          "id": "feelings-02-surprised",
+          "left": "surprised",
+          "right": "surpris"
+        },
+        {
+          "id": "feelings-02-feel",
+          "left": "feel",
+          "right": "se sentir"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "feelings-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "feel",
+        "surprised",
+        "excited",
+        "tired"
+      ],
+      "explanation": "Surprised signifie surpris.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I feel excited."
+        },
+        {
+          "id": "other-2",
+          "label": "I feel tired."
+        },
+        {
+          "id": "correct",
+          "label": "I feel surprised."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I feel surprised.",
+      "id": "feelings-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "How do you feel?",
+      "conceptIds": [
+        "feel",
+        "name"
+      ],
+      "explanation": "« How do you feel? » signifie « Comment te sens-tu ? ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Quel est ton prénom ?"
+        },
+        {
+          "id": "correct",
+          "label": "Comment te sens-tu ?"
+        },
+        {
+          "id": "other-1",
+          "label": "Quel âge as-tu ?"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "feelings-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Tu es très enthousiaste pour la fête. Réponds avec excited.",
+      "conceptIds": [
+        "feel",
+        "excited",
+        "sad",
+        "tired"
+      ],
+      "explanation": "Excited exprime ici un enthousiasme joyeux.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I feel excited."
+        },
+        {
+          "id": "other-1",
+          "label": "I feel sad."
+        },
+        {
+          "id": "other-2",
+          "label": "I feel tired."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "How do you feel?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "feelings-02-04-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Dis que tu te sens surpris.",
+      "conceptIds": [
+        "feel",
+        "surprised",
+        "sad",
+        "tired"
+      ],
+      "explanation": "I feel surprised signifie je me sens surpris.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "sad"
+        },
+        {
+          "id": "other-2",
+          "label": "tired"
+        },
+        {
+          "id": "correct",
+          "label": "surprised"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "I feel ___.",
+      "id": "feelings-02-05-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je me sens surpris. »",
+      "conceptIds": [
+        "feel",
+        "surprised"
+      ],
+      "explanation": "« I feel surprised. » signifie « Je me sens surpris. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "feel",
+        "surprised.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "feel",
+          "surprised."
+        ]
+      ],
+      "id": "feelings-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

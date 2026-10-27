@@ -1,0 +1,28 @@
+{
+  "id": "birthday",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 18,
+  "title": "Birthday party",
+  "shortTitle": "L’anniversaire",
+  "topic": "L’anniversaire",
+  "objective": "Tu sais dire ton âge et comprendre une invitation simple.",
+  "difficulty": 3,
+  "prerequisiteUnitIds": [
+    "around-town"
+  ],
+  "lessonIds": [
+    "birthday-01",
+    "birthday-02",
+    "birthday-03"
+  ],
+  "vocabularyIds": [
+    "birthday",
+    "age",
+    "cake",
+    "present",
+    "balloon",
+    "when"
+  ],
+  "rewardTitle": "Les vingt ballons"
+}

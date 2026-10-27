@@ -1,0 +1,28 @@
+{
+  "id": "animal-rescue",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 15,
+  "title": "Animal rescue",
+  "shortTitle": "Les animaux",
+  "topic": "Les animaux",
+  "objective": "Tu sais reconnaître un animal et décrire sa taille et ses capacités.",
+  "difficulty": 3,
+  "prerequisiteUnitIds": [
+    "weather"
+  ],
+  "lessonIds": [
+    "animal-rescue-01",
+    "animal-rescue-02",
+    "animal-rescue-03"
+  ],
+  "vocabularyIds": [
+    "cat",
+    "dog",
+    "bird",
+    "fish",
+    "big",
+    "small"
+  ],
+  "rewardTitle": "L’insigne du refuge"
+}

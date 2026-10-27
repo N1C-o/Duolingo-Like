@@ -1,0 +1,228 @@
+{
+  "id": "birthday-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "birthday",
+  "order": 1,
+  "title": "L’invitation mystérieuse",
+  "objective": "Comprendre birthday, How old are you? et cake.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "birthday",
+    "age",
+    "cake"
+  ],
+  "reviewConceptIds": [
+    "numbers-1-to-20",
+    "friend",
+    "today"
+  ],
+  "prerequisiteLessonIds": [
+    "around-town-03"
+  ],
+  "storyScene": {
+    "id": "birthday-01-scene",
+    "situation": "Une invitation arrive au refuge : aujourd’hui, un ami fête ses huit ans avec un gâteau.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "It’s my birthday today.",
+        "translation": "C’est mon anniversaire aujourd’hui."
+      },
+      {
+        "speaker": "Luca",
+        "text": "I’m eight.",
+        "translation": "J’ai huit ans."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « J’ai huit ans. »",
+      "exerciseId": "birthday-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "This is my cake!",
+        "translation": "Voici mon gâteau !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Happy birthday!",
+        "translation": "Joyeux anniversaire !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "How old are you?",
+    "audioText": "How old are you?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "birthday",
+        "age",
+        "cake"
+      ],
+      "explanation": "birthday : anniversaire ; How old are you? : Quel âge as-tu ? ; cake : gâteau.",
+      "pairs": [
+        {
+          "id": "birthday-01-birthday",
+          "left": "birthday",
+          "right": "anniversaire"
+        },
+        {
+          "id": "birthday-01-age",
+          "left": "How old are you?",
+          "right": "Quel âge as-tu ?"
+        },
+        {
+          "id": "birthday-01-cake",
+          "left": "cake",
+          "right": "gâteau"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "birthday-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "age",
+        "numbers-1-to-20"
+      ],
+      "explanation": "Eight signifie huit ; I’m eight dit l’âge.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I’m ten."
+        },
+        {
+          "id": "correct",
+          "label": "I’m eight."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m six."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I’m eight.",
+      "id": "birthday-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "It’s my birthday today.",
+      "conceptIds": [
+        "birthday",
+        "today"
+      ],
+      "explanation": "« It’s my birthday today. » signifie « C’est mon anniversaire aujourd’hui. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "C’est mon anniversaire aujourd’hui."
+        },
+        {
+          "id": "other-1",
+          "label": "C’est mon cadeau aujourd’hui."
+        },
+        {
+          "id": "other-2",
+          "label": "Je vais à l’école aujourd’hui."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "birthday-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Dans ce jeu, tu joues un personnage de huit ans. Donne son âge.",
+      "conceptIds": [
+        "age",
+        "numbers-1-to-20"
+      ],
+      "explanation": "La question demande un âge ; le personnage a huit ans.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I’m good."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m Gabriel."
+        },
+        {
+          "id": "correct",
+          "label": "I’m eight."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "How old are you?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "birthday-01-04-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Cake means « gâteau ».",
+      "statement": "Cake means « gâteau ».",
+      "correct": true,
+      "explanation": "Cake signifie gâteau.",
+      "conceptIds": [
+        "cake"
+      ],
+      "id": "birthday-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « J’ai huit ans. »",
+      "conceptIds": [
+        "age",
+        "numbers-1-to-20"
+      ],
+      "explanation": "« I am eight. » signifie « J’ai huit ans. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "am",
+        "eight.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "am",
+          "eight."
+        ]
+      ],
+      "id": "birthday-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

@@ -1,0 +1,221 @@
+{
+  "id": "feelings-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "feelings",
+  "order": 1,
+  "title": "Le coffre des émotions",
+  "objective": "Reconnaître happy, sad et tired.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "happy",
+    "sad",
+    "tired"
+  ],
+  "reviewConceptIds": [
+    "friend",
+    "sleep",
+    "night"
+  ],
+  "prerequisiteLessonIds": [
+    "animal-rescue-03"
+  ],
+  "storyScene": {
+    "id": "feelings-01-scene",
+    "situation": "Un coffre change de couleur avec les émotions. Luca est content, son ami est triste et le robot est fatigué.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "I’m happy!",
+        "translation": "Je suis content !"
+      },
+      {
+        "speaker": "Luca",
+        "text": "I’m tired.",
+        "translation": "Je suis fatigué."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je suis content. »",
+      "exerciseId": "feelings-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "My friend is sad.",
+        "translation": "Mon ami est triste."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Hello, friend!",
+        "translation": "Bonjour, mon ami !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I’m happy.",
+    "audioText": "I’m happy.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "happy",
+        "sad",
+        "tired"
+      ],
+      "explanation": "happy : content / heureux ; sad : triste ; tired : fatigué.",
+      "pairs": [
+        {
+          "id": "feelings-01-happy",
+          "left": "happy",
+          "right": "content / heureux"
+        },
+        {
+          "id": "feelings-01-sad",
+          "left": "sad",
+          "right": "triste"
+        },
+        {
+          "id": "feelings-01-tired",
+          "left": "tired",
+          "right": "fatigué"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "feelings-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "tired",
+        "happy",
+        "sad"
+      ],
+      "explanation": "Tired signifie fatigué.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I’m tired."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m happy."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m sad."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I’m tired.",
+      "id": "feelings-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I’m sad.",
+      "conceptIds": [
+        "sad",
+        "happy",
+        "tired"
+      ],
+      "explanation": "« I’m sad. » signifie « Je suis triste. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Je suis content."
+        },
+        {
+          "id": "other-2",
+          "label": "Je suis fatigué."
+        },
+        {
+          "id": "correct",
+          "label": "Je suis triste."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "feelings-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Luca sourit et dit qu’il est content. Quelle phrase correspond ?",
+      "conceptIds": [
+        "happy",
+        "sad",
+        "tired"
+      ],
+      "explanation": "Happy exprime ici le fait d’être content.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I’m tired."
+        },
+        {
+          "id": "correct",
+          "label": "I’m happy."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m sad."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "feelings-01-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Tired means « triste ».",
+      "statement": "Tired means « triste ».",
+      "correct": false,
+      "explanation": "Tired signifie fatigué ; sad signifie triste.",
+      "conceptIds": [
+        "tired",
+        "sad"
+      ],
+      "id": "feelings-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je suis content. »",
+      "conceptIds": [
+        "happy"
+      ],
+      "explanation": "« I am happy. » signifie « Je suis content. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "am",
+        "happy.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "am",
+          "happy."
+        ]
+      ],
+      "id": "feelings-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

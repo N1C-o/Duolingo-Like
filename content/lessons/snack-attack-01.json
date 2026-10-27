@@ -1,0 +1,227 @@
+{
+  "id": "snack-attack-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "snack-attack",
+  "order": 1,
+  "title": "Le pique-nique du dragon",
+  "objective": "Nommer banana, sandwich et juice.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "banana",
+    "sandwich",
+    "juice"
+  ],
+  "reviewConceptIds": [
+    "apple",
+    "water",
+    "id-like"
+  ],
+  "prerequisiteLessonIds": [
+    "lets-move-03"
+  ],
+  "storyScene": {
+    "id": "snack-attack-01-scene",
+    "situation": "Un petit dragon prépare le pique-nique. Les étiquettes de ses bananes, sandwichs et jus se mélangent.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "I’d like a banana.",
+        "translation": "Je voudrais une banane."
+      },
+      {
+        "speaker": "Luca",
+        "text": "I’d like juice.",
+        "translation": "Je voudrais du jus de fruits."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je voudrais une banane. »",
+      "exerciseId": "snack-attack-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "This is a banana.",
+        "translation": "Voici une banane."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I’d like a banana.",
+    "audioText": "I’d like a banana.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "banana",
+        "sandwich",
+        "juice"
+      ],
+      "explanation": "banana : banane ; sandwich : sandwich ; juice : jus de fruits.",
+      "pairs": [
+        {
+          "id": "snack-attack-01-banana",
+          "left": "banana",
+          "right": "banane"
+        },
+        {
+          "id": "snack-attack-01-sandwich",
+          "left": "sandwich",
+          "right": "sandwich"
+        },
+        {
+          "id": "snack-attack-01-juice",
+          "left": "juice",
+          "right": "jus de fruits"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "snack-attack-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "juice",
+        "id-like",
+        "water",
+        "milk"
+      ],
+      "explanation": "Juice signifie jus de fruits.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I’d like water."
+        },
+        {
+          "id": "other-2",
+          "label": "I’d like milk."
+        },
+        {
+          "id": "correct",
+          "label": "I’d like juice."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I’d like juice.",
+      "id": "snack-attack-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I’d like a banana.",
+      "conceptIds": [
+        "banana",
+        "id-like",
+        "apple",
+        "water"
+      ],
+      "explanation": "« I’d like a banana. » signifie « Je voudrais une banane. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Je voudrais de l’eau."
+        },
+        {
+          "id": "correct",
+          "label": "Je voudrais une banane."
+        },
+        {
+          "id": "other-1",
+          "label": "Je voudrais une pomme."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "snack-attack-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Demande un sandwich.",
+      "conceptIds": [
+        "can-i-have",
+        "sandwich",
+        "juice"
+      ],
+      "explanation": "A sandwich est un aliment que l’on peut compter : un sandwich.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "sandwich"
+        },
+        {
+          "id": "other-1",
+          "label": "juice"
+        },
+        {
+          "id": "other-2",
+          "label": "water"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "Can I have a ___?",
+      "id": "snack-attack-01-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Juice means « lait ».",
+      "statement": "Juice means « lait ».",
+      "correct": false,
+      "explanation": "Juice signifie jus de fruits ; milk signifie lait.",
+      "conceptIds": [
+        "juice",
+        "milk"
+      ],
+      "id": "snack-attack-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je voudrais une banane. »",
+      "conceptIds": [
+        "id-like",
+        "banana"
+      ],
+      "explanation": "« I’d like a banana. » signifie « Je voudrais une banane. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "like",
+        "a",
+        "banana.",
+        "I’d"
+      ],
+      "acceptedOrders": [
+        [
+          "I’d",
+          "like",
+          "a",
+          "banana."
+        ]
+      ],
+      "id": "snack-attack-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

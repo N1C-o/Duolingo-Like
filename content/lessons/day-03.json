@@ -102,10 +102,10 @@
       "schemaVersion": 1,
       "type": "true-false",
       "isRevisionActivity": true,
-      "instruction": "Vrai ou faux ?",
-      "prompt": "I eat breakfast at night.",
+      "instruction": "Dans cette routine, le petit-déjeuner est le matin et le sommeil la nuit. Vrai ou faux ?",
+      "prompt": "Dans la routine décrite, le petit-déjeuner a lieu le matin. Vérifie la phrase.",
       "conceptIds": ["eat", "breakfast", "night"],
-      "explanation": "Faux dans cette routine : breakfast est le matin, et sleep est la nuit.",
+      "explanation": "Faux pour cette routine : le petit-déjeuner a lieu le matin. La phrase le place la nuit.",
       "statement": "I eat breakfast at night.",
       "correct": false
     },

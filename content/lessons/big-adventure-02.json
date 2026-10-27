@@ -1,0 +1,264 @@
+{
+  "id": "big-adventure-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "big-adventure",
+  "order": 2,
+  "title": "La mission finale",
+  "objective": "Localiser un objet, demander poliment et suivre le chemin.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "under",
+    "table",
+    "can-i-have",
+    "some",
+    "water",
+    "please",
+    "left",
+    "park",
+    "shop",
+    "next-to"
+  ],
+  "prerequisiteLessonIds": [
+    "big-adventure-01"
+  ],
+  "storyScene": {
+    "id": "big-adventure-02-scene",
+    "situation": "La carte est sous la table. Pour atteindre le parc, les voyageurs demandent de l’eau puis tournent à gauche.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Where is the map?",
+        "translation": "Où est la carte ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "It is under the table.",
+        "translation": "Elle est sous la table."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Est-ce que je peux avoir de l’eau, s’il te plaît ? »",
+      "exerciseId": "big-adventure-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Can I have some water, please?",
+        "translation": "Est-ce que je peux avoir de l’eau, s’il te plaît ?"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Here you are!",
+        "translation": "Voici !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Can I have some water, please?",
+    "audioText": "Can I have some water, please?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "under",
+        "left",
+        "water"
+      ],
+      "explanation": "under : sous ; left : gauche ; water : eau.",
+      "pairs": [
+        {
+          "id": "big-adventure-02-under",
+          "left": "under",
+          "right": "sous"
+        },
+        {
+          "id": "big-adventure-02-left",
+          "left": "left",
+          "right": "gauche"
+        },
+        {
+          "id": "big-adventure-02-water",
+          "left": "water",
+          "right": "eau"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "big-adventure-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "left",
+        "right",
+        "straight-on"
+      ],
+      "explanation": "La consigne demande de tourner à gauche.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Go straight on."
+        },
+        {
+          "id": "correct",
+          "label": "Turn left."
+        },
+        {
+          "id": "other-1",
+          "label": "Turn right."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Turn left.",
+      "id": "big-adventure-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "La carte est sous la table. Réponds à la question.",
+      "conceptIds": [
+        "where-is",
+        "under",
+        "on",
+        "table",
+        "shop",
+        "next-to"
+      ],
+      "explanation": "La carte est sous la table, donc under the table.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "It is under the table."
+        },
+        {
+          "id": "other-1",
+          "label": "It is on the table."
+        },
+        {
+          "id": "other-2",
+          "label": "It is next to the shop."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Where is the map?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "big-adventure-02-03-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "The park is next to the shop.",
+      "conceptIds": [
+        "park",
+        "next-to",
+        "shop",
+        "school"
+      ],
+      "explanation": "« The park is next to the shop. » signifie « Le parc est à côté du magasin. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Le parc est dans le magasin."
+        },
+        {
+          "id": "other-2",
+          "label": "Le parc est à côté de l’école."
+        },
+        {
+          "id": "correct",
+          "label": "Le parc est à côté du magasin."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "big-adventure-02-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Tu veux de l’eau. Quelle demande est polie et correspond ?",
+      "conceptIds": [
+        "can-i-have",
+        "some",
+        "water",
+        "please",
+        "juice",
+        "cookie"
+      ],
+      "explanation": "La boisson demandée est water et please rend la demande polie.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Can I have a cookie, please?"
+        },
+        {
+          "id": "correct",
+          "label": "Can I have some water, please?"
+        },
+        {
+          "id": "other-1",
+          "label": "Can I have some juice, please?"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "big-adventure-02-05-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Est-ce que je peux avoir de l’eau, s’il te plaît ? »",
+      "conceptIds": [
+        "can-i-have",
+        "some",
+        "water",
+        "please"
+      ],
+      "explanation": "« Can I have some water, please? » signifie « Est-ce que je peux avoir de l’eau, s’il te plaît ? ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "I",
+        "have",
+        "some",
+        "water,",
+        "please?",
+        "Can"
+      ],
+      "acceptedOrders": [
+        [
+          "Can",
+          "I",
+          "have",
+          "some",
+          "water,",
+          "please?"
+        ]
+      ],
+      "id": "big-adventure-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

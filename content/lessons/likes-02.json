@@ -57,10 +57,10 @@
       "id": "likes-02-dialogue",
       "schemaVersion": 1,
       "type": "dialogue",
-      "instruction": "Choisis la réponse qui correspond.",
-      "prompt": "Do you like pizza?",
+      "instruction": "Tu aimes la pizza. Choisis la réponse courte qui signifie « Oui ».",
+      "prompt": "Réponds « Oui » avec une réponse courte à Do you like pizza?.",
       "conceptIds": ["do-you-like", "yes-i-do", "pizza"],
-      "explanation": "Yes, I do signifie « Oui » pour répondre à Do you like…?",
+      "explanation": "La réponse courte demandée est Yes, I do. I love pizza est aussi une phrase possible dans une conversation, mais ce n’est pas la réponse courte demandée.",
       "lines": [
         { "speaker": "Luca", "text": "Do you like pizza?" },
         { "speaker": "Gabriel", "text": "…" }
@@ -76,10 +76,10 @@
       "id": "likes-02-choice",
       "schemaVersion": 1,
       "type": "multiple-choice",
-      "instruction": "Choisis une réponse négative.",
-      "prompt": "Do you like milk?",
+      "instruction": "Le personnage n’aime pas le lait. Choisis la phrase qui le dit.",
+      "prompt": "Le personnage n’aime pas le lait. Quelle phrase correspond ?",
       "conceptIds": ["do-you-like", "dont-like", "milk"],
-      "explanation": "I don’t like milk signifie « Je n’aime pas le lait ».",
+      "explanation": "I don’t like milk signifie « Je n’aime pas le lait ». Les deux autres propositions expriment un goût positif.",
       "options": [
         { "id": "dont-like", "label": "I don’t like milk." },
         { "id": "yes-i-do", "label": "Yes, I do." },

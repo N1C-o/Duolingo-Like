@@ -1,0 +1,226 @@
+{
+  "id": "animal-rescue-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "animal-rescue",
+  "order": 1,
+  "title": "Le zoo en fuite",
+  "objective": "Reconnaître cat, dog et bird.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "cat",
+    "dog",
+    "bird"
+  ],
+  "reviewConceptIds": [
+    "i-can",
+    "jump",
+    "run"
+  ],
+  "prerequisiteLessonIds": [
+    "weather-03"
+  ],
+  "storyScene": {
+    "id": "animal-rescue-01-scene",
+    "situation": "Les animaux du refuge ont échangé leurs pancartes. Un chat, un chien et un oiseau attendent leurs noms.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "This is a cat.",
+        "translation": "Voici un chat."
+      },
+      {
+        "speaker": "Luca",
+        "text": "This is a bird.",
+        "translation": "Voici un oiseau."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Voici un chat. »",
+      "exerciseId": "animal-rescue-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "The dog is here!",
+        "translation": "Le chien est ici !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "This is a bird.",
+    "audioText": "This is a bird.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "cat",
+        "dog",
+        "bird"
+      ],
+      "explanation": "cat : chat ; dog : chien ; bird : oiseau.",
+      "pairs": [
+        {
+          "id": "animal-rescue-01-cat",
+          "left": "cat",
+          "right": "chat"
+        },
+        {
+          "id": "animal-rescue-01-dog",
+          "left": "dog",
+          "right": "chien"
+        },
+        {
+          "id": "animal-rescue-01-bird",
+          "left": "bird",
+          "right": "oiseau"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "animal-rescue-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "dog",
+        "cat",
+        "bird"
+      ],
+      "explanation": "La voix dit dog, chien.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "This is a bird."
+        },
+        {
+          "id": "correct",
+          "label": "This is a dog."
+        },
+        {
+          "id": "other-1",
+          "label": "This is a cat."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "This is a dog.",
+      "id": "animal-rescue-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Quel nom correspond à 🐦 ?",
+      "conceptIds": [
+        "bird",
+        "cat",
+        "dog"
+      ],
+      "explanation": "Bird signifie oiseau.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "bird"
+        },
+        {
+          "id": "other-1",
+          "label": "cat"
+        },
+        {
+          "id": "other-2",
+          "label": "dog"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "animal-rescue-01-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "The cat can jump.",
+      "conceptIds": [
+        "cat",
+        "i-can",
+        "jump",
+        "dog",
+        "run"
+      ],
+      "explanation": "« The cat can jump. » signifie « Le chat peut sauter. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Le chien peut courir."
+        },
+        {
+          "id": "other-2",
+          "label": "Le chat ne peut pas sauter."
+        },
+        {
+          "id": "correct",
+          "label": "Le chat peut sauter."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "animal-rescue-01-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Dog means « chat ».",
+      "statement": "Dog means « chat ».",
+      "correct": false,
+      "explanation": "Dog signifie chien ; cat signifie chat.",
+      "conceptIds": [
+        "dog",
+        "cat"
+      ],
+      "id": "animal-rescue-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Voici un chat. »",
+      "conceptIds": [
+        "this-is-a",
+        "cat"
+      ],
+      "explanation": "« This is a cat. » signifie « Voici un chat. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "a",
+        "cat.",
+        "This"
+      ],
+      "acceptedOrders": [
+        [
+          "This",
+          "is",
+          "a",
+          "cat."
+        ]
+      ],
+      "id": "animal-rescue-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

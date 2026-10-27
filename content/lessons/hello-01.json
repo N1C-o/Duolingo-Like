@@ -44,13 +44,24 @@
       "instruction": "Choisis la bonne traduction.",
       "prompt": "What does “Hello” mean?",
       "audioText": "Hello",
-      "conceptIds": ["hello"],
+      "conceptIds": [
+        "hello"
+      ],
       "explanation": "Hello signifie « Bonjour ». C’est une façon simple de saluer.",
       "hint": "C’est le mot que l’on dit quand on arrive.",
       "options": [
-        { "id": "hello", "label": "Bonjour" },
-        { "id": "hi", "label": "Salut" },
-        { "id": "name", "label": "Prénom" }
+        {
+          "id": "hello",
+          "label": "Bonjour"
+        },
+        {
+          "id": "hi",
+          "label": "Au revoir"
+        },
+        {
+          "id": "name",
+          "label": "Prénom"
+        }
       ],
       "correctOptionId": "hello"
     },
@@ -98,17 +109,29 @@
       "id": "hello-01-completion",
       "schemaVersion": 1,
       "type": "sentence-completion",
-      "instruction": "Complète la phrase.",
-      "prompt": "Choose the missing word.",
-      "conceptIds": ["hello"],
-      "explanation": "Hello et hi sont deux salutations simples.",
+      "instruction": "Écoute et choisis le mot exact de la salutation.",
+      "prompt": "Quel mot exact entends-tu ?",
+      "conceptIds": [
+        "hello"
+      ],
+      "explanation": "La voix dit Hello. Hi est aussi une salutation, mais ce n’est pas le mot entendu ici.",
       "sentence": "___!",
       "options": [
-        { "id": "hello", "label": "Hello" },
-        { "id": "hi", "label": "Hi" },
-        { "id": "name", "label": "What’s your name?" }
+        {
+          "id": "hello",
+          "label": "Hello"
+        },
+        {
+          "id": "hi",
+          "label": "Hi"
+        },
+        {
+          "id": "name",
+          "label": "What’s your name?"
+        }
       ],
-      "correctOptionId": "hello"
+      "correctOptionId": "hello",
+      "audioText": "Hello!"
     },
     {
       "id": "hello-01-true-false",

@@ -1,0 +1,231 @@
+{
+  "id": "weather-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "weather",
+  "order": 2,
+  "title": "Soleil, pluie ou vent ?",
+  "objective": "Décrire les nuages et la température.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "cloudy",
+    "hot",
+    "cold"
+  ],
+  "reviewConceptIds": [
+    "sunny",
+    "rainy",
+    "windy"
+  ],
+  "prerequisiteLessonIds": [
+    "weather-01"
+  ],
+  "storyScene": {
+    "id": "weather-02-scene",
+    "situation": "Le carnet météo mélange les symboles. Les voyageurs séparent le ciel nuageux, la chaleur et le froid.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "What’s the weather like?",
+        "translation": "Quel temps fait-il ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "It’s cloudy and cold.",
+        "translation": "Le ciel est nuageux et il fait froid."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Il fait froid. »",
+      "exerciseId": "weather-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I have a coat.",
+        "translation": "J’ai un manteau."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "What’s the weather like?",
+    "audioText": "What’s the weather like?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "cloudy",
+        "hot",
+        "cold"
+      ],
+      "explanation": "cloudy : nuageux ; hot : chaud ; cold : froid.",
+      "pairs": [
+        {
+          "id": "weather-02-cloudy",
+          "left": "cloudy",
+          "right": "nuageux"
+        },
+        {
+          "id": "weather-02-hot",
+          "left": "hot",
+          "right": "chaud"
+        },
+        {
+          "id": "weather-02-cold",
+          "left": "cold",
+          "right": "froid"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "weather-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "cold",
+        "hot",
+        "cloudy"
+      ],
+      "explanation": "Cold signifie froid.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "It’s cloudy."
+        },
+        {
+          "id": "correct",
+          "label": "It’s cold."
+        },
+        {
+          "id": "other-1",
+          "label": "It’s hot."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "It’s cold.",
+      "id": "weather-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "It’s cloudy.",
+      "conceptIds": [
+        "cloudy",
+        "hot",
+        "windy"
+      ],
+      "explanation": "« It’s cloudy. » signifie « Le ciel est nuageux. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Le ciel est nuageux."
+        },
+        {
+          "id": "other-1",
+          "label": "Il fait chaud."
+        },
+        {
+          "id": "other-2",
+          "label": "Il y a du vent."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "weather-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Le ciel est couvert de nuages. Décris le ciel.",
+      "conceptIds": [
+        "cloudy",
+        "sunny",
+        "rainy"
+      ],
+      "explanation": "Cloudy décrit les nuages indiqués dans la situation.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "It’s sunny."
+        },
+        {
+          "id": "other-2",
+          "label": "It’s rainy."
+        },
+        {
+          "id": "correct",
+          "label": "It’s cloudy."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "What’s the weather like?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "weather-02-04-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Hot means « froid ».",
+      "statement": "Hot means « froid ».",
+      "correct": false,
+      "explanation": "Hot signifie chaud ; cold signifie froid.",
+      "conceptIds": [
+        "hot",
+        "cold"
+      ],
+      "id": "weather-02-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Il fait froid. »",
+      "conceptIds": [
+        "cold"
+      ],
+      "explanation": "« It is cold. » signifie « Il fait froid. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "cold.",
+        "It"
+      ],
+      "acceptedOrders": [
+        [
+          "It",
+          "is",
+          "cold."
+        ]
+      ],
+      "id": "weather-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

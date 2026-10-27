@@ -55,10 +55,10 @@
       "id": "likes-03-dialogue",
       "schemaVersion": 1,
       "type": "dialogue",
-      "instruction": "Choisis la réponse du monstre.",
-      "prompt": "Do you like dinosaurs?",
+      "instruction": "Dans cette scène, Luca n’aime pas les dinosaures. Réponds « Non » pour lui.",
+      "prompt": "Luca n’aime pas les dinosaures. Choisis sa réponse négative.",
       "conceptIds": ["do-you-like", "dinosaur", "no-i-dont"],
-      "explanation": "No, I don’t! signifie « Non, je n’aime pas ! ».",
+      "explanation": "Puisque Luca n’aime pas les dinosaures dans cette scène, il répond No, I don’t.",
       "lines": [
         { "speaker": "Monster", "text": "Do you like dinosaurs?" },
         { "speaker": "Luca", "text": "…" }

@@ -31,10 +31,10 @@
   },
   "readingCheckpoint": {
     "mode": "phrase-recognition",
-    "instruction": "Écoute la question et laisse la voix monter à la fin.",
-    "text": "How many frogs?",
-    "audioText": "How many frogs?",
-    "phonologyFocus": "question-intonation"
+    "instruction": "Écoute les nombres de 1 à 20, puis suis chaque mot en le lisant.",
+    "text": "One, two, three, four, five, six, seven, eight, nine, ten. Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty.",
+    "audioText": "One, two, three, four, five, six, seven, eight, nine, ten. Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty.",
+    "phonologyFocus": "phrase-rhythm"
   },
   "exercises": [
     {
@@ -113,6 +113,59 @@
         { "id": "purple-en", "label": "purple", "matchId": "purple", "emoji": "🟣" },
         { "id": "purple-fr", "label": "violet", "matchId": "purple", "emoji": "🍇" }
       ]
+    },
+    {
+      "id": "numbers-colours-02-one-to-ten",
+      "schemaVersion": 1,
+      "type": "listening",
+      "instruction": "Écoute la suite de nombres. Tu peux la réécouter autant de fois que tu veux.",
+      "prompt": "One, two, three, four, five, six, seven, eight, nine, ten.",
+      "audioText": "One, two, three, four, five, six, seven, eight, nine, ten.",
+      "answerLabel": "J’ai suivi les nombres de 1 à 10.",
+      "conceptIds": [
+        "numbers-1-to-20"
+      ],
+      "explanation": "One = 1, two = 2, three = 3, four = 4, five = 5, six = 6, seven = 7, eight = 8, nine = 9, ten = 10."
+    },
+    {
+      "id": "numbers-colours-02-eleven-to-twenty",
+      "schemaVersion": 1,
+      "type": "listening",
+      "instruction": "Écoute la suite de nombres. Tu peux la réécouter autant de fois que tu veux.",
+      "prompt": "Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty.",
+      "audioText": "Eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty.",
+      "answerLabel": "J’ai suivi les nombres de 11 à 20.",
+      "conceptIds": [
+        "numbers-1-to-20"
+      ],
+      "explanation": "Eleven = 11, twelve = 12, thirteen = 13, fourteen = 14, fifteen = 15, sixteen = 16, seventeen = 17, eighteen = 18, nineteen = 19, twenty = 20."
+    },
+    {
+      "id": "numbers-colours-02-twelve",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute et choisis le nombre exact.",
+      "prompt": "Quel nombre entends-tu ?",
+      "audioText": "Twelve",
+      "conceptIds": [
+        "numbers-1-to-20"
+      ],
+      "explanation": "Twelve signifie douze ; twenty signifie vingt et two signifie deux.",
+      "options": [
+        {
+          "id": "twenty",
+          "label": "20 — twenty"
+        },
+        {
+          "id": "two",
+          "label": "2 — two"
+        },
+        {
+          "id": "twelve",
+          "label": "12 — twelve"
+        }
+      ],
+      "correctOptionId": "twelve"
     }
   ]
 }

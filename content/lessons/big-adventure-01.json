@@ -1,0 +1,252 @@
+{
+  "id": "big-adventure-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "big-adventure",
+  "order": 1,
+  "title": "Le départ",
+  "objective": "Réactiver les salutations, l’âge et la description.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "hello",
+    "name",
+    "age",
+    "numbers-1-to-20",
+    "wearing",
+    "red",
+    "hat",
+    "happy"
+  ],
+  "prerequisiteLessonIds": [
+    "story-club-03"
+  ],
+  "storyScene": {
+    "id": "big-adventure-01-scene",
+    "situation": "La grande porte demande aux voyageurs de se présenter. Le personnage de huit ans porte son chapeau rouge et se sent content.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Hello! What’s your name?",
+        "translation": "Bonjour ! Quel est ton prénom ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "I’m Luca. I’m eight.",
+        "translation": "Je m’appelle Luca. J’ai huit ans."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Bonjour ! Je m’appelle Luca. »",
+      "exerciseId": "big-adventure-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I’m wearing a red hat.",
+        "translation": "Je porte un chapeau rouge."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s go!",
+        "translation": "Allons-y !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Hello! I’m Luca.",
+    "audioText": "Hello! I’m Luca.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "hello",
+        "age",
+        "name"
+      ],
+      "explanation": "hello : bonjour ; How old are you? : Quel âge as-tu ? ; name : prénom / nom.",
+      "pairs": [
+        {
+          "id": "big-adventure-01-hello",
+          "left": "hello",
+          "right": "bonjour"
+        },
+        {
+          "id": "big-adventure-01-age",
+          "left": "How old are you?",
+          "right": "Quel âge as-tu ?"
+        },
+        {
+          "id": "big-adventure-01-name",
+          "left": "name",
+          "right": "prénom / nom"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "big-adventure-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "wearing",
+        "red",
+        "hat",
+        "blue",
+        "coat",
+        "socks"
+      ],
+      "explanation": "Le personnage porte un chapeau rouge.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I’m wearing a blue coat."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m wearing red socks."
+        },
+        {
+          "id": "correct",
+          "label": "I’m wearing a red hat."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I’m wearing a red hat.",
+      "id": "big-adventure-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Le personnage s’appelle Luca. Donne son prénom.",
+      "conceptIds": [
+        "name",
+        "age",
+        "im-good"
+      ],
+      "explanation": "What’s your name? demande le prénom.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I’m good."
+        },
+        {
+          "id": "correct",
+          "label": "I’m Luca."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m eight."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "What’s your name?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "big-adventure-01-03-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Le personnage a huit ans. Quelle phrase donne son âge ?",
+      "conceptIds": [
+        "age",
+        "numbers-1-to-20",
+        "feel",
+        "happy"
+      ],
+      "explanation": "I’m eight indique huit ans.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I’m eight."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m Luca."
+        },
+        {
+          "id": "other-2",
+          "label": "I feel happy."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "big-adventure-01-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I feel happy.",
+      "conceptIds": [
+        "feel",
+        "happy",
+        "tired",
+        "sad"
+      ],
+      "explanation": "« I feel happy. » signifie « Je me sens content. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Je me sens fatigué."
+        },
+        {
+          "id": "other-2",
+          "label": "Je me sens triste."
+        },
+        {
+          "id": "correct",
+          "label": "Je me sens content."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "big-adventure-01-05-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Bonjour ! Je m’appelle Luca. »",
+      "conceptIds": [
+        "hello",
+        "name"
+      ],
+      "explanation": "« Hello! I’m Luca. » signifie « Bonjour ! Je m’appelle Luca. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "I’m",
+        "Luca.",
+        "Hello!"
+      ],
+      "acceptedOrders": [
+        [
+          "Hello!",
+          "I’m",
+          "Luca."
+        ]
+      ],
+      "id": "big-adventure-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

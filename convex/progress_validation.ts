@@ -1,5 +1,7 @@
+import course from "../content/course.json";
+
 export const CURRENT_SCHEMA_VERSION = 1;
-export const CURRENT_CONTENT_VERSION = "1.2.1";
+export const CURRENT_CONTENT_VERSION = course.contentVersion;
 export const MAX_SNAPSHOT_BYTES = 900_000;
 export const MAX_REPLAY_ENTRIES = 2_000;
 export const REPLAY_RETENTION_DAYS = 31;
@@ -50,7 +52,8 @@ function dateFromReplayKey(key: string) {
 }
 
 export function assertSupportedVersions(schemaVersion: number, contentVersion: string) {
-  if (schemaVersion !== CURRENT_SCHEMA_VERSION || contentVersion !== CURRENT_CONTENT_VERSION) throw new Error("Unsupported progression version");
+  const compatibleContentVersions = ["1.2.1", CURRENT_CONTENT_VERSION];
+  if (schemaVersion !== CURRENT_SCHEMA_VERSION || !compatibleContentVersions.includes(contentVersion)) throw new Error("Unsupported progression version");
 }
 
 export function isValidProgressSnapshot(value: unknown, referenceDate = new Date()) {

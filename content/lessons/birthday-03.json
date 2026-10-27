@@ -1,0 +1,247 @@
+{
+  "id": "birthday-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "birthday",
+  "order": 3,
+  "title": "La fête des vingt ballons",
+  "objective": "Compter, remercier et redonner un âge.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "birthday",
+    "age",
+    "cake",
+    "present",
+    "balloon",
+    "when",
+    "numbers-1-to-20",
+    "thank-you"
+  ],
+  "prerequisiteLessonIds": [
+    "birthday-02"
+  ],
+  "storyScene": {
+    "id": "birthday-03-scene",
+    "situation": "Vingt ballons décorent la fête. Le personnage de huit ans reçoit son cadeau et remercie ses amis.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Twenty balloons!",
+        "translation": "Vingt ballons !"
+      },
+      {
+        "speaker": "Luca",
+        "text": "This is your present.",
+        "translation": "Voici ton cadeau."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « J’ai huit ans. »",
+      "exerciseId": "birthday-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Happy birthday!",
+        "translation": "Joyeux anniversaire !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I am eight.",
+    "audioText": "I am eight.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "birthday",
+        "age",
+        "cake"
+      ],
+      "explanation": "birthday : anniversaire ; How old are you? : Quel âge as-tu ? ; cake : gâteau.",
+      "pairs": [
+        {
+          "id": "birthday-03-birthday",
+          "left": "birthday",
+          "right": "anniversaire"
+        },
+        {
+          "id": "birthday-03-age",
+          "left": "How old are you?",
+          "right": "Quel âge as-tu ?"
+        },
+        {
+          "id": "birthday-03-cake",
+          "left": "cake",
+          "right": "gâteau"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "birthday-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "numbers-1-to-20",
+        "balloon"
+      ],
+      "explanation": "Twenty signifie vingt ; twelve signifie douze.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Twelve balloons."
+        },
+        {
+          "id": "other-2",
+          "label": "Two balloons."
+        },
+        {
+          "id": "correct",
+          "label": "Twenty balloons."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Twenty balloons.",
+      "id": "birthday-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Quatre groupes de cinq ballons font vingt ballons. Quel nombre anglais correspond ?",
+      "conceptIds": [
+        "numbers-1-to-20",
+        "balloon"
+      ],
+      "explanation": "Twenty est le nombre vingt.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Two."
+        },
+        {
+          "id": "correct",
+          "label": "Twenty."
+        },
+        {
+          "id": "other-1",
+          "label": "Twelve."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "birthday-03-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "When is your birthday?",
+      "conceptIds": [
+        "when",
+        "birthday",
+        "age",
+        "how-are-you"
+      ],
+      "explanation": "« When is your birthday? » signifie « Quand est ton anniversaire ? ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Quand est ton anniversaire ?"
+        },
+        {
+          "id": "other-1",
+          "label": "Quel âge as-tu ?"
+        },
+        {
+          "id": "other-2",
+          "label": "Comment vas-tu ?"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "birthday-03-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Tu reçois un cadeau. Remercie ton ami.",
+      "conceptIds": [
+        "present",
+        "thank-you",
+        "age"
+      ],
+      "explanation": "Thank you sert à remercier.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "How old are you?"
+        },
+        {
+          "id": "other-2",
+          "label": "When is your birthday?"
+        },
+        {
+          "id": "correct",
+          "label": "Thank you!"
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "This is your present."
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "birthday-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « J’ai huit ans. »",
+      "conceptIds": [
+        "age",
+        "numbers-1-to-20"
+      ],
+      "explanation": "« I am eight. » signifie « J’ai huit ans. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "am",
+        "eight.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "am",
+          "eight."
+        ]
+      ],
+      "id": "birthday-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

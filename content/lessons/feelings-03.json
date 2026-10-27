@@ -1,0 +1,235 @@
+{
+  "id": "feelings-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "feelings",
+  "order": 3,
+  "title": "La fête surprise",
+  "objective": "Choisir une réponse qui respecte l’émotion donnée.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "happy",
+    "sad",
+    "tired",
+    "excited",
+    "surprised",
+    "feel",
+    "friend"
+  ],
+  "prerequisiteLessonIds": [
+    "feelings-02"
+  ],
+  "storyScene": {
+    "id": "feelings-03-scene",
+    "situation": "La fête est prête, mais ton ami est fatigué. Il peut le dire sans devoir faire semblant d’être content.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "How do you feel?",
+        "translation": "Comment te sens-tu ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "I feel tired.",
+        "translation": "Je me sens fatigué."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je me sens fatigué. »",
+      "exerciseId": "feelings-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Let’s sit here.",
+        "translation": "Asseyons-nous ici."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you, friend.",
+        "translation": "Merci, mon ami."
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I feel tired.",
+    "audioText": "I feel tired.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "happy",
+        "sad",
+        "tired"
+      ],
+      "explanation": "happy : content / heureux ; sad : triste ; tired : fatigué.",
+      "pairs": [
+        {
+          "id": "feelings-03-happy",
+          "left": "happy",
+          "right": "content / heureux"
+        },
+        {
+          "id": "feelings-03-sad",
+          "left": "sad",
+          "right": "triste"
+        },
+        {
+          "id": "feelings-03-tired",
+          "left": "tired",
+          "right": "fatigué"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "feelings-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "feel",
+        "happy",
+        "sad",
+        "surprised"
+      ],
+      "explanation": "La voix dit happy, content.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I feel surprised."
+        },
+        {
+          "id": "correct",
+          "label": "I feel happy."
+        },
+        {
+          "id": "other-1",
+          "label": "I feel sad."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I feel happy.",
+      "id": "feelings-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Ton ami dit « I feel sad ». Quel est son sentiment ?",
+      "conceptIds": [
+        "feel",
+        "sad",
+        "tired",
+        "surprised"
+      ],
+      "explanation": "Sad signifie triste.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Il est triste."
+        },
+        {
+          "id": "other-1",
+          "label": "Il est fatigué."
+        },
+        {
+          "id": "other-2",
+          "label": "Il est surpris."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "feelings-03-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Excited always means « en colère ».",
+      "statement": "Excited always means « en colère ».",
+      "correct": false,
+      "explanation": "Ici, excited signifie très enthousiaste ou impatient de joie.",
+      "conceptIds": [
+        "excited"
+      ],
+      "id": "feelings-03-04-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Tu te sens fatigué. Réponds honnêtement pour le dire.",
+      "conceptIds": [
+        "feel",
+        "tired",
+        "happy",
+        "surprised"
+      ],
+      "explanation": "La réponse correspond à l’émotion donnée, sans imposer de sourire.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I feel surprised."
+        },
+        {
+          "id": "correct",
+          "label": "I feel tired."
+        },
+        {
+          "id": "other-1",
+          "label": "I feel happy."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "How do you feel?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "feelings-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je me sens fatigué. »",
+      "conceptIds": [
+        "feel",
+        "tired"
+      ],
+      "explanation": "« I feel tired. » signifie « Je me sens fatigué. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "feel",
+        "tired.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "feel",
+          "tired."
+        ]
+      ],
+      "id": "feelings-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

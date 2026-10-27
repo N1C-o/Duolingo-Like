@@ -1,3 +1,51 @@
+import rawWhereIsIt from "@/content/units/where-is-it.json";
+import rawWhereIsIt01 from "@/content/lessons/where-is-it-01.json";
+import rawWhereIsIt02 from "@/content/lessons/where-is-it-02.json";
+import rawWhereIsIt03 from "@/content/lessons/where-is-it-03.json";
+import rawLetsMove from "@/content/units/lets-move.json";
+import rawLetsMove01 from "@/content/lessons/lets-move-01.json";
+import rawLetsMove02 from "@/content/lessons/lets-move-02.json";
+import rawLetsMove03 from "@/content/lessons/lets-move-03.json";
+import rawSnackAttack from "@/content/units/snack-attack.json";
+import rawSnackAttack01 from "@/content/lessons/snack-attack-01.json";
+import rawSnackAttack02 from "@/content/lessons/snack-attack-02.json";
+import rawSnackAttack03 from "@/content/lessons/snack-attack-03.json";
+import rawGettingDressed from "@/content/units/getting-dressed.json";
+import rawGettingDressed01 from "@/content/lessons/getting-dressed-01.json";
+import rawGettingDressed02 from "@/content/lessons/getting-dressed-02.json";
+import rawGettingDressed03 from "@/content/lessons/getting-dressed-03.json";
+import rawMyBody from "@/content/units/my-body.json";
+import rawMyBody01 from "@/content/lessons/my-body-01.json";
+import rawMyBody02 from "@/content/lessons/my-body-02.json";
+import rawMyBody03 from "@/content/lessons/my-body-03.json";
+import rawWeather from "@/content/units/weather.json";
+import rawWeather01 from "@/content/lessons/weather-01.json";
+import rawWeather02 from "@/content/lessons/weather-02.json";
+import rawWeather03 from "@/content/lessons/weather-03.json";
+import rawAnimalRescue from "@/content/units/animal-rescue.json";
+import rawAnimalRescue01 from "@/content/lessons/animal-rescue-01.json";
+import rawAnimalRescue02 from "@/content/lessons/animal-rescue-02.json";
+import rawAnimalRescue03 from "@/content/lessons/animal-rescue-03.json";
+import rawFeelings from "@/content/units/feelings.json";
+import rawFeelings01 from "@/content/lessons/feelings-01.json";
+import rawFeelings02 from "@/content/lessons/feelings-02.json";
+import rawFeelings03 from "@/content/lessons/feelings-03.json";
+import rawAroundTown from "@/content/units/around-town.json";
+import rawAroundTown01 from "@/content/lessons/around-town-01.json";
+import rawAroundTown02 from "@/content/lessons/around-town-02.json";
+import rawAroundTown03 from "@/content/lessons/around-town-03.json";
+import rawBirthday from "@/content/units/birthday.json";
+import rawBirthday01 from "@/content/lessons/birthday-01.json";
+import rawBirthday02 from "@/content/lessons/birthday-02.json";
+import rawBirthday03 from "@/content/lessons/birthday-03.json";
+import rawStoryClub from "@/content/units/story-club.json";
+import rawStoryClub01 from "@/content/lessons/story-club-01.json";
+import rawStoryClub02 from "@/content/lessons/story-club-02.json";
+import rawStoryClub03 from "@/content/lessons/story-club-03.json";
+import rawBigAdventure from "@/content/units/big-adventure.json";
+import rawBigAdventure01 from "@/content/lessons/big-adventure-01.json";
+import rawBigAdventure02 from "@/content/lessons/big-adventure-02.json";
+import rawBigAdventure03 from "@/content/lessons/big-adventure-03.json";
 import rawBadges from "@/content/badges.json";
 import rawCourse from "@/content/course.json";
 import rawFamily from "@/content/units/family.json";
@@ -32,6 +80,7 @@ import rawGabrielTheme from "@/content/themes/gabriel.json";
 import rawHello from "@/content/units/hello.json";
 import rawHello01 from "@/content/lessons/hello-01.json";
 import rawHello02 from "@/content/lessons/hello-02.json";
+import rawHello03 from "@/content/lessons/hello-03.json";
 import rawLucaTheme from "@/content/themes/luca.json";
 import rawVocabulary from "@/content/vocabulary.json";
 import type {
@@ -275,8 +324,8 @@ export function validateContent(bundle: ContentBundle) {
 
 export const content: ContentBundle = {
   course: rawCourse as ContentBundle["course"],
-  units: [rawHello, rawFamily, rawHome, rawSchoolPlay, rawFood, rawLikes, rawDay, rawNumbersColours] as unknown as UnitContent[],
-  lessons: [rawHello01, rawHello02, rawFamily01, rawFamily02, rawFamily03, rawHome01, rawHome02, rawHome03, rawSchoolPlay01, rawSchoolPlay02, rawSchoolPlay03, rawFood01, rawFood02, rawFood03, rawLikes01, rawLikes02, rawLikes03, rawDay01, rawDay02, rawDay03, rawNumbersColours01, rawNumbersColours02, rawNumbersColours03] as unknown as LessonContent[],
+  units: [rawHello, rawFamily, rawHome, rawSchoolPlay, rawFood, rawLikes, rawDay, rawNumbersColours, rawWhereIsIt, rawLetsMove, rawSnackAttack, rawGettingDressed, rawMyBody, rawWeather, rawAnimalRescue, rawFeelings, rawAroundTown, rawBirthday, rawStoryClub, rawBigAdventure] as unknown as UnitContent[],
+  lessons: [rawHello01, rawHello02, rawHello03, rawFamily01, rawFamily02, rawFamily03, rawHome01, rawHome02, rawHome03, rawSchoolPlay01, rawSchoolPlay02, rawSchoolPlay03, rawFood01, rawFood02, rawFood03, rawLikes01, rawLikes02, rawLikes03, rawDay01, rawDay02, rawDay03, rawNumbersColours01, rawNumbersColours02, rawNumbersColours03, rawWhereIsIt01, rawWhereIsIt02, rawWhereIsIt03, rawLetsMove01, rawLetsMove02, rawLetsMove03, rawSnackAttack01, rawSnackAttack02, rawSnackAttack03, rawGettingDressed01, rawGettingDressed02, rawGettingDressed03, rawMyBody01, rawMyBody02, rawMyBody03, rawWeather01, rawWeather02, rawWeather03, rawAnimalRescue01, rawAnimalRescue02, rawAnimalRescue03, rawFeelings01, rawFeelings02, rawFeelings03, rawAroundTown01, rawAroundTown02, rawAroundTown03, rawBirthday01, rawBirthday02, rawBirthday03, rawStoryClub01, rawStoryClub02, rawStoryClub03, rawBigAdventure01, rawBigAdventure02, rawBigAdventure03] as unknown as LessonContent[],
   vocabulary: rawVocabulary as ContentBundle["vocabulary"],
   badges: rawBadges as BadgeDefinition[],
   themes: [rawGabrielTheme, rawLucaTheme] as unknown as ThemeContent[]

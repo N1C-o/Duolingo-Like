@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { createEmptyProgress } from "@/lib/progression/engine";
+import { content } from "@/content";
 import {
   assertSupportedVersions,
   isValidProgressSnapshot,
@@ -8,6 +9,13 @@ import {
 } from "@/convex/progress_validation";
 
 describe("validation Convex des snapshots", () => {
+  it("accepte la version réellement publiée par le client et les anciens clients compatibles", () => {
+    expect(CURRENT_CONTENT_VERSION).toBe(content.course.contentVersion);
+    expect(() => assertSupportedVersions(content.course.schemaVersion, content.course.contentVersion)).not.toThrow();
+    expect(() => assertSupportedVersions(CURRENT_SCHEMA_VERSION, "1.2.1")).not.toThrow();
+    expect(() => assertSupportedVersions(CURRENT_SCHEMA_VERSION + 1, "1.2.1")).toThrow();
+  });
+
   it("accepte une progression complète de la version courante", () => {
     expect(isValidProgressSnapshot(createEmptyProgress(), new Date("2026-08-08T12:00:00.000Z"))).toBe(true);
   });

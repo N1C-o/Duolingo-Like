@@ -1,15 +1,9 @@
+import recordedAudio from "@/content/audio-manifest.json";
 import type { SpeechRate } from "@/lib/progression/types";
 
-const LOCAL_AUDIO_BY_TEXT = new Map<string, string>([
-  ["hello", "/audio/lessons/hello-01/hello-narrator.wav"],
-  ["hello!", "/audio/lessons/hello-01/hello-narrator.wav"],
-  ["the suitcase is sleeping!", "/audio/lessons/hello-01/gabriel-suitcase-sleeping.wav"],
-  ["maybe it needs a friendly hello.", "/audio/lessons/hello-01/luca-friendly-hello.wav"],
-  ["hello! click!", "/audio/lessons/hello-01/suitcase-hello-click.wav"],
-  ["the first map is inside!", "/audio/lessons/hello-01/gabriel-map-inside.wav"],
-  ["what's your name?", "/audio/lessons/hello-01/name-question.wav"],
-  ["i'm gabriel.", "/audio/lessons/hello-01/im-gabriel.wav"]
-]);
+const LOCAL_AUDIO_BY_TEXT = new Map<string, string>(
+  Object.entries(recordedAudio.clips).map(([text, clip]) => [text, clip.path])
+);
 
 let activeAudio: HTMLAudioElement | null = null;
 let speechRequestId = 0;
@@ -55,6 +49,7 @@ export function speakEnglish(text: string, rate: SpeechRate) {
   if (localAudioPath && typeof window !== "undefined" && typeof window.Audio === "function") {
     try {
       const audio = new window.Audio(localAudioPath);
+      audio.playbackRate = rate;
       let fallbackStarted = false;
       activeAudio = audio;
 

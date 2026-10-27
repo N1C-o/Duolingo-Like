@@ -1,0 +1,223 @@
+{
+  "id": "getting-dressed-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "getting-dressed",
+  "order": 1,
+  "title": "Le défilé des chaussettes",
+  "objective": "Nommer shirt, shoes et hat.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "shirt",
+    "shoes",
+    "hat"
+  ],
+  "reviewConceptIds": [
+    "red",
+    "blue",
+    "green"
+  ],
+  "prerequisiteLessonIds": [
+    "snack-attack-03"
+  ],
+  "storyScene": {
+    "id": "getting-dressed-01-scene",
+    "situation": "Un chapeau veut participer au défilé. Il faut retrouver sa chemise et ses chaussures parmi les couleurs.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "This is my hat.",
+        "translation": "Voici mon chapeau."
+      },
+      {
+        "speaker": "Luca",
+        "text": "My shoes are blue.",
+        "translation": "Mes chaussures sont bleues."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Voici mon chapeau. »",
+      "exerciseId": "getting-dressed-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "This is my shirt.",
+        "translation": "Voici ma chemise."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "My hat is red!",
+        "translation": "Mon chapeau est rouge !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "This is my hat.",
+    "audioText": "This is my hat.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "shirt",
+        "shoes",
+        "hat"
+      ],
+      "explanation": "shirt : chemise ; shoes : chaussures ; hat : chapeau.",
+      "pairs": [
+        {
+          "id": "getting-dressed-01-shirt",
+          "left": "shirt",
+          "right": "chemise"
+        },
+        {
+          "id": "getting-dressed-01-shoes",
+          "left": "shoes",
+          "right": "chaussures"
+        },
+        {
+          "id": "getting-dressed-01-hat",
+          "left": "hat",
+          "right": "chapeau"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "getting-dressed-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "shirt",
+        "hat",
+        "book"
+      ],
+      "explanation": "Shirt signifie chemise.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "This is my book."
+        },
+        {
+          "id": "correct",
+          "label": "This is my shirt."
+        },
+        {
+          "id": "other-1",
+          "label": "This is my hat."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "This is my shirt.",
+      "id": "getting-dressed-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "My shoes are blue.",
+      "conceptIds": [
+        "shoes",
+        "blue",
+        "red",
+        "hat"
+      ],
+      "explanation": "« My shoes are blue. » signifie « Mes chaussures sont bleues. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Mes chaussures sont bleues."
+        },
+        {
+          "id": "other-1",
+          "label": "Mon chapeau est bleu."
+        },
+        {
+          "id": "other-2",
+          "label": "Mes chaussures sont rouges."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "getting-dressed-01-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Quel mot anglais désigne un chapeau ?",
+      "conceptIds": [
+        "hat",
+        "shirt",
+        "shoes"
+      ],
+      "explanation": "Hat signifie chapeau.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "shirt"
+        },
+        {
+          "id": "other-2",
+          "label": "shoes"
+        },
+        {
+          "id": "correct",
+          "label": "hat"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "getting-dressed-01-04-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Shoes means « chaussures ».",
+      "statement": "Shoes means « chaussures ».",
+      "correct": true,
+      "explanation": "Shoes est le pluriel : des chaussures.",
+      "conceptIds": [
+        "shoes"
+      ],
+      "id": "getting-dressed-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Voici mon chapeau. »",
+      "conceptIds": [
+        "hat"
+      ],
+      "explanation": "« This is my hat. » signifie « Voici mon chapeau. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "my",
+        "hat.",
+        "This"
+      ],
+      "acceptedOrders": [
+        [
+          "This",
+          "is",
+          "my",
+          "hat."
+        ]
+      ],
+      "id": "getting-dressed-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

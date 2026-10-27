@@ -1,0 +1,250 @@
+{
+  "id": "story-club-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "story-club",
+  "order": 2,
+  "title": "D’abord, ensuite, enfin",
+  "objective": "Relier des idées avec and et but.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "and",
+    "but",
+    "help"
+  ],
+  "reviewConceptIds": [
+    "first",
+    "then",
+    "finally",
+    "friend",
+    "i-can",
+    "i-cant"
+  ],
+  "prerequisiteLessonIds": [
+    "story-club-01"
+  ],
+  "storyScene": {
+    "id": "story-club-02-scene",
+    "situation": "Le chat veut aider le robot. Il peut sauter, mais il ne peut pas courir aujourd’hui. Les amis choisissent une autre action.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "I can jump, but I can’t run.",
+        "translation": "Je peux sauter, mais je ne peux pas courir."
+      },
+      {
+        "speaker": "Luca",
+        "text": "I can help my friend.",
+        "translation": "Je peux aider mon ami."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je peux aider mon ami. »",
+      "exerciseId": "story-club-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I have a book and a pencil.",
+        "translation": "J’ai un livre et un crayon."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you, friend!",
+        "translation": "Merci, mon ami !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I can help my friend.",
+    "audioText": "I can help my friend.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "and",
+        "but",
+        "help"
+      ],
+      "explanation": "and : et ; but : mais ; help : aider.",
+      "pairs": [
+        {
+          "id": "story-club-02-and",
+          "left": "and",
+          "right": "et"
+        },
+        {
+          "id": "story-club-02-but",
+          "left": "but",
+          "right": "mais"
+        },
+        {
+          "id": "story-club-02-help",
+          "left": "help",
+          "right": "aider"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "story-club-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "help",
+        "friend",
+        "i-can"
+      ],
+      "explanation": "Help signifie aider.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I can clap my hands."
+        },
+        {
+          "id": "other-2",
+          "label": "I can jump."
+        },
+        {
+          "id": "correct",
+          "label": "I can help my friend."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I can help my friend.",
+      "id": "story-club-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Relie deux objets : « un livre et un crayon ».",
+      "conceptIds": [
+        "and",
+        "book",
+        "pencil",
+        "but"
+      ],
+      "explanation": "And ajoute une idée : un livre et un crayon.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "finally"
+        },
+        {
+          "id": "correct",
+          "label": "and"
+        },
+        {
+          "id": "other-1",
+          "label": "but"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "I have a book ___ a pencil.",
+      "id": "story-club-02-03-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Marque le contraste : « je peux sauter, mais je ne peux pas courir ».",
+      "conceptIds": [
+        "but",
+        "i-can",
+        "i-cant",
+        "jump",
+        "run"
+      ],
+      "explanation": "But met en valeur le contraste entre les deux capacités.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "but"
+        },
+        {
+          "id": "other-1",
+          "label": "and"
+        },
+        {
+          "id": "other-2",
+          "label": "first"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "I can jump, ___ I can’t run.",
+      "id": "story-club-02-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I can help my friend.",
+      "conceptIds": [
+        "help",
+        "friend",
+        "i-can",
+        "i-cant"
+      ],
+      "explanation": "« I can help my friend. » signifie « Je peux aider mon ami. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Je peux aider mon père."
+        },
+        {
+          "id": "other-2",
+          "label": "Je ne peux pas aider mon ami."
+        },
+        {
+          "id": "correct",
+          "label": "Je peux aider mon ami."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "story-club-02-05-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je peux aider mon ami. »",
+      "conceptIds": [
+        "i-can",
+        "help",
+        "friend"
+      ],
+      "explanation": "« I can help my friend. » signifie « Je peux aider mon ami. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "can",
+        "help",
+        "my",
+        "friend.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "can",
+          "help",
+          "my",
+          "friend."
+        ]
+      ],
+      "id": "story-club-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

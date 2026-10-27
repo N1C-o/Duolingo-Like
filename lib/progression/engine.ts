@@ -120,7 +120,8 @@ export function getLevelProgress(xpTotal: number) {
 
 function isUnitComplete(progress: ProfileProgress, unitId: string) {
   const unit = getUnit(unitId);
-  return unit.lessonIds.every((lessonId) => progress.completedLessonIds.includes(lessonId));
+  // A new lesson must not revoke completion earned in an earlier curriculum.
+  return progress.completedUnitIds.includes(unitId) || unit.lessonIds.every((lessonId) => progress.completedLessonIds.includes(lessonId));
 }
 
 function isUnitUnlocked(progress: ProfileProgress, unit: UnitContent) {

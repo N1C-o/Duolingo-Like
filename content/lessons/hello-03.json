@@ -1,0 +1,137 @@
+{
+  "id": "hello-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "hello",
+  "order": 3,
+  "title": "La rencontre surprise",
+  "objective": "Réutiliser les salutations, le prénom et la réponse I’m good.",
+  "durationMinutes": 5,
+  "difficulty": 1,
+  "newConceptIds": [],
+  "reviewConceptIds": ["hello", "hi", "good-morning", "name", "how-are-you", "im-good"],
+  "prerequisiteLessonIds": ["hello-02"],
+  "storyScene": {
+    "id": "hello-03-scene",
+    "situation": "Une silhouette sort de la carte et te salue sans prévenir.",
+    "setup": [
+      { "speaker": "Gabriel", "text": "Sam is here!", "translation": "Sam est là !" },
+      { "speaker": "Sam", "text": "Good morning! What’s your name?", "translation": "Bonjour ! Comment tu t’appelles ?" },
+      { "speaker": "Luca", "text": "Hi! How are you?", "translation": "Salut ! Comment vas-tu ?" }
+    ],
+    "childAction": {
+      "instruction": "Construis la réponse à la question de Luca.",
+      "exerciseId": "hello-03-mission",
+      "purpose": "construct"
+    },
+    "resolution": [
+      { "speaker": "Sam", "text": "I’m good!", "translation": "Je vais bien !" },
+      { "speaker": "Suitcase", "text": "Hello!", "translation": "Bonjour !" }
+    ]
+  },
+  "readingCheckpoint": {
+    "mode": "phrase-recognition",
+    "instruction": "Écoute la question, puis lis-la avec la bonne intonation.",
+    "text": "Good morning! How are you?",
+    "audioText": "Good morning! How are you?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "id": "hello-03-listening-choice",
+      "schemaVersion": 1,
+      "type": "listening-choice",
+      "instruction": "Écoute la rencontre, puis choisis la bonne phrase.",
+      "prompt": "What did Sam say?",
+      "audioText": "Good morning! What’s your name?",
+      "conceptIds": ["good-morning", "name"],
+      "explanation": "Good morning! What’s your name? signifie « Bonjour ! Comment tu t’appelles ? ».",
+      "options": [
+        { "id": "morning-name", "label": "Good morning! What’s your name?", "detail": "Bonjour ! Comment tu t’appelles ?" },
+        { "id": "how-good", "label": "How are you? I’m good.", "detail": "Comment vas-tu ? Je vais bien." },
+        { "id": "hello-hi", "label": "Hello! Hi!", "detail": "Bonjour ! Salut !" }
+      ],
+      "correctOptionId": "morning-name"
+    },
+    {
+      "id": "hello-03-name-choice",
+      "schemaVersion": 1,
+      "type": "multiple-choice",
+      "instruction": "Choisis la bonne traduction.",
+      "prompt": "What does “What’s your name?” mean?",
+      "conceptIds": ["name"],
+      "explanation": "What’s your name? veut dire « Comment tu t’appelles ? ».",
+      "options": [
+        { "id": "name", "label": "Comment tu t’appelles ?" },
+        { "id": "feeling", "label": "Comment vas-tu ?" },
+        { "id": "morning", "label": "Bonjour le matin !" }
+      ],
+      "correctOptionId": "name"
+    },
+    {
+      "id": "hello-03-dialogue",
+      "schemaVersion": 1,
+      "type": "dialogue",
+      "instruction": "Choisis la bonne réplique.",
+      "prompt": "Sam asks your name. What do you say?",
+      "conceptIds": ["hi", "name"],
+      "explanation": "I’m Luca! permet de dire son prénom après What’s your name?.",
+      "lines": [
+        { "speaker": "Sam", "text": "Hi! What’s your name?" },
+        { "speaker": "You", "text": "…" }
+      ],
+      "options": [
+        { "id": "name-answer", "label": "I’m Luca!", "detail": "Je m’appelle Luca !" },
+        { "id": "good-answer", "label": "I’m good!", "detail": "Je vais bien !" },
+        { "id": "morning-answer", "label": "Good morning!", "detail": "Bonjour !" }
+      ],
+      "correctOptionId": "name-answer"
+    },
+    {
+      "id": "hello-03-translation",
+      "schemaVersion": 1,
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction guidée.",
+      "prompt": "Hi! How are you?",
+      "conceptIds": ["hi", "how-are-you"],
+      "explanation": "Hi! How are you? signifie « Salut ! Comment vas-tu ? ».",
+      "options": [
+        { "id": "greeting-feeling", "label": "Salut ! Comment vas-tu ?" },
+        { "id": "morning-name", "label": "Bonjour ! Comment tu t’appelles ?" },
+        { "id": "good-answer", "label": "Je vais bien ! Salut !" }
+      ],
+      "correctOptionId": "greeting-feeling"
+    },
+    {
+      "id": "hello-03-memory",
+      "schemaVersion": 1,
+      "type": "memory",
+      "isRevisionActivity": true,
+      "instruction": "Retourne les cartes pour réviser les salutations.",
+      "prompt": "Find the pairs.",
+      "conceptIds": ["hello", "good-morning", "im-good"],
+      "explanation": "Hello signifie bonjour, good morning signifie bonjour le matin et I’m good signifie je vais bien.",
+      "cards": [
+        { "id": "hello-en", "label": "Hello", "matchId": "hello", "emoji": "👋" },
+        { "id": "hello-fr", "label": "Bonjour", "matchId": "hello", "emoji": "😊" },
+        { "id": "good-morning-en", "label": "Good morning", "matchId": "good-morning", "emoji": "🌞" },
+        { "id": "good-morning-fr", "label": "Bonjour le matin", "matchId": "good-morning", "emoji": "☀️" },
+        { "id": "im-good-en", "label": "I’m good.", "matchId": "im-good", "emoji": "⭐" },
+        { "id": "im-good-fr", "label": "Je vais bien.", "matchId": "im-good", "emoji": "👍" }
+      ]
+    },
+    {
+      "id": "hello-03-mission",
+      "schemaVersion": 1,
+      "type": "reorder",
+      "instruction": "Construis la réponse.",
+      "prompt": "How are you? — Build your answer.",
+      "conceptIds": ["how-are-you", "im-good"],
+      "explanation": "I’m good signifie « Je vais bien ». C’est une réponse simple à How are you?.",
+      "responseMode": "guided-production",
+      "isUnitMission": true,
+      "tokens": ["good.", "I’m"],
+      "acceptedOrders": [["I’m", "good."]]
+    }
+  ]
+}

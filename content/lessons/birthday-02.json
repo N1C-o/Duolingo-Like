@@ -1,0 +1,248 @@
+{
+  "id": "birthday-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "birthday",
+  "order": 2,
+  "title": "Quel âge as-tu ?",
+  "objective": "Réutiliser l’âge, demander quand et nommer les objets de fête.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "present",
+    "balloon",
+    "when"
+  ],
+  "reviewConceptIds": [
+    "birthday",
+    "age",
+    "numbers-1-to-20"
+  ],
+  "prerequisiteLessonIds": [
+    "birthday-01"
+  ],
+  "storyScene": {
+    "id": "birthday-02-scene",
+    "situation": "L’invitation précise que la fête a lieu aujourd’hui. Gabriel prépare un cadeau et Luca un ballon bleu.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "When is your birthday?",
+        "translation": "Quand est ton anniversaire ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "It’s today!",
+        "translation": "C’est aujourd’hui !"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Voici ton cadeau. »",
+      "exerciseId": "birthday-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "This is your present.",
+        "translation": "Voici ton cadeau."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "When is your birthday?",
+    "audioText": "When is your birthday?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "present",
+        "balloon",
+        "when"
+      ],
+      "explanation": "present : cadeau ; balloon : ballon de baudruche ; When…? : Quand… ?.",
+      "pairs": [
+        {
+          "id": "birthday-02-present",
+          "left": "present",
+          "right": "cadeau"
+        },
+        {
+          "id": "birthday-02-balloon",
+          "left": "balloon",
+          "right": "ballon de baudruche"
+        },
+        {
+          "id": "birthday-02-when",
+          "left": "When…?",
+          "right": "Quand… ?"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "birthday-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "balloon",
+        "blue",
+        "red",
+        "present"
+      ],
+      "explanation": "La voix parle d’un ballon bleu.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "I have a blue balloon."
+        },
+        {
+          "id": "other-1",
+          "label": "I have a red balloon."
+        },
+        {
+          "id": "other-2",
+          "label": "I have a blue present."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I have a blue balloon.",
+      "id": "birthday-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "This is your present.",
+      "conceptIds": [
+        "present",
+        "cake"
+      ],
+      "explanation": "« This is your present. » signifie « Voici ton cadeau. ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Voici mon cadeau."
+        },
+        {
+          "id": "other-2",
+          "label": "Voici ton gâteau."
+        },
+        {
+          "id": "correct",
+          "label": "Voici ton cadeau."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "birthday-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Le personnage fête son anniversaire aujourd’hui. Réponds pour lui.",
+      "conceptIds": [
+        "when",
+        "birthday",
+        "today",
+        "age"
+      ],
+      "explanation": "When demande quand : today signifie aujourd’hui.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I’m happy."
+        },
+        {
+          "id": "correct",
+          "label": "It’s today."
+        },
+        {
+          "id": "other-1",
+          "label": "I’m eight."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "When is your birthday?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "birthday-02-04-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Comment demandes-tu l’âge de quelqu’un ?",
+      "conceptIds": [
+        "age",
+        "how-are-you",
+        "name"
+      ],
+      "explanation": "How old are you? demande l’âge.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "How old are you?"
+        },
+        {
+          "id": "other-1",
+          "label": "How are you?"
+        },
+        {
+          "id": "other-2",
+          "label": "What’s your name?"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "birthday-02-05-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Voici ton cadeau. »",
+      "conceptIds": [
+        "present"
+      ],
+      "explanation": "« This is your present. » signifie « Voici ton cadeau. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "your",
+        "present.",
+        "This"
+      ],
+      "acceptedOrders": [
+        [
+          "This",
+          "is",
+          "your",
+          "present."
+        ]
+      ],
+      "id": "birthday-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "feelings",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 16,
+  "title": "Feelings and friends",
+  "shortTitle": "Les émotions",
+  "topic": "Les émotions",
+  "objective": "Tu sais demander comment quelqu’un se sent et nommer une émotion.",
+  "difficulty": 3,
+  "prerequisiteUnitIds": [
+    "animal-rescue"
+  ],
+  "lessonIds": [
+    "feelings-01",
+    "feelings-02",
+    "feelings-03"
+  ],
+  "vocabularyIds": [
+    "happy",
+    "sad",
+    "tired",
+    "excited",
+    "surprised",
+    "feel"
+  ],
+  "rewardTitle": "La lanterne des émotions"
+}

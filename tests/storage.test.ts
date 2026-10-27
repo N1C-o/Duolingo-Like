@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { content } from "@/content";
-import { createInitialAppState } from "@/lib/progression/engine";
+import { content, getLesson, getUnit } from "@/content";
+import { activateProfile, createInitialAppState, getLessonStatus, getUnitStatus } from "@/lib/progression/engine";
 import { loadAppState, saveAppState } from "@/lib/storage/local-store";
 import type { LessonSession } from "@/lib/progression/types";
 
@@ -72,6 +72,54 @@ describe("persistance locale", () => {
     expect(loaded.mode).toBe("localStorage");
     expect(loaded.recovered).toBe(false);
     expect(loaded.state.activeProfileId).toBeNull();
+  });
+
+  it("met à jour le contenu 1.2.1 en conservant les progrès et la leçon en cours", async () => {
+    const state = createInitialAppState();
+    state.contentVersion = "1.2.1";
+    state.activeProfileId = "gabriel";
+    state.profiles.gabriel.progress.xpTotal = 57;
+    state.profiles.gabriel.progress.completedLessonIds = ["hello-01"];
+    state.profiles.gabriel.progress.startedLessonIds = ["hello-01", "hello-02"];
+    state.profiles.gabriel.progress.lessonSessions["hello-02"] = {
+      lessonId: "hello-02", isReplay: false, currentExerciseIndex: 1,
+      submittedExerciseIds: [], completedExerciseIds: [],
+      startedAt: "2026-08-18T10:00:00.000Z", updatedAt: "2026-08-18T10:00:00.000Z"
+    };
+    installLocalStorage(state);
+    const loaded = await loadAppState();
+    expect(loaded.state.contentVersion).toBe(content.course.contentVersion);
+    expect(loaded.state.profiles.gabriel.progress.xpTotal).toBe(57);
+    expect(loaded.state.profiles.gabriel.progress.completedLessonIds).toEqual(["hello-01"]);
+    expect(loaded.state.profiles.gabriel.progress.lessonSessions["hello-02"].currentExerciseIndex).toBe(1);
+    expect(loaded.state.profiles.luca.progress.xpTotal).toBe(0);
+  });
+
+  it("conserve l’accès à une unité déjà commencée dans le stockage 1.2.1", async () => {
+    const state = createInitialAppState();
+    state.contentVersion = "1.2.1";
+    const progress = state.profiles.gabriel.progress;
+    progress.xpTotal = 100;
+    progress.completedLessonIds = ["hello-01", "hello-02"];
+    progress.completedUnitIds = ["hello"];
+    progress.unlockedUnitIds = ["hello", "family"];
+    progress.startedLessonIds = ["hello-01", "hello-02", "family-01"];
+    progress.lessonSessions["family-01"] = {
+      lessonId: "family-01", isReplay: false, currentExerciseIndex: 2,
+      submittedExerciseIds: [], completedExerciseIds: [],
+      startedAt: "2026-08-18T10:00:00.000Z", updatedAt: "2026-08-18T10:00:00.000Z"
+    };
+    installLocalStorage(state);
+
+    const loaded = await loadAppState();
+    const activated = activateProfile(loaded.state, "gabriel");
+    const restored = activated.profiles.gabriel.progress;
+    expect(getUnitStatus(restored, getUnit("hello"))).toBe("completed");
+    expect(getLessonStatus(restored, getLesson("family-01"))).toBe("in-progress");
+    expect(restored.lessonSessions["family-01"].currentExerciseIndex).toBe(2);
+    expect(restored.unlockedUnitIds).toContain("family");
+    expect(restored.completedLessonIds).not.toContain("hello-03");
+    expect(restored.xpTotal).toBe(100);
   });
 
   it("écrit dans le fallback local quand IndexedDB est indisponible", async () => {

@@ -70,10 +70,10 @@
       "id": "day-01-choice",
       "schemaVersion": 1,
       "type": "multiple-choice",
-      "instruction": "Choisis le bon moment.",
-      "prompt": "When do you wake up?",
+      "instruction": "Dans cette histoire, le personnage se réveille le matin. Choisis ce moment.",
+      "prompt": "Dans cette histoire, le réveil sonne le matin. When do you wake up?",
       "conceptIds": ["wake-up", "morning"],
-      "explanation": "On peut dire I wake up in the morning : je me réveille le matin.",
+      "explanation": "La scène indique le matin : in the morning. On ne cherche pas ici à deviner tes habitudes.",
       "options": [
         { "id": "morning", "label": "in the morning" },
         { "id": "night", "label": "at night" },

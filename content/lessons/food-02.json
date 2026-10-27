@@ -57,18 +57,40 @@
       "id": "food-02-dialogue",
       "schemaVersion": 1,
       "type": "dialogue",
-      "instruction": "Choisis la demande adaptée.",
-      "prompt": "I’m hungry.",
-      "conceptIds": ["hungry", "can-i-have"],
-      "explanation": "Can I have milk? signifie « Est-ce que je peux avoir du lait ? ».",
+      "instruction": "Tu veux du lait. Choisis la demande correspondante.",
+      "prompt": "Demande du lait.",
+      "conceptIds": [
+        "hungry",
+        "can-i-have"
+      ],
+      "explanation": "Can I have milk? demande du lait.",
       "lines": [
-        { "speaker": "Luca", "text": "I’m hungry." },
-        { "speaker": "Gabriel", "text": "…" }
+        {
+          "speaker": "Luca",
+          "text": "I’d like milk.",
+          "translation": "Je voudrais du lait."
+        },
+        {
+          "speaker": "Gabriel",
+          "text": "…"
+        }
       ],
       "options": [
-        { "id": "milk", "label": "Can I have milk?", "detail": "Est-ce que je peux avoir du lait ?" },
-        { "id": "game", "label": "Let’s play!", "detail": "Jouons !" },
-        { "id": "book", "label": "This is my book.", "detail": "Voici mon livre." }
+        {
+          "id": "milk",
+          "label": "Can I have milk?",
+          "detail": "Est-ce que je peux avoir du lait ?"
+        },
+        {
+          "id": "game",
+          "label": "Let’s play!",
+          "detail": "Jouons !"
+        },
+        {
+          "id": "book",
+          "label": "This is my book.",
+          "detail": "Voici mon livre."
+        }
       ],
       "correctOptionId": "milk"
     },

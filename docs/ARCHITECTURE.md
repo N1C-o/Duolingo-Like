@@ -39,7 +39,7 @@ Session Convex Auth optionnelle → famille Convex → snapshot + révision dist
 | `convex/` | Schéma Convex Auth, famille, profils, snapshots et mutations atomiques | active |
 | `components/auth-screen.tsx` | Choix d’import/bootstrap et résolution des conflits pour une session Convex existante | active |
 | `components/convex-provider.tsx` | Fournisseur client Convex Auth pour l’export statique Next.js | active |
-| `lib/platform/speech.ts` | Synthèse vocale anglaise avec fallback silencieux | active |
+| `lib/platform/speech.ts` | Fichiers audio du manifeste, vitesse de lecture et synthèse vocale anglaise de secours | active |
 | `components/learning-screens.tsx` | Accès, accueil, parcours, leçon, mini-scènes, lecture, badges, paramètres et parental | active |
 | `components/exercise-renderer.tsx` | Rendu générique des exercices déclarés par le contenu et des missions guidées | active |
 | `components/prototype-app.tsx` | Orchestration d’état et navigation client | active |
@@ -65,14 +65,31 @@ Le service worker utilise le cache `english-adventure-v2`. Une navigation tente 
 
 Chaque leçon référence des identifiants stables et contient entre cinq et huit exercices. Elle porte aussi une `storyScene` en quatre temps — situation, setup/dialogue, action de l’enfant et résolution — ainsi qu’un `readingCheckpoint` reliant texte, audio et rythme/intonation. Le validateur bloque le démarrage si une réponse, une référence, une paire, un texte vocal, une scène, un checkpoint ou un prérequis est incohérent. Une activité peut être marquée `isRevisionActivity` pour alimenter les badges de révision ; la dernière leçon de chaque unité doit déclarer exactement une `isUnitMission` en `guided-production`. Les détails visuels et éditoriaux généraux restent dans les thèmes ; les consignes propres à une leçon restent dans son JSON.
 
+Une validation d’unité déjà acquise dans `completedUnitIds` reste valable lorsqu’une nouvelle leçon est ajoutée. Les profils existants conservent ainsi l’accès aux unités suivantes et leurs sessions en cours ; les nouvelles leçons restent accessibles sans être marquées terminées automatiquement. Un nouveau profil doit terminer toutes les leçons actuelles pour valider l’unité, et une unité déjà récompensée ne rapporte pas une seconde récompense de validation.
+
+Le validateur de synchronisation Convex lit la version courante dans `content/course.json` et accepte également les clients 1.2.1 compatibles. Les schémas inconnus et les autres versions de contenu restent refusés. Ce contrat doit être déployé côté Convex avant la publication d’un client utilisant la nouvelle version.
+
+## Voix enregistrées
+
+`content/audio-manifest.json` associe le texte normalisé (apostrophes, espaces et casse) à un fichier sous `public/audio/`. `lib/platform/speech.ts` lit cet enregistrement en priorité et applique la vitesse choisie par le profil. La synthèse navigateur reste le secours en cas de texte manquant ou d’erreur de lecture. Aucun appel ElevenLabs ni secret n’existe dans le client.
+
+`scripts/lesson_audio.py` inventorie les scènes, checkpoints, exercices écoutables et mots du parcours ; la génération ElevenLabs se fait en amont et met à jour le manifeste au fil des fichiers reçus. Voir [AUDIO.md](./AUDIO.md). Les exports de progression 1.2.1 restent acceptés car les anciens identifiants n’ont pas changé.
+
 ## Progression
 
 Les seuils courants sont documentés dans `lib/progression/engine.ts` : 5 XP par exercice à la première complétion, +2 XP pour une première réponse correcte, +20 XP par leçon et +50 XP par unité. Les rejoués donnent au maximum 5 XP par leçon et par jour local. Une erreur partielle d’association ou de mémoire met à jour les statistiques sans marquer l’exercice comme terminé ; aucune erreur ne retire d’XP ni ne bloque une leçon. Le moteur refuse aussi les soumissions qui ne correspondent pas à l’exercice courant de la session.
 
 ## Limites connues
 
-La tranche actuelle contient huit unités et vingt-trois leçons publiées. Les onze types sont représentables et rendus par le moteur ; le programme cible de 20 unités et le plan de rédaction sont documentés dans [`CONTENT_CURRICULUM.md`](./CONTENT_CURRICULUM.md) et le [plan de production](./plans/2026-08-07-content-curriculum.md). Le parcours mobile/hors ligne a été rejoué sur le build statique dans le navigateur intégré à 390×844 ; l’installation PWA et la validation sur appareil réel avec les nouvelles leçons restent à exécuter.
+Le parcours 1.3.0 contient vingt unités, soixante leçons et 353 exercices dans le programme. Les onze types sont représentables et rendus par le moteur ; le programme cible de 20 unités et le plan de rédaction sont documentés dans [`CONTENT_CURRICULUM.md`](./CONTENT_CURRICULUM.md) et le [plan de production](./plans/2026-08-07-content-curriculum.md). Le parcours mobile/hors ligne a été rejoué sur le build statique dans le navigateur intégré à 390×844 ; l’installation PWA et la validation sur appareil réel avec les nouvelles leçons restent à exécuter.
 
 Convex Auth utilise un seul compte familial et un provider mot de passe pour la synchronisation optionnelle ; l’interface de l’application n’impose plus l’écran e-mail/mot de passe à l’ouverture. La récupération automatisée du mot de passe n’est pas configurée, et le moteur de progression reste de confiance côté client en v1. La synchronisation ne fusionne pas deux appareils actifs sur le même profil ; elle demande un choix en cas de révision divergente. Le modèle accepte jusqu’à 20 profils, mais l’interface de gestion avancée de profils n’est pas encore construite.
 
 Voir [la carte du projet](./PROJECT_MAP.md), [le design system](./DESIGN_SYSTEM.md), [la dette technique](./TECHNICAL_DEBT.md) et [le plan de phase](./plans/2026-08-07-functional-implementation.md).
+
+
+## Publication
+
+L’application statique est hébergée sur https://english-adventure-ferrante.netlify.app (site Netlify `69c48990-6ecc-4e00-a932-74632d134999`). Le backend de production est `https://helpful-hummingbird-134.eu-west-1.convex.cloud` ; le déploiement `different-dove-671` reste réservé au développement.
+
+Publier d’abord les fonctions avec `npx convex deploy`, puis construire un export propre avec `NEXT_PUBLIC_CONVEX_URL=https://helpful-hummingbird-134.eu-west-1.convex.cloud` et `NEXT_PUBLIC_CONVEX_SITE_URL=https://helpful-hummingbird-134.eu-west-1.convex.site`. Publier uniquement le dossier `out` avec `netlify deploy --prod --no-build --dir out --site 69c48990-6ecc-4e00-a932-74632d134999`. Ne pas copier `.env.local` dans l’archive de livraison. Vérifier ensuite le site HTTPS, le manifeste PWA et les fichiers audio depuis l’adresse publique.

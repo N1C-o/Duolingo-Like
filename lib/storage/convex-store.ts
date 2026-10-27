@@ -163,7 +163,10 @@ export function validateFamilyExport(value: unknown): FamilyExport {
   if (typeof value !== "object" || value === null || Array.isArray(value)) throw new Error("Format d’export invalide");
   const candidate = value as Partial<FamilyExport>;
   if (candidate.kind !== FAMILY_EXPORT_KIND || candidate.exportVersion !== FAMILY_EXPORT_VERSION) throw new Error("Version d’export non prise en charge");
-  if (candidate.schemaVersion !== 1 || candidate.contentVersion !== content.course.contentVersion) throw new Error("Cet export appartient à une autre version du parcours");
+  // The extension keeps all existing lesson and exercise identifiers. Old backups
+  // remain restorable; unknown curricula and incompatible schemas stay rejected.
+  const compatibleContentVersions = ["1.2.1", content.course.contentVersion];
+  if (candidate.schemaVersion !== 1 || !compatibleContentVersions.includes(candidate.contentVersion ?? "")) throw new Error("Cet export appartient à une autre version du parcours");
   if (!Array.isArray(candidate.profiles) || candidate.profiles.length === 0 || candidate.profiles.length > 20) throw new Error("Le nombre de profils exportés est invalide");
   const profiles = candidate.profiles.map((profile) => {
     if (typeof profile !== "object" || profile === null || typeof profile.profileKey !== "string" || !profile.profileKey || typeof profile.displayName !== "string" || typeof profile.accessCode !== "string" || (profile.themeId !== "gabriel" && profile.themeId !== "luca") || typeof profile.sortOrder !== "number") {

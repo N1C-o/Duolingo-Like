@@ -1,0 +1,238 @@
+{
+  "id": "my-body-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "my-body",
+  "order": 3,
+  "title": "Le parcours des super-pouvoirs",
+  "objective": "Combiner les parties du corps et les capacités.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "head",
+    "hands",
+    "feet",
+    "eyes",
+    "nose",
+    "ears",
+    "i-can",
+    "clap"
+  ],
+  "prerequisiteLessonIds": [
+    "my-body-02"
+  ],
+  "storyScene": {
+    "id": "my-body-03-scene",
+    "situation": "Le robot est réparé. Il a deux mains et peut enfin applaudir les voyageurs.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "I have two hands.",
+        "translation": "J’ai deux mains."
+      },
+      {
+        "speaker": "Luca",
+        "text": "Can you clap?",
+        "translation": "Peux-tu taper dans les mains ?"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je peux taper dans les mains. »",
+      "exerciseId": "my-body-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I can clap my hands!",
+        "translation": "Je peux taper dans les mains !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s play!",
+        "translation": "Jouons !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I can clap my hands.",
+    "audioText": "I can clap my hands.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "head",
+        "hands",
+        "feet"
+      ],
+      "explanation": "head : tête ; hands : mains ; feet : pieds.",
+      "pairs": [
+        {
+          "id": "my-body-03-head",
+          "left": "head",
+          "right": "tête"
+        },
+        {
+          "id": "my-body-03-hands",
+          "left": "hands",
+          "right": "mains"
+        },
+        {
+          "id": "my-body-03-feet",
+          "left": "feet",
+          "right": "pieds"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "my-body-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "ears",
+        "eyes",
+        "hands"
+      ],
+      "explanation": "Ears désigne les oreilles.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I have two hands."
+        },
+        {
+          "id": "correct",
+          "label": "I have two ears."
+        },
+        {
+          "id": "other-1",
+          "label": "I have two eyes."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I have two ears.",
+      "id": "my-body-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "Touch your head.",
+      "conceptIds": [
+        "head",
+        "feet",
+        "nose"
+      ],
+      "explanation": "« Touch your head. » signifie « Touche ta tête. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Touche ta tête."
+        },
+        {
+          "id": "other-1",
+          "label": "Touche tes pieds."
+        },
+        {
+          "id": "other-2",
+          "label": "Touche ton nez."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "my-body-03-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Le robot a deux yeux. Réponds pour lui.",
+      "conceptIds": [
+        "eyes",
+        "numbers-1-to-20"
+      ],
+      "explanation": "Le contexte indique deux yeux : two.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "One."
+        },
+        {
+          "id": "other-2",
+          "label": "Three."
+        },
+        {
+          "id": "correct",
+          "label": "Two."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "How many eyes do you have?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "my-body-03-04-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Hands means « pieds ».",
+      "statement": "Hands means « pieds ».",
+      "correct": false,
+      "explanation": "Hands signifie mains ; feet signifie pieds.",
+      "conceptIds": [
+        "hands",
+        "feet"
+      ],
+      "id": "my-body-03-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je peux taper dans les mains. »",
+      "conceptIds": [
+        "i-can",
+        "clap",
+        "hands"
+      ],
+      "explanation": "« I can clap my hands. » signifie « Je peux taper dans les mains. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "can",
+        "clap",
+        "my",
+        "hands.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "can",
+          "clap",
+          "my",
+          "hands."
+        ]
+      ],
+      "id": "my-body-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

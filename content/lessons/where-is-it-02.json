@@ -1,0 +1,250 @@
+{
+  "id": "where-is-it-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "where-is-it",
+  "order": 2,
+  "title": "Dans, sur ou sous ?",
+  "objective": "Demander où est un objet et découvrir next to.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "next-to",
+    "where-is",
+    "here"
+  ],
+  "reviewConceptIds": [
+    "in",
+    "on",
+    "under",
+    "book"
+  ],
+  "prerequisiteLessonIds": [
+    "where-is-it-01"
+  ],
+  "storyScene": {
+    "id": "where-is-it-02-scene",
+    "situation": "Le crayon s’est caché à côté du livre. Pour le retrouver, les voyageurs posent la bonne question.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Where is the pencil?",
+        "translation": "Où est le crayon ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "The pencil is next to the book.",
+        "translation": "Le crayon est à côté du livre."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Le crayon est ici. »",
+      "exerciseId": "where-is-it-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "The pencil is here.",
+        "translation": "Le crayon est ici."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Where is the pencil?",
+    "audioText": "Where is the pencil?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "next-to",
+        "where-is",
+        "here"
+      ],
+      "explanation": "next to : à côté de ; Where is…? : Où est… ? ; here : ici.",
+      "pairs": [
+        {
+          "id": "where-is-it-02-next-to",
+          "left": "next to",
+          "right": "à côté de"
+        },
+        {
+          "id": "where-is-it-02-where-is",
+          "left": "Where is…?",
+          "right": "Où est… ?"
+        },
+        {
+          "id": "where-is-it-02-here",
+          "left": "here",
+          "right": "ici"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "where-is-it-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "next-to",
+        "pencil",
+        "book"
+      ],
+      "explanation": "Next to signifie à côté de.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "The pencil is next to the book."
+        },
+        {
+          "id": "other-1",
+          "label": "The pencil is under the book."
+        },
+        {
+          "id": "other-2",
+          "label": "The pencil is on the book."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "The pencil is next to the book.",
+      "id": "where-is-it-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "Where is the pencil?",
+      "conceptIds": [
+        "where-is",
+        "pencil"
+      ],
+      "explanation": "« Where is the pencil? » signifie « Où est le crayon ? ».",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Où est le livre ?"
+        },
+        {
+          "id": "other-2",
+          "label": "Comment vas-tu ?"
+        },
+        {
+          "id": "correct",
+          "label": "Où est le crayon ?"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "where-is-it-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Le crayon est à côté du livre.",
+      "conceptIds": [
+        "next-to",
+        "book",
+        "pencil"
+      ],
+      "explanation": "Next to the book signifie à côté du livre.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "on"
+        },
+        {
+          "id": "correct",
+          "label": "next to"
+        },
+        {
+          "id": "other-1",
+          "label": "under"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "The pencil is ___ the book.",
+      "id": "where-is-it-02-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Le crayon est à côté du livre.",
+      "conceptIds": [
+        "where-is",
+        "next-to",
+        "pencil",
+        "book"
+      ],
+      "explanation": "It is next to the book situe le crayon à côté du livre.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "It is next to the book."
+        },
+        {
+          "id": "other-1",
+          "label": "It is under the bed."
+        },
+        {
+          "id": "other-2",
+          "label": "It is on the table."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Where is the pencil?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "where-is-it-02-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Le crayon est ici. »",
+      "conceptIds": [
+        "pencil",
+        "here"
+      ],
+      "explanation": "« The pencil is here. » signifie « Le crayon est ici. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "pencil",
+        "is",
+        "here.",
+        "The"
+      ],
+      "acceptedOrders": [
+        [
+          "The",
+          "pencil",
+          "is",
+          "here."
+        ]
+      ],
+      "id": "where-is-it-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

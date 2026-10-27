@@ -1,0 +1,251 @@
+{
+  "id": "around-town-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "around-town",
+  "order": 3,
+  "title": "Le trésor du quartier",
+  "objective": "Suivre un petit itinéraire et localiser le trésor.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "park",
+    "shop",
+    "street",
+    "left",
+    "right",
+    "straight-on",
+    "next-to"
+  ],
+  "prerequisiteLessonIds": [
+    "around-town-02"
+  ],
+  "storyScene": {
+    "id": "around-town-03-scene",
+    "situation": "La carte donne trois étapes : tout droit, à gauche, puis au parc. Le trésor attend à côté du magasin.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Go straight on. Turn left. Go to the park.",
+        "translation": "Va tout droit. Tourne à gauche. Va au parc."
+      },
+      {
+        "speaker": "Luca",
+        "text": "The park is next to the shop.",
+        "translation": "Le parc est à côté du magasin."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Va au parc. »",
+      "exerciseId": "around-town-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "The treasure is here!",
+        "translation": "Le trésor est ici !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "The park is next to the shop.",
+    "audioText": "The park is next to the shop.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "park",
+        "shop",
+        "street"
+      ],
+      "explanation": "park : parc ; shop : magasin ; street : rue.",
+      "pairs": [
+        {
+          "id": "around-town-03-park",
+          "left": "park",
+          "right": "parc"
+        },
+        {
+          "id": "around-town-03-shop",
+          "left": "shop",
+          "right": "magasin"
+        },
+        {
+          "id": "around-town-03-street",
+          "left": "street",
+          "right": "rue"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "around-town-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "left",
+        "right",
+        "straight-on"
+      ],
+      "explanation": "La voix demande de tourner à gauche.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Turn left."
+        },
+        {
+          "id": "other-1",
+          "label": "Turn right."
+        },
+        {
+          "id": "other-2",
+          "label": "Go straight on."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Turn left.",
+      "id": "around-town-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Itinéraire : tout droit → à gauche → parc. Où vas-tu à la fin ?",
+      "conceptIds": [
+        "park",
+        "school",
+        "house"
+      ],
+      "explanation": "La dernière destination de cet itinéraire est le parc.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "To school."
+        },
+        {
+          "id": "other-2",
+          "label": "To the house."
+        },
+        {
+          "id": "correct",
+          "label": "To the park."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "around-town-03-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "The park is next to the shop.",
+      "conceptIds": [
+        "park",
+        "next-to",
+        "shop",
+        "school"
+      ],
+      "explanation": "« The park is next to the shop. » signifie « Le parc est à côté du magasin. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Le parc est à côté de l’école."
+        },
+        {
+          "id": "correct",
+          "label": "Le parc est à côté du magasin."
+        },
+        {
+          "id": "other-1",
+          "label": "Le magasin est dans le parc."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "around-town-03-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "La carte place le parc à côté du magasin.",
+      "conceptIds": [
+        "where-is",
+        "park",
+        "next-to",
+        "shop"
+      ],
+      "explanation": "La réponse doit correspondre à la carte décrite.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "It is next to the shop."
+        },
+        {
+          "id": "other-1",
+          "label": "It is in the school."
+        },
+        {
+          "id": "other-2",
+          "label": "It is under the bed."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Where is the park?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "around-town-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Va au parc. »",
+      "conceptIds": [
+        "go",
+        "park"
+      ],
+      "explanation": "« Go to the park. » signifie « Va au parc. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "to",
+        "the",
+        "park.",
+        "Go"
+      ],
+      "acceptedOrders": [
+        [
+          "Go",
+          "to",
+          "the",
+          "park."
+        ]
+      ],
+      "id": "around-town-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

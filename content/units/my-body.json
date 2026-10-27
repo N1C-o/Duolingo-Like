@@ -1,0 +1,28 @@
+{
+  "id": "my-body",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 13,
+  "title": "My body can…",
+  "shortTitle": "Le corps",
+  "topic": "Le corps",
+  "objective": "Tu sais nommer les parties du corps et suivre une petite consigne.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": [
+    "getting-dressed"
+  ],
+  "lessonIds": [
+    "my-body-01",
+    "my-body-02",
+    "my-body-03"
+  ],
+  "vocabularyIds": [
+    "head",
+    "hands",
+    "feet",
+    "eyes",
+    "nose",
+    "ears"
+  ],
+  "rewardTitle": "Le cœur du robot"
+}

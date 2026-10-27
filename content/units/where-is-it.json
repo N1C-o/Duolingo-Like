@@ -1,0 +1,28 @@
+{
+  "id": "where-is-it",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 9,
+  "title": "Where is it?",
+  "shortTitle": "Les cachettes",
+  "topic": "Les cachettes",
+  "objective": "Tu sais demander où se trouve un objet et décrire sa position.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": [
+    "numbers-colours"
+  ],
+  "lessonIds": [
+    "where-is-it-01",
+    "where-is-it-02",
+    "where-is-it-03"
+  ],
+  "vocabularyIds": [
+    "in",
+    "on",
+    "under",
+    "next-to",
+    "where-is",
+    "here"
+  ],
+  "rewardTitle": "La loupe des cachettes"
+}

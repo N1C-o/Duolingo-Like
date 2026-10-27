@@ -1,0 +1,250 @@
+{
+  "id": "animal-rescue-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "animal-rescue",
+  "order": 3,
+  "title": "Le sauvetage des animaux",
+  "objective": "Utiliser It has et It can pour identifier un animal.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "cat",
+    "dog",
+    "bird",
+    "fish",
+    "big",
+    "small",
+    "ears",
+    "i-can"
+  ],
+  "prerequisiteLessonIds": [
+    "animal-rescue-02"
+  ],
+  "storyScene": {
+    "id": "animal-rescue-03-scene",
+    "situation": "Le gardien décrit l’animal à ramener : c’est le grand chien, qui a deux oreilles.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "It is a big dog.",
+        "translation": "C’est un grand chien."
+      },
+      {
+        "speaker": "Luca",
+        "text": "It has two ears.",
+        "translation": "Il a deux oreilles."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Il a deux oreilles. »",
+      "exerciseId": "animal-rescue-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "The dog is here.",
+        "translation": "Le chien est ici."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you for your help!",
+        "translation": "Merci pour ton aide !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "It has two ears.",
+    "audioText": "It has two ears.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "cat",
+        "dog",
+        "bird"
+      ],
+      "explanation": "cat : chat ; dog : chien ; bird : oiseau.",
+      "pairs": [
+        {
+          "id": "animal-rescue-03-cat",
+          "left": "cat",
+          "right": "chat"
+        },
+        {
+          "id": "animal-rescue-03-dog",
+          "left": "dog",
+          "right": "chien"
+        },
+        {
+          "id": "animal-rescue-03-bird",
+          "left": "bird",
+          "right": "oiseau"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "animal-rescue-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "ears",
+        "eyes",
+        "feet"
+      ],
+      "explanation": "Has signifie a ; ears signifie oreilles.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "It has two eyes."
+        },
+        {
+          "id": "other-2",
+          "label": "It has two feet."
+        },
+        {
+          "id": "correct",
+          "label": "It has two ears."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "It has two ears.",
+      "id": "animal-rescue-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "It is a big dog.",
+      "conceptIds": [
+        "big",
+        "small",
+        "dog",
+        "cat"
+      ],
+      "explanation": "« It is a big dog. » signifie « C’est un grand chien. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "C’est un grand chat."
+        },
+        {
+          "id": "correct",
+          "label": "C’est un grand chien."
+        },
+        {
+          "id": "other-1",
+          "label": "C’est un petit chien."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "animal-rescue-03-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "L’animal décrit est un chien. Confirme-le.",
+      "conceptIds": [
+        "dog",
+        "cat"
+      ],
+      "explanation": "Yes, it is confirme que l’animal est un chien.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Yes, it is."
+        },
+        {
+          "id": "other-1",
+          "label": "No, it is a cat."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m wearing a coat."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Is it a dog?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "animal-rescue-03-04-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "L’oiseau peut voler dans cette histoire. Quelle phrase le dit ?",
+      "conceptIds": [
+        "bird",
+        "fish",
+        "i-can"
+      ],
+      "explanation": "La capacité donnée est fly pour the bird.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "The fish can fly."
+        },
+        {
+          "id": "other-2",
+          "label": "The bird can swim."
+        },
+        {
+          "id": "correct",
+          "label": "The bird can fly."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "animal-rescue-03-05-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Il a deux oreilles. »",
+      "conceptIds": [
+        "ears",
+        "numbers-1-to-20"
+      ],
+      "explanation": "« It has two ears. » signifie « Il a deux oreilles. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "has",
+        "two",
+        "ears.",
+        "It"
+      ],
+      "acceptedOrders": [
+        [
+          "It",
+          "has",
+          "two",
+          "ears."
+        ]
+      ],
+      "id": "animal-rescue-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "id": "weather",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 14,
+  "title": "Weather detectives",
+  "shortTitle": "La météo",
+  "topic": "La météo",
+  "objective": "Tu sais demander le temps qu’il fait et décrire la météo.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": [
+    "my-body"
+  ],
+  "lessonIds": [
+    "weather-01",
+    "weather-02",
+    "weather-03"
+  ],
+  "vocabularyIds": [
+    "sunny",
+    "rainy",
+    "windy",
+    "cloudy",
+    "hot",
+    "cold"
+  ],
+  "rewardTitle": "Le carnet météo"
+}

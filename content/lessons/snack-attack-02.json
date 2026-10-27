@@ -1,0 +1,240 @@
+{
+  "id": "snack-attack-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "snack-attack",
+  "order": 2,
+  "title": "Un, une, des ?",
+  "objective": "Utiliser a/an et some, puis reconnaître un pluriel simple.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "cookie",
+    "plate",
+    "some"
+  ],
+  "reviewConceptIds": [
+    "apple",
+    "banana",
+    "juice",
+    "numbers-1-to-20"
+  ],
+  "prerequisiteLessonIds": [
+    "snack-attack-01"
+  ],
+  "storyScene": {
+    "id": "snack-attack-02-scene",
+    "situation": "Les assiettes se remplissent toutes seules. Le dragon demande un biscuit, puis du jus pour tout le monde.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Can I have a cookie?",
+        "translation": "Est-ce que je peux avoir un biscuit ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "Can I have some juice?",
+        "translation": "Est-ce que je peux avoir du jus de fruits ?"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « J’ai deux biscuits. »",
+      "exerciseId": "snack-attack-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Two cookies!",
+        "translation": "Deux biscuits !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Can I have some juice?",
+    "audioText": "Can I have some juice?",
+    "phonologyFocus": "question-intonation"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "cookie",
+        "plate",
+        "some"
+      ],
+      "explanation": "cookie : biscuit ; plate : assiette ; some : du / de la / des.",
+      "pairs": [
+        {
+          "id": "snack-attack-02-cookie",
+          "left": "cookie",
+          "right": "biscuit"
+        },
+        {
+          "id": "snack-attack-02-plate",
+          "left": "plate",
+          "right": "assiette"
+        },
+        {
+          "id": "snack-attack-02-some",
+          "left": "some",
+          "right": "du / de la / des"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "snack-attack-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "cookie",
+        "numbers-1-to-20",
+        "banana"
+      ],
+      "explanation": "Two cookies indique deux biscuits : cookies porte un s.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "I have a banana."
+        },
+        {
+          "id": "correct",
+          "label": "I have two cookies."
+        },
+        {
+          "id": "other-1",
+          "label": "I have a cookie."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I have two cookies.",
+      "id": "snack-attack-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Complète avec le bon petit mot devant apple.",
+      "conceptIds": [
+        "apple",
+        "id-like"
+      ],
+      "explanation": "On dit an apple : apple commence par un son voyelle.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "an"
+        },
+        {
+          "id": "other-1",
+          "label": "a"
+        },
+        {
+          "id": "other-2",
+          "label": "two"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "I’d like ___ apple.",
+      "id": "snack-attack-02-03-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Demande du jus, sans compter les verres.",
+      "conceptIds": [
+        "some",
+        "juice",
+        "can-i-have"
+      ],
+      "explanation": "Some juice signifie du jus de fruits.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "a"
+        },
+        {
+          "id": "other-2",
+          "label": "an"
+        },
+        {
+          "id": "correct",
+          "label": "some"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "Can I have ___ juice?",
+      "id": "snack-attack-02-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "The apple is on the plate.",
+      "conceptIds": [
+        "apple",
+        "on",
+        "plate"
+      ],
+      "explanation": "« The apple is on the plate. » signifie « La pomme est sur l’assiette. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "La banane est sur la table."
+        },
+        {
+          "id": "correct",
+          "label": "La pomme est sur l’assiette."
+        },
+        {
+          "id": "other-1",
+          "label": "La pomme est sous l’assiette."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "snack-attack-02-05-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « J’ai deux biscuits. »",
+      "conceptIds": [
+        "cookie",
+        "numbers-1-to-20"
+      ],
+      "explanation": "« I have two cookies. » signifie « J’ai deux biscuits. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "have",
+        "two",
+        "cookies.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "have",
+          "two",
+          "cookies."
+        ]
+      ],
+      "id": "snack-attack-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

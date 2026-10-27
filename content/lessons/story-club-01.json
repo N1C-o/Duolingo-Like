@@ -1,0 +1,233 @@
+{
+  "id": "story-club-01",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "story-club",
+  "order": 1,
+  "title": "Le livre qui change",
+  "objective": "Suivre trois étapes avec first, then et finally.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "first",
+    "then",
+    "finally"
+  ],
+  "reviewConceptIds": [
+    "go",
+    "park",
+    "cat",
+    "house"
+  ],
+  "prerequisiteLessonIds": [
+    "birthday-03"
+  ],
+  "storyScene": {
+    "id": "story-club-01-scene",
+    "situation": "Un livre magique raconte trois scènes. D’abord, Luca va au parc ; ensuite, il voit un chat ; enfin, il rentre chez lui.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "First, I go to the park.",
+        "translation": "D’abord, je vais au parc."
+      },
+      {
+        "speaker": "Luca",
+        "text": "Then, I see a cat. Finally, I go home.",
+        "translation": "Ensuite, je vois un chat. Enfin, je rentre chez moi."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « D’abord, je vais au parc. »",
+      "exerciseId": "story-club-01-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "The cat is my friend.",
+        "translation": "Le chat est mon ami."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "The story is in order!",
+        "translation": "L’histoire est dans le bon ordre !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "First, I go to the park.",
+    "audioText": "First, I go to the park.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "first",
+        "then",
+        "finally"
+      ],
+      "explanation": "first : d’abord ; then : ensuite ; finally : enfin.",
+      "pairs": [
+        {
+          "id": "story-club-01-first",
+          "left": "first",
+          "right": "d’abord"
+        },
+        {
+          "id": "story-club-01-then",
+          "left": "then",
+          "right": "ensuite"
+        },
+        {
+          "id": "story-club-01-finally",
+          "left": "finally",
+          "right": "enfin"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "story-club-01-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "then",
+        "cat",
+        "first",
+        "finally"
+      ],
+      "explanation": "Then introduit la deuxième étape.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Then, I see a cat."
+        },
+        {
+          "id": "other-1",
+          "label": "First, I go to the park."
+        },
+        {
+          "id": "other-2",
+          "label": "Finally, I go home."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Then, I see a cat.",
+      "id": "story-club-01-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Histoire : 1. parc ; 2. chat ; 3. retour à la maison. Que fait Luca en dernier ?",
+      "conceptIds": [
+        "finally",
+        "go",
+        "park",
+        "cat"
+      ],
+      "explanation": "Le retour à la maison est la troisième et dernière étape.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "He goes to the park."
+        },
+        {
+          "id": "other-2",
+          "label": "He sees a cat."
+        },
+        {
+          "id": "correct",
+          "label": "He goes home."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "story-club-01-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "Finally, I go home.",
+      "conceptIds": [
+        "finally",
+        "go",
+        "first",
+        "then"
+      ],
+      "explanation": "« Finally, I go home. » signifie « Enfin, je rentre chez moi. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Ensuite, je vois un chat."
+        },
+        {
+          "id": "correct",
+          "label": "Enfin, je rentre chez moi."
+        },
+        {
+          "id": "other-1",
+          "label": "D’abord, je vais au parc."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "story-club-01-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "First means « ensuite ».",
+      "statement": "First means « ensuite ».",
+      "correct": false,
+      "explanation": "First signifie d’abord ; then signifie ensuite.",
+      "conceptIds": [
+        "first",
+        "then"
+      ],
+      "id": "story-club-01-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « D’abord, je vais au parc. »",
+      "conceptIds": [
+        "first",
+        "go",
+        "park"
+      ],
+      "explanation": "« First, I go to the park. » signifie « D’abord, je vais au parc. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "I",
+        "go",
+        "to",
+        "the",
+        "park.",
+        "First,"
+      ],
+      "acceptedOrders": [
+        [
+          "First,",
+          "I",
+          "go",
+          "to",
+          "the",
+          "park."
+        ]
+      ],
+      "id": "story-club-01-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

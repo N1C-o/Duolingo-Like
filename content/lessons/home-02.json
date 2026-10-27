@@ -80,10 +80,10 @@
       "id": "home-02-completion",
       "schemaVersion": 1,
       "type": "sentence-completion",
-      "instruction": "Complète la phrase.",
-      "prompt": "The door is open.",
+      "instruction": "Complète pour dire « Il y a une porte ».",
+      "prompt": "Dis : « Il y a une porte ».",
       "conceptIds": ["there-is", "door"],
-      "explanation": "There is a door signifie « Il y a une porte ».",
+      "explanation": "Door signifie porte : There is a door.",
       "sentence": "There is a ___.",
       "options": [
         { "id": "door", "label": "door" },
@@ -96,18 +96,40 @@
       "id": "home-02-dialogue",
       "schemaVersion": 1,
       "type": "dialogue",
-      "instruction": "Choisis la phrase qui décrit la maison.",
-      "prompt": "Look!",
-      "conceptIds": ["there-is", "table"],
+      "instruction": "Le personnage montre une table. Choisis la phrase qui la décrit.",
+      "prompt": "Gabriel montre une table : décris-la.",
+      "conceptIds": [
+        "there-is",
+        "table"
+      ],
       "explanation": "There is a table! signifie « Il y a une table ! ».",
       "lines": [
-        { "speaker": "Gabriel", "text": "Look!" },
-        { "speaker": "Luca", "text": "…" }
+        {
+          "speaker": "Gabriel",
+          "text": "Look! A table!",
+          "translation": "Regarde ! Une table !"
+        },
+        {
+          "speaker": "Luca",
+          "text": "…"
+        }
       ],
       "options": [
-        { "id": "table", "label": "There is a table!", "detail": "Il y a une table !" },
-        { "id": "bed", "label": "This is my bed.", "detail": "Voici mon lit." },
-        { "id": "room", "label": "Good morning!", "detail": "Bonjour !" }
+        {
+          "id": "table",
+          "label": "There is a table!",
+          "detail": "Il y a une table !"
+        },
+        {
+          "id": "bed",
+          "label": "This is my bed.",
+          "detail": "Voici mon lit."
+        },
+        {
+          "id": "room",
+          "label": "Good morning!",
+          "detail": "Bonjour !"
+        }
       ],
       "correctOptionId": "table"
     },

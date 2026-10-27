@@ -1,0 +1,248 @@
+{
+  "id": "snack-attack-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "snack-attack",
+  "order": 3,
+  "title": "La commande impossible",
+  "objective": "Préparer une commande précise et polie.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "banana",
+    "sandwich",
+    "juice",
+    "cookie",
+    "plate",
+    "some",
+    "please",
+    "thank-you"
+  ],
+  "prerequisiteLessonIds": [
+    "snack-attack-02"
+  ],
+  "storyScene": {
+    "id": "snack-attack-03-scene",
+    "situation": "Le dragon a besoin de deux biscuits et de jus. Les voyageurs complètent la commande sans changer les quantités.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "How many cookies?",
+        "translation": "Combien de biscuits ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "Two cookies, please.",
+        "translation": "Deux biscuits, s’il te plaît."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Deux biscuits, s’il te plaît. »",
+      "exerciseId": "snack-attack-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Here you are!",
+        "translation": "Voici !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Two cookies, please.",
+    "audioText": "Two cookies, please.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "banana",
+        "sandwich",
+        "juice"
+      ],
+      "explanation": "banana : banane ; sandwich : sandwich ; juice : jus de fruits.",
+      "pairs": [
+        {
+          "id": "snack-attack-03-banana",
+          "left": "banana",
+          "right": "banane"
+        },
+        {
+          "id": "snack-attack-03-sandwich",
+          "left": "sandwich",
+          "right": "sandwich"
+        },
+        {
+          "id": "snack-attack-03-juice",
+          "left": "juice",
+          "right": "jus de fruits"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "snack-attack-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "cookie",
+        "numbers-1-to-20",
+        "please"
+      ],
+      "explanation": "Two signifie deux.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Two cookies, please."
+        },
+        {
+          "id": "other-1",
+          "label": "One cookie, please."
+        },
+        {
+          "id": "other-2",
+          "label": "Three cookies, please."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Two cookies, please.",
+      "id": "snack-attack-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Sur l’assiette : 🍪🍪. How many cookies?",
+      "conceptIds": [
+        "cookie",
+        "plate",
+        "numbers-1-to-20"
+      ],
+      "explanation": "Les deux biscuits correspondent à two.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "One."
+        },
+        {
+          "id": "other-2",
+          "label": "Three."
+        },
+        {
+          "id": "correct",
+          "label": "Two."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "snack-attack-03-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I’d like some juice.",
+      "conceptIds": [
+        "id-like",
+        "some",
+        "juice"
+      ],
+      "explanation": "« I’d like some juice. » signifie « Je voudrais du jus de fruits. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Je voudrais un sandwich."
+        },
+        {
+          "id": "correct",
+          "label": "Je voudrais du jus de fruits."
+        },
+        {
+          "id": "other-1",
+          "label": "Je voudrais du lait."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "snack-attack-03-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Tu viens de recevoir ton assiette. Remercie.",
+      "conceptIds": [
+        "thank-you",
+        "plate"
+      ],
+      "explanation": "Thank you remercie après avoir reçu quelque chose.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Thank you!"
+        },
+        {
+          "id": "other-1",
+          "label": "Can I have a plate?"
+        },
+        {
+          "id": "other-2",
+          "label": "I’m hungry."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Here you are!"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "snack-attack-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Deux biscuits, s’il te plaît. »",
+      "conceptIds": [
+        "cookie",
+        "numbers-1-to-20",
+        "please"
+      ],
+      "explanation": "« Two cookies, please. » signifie « Deux biscuits, s’il te plaît. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "cookies,",
+        "please.",
+        "Two"
+      ],
+      "acceptedOrders": [
+        [
+          "Two",
+          "cookies,",
+          "please."
+        ]
+      ],
+      "id": "snack-attack-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

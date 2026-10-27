@@ -1,0 +1,28 @@
+{
+  "id": "snack-attack",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "order": 11,
+  "title": "Snack attack!",
+  "shortTitle": "Le pique-nique",
+  "topic": "Le pique-nique",
+  "objective": "Tu sais demander des aliments et distinguer un aliment de plusieurs.",
+  "difficulty": 2,
+  "prerequisiteUnitIds": [
+    "lets-move"
+  ],
+  "lessonIds": [
+    "snack-attack-01",
+    "snack-attack-02",
+    "snack-attack-03"
+  ],
+  "vocabularyIds": [
+    "banana",
+    "sandwich",
+    "juice",
+    "cookie",
+    "plate",
+    "some"
+  ],
+  "rewardTitle": "Le panier du dragon"
+}

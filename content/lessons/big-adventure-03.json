@@ -1,0 +1,242 @@
+{
+  "id": "big-adventure-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "big-adventure",
+  "order": 3,
+  "title": "Le grand rappel",
+  "objective": "Réutiliser l’anglais appris pour raconter la fin de l’aventure.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "first",
+    "then",
+    "finally",
+    "help",
+    "friend",
+    "i-can",
+    "thank-you",
+    "happy",
+    "feel"
+  ],
+  "prerequisiteLessonIds": [
+    "big-adventure-02"
+  ],
+  "storyScene": {
+    "id": "big-adventure-03-scene",
+    "situation": "Le passeport est presque rempli. D’abord les voyageurs vont au parc, ensuite ils aident un ami, enfin ils rentrent chez eux.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "First, I go to the park. Then, I help my friend.",
+        "translation": "D’abord, je vais au parc. Ensuite, j’aide mon ami."
+      },
+      {
+        "speaker": "Luca",
+        "text": "Finally, I go home.",
+        "translation": "Enfin, je rentre chez moi."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je peux aider mon ami. »",
+      "exerciseId": "big-adventure-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I can help my friend!",
+        "translation": "Je peux aider mon ami !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you! See you soon!",
+        "translation": "Merci ! À bientôt !"
+      }
+    ],
+    "nextHook": "Tu peux rejouer les aventures, écouter les phrases et continuer à utiliser ton anglais chaque jour."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I can help my friend.",
+    "audioText": "I can help my friend.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "first",
+        "then",
+        "finally"
+      ],
+      "explanation": "first : d’abord ; then : ensuite ; finally : enfin.",
+      "pairs": [
+        {
+          "id": "big-adventure-03-first",
+          "left": "first",
+          "right": "d’abord"
+        },
+        {
+          "id": "big-adventure-03-then",
+          "left": "then",
+          "right": "ensuite"
+        },
+        {
+          "id": "big-adventure-03-finally",
+          "left": "finally",
+          "right": "enfin"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "big-adventure-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "then",
+        "help",
+        "friend",
+        "first",
+        "finally"
+      ],
+      "explanation": "Then introduit ici l’aide apportée à l’ami.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Then, I help my friend."
+        },
+        {
+          "id": "other-1",
+          "label": "First, I go to the park."
+        },
+        {
+          "id": "other-2",
+          "label": "Finally, I go home."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Then, I help my friend.",
+      "id": "big-adventure-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Ton ami te donne le passeport terminé. Remercie-le.",
+      "conceptIds": [
+        "thank-you",
+        "friend"
+      ],
+      "explanation": "Thank you remercie ton ami.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "How old are you?"
+        },
+        {
+          "id": "other-2",
+          "label": "Where is the shop?"
+        },
+        {
+          "id": "correct",
+          "label": "Thank you!"
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Here you are!"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "big-adventure-03-03-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I can help my friend.",
+      "conceptIds": [
+        "i-can",
+        "help",
+        "friend",
+        "dog"
+      ],
+      "explanation": "« I can help my friend. » signifie « Je peux aider mon ami. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Je peux aider mon chien."
+        },
+        {
+          "id": "correct",
+          "label": "Je peux aider mon ami."
+        },
+        {
+          "id": "other-1",
+          "label": "Je ne peux pas aider mon ami."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "big-adventure-03-04-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Dans notre histoire, finally annonce le retour à la maison.",
+      "statement": "Dans notre histoire, finally annonce le retour à la maison.",
+      "correct": true,
+      "explanation": "La dernière étape est Finally, I go home.",
+      "conceptIds": [
+        "finally",
+        "go"
+      ],
+      "id": "big-adventure-03-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je peux aider mon ami. »",
+      "conceptIds": [
+        "i-can",
+        "help",
+        "friend"
+      ],
+      "explanation": "« I can help my friend. » signifie « Je peux aider mon ami. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "can",
+        "help",
+        "my",
+        "friend.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "can",
+          "help",
+          "my",
+          "friend."
+        ]
+      ],
+      "id": "big-adventure-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

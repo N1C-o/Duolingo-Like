@@ -41,11 +41,11 @@
       "id": "family-02-dialogue",
       "schemaVersion": 1,
       "type": "dialogue",
-      "instruction": "Choisis la phrase adaptée.",
-      "prompt": "Meet my family.",
+      "instruction": "Choisis la formule pour dire « Enchanté(e) ! ».",
+      "prompt": "Tu rencontres la sœur de ton ami. Dis « Enchanté(e) ! ».",
       "audioText": "This is my sister.",
       "conceptIds": ["sister"],
-      "explanation": "This is my sister signifie « Voici ma sœur ».",
+      "explanation": "Nice to meet you! signifie « Enchanté(e) ! » quand on rencontre une personne.",
       "lines": [
         { "speaker": "You", "text": "This is my sister." },
         { "speaker": "Friend", "text": "…" }
@@ -103,10 +103,10 @@
       "id": "family-02-choice",
       "schemaVersion": 1,
       "type": "multiple-choice",
-      "instruction": "Choisis le bon mot.",
-      "prompt": "A person you know and like is a…",
+      "instruction": "Choisis le mot anglais qui signifie « ami ou amie ».",
+      "prompt": "Quel mot signifie « ami ou amie » ?",
       "conceptIds": ["friend"],
-      "explanation": "A friend est un ami ou une amie.",
+      "explanation": "Friend signifie ami ou amie. Sister signifie sœur et dad signifie papa.",
       "options": [
         { "id": "friend", "label": "friend" },
         { "id": "sister", "label": "sister" },

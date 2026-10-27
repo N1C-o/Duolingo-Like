@@ -1,0 +1,231 @@
+{
+  "id": "lets-move-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "lets-move",
+  "order": 3,
+  "title": "Le défi du robot",
+  "objective": "Réutiliser les capacités pour aider le robot.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "run",
+    "jump",
+    "clap",
+    "i-can",
+    "i-cant",
+    "can-you"
+  ],
+  "prerequisiteLessonIds": [
+    "lets-move-02"
+  ],
+  "storyScene": {
+    "id": "lets-move-03-scene",
+    "situation": "Pour ouvrir la porte du terrain de jeu, il faut annoncer une action que le robot peut faire : sauter.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Can you run?",
+        "translation": "Peux-tu courir ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "No, I can’t. I can jump.",
+        "translation": "Non. Je peux sauter."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je peux sauter. »",
+      "exerciseId": "lets-move-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I can jump!",
+        "translation": "Je peux sauter !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "The door is open!",
+        "translation": "La porte est ouverte !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I can jump.",
+    "audioText": "I can jump.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "run",
+        "jump",
+        "clap"
+      ],
+      "explanation": "run : courir ; jump : sauter ; clap : taper dans les mains.",
+      "pairs": [
+        {
+          "id": "lets-move-03-run",
+          "left": "run",
+          "right": "courir"
+        },
+        {
+          "id": "lets-move-03-jump",
+          "left": "jump",
+          "right": "sauter"
+        },
+        {
+          "id": "lets-move-03-clap",
+          "left": "clap",
+          "right": "taper dans les mains"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "lets-move-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "can-you",
+        "clap"
+      ],
+      "explanation": "La question porte sur clap, taper dans les mains.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Can you run?"
+        },
+        {
+          "id": "correct",
+          "label": "Can you clap?"
+        },
+        {
+          "id": "other-1",
+          "label": "Can you jump?"
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Can you clap?",
+      "id": "lets-move-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "I can’t run.",
+      "conceptIds": [
+        "i-cant",
+        "run"
+      ],
+      "explanation": "« I can’t run. » signifie « Je ne peux pas courir. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Je ne peux pas courir."
+        },
+        {
+          "id": "other-1",
+          "label": "Je peux courir."
+        },
+        {
+          "id": "other-2",
+          "label": "Je ne peux pas sauter."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "lets-move-03-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "I can jump means « Je ne peux pas sauter ».",
+      "statement": "I can jump means « Je ne peux pas sauter ».",
+      "correct": false,
+      "explanation": "Can signifie peux ; can’t exprime la négation.",
+      "conceptIds": [
+        "i-can",
+        "i-cant",
+        "jump"
+      ],
+      "id": "lets-move-03-04-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Le robot ne peut pas courir. Réponds pour lui.",
+      "conceptIds": [
+        "can-you",
+        "i-cant",
+        "run"
+      ],
+      "explanation": "No, I can’t exprime son incapacité à courir.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Yes, I do."
+        },
+        {
+          "id": "correct",
+          "label": "No, I can’t."
+        },
+        {
+          "id": "other-1",
+          "label": "Yes, I can."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "Can you run?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "lets-move-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je peux sauter. »",
+      "conceptIds": [
+        "i-can",
+        "jump"
+      ],
+      "explanation": "« I can jump. » signifie « Je peux sauter. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "can",
+        "jump.",
+        "I"
+      ],
+      "acceptedOrders": [
+        [
+          "I",
+          "can",
+          "jump."
+        ]
+      ],
+      "id": "lets-move-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}

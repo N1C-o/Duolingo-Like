@@ -1,0 +1,221 @@
+{
+  "id": "my-body-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "my-body",
+  "order": 2,
+  "title": "Touche ton nez !",
+  "objective": "Comprendre Touch your… avec eyes, nose et ears.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [
+    "eyes",
+    "nose",
+    "ears"
+  ],
+  "reviewConceptIds": [
+    "head",
+    "hands",
+    "feet"
+  ],
+  "prerequisiteLessonIds": [
+    "my-body-01"
+  ],
+  "storyScene": {
+    "id": "my-body-02-scene",
+    "situation": "Le robot retrouve ses yeux, son nez et ses oreilles. Il teste ses pièces avec des consignes très simples.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "Touch your nose!",
+        "translation": "Touche ton nez !"
+      },
+      {
+        "speaker": "Luca",
+        "text": "Touch your ears!",
+        "translation": "Touche tes oreilles !"
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Touche ton nez. »",
+      "exerciseId": "my-body-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "I have two eyes.",
+        "translation": "J’ai deux yeux."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Thank you!",
+        "translation": "Merci !"
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "Touch your nose!",
+    "audioText": "Touch your nose!",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "eyes",
+        "nose",
+        "ears"
+      ],
+      "explanation": "eyes : yeux ; nose : nez ; ears : oreilles.",
+      "pairs": [
+        {
+          "id": "my-body-02-eyes",
+          "left": "eyes",
+          "right": "yeux"
+        },
+        {
+          "id": "my-body-02-nose",
+          "left": "nose",
+          "right": "nez"
+        },
+        {
+          "id": "my-body-02-ears",
+          "left": "ears",
+          "right": "oreilles"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "my-body-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "ears",
+        "nose",
+        "head"
+      ],
+      "explanation": "La consigne porte sur les oreilles : ears.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "Touch your nose!"
+        },
+        {
+          "id": "other-2",
+          "label": "Touch your head!"
+        },
+        {
+          "id": "correct",
+          "label": "Touch your ears!"
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "Touch your ears!",
+      "id": "my-body-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "Touch your nose!",
+      "conceptIds": [
+        "nose",
+        "ears",
+        "feet"
+      ],
+      "explanation": "« Touch your nose! » signifie « Touche ton nez ! ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Touche tes pieds !"
+        },
+        {
+          "id": "correct",
+          "label": "Touche ton nez !"
+        },
+        {
+          "id": "other-1",
+          "label": "Touche tes oreilles !"
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "my-body-02-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Complète pour dire « J’ai deux yeux ».",
+      "conceptIds": [
+        "eyes",
+        "nose",
+        "head"
+      ],
+      "explanation": "Eyes est le pluriel de eye : deux yeux.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "eyes"
+        },
+        {
+          "id": "other-1",
+          "label": "nose"
+        },
+        {
+          "id": "other-2",
+          "label": "head"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "I have two ___.",
+      "id": "my-body-02-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "Nose means « nez ».",
+      "statement": "Nose means « nez ».",
+      "correct": true,
+      "explanation": "Nose signifie nez.",
+      "conceptIds": [
+        "nose"
+      ],
+      "id": "my-body-02-05-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Touche ton nez. »",
+      "conceptIds": [
+        "nose"
+      ],
+      "explanation": "« Touch your nose. » signifie « Touche ton nez. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "your",
+        "nose.",
+        "Touch"
+      ],
+      "acceptedOrders": [
+        [
+          "Touch",
+          "your",
+          "nose."
+        ]
+      ],
+      "id": "my-body-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

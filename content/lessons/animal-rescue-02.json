@@ -1,0 +1,243 @@
+{
+  "id": "animal-rescue-02",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "animal-rescue",
+  "order": 2,
+  "title": "Qui peut voler ?",
+  "objective": "Décrire fish, big et small ; comprendre fly et swim en contexte.",
+  "durationMinutes": 5,
+  "difficulty": 3,
+  "newConceptIds": [
+    "fish",
+    "big",
+    "small"
+  ],
+  "reviewConceptIds": [
+    "bird",
+    "dog",
+    "i-can"
+  ],
+  "prerequisiteLessonIds": [
+    "animal-rescue-01"
+  ],
+  "storyScene": {
+    "id": "animal-rescue-02-scene",
+    "situation": "Un petit poisson et un grand chien rejoignent le refuge. L’oiseau peut voler ; le poisson peut nager.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "The bird can fly.",
+        "translation": "L’oiseau peut voler."
+      },
+      {
+        "speaker": "Luca",
+        "text": "The fish can swim.",
+        "translation": "Le poisson peut nager."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « C’est un petit poisson. »",
+      "exerciseId": "animal-rescue-02-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "It is a small fish.",
+        "translation": "C’est un petit poisson."
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "It is a big dog.",
+        "translation": "C’est un grand chien."
+      }
+    ],
+    "nextHook": "Une nouvelle étape attend les voyageurs."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "The fish can swim.",
+    "audioText": "The fish can swim.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "fish",
+        "big",
+        "small"
+      ],
+      "explanation": "fish : poisson ; big : grand / gros ; small : petit.",
+      "pairs": [
+        {
+          "id": "animal-rescue-02-fish",
+          "left": "fish",
+          "right": "poisson"
+        },
+        {
+          "id": "animal-rescue-02-big",
+          "left": "big",
+          "right": "grand / gros"
+        },
+        {
+          "id": "animal-rescue-02-small",
+          "left": "small",
+          "right": "petit"
+        }
+      ],
+      "isRevisionActivity": false,
+      "id": "animal-rescue-02-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "small",
+        "fish",
+        "big",
+        "dog"
+      ],
+      "explanation": "Small fish signifie petit poisson.",
+      "options": [
+        {
+          "id": "correct",
+          "label": "It is a small fish."
+        },
+        {
+          "id": "other-1",
+          "label": "It is a big fish."
+        },
+        {
+          "id": "other-2",
+          "label": "It is a small dog."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "It is a small fish.",
+      "id": "animal-rescue-02-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "multiple-choice",
+      "instruction": "Choisis la réponse qui correspond à la situation.",
+      "prompt": "Dans cette scène, l’oiseau peut voler et le poisson peut nager. Who can fly?",
+      "conceptIds": [
+        "bird",
+        "fish",
+        "dog"
+      ],
+      "explanation": "La scène indique que the bird peut voler.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "The fish."
+        },
+        {
+          "id": "other-2",
+          "label": "The dog."
+        },
+        {
+          "id": "correct",
+          "label": "The bird."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "animal-rescue-02-03-multiple-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "sentence-completion",
+      "instruction": "Lis la situation, puis complète la phrase.",
+      "prompt": "Décris le grand chien de la scène.",
+      "conceptIds": [
+        "big",
+        "small",
+        "dog",
+        "fish"
+      ],
+      "explanation": "Big signifie grand ou gros.",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "fish"
+        },
+        {
+          "id": "correct",
+          "label": "big"
+        },
+        {
+          "id": "other-1",
+          "label": "small"
+        }
+      ],
+      "correctOptionId": "correct",
+      "sentence": "It is a ___ dog.",
+      "id": "animal-rescue-02-04-sentence-completion",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "The fish can swim.",
+      "conceptIds": [
+        "fish",
+        "i-can",
+        "dog"
+      ],
+      "explanation": "« The fish can swim. » signifie « Le poisson peut nager. ».",
+      "options": [
+        {
+          "id": "correct",
+          "label": "Le poisson peut nager."
+        },
+        {
+          "id": "other-1",
+          "label": "Le poisson peut voler."
+        },
+        {
+          "id": "other-2",
+          "label": "Le chien peut sauter."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "animal-rescue-02-05-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « C’est un petit poisson. »",
+      "conceptIds": [
+        "small",
+        "fish"
+      ],
+      "explanation": "« It is a small fish. » signifie « C’est un petit poisson. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "is",
+        "a",
+        "small",
+        "fish.",
+        "It"
+      ],
+      "acceptedOrders": [
+        [
+          "It",
+          "is",
+          "a",
+          "small",
+          "fish."
+        ]
+      ],
+      "id": "animal-rescue-02-06-reorder",
+      "schemaVersion": 1
+    }
+  ]
+}

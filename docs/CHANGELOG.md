@@ -1,5 +1,22 @@
 # Changelog
 
+## 2026-10-27 — Voix enregistrées du parcours complet
+
+- Intégration de 373 fichiers ElevenLabs complémentaires : les 380 textes distincts des scènes, checkpoints, exercices d’écoute et mots de vocabulaire sont couverts, sans manque.
+- Conservation des sept fichiers d’origine ; lecture locale par le manifeste, avec les vitesses du profil et le secours navigateur en cas d’erreur.
+- Contrôle par transcription des pistes regroupées et des frontières de leurs extraits, et tests de non-régression sur la couverture audio complète.
+- Aucune publication ni modification d’abonnement ; restriction du service Free sur le dernier essai documentée dans `AUDIO.md`.
+- Correction des deux régressions relevées avant commit : le validateur Convex suit la version du parcours et accepte encore les clients 1.2.1 ; une unité déjà validée ne se reverrouille plus lorsqu’une leçon lui est ajoutée.
+- Tests de restauration JSON et de stockage local couvrant la reprise d’une ancienne leçon en cours ; vérification de l’absence de double récompense d’unité et du verrouillage normal des nouveaux profils.
+
+## 2026-10-23 — Extension locale du parcours fondamental
+
+- Ajout des unités 9 à 20 : le parcours contient 20 unités, 60 leçons et 353 exercices avec scènes, écoute, révisions et missions.
+- Clarification de 19 exercices existants et ajout de l’écoute des nombres de 1 à 20.
+- Passage du contenu à 1.3.0 ; anciens identifiants conservés et exports 1.2.1 restaurables.
+- Lecture des fichiers audio par manifeste, respect de la vitesse choisie et génération ElevenLabs reprenable hors du client.
+- À cette date, génération du plugin refusée avec `429 rate_limited` ; enregistrements intégrés le 27 octobre. Aucun déploiement effectué.
+
 ## 2026-08-17 — Accès local direct
 
 - Suppression de l’écran de connexion e-mail/mot de passe à l’ouverture.

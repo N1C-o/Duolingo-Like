@@ -1,0 +1,240 @@
+{
+  "id": "getting-dressed-03",
+  "schemaVersion": 1,
+  "courseId": "english-adventure",
+  "unitId": "getting-dressed",
+  "order": 3,
+  "title": "Le dressing rigolo",
+  "objective": "Décrire une tenue pour terminer le défilé.",
+  "durationMinutes": 5,
+  "difficulty": 2,
+  "newConceptIds": [],
+  "reviewConceptIds": [
+    "shirt",
+    "shoes",
+    "hat",
+    "socks",
+    "coat",
+    "wearing",
+    "blue",
+    "red"
+  ],
+  "prerequisiteLessonIds": [
+    "getting-dressed-02"
+  ],
+  "storyScene": {
+    "id": "getting-dressed-03-scene",
+    "situation": "Le défilé commence. Ta mission est d’annoncer le chapeau rouge de la tenue finale.",
+    "setup": [
+      {
+        "speaker": "Gabriel",
+        "text": "What are you wearing?",
+        "translation": "Que portes-tu ?"
+      },
+      {
+        "speaker": "Luca",
+        "text": "I’m wearing a red hat.",
+        "translation": "Je porte un chapeau rouge."
+      }
+    ],
+    "childAction": {
+      "instruction": "Dis en anglais : « Je porte un chapeau rouge. »",
+      "exerciseId": "getting-dressed-03-06-reorder",
+      "purpose": "construct"
+    },
+    "resolution": [
+      {
+        "speaker": "Luca",
+        "text": "Your hat is red!",
+        "translation": "Ton chapeau est rouge !"
+      },
+      {
+        "speaker": "Gabriel",
+        "text": "Let’s play!",
+        "translation": "Jouons !"
+      }
+    ],
+    "nextHook": "La carte ouvre le chemin vers la prochaine aventure."
+  },
+  "readingCheckpoint": {
+    "mode": "audio-to-text",
+    "instruction": "Écoute la phrase, puis lis-la en suivant la voix.",
+    "text": "I’m wearing a red hat.",
+    "audioText": "I’m wearing a red hat.",
+    "phonologyFocus": "phrase-rhythm"
+  },
+  "exercises": [
+    {
+      "type": "english-french-matching",
+      "instruction": "Associe chaque expression anglaise à son sens.",
+      "prompt": "Connect the pairs.",
+      "conceptIds": [
+        "shirt",
+        "shoes",
+        "hat"
+      ],
+      "explanation": "shirt : chemise ; shoes : chaussures ; hat : chapeau.",
+      "pairs": [
+        {
+          "id": "getting-dressed-03-shirt",
+          "left": "shirt",
+          "right": "chemise"
+        },
+        {
+          "id": "getting-dressed-03-shoes",
+          "left": "shoes",
+          "right": "chaussures"
+        },
+        {
+          "id": "getting-dressed-03-hat",
+          "left": "hat",
+          "right": "chapeau"
+        }
+      ],
+      "isRevisionActivity": true,
+      "id": "getting-dressed-03-01-english-french-matching",
+      "schemaVersion": 1
+    },
+    {
+      "type": "listening-choice",
+      "instruction": "Écoute, puis retrouve exactement la phrase entendue.",
+      "prompt": "Which sentence did you hear?",
+      "conceptIds": [
+        "wearing",
+        "socks",
+        "blue"
+      ],
+      "explanation": "Il s’agit de chaussettes bleues : blue socks.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I’m wearing red socks."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m wearing a blue hat."
+        },
+        {
+          "id": "correct",
+          "label": "I’m wearing blue socks."
+        }
+      ],
+      "correctOptionId": "correct",
+      "audioText": "I’m wearing blue socks.",
+      "id": "getting-dressed-03-02-listening-choice",
+      "schemaVersion": 1
+    },
+    {
+      "type": "guided-translation",
+      "instruction": "Choisis la traduction française exacte.",
+      "prompt": "My shoes are blue.",
+      "conceptIds": [
+        "shoes",
+        "blue",
+        "coat"
+      ],
+      "explanation": "« My shoes are blue. » signifie « Mes chaussures sont bleues. ».",
+      "options": [
+        {
+          "id": "other-2",
+          "label": "Mon manteau est bleu."
+        },
+        {
+          "id": "correct",
+          "label": "Mes chaussures sont bleues."
+        },
+        {
+          "id": "other-1",
+          "label": "Tes chaussures sont bleues."
+        }
+      ],
+      "correctOptionId": "correct",
+      "id": "getting-dressed-03-03-guided-translation",
+      "schemaVersion": 1
+    },
+    {
+      "type": "true-false",
+      "instruction": "Lis bien, puis choisis vrai ou faux.",
+      "prompt": "A red hat means « un chapeau rouge ».",
+      "statement": "A red hat means « un chapeau rouge ».",
+      "correct": true,
+      "explanation": "L’adjectif red se place avant le nom hat.",
+      "conceptIds": [
+        "red",
+        "hat"
+      ],
+      "id": "getting-dressed-03-04-true-false",
+      "schemaVersion": 1
+    },
+    {
+      "type": "dialogue",
+      "instruction": "Lis la situation, puis réponds à la dernière question.",
+      "prompt": "Tu portes un chapeau rouge. Décris-le.",
+      "conceptIds": [
+        "wearing",
+        "red",
+        "hat",
+        "coat"
+      ],
+      "explanation": "La couleur et le vêtement doivent correspondre à la tenue indiquée.",
+      "options": [
+        {
+          "id": "other-1",
+          "label": "I’m wearing a blue hat."
+        },
+        {
+          "id": "other-2",
+          "label": "I’m wearing a red coat."
+        },
+        {
+          "id": "correct",
+          "label": "I’m wearing a red hat."
+        }
+      ],
+      "correctOptionId": "correct",
+      "lines": [
+        {
+          "speaker": "Luca",
+          "text": "What are you wearing?"
+        },
+        {
+          "speaker": "Toi",
+          "text": "…"
+        }
+      ],
+      "id": "getting-dressed-03-05-dialogue",
+      "schemaVersion": 1
+    },
+    {
+      "type": "reorder",
+      "instruction": "Construis la phrase demandée.",
+      "prompt": "Dis en anglais : « Je porte un chapeau rouge. »",
+      "conceptIds": [
+        "wearing",
+        "red",
+        "hat"
+      ],
+      "explanation": "« I’m wearing a red hat. » signifie « Je porte un chapeau rouge. ».",
+      "responseMode": "guided-production",
+      "tokens": [
+        "wearing",
+        "a",
+        "red",
+        "hat.",
+        "I’m"
+      ],
+      "acceptedOrders": [
+        [
+          "I’m",
+          "wearing",
+          "a",
+          "red",
+          "hat."
+        ]
+      ],
+      "id": "getting-dressed-03-06-reorder",
+      "schemaVersion": 1,
+      "isUnitMission": true
+    }
+  ]
+}
